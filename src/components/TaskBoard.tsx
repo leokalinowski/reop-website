@@ -7,147 +7,147 @@ import { Task } from './TaskCard';
 // Initial data for the task board
 const initialColumns: Column[] = [
   {
-    id: 'todo',
-    title: 'To Do',
+    id: 'lead',
+    title: 'Lead',
     color: 'muted',
     tasks: [
       {
         id: 't1',
-        title: 'Update landing page hero section',
-        description: 'Review new design mockups and update copy',
-        tag: { color: 'purple', label: 'Design' },
-        dueDate: 'May 20',
-        assignees: 2,
-        progress: { completed: 3, total: 5 }
+        title: 'Johnson Family - Downtown Condo',
+        description: 'First-time buyers looking for 2BR condo, budget $450K',
+        tag: { color: 'blue', label: 'Buyers' },
+        dueDate: 'Dec 15',
+        assignees: 1,
+        progress: { completed: 1, total: 5 }
       },
       {
         id: 't2',
-        title: 'Social media campaign planning',
-        description: 'Outline Q2 campaign goals and content calendar',
-        tag: { color: 'accent', label: 'Marketing' },
-        dueDate: 'May 22',
+        title: 'Mike Chen - Investment Property',
+        description: 'Investor seeking duplex for rental income',
+        tag: { color: 'purple', label: 'Investment' },
+        dueDate: 'Dec 18',
         assignees: 1,
         progress: { completed: 0, total: 4 }
       },
       {
         id: 't3',
-        title: 'Set up automated testing',
-        description: 'Configure CI/CD pipeline for test automation',
-        tag: { color: 'blue', label: 'Development' },
-        dueDate: 'May 24',
-        assignees: 2,
-        progress: { completed: 0, total: 6 }
+        title: 'Sarah Williams - Family Home',
+        description: 'Growing family needs 4BR in good school district',
+        tag: { color: 'blue', label: 'Buyers' },
+        dueDate: 'Dec 20',
+        assignees: 1,
+        progress: { completed: 2, total: 6 }
       },
       {
         id: 't4',
-        title: 'Create brand style guide',
-        description: 'Document colors, typography, and UI components',
-        tag: { color: 'purple', label: 'Design' },
-        dueDate: 'May 25',
+        title: 'David Brown - Luxury Listing',
+        description: 'High-end property seller, $2.2M waterfront home',
+        tag: { color: 'accent', label: 'Sellers' },
+        dueDate: 'Dec 22',
         assignees: 1,
-        progress: { completed: 0, total: 3 }
+        progress: { completed: 1, total: 3 }
       }
     ]
   },
   {
-    id: 'in-progress',
-    title: 'In Progress',
+    id: 'qualified',
+    title: 'Qualified',
     color: 'blue',
     tasks: [
       {
         id: 't5',
-        title: 'API integration with payment gateway',
-        description: 'Connect payment processor and test transactions',
-        tag: { color: 'blue', label: 'Development' },
-        dueDate: 'May 18',
+        title: 'Martinez Family - Starter Home',
+        description: 'Pre-approved for $380K, actively viewing properties',
+        tag: { color: 'blue', label: 'Buyers' },
+        dueDate: 'Dec 12',
         assignees: 1,
-        progress: { completed: 2, total: 3 }
+        progress: { completed: 3, total: 5 }
       },
       {
         id: 't6',
-        title: 'SEO optimization',
-        description: 'Improve meta descriptions and keywords across site',
-        tag: { color: 'accent', label: 'Marketing' },
-        dueDate: 'May 19',
-        assignees: 2,
-        progress: { completed: 5, total: 8 }
+        title: 'Tom Anderson - Relocation',
+        description: 'Corporate relocation, needs to close by end of month',
+        tag: { color: 'blue', label: 'Buyers' },
+        dueDate: 'Dec 30',
+        assignees: 1,
+        progress: { completed: 4, total: 7 }
       },
       {
         id: 't7',
-        title: 'Mobile responsive design',
-        description: 'Optimize UI for tablets and mobile devices',
-        tag: { color: 'purple', label: 'Design' },
-        dueDate: 'May 17',
+        title: 'Lisa Garcia - Downsizing',
+        description: 'Empty nesters selling large home, buying smaller',
+        tag: { color: 'accent', label: 'Sellers' },
+        dueDate: 'Dec 28',
         assignees: 1,
-        progress: { completed: 3, total: 4 }
+        progress: { completed: 2, total: 4 }
       }
     ]
   },
   {
-    id: 'in-review',
-    title: 'In Review',
+    id: 'contract',
+    title: 'Under Contract',
     color: 'amber',
     tasks: [
       {
         id: 't8',
-        title: 'Email newsletter content',
-        description: 'Review draft and provide feedback',
-        tag: { color: 'accent', label: 'Marketing' },
-        dueDate: 'May 15',
+        title: 'Roberts Family - Suburban Home',
+        description: 'Contract signed, awaiting inspection results',
+        tag: { color: 'blue', label: 'Buyers' },
+        dueDate: 'Dec 10',
         assignees: 1,
-        progress: { completed: 4, total: 5 }
+        progress: { completed: 6, total: 8 }
       },
       {
         id: 't9',
-        title: 'User authentication system',
-        description: 'Code review for login and registration flows',
-        tag: { color: 'blue', label: 'Development' },
-        dueDate: 'May 16',
-        assignees: 2,
-        progress: { completed: 6, total: 6 }
+        title: 'Jennifer Kim - Townhouse',
+        description: 'Financing approved, appraisal scheduled',
+        tag: { color: 'blue', label: 'Buyers' },
+        dueDate: 'Dec 14',
+        assignees: 1,
+        progress: { completed: 7, total: 9 }
       },
       {
         id: 't10',
-        title: 'Icon set redesign',
-        description: 'Review updated icon set for consistent branding',
-        tag: { color: 'purple', label: 'Design' },
-        dueDate: 'May 14',
+        title: 'Smith Property - Ranch Style',
+        description: 'Multiple offers received, negotiating terms',
+        tag: { color: 'accent', label: 'Sellers' },
+        dueDate: 'Dec 16',
         assignees: 1,
-        progress: { completed: 12, total: 12 }
+        progress: { completed: 5, total: 6 }
       }
     ]
   },
   {
-    id: 'completed',
-    title: 'Completed',
+    id: 'closed',
+    title: 'Closed',
     color: 'accent',
     tasks: [
       {
         id: 't11',
-        title: 'Create user flow diagrams',
-        description: 'Document onboarding process for new users',
-        tag: { color: 'purple', label: 'Design' },
-        dueDate: 'May 10',
+        title: 'Peterson Family - Dream Home',
+        description: 'Successfully closed on 3BR colonial, $525K',
+        tag: { color: 'blue', label: 'Buyers' },
+        dueDate: 'Dec 1',
         assignees: 1,
-        progress: { completed: 5, total: 5 }
+        progress: { completed: 8, total: 8 }
       },
       {
         id: 't12',
-        title: 'Setup analytics tracking',
-        description: 'Implement event tracking across main user flows',
-        tag: { color: 'blue', label: 'Development' },
-        dueDate: 'May 9',
+        title: 'Wilson Condo - Downtown',
+        description: 'Investment property sale completed, $310K',
+        tag: { color: 'purple', label: 'Investment' },
+        dueDate: 'Nov 28',
         assignees: 1,
-        progress: { completed: 4, total: 4 }
+        progress: { completed: 6, total: 6 }
       },
       {
         id: 't13',
-        title: 'Competitive analysis report',
-        description: 'Research competitors and document findings',
-        tag: { color: 'accent', label: 'Marketing' },
-        dueDate: 'May 8',
-        assignees: 2,
-        progress: { completed: 7, total: 7 }
+        title: 'Thompson Estate - Luxury',
+        description: 'High-end listing sold above asking, $1.8M',
+        tag: { color: 'accent', label: 'Sellers' },
+        dueDate: 'Nov 25',
+        assignees: 1,
+        progress: { completed: 9, total: 9 }
       }
     ]
   }

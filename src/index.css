@@ -16,8 +16,8 @@
     --popover: 0 0% 12%;
     --popover-foreground: 0 0% 95%;
 
-    --primary: 0 0% 85%; /* Light grey */
-    --primary-foreground: 0 0% 15%; /* Dark charcoal */
+    --primary: 173 80% 40%; /* Teal primary */
+    --primary-foreground: 0 0% 98%; /* Very light grey */
 
     --secondary: 0 0% 18%; /* Medium charcoal */
     --secondary-foreground: 0 0% 95%;
@@ -25,15 +25,15 @@
     --muted: 0 0% 22%; /* Lighter charcoal */
     --muted-foreground: 0 0% 70%; /* Medium grey */
 
-    --accent: 0 0% 85%; /* Light grey accent */
-    --accent-foreground: 0 0% 15%;
+    --accent: 173 70% 45%; /* Teal accent */
+    --accent-foreground: 0 0% 98%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
 
     --border: 0 0% 22%; /* Medium charcoal border */
     --input: 0 0% 22%;
-    --ring: 0 0% 85%; /* Light grey ring */
+    --ring: 173 80% 40%; /* Teal ring */
 
     --radius: 0.5rem;
   }
@@ -48,7 +48,7 @@
     --popover: 0 0% 96%;
     --popover-foreground: 0 0% 20%;
 
-    --primary: 0 0% 25%; /* Dark grey primary */
+    --primary: 173 80% 40%; /* Teal primary */
     --primary-foreground: 0 0% 98%; /* Very light grey */
 
     --secondary: 0 0% 92%; /* Light grey secondary */
@@ -57,12 +57,12 @@
     --muted: 0 0% 88%; /* Medium light grey */
     --muted-foreground: 0 0% 45%; /* Medium grey */
 
-    --accent: 0 0% 25%; /* Dark grey accent */
+    --accent: 173 70% 45%; /* Teal accent */
     --accent-foreground: 0 0% 98%;
 
     --border: 0 0% 85%; /* Light grey border */
     --input: 0 0% 90%;
-    --ring: 0 0% 25%; /* Dark grey ring */
+    --ring: 173 80% 40%; /* Teal ring */
   }
 
   * {
