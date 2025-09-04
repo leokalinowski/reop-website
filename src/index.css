@@ -25,7 +25,7 @@
     --muted: 248 250 252; /* Light gray */
     --muted-foreground: 210 10% 45%;
 
-    --accent: 194 100% 21%; /* #005d6c logo color */
+    --accent: 188 100% 21%; /* #005d6c logo color */
     --accent-foreground: 210 10% 20%;
 
     --destructive: 0 84% 60%;
@@ -57,7 +57,7 @@
     --muted: 0 0% 22%; /* Lighter charcoal */
     --muted-foreground: 0 0% 70%; /* Medium grey */
 
-    --accent: 194 100% 21%; /* #005d6c logo color */
+    --accent: 188 100% 21%; /* #005d6c logo color */
     --accent-foreground: 0 0% 8%;
 
     --border: 0 0% 22%; /* Medium charcoal border */
