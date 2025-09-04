@@ -36,7 +36,7 @@ const HeroSection = () => {
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-medium tracking-tighter text-balance text-foreground">
           Empower Your Real Estate Career{' '}
           <ContainerTextFlip 
-            words={["with Purpose","with AI, "with Proven Systems", "with Automation"]}
+            words={["with Purpose","with AI", "with Proven Systems", "with Automation"]}
             interval={5000}
             animationDuration={1000}
             className="text-primary font-medium"
