@@ -6,10 +6,10 @@ import newsletterImg from '@/assets/images/newsletter.jpg';
 
 const NewsletterTools = () => {
   const features = [
-    "Generates zip code-specific market reports with real-time data",
-    "Customizable, branded templates for professional delivery",
-    "Automated scheduling and performance tracking",
-    "Strengthens client trust with valuable, consistent updates"
+    "Intuitive tools for designing, customizing, and sending professional newsletters",
+    "Keeps your audience informed and connected with regular updates",
+    "Builds trust and positions you as the go-to expert in your market",
+    "Drives sustained interest in your services and strengthens client relationships"
   ];
 
   return (
@@ -33,10 +33,10 @@ const NewsletterTools = () => {
                 Newsletter Tools
               </Badge>
               <h2 className="text-3xl md:text-4xl font-medium tracking-tighter text-foreground">
-                Automated Market Reports
+                Elevate Your Client Engagement
               </h2>
               <p className="text-lg text-muted-foreground">
-                Keep clients informed with automated, hyper-local market insights that position you as the neighborhood expert.
+                Elevate your client engagement with seamless newsletter creation and distribution that keeps your audience informed and connected.
               </p>
             </div>
             

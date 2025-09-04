@@ -6,10 +6,10 @@ import coachingImg from '@/assets/images/coaching.jpg';
 
 const WeeklyCoaching = () => {
   const features = [
-    "Weekly video or chat sessions tailored to agent goals",
-    "Access to proven strategies and templates for success",
-    "Progress tracking and accountability tools",
-    "Community platform for peer support and collaboration"
+    "Led by industry pros to sharpen skills, share proven tactics, and overcome obstacles",
+    "Provides actionable insights and motivation to propel your business forward",
+    "Helps you achieve ambitious goals faster with expert guidance",
+    "Dynamic weekly sessions designed for accelerated growth and skill development"
   ];
 
   return (
@@ -33,10 +33,10 @@ const WeeklyCoaching = () => {
                 Weekly Coaching
               </Badge>
               <h2 className="text-3xl md:text-4xl font-medium tracking-tighter text-foreground">
-                Unlock Your Potential
+                Accelerate Your Growth
               </h2>
               <p className="text-lg text-muted-foreground">
-                Accelerate your growth with personalized coaching sessions and proven strategies from industry experts.
+                Accelerate your growth with personalized, expert guidance in our dynamic weekly sessions designed to help you achieve ambitious goals faster.
               </p>
             </div>
             

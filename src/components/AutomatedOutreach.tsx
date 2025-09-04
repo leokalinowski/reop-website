@@ -6,10 +6,10 @@ import automatedOutreachImg from '@/assets/images/automated-outreach.jpg';
 
 const AutomatedOutreach = () => {
   const features = [
-    "Powered by SphereSync for targeted, personalized outreach",
-    "Automates emails, texts, and follow-up sequences",
-    "Increases lead engagement with data-driven personalization",
-    "Saves agents hours by streamlining communication workflows"
+    "Automates connections without sending any emails, texts, or communications on your behalf",
+    "Ensures you remain in full control of all client communications",
+    "Empowers you to nurture genuine relationships, fostering loyalty and long-term success",
+    "Revolutionizes database management with effortless client relationship maintenance"
   ];
 
   return (
@@ -20,13 +20,13 @@ const AutomatedOutreach = () => {
             <div className="space-y-4">
               <Badge variant="outline" className="mb-4">
                 <Zap className="h-4 w-4 mr-2" />
-                Automated Outreach
+                SphereSync
               </Badge>
               <h2 className="text-3xl md:text-4xl font-medium tracking-tighter text-foreground">
-                Effortless Client Connection with SphereSync
+                Automate Your Client Connections
               </h2>
               <p className="text-lg text-muted-foreground">
-                Connect with clients using AI-powered automation that personalizes every touchpoint and streamlines your communication workflow.
+                Revolutionize your database management with SphereSync, the ultimate tool for effortless client relationship maintenance that keeps you in complete control.
               </p>
             </div>
             

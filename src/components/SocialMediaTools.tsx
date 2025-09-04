@@ -6,10 +6,10 @@ import socialMediaImg from '@/assets/images/social-media.jpg';
 
 const SocialMediaTools = () => {
   const features = [
-    "AI-crafted posts tailored to real estate trends and local markets",
-    "Auto-scheduling for Instagram, Facebook, LinkedIn, and more",
-    "Monitors engagement and responds to comments automatically",
-    "Provides analytics to optimize content strategy"
+    "We record, professionally edit, and schedule your content to maintain consistency",
+    "Hands-on content creation and management service – no AI involved, just expert human touch",
+    "Maintains a consistent, top-of-mind presence across all platforms",
+    "Delivers detailed analytics for performance tracking and strategy refinement"
   ];
 
   return (
@@ -26,7 +26,7 @@ const SocialMediaTools = () => {
                 Fully Automated Social Presence
               </h2>
               <p className="text-lg text-muted-foreground">
-                Build a powerful online presence without lifting a finger. Our AI handles content creation, scheduling, and engagement.
+                Dominate social media effortlessly with our hands-on content creation and management service that maximizes your online impact for more leads and closings.
               </p>
             </div>
             

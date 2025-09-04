@@ -6,10 +6,10 @@ import leadManagementImg from '@/assets/images/lead-management.jpg';
 
 const LeadManagement = () => {
   const features = [
-    "Centralized dashboard for all lead activity",
-    "Automated lead scoring and segmentation for efficiency",
-    "Real-time alerts for timely follow-ups",
-    "Integrates with platforms like Zillow or Realtor.com"
+    "Cross-references real-time data with DNC Lists for secure, compliant visibility",
+    "Eliminates guesswork and risks with clear guidance on who to contact",
+    "Provides unparalleled clarity to focus efforts on high-potential leads",
+    "Boosts conversion rates and business growth through compliance-first approach"
   ];
 
   return (
@@ -36,7 +36,7 @@ const LeadManagement = () => {
                 Track and Nurture Every Lead
               </h2>
               <p className="text-lg text-muted-foreground">
-                Manage your entire lead lifecycle with an intuitive, automated CRM system that ensures no opportunity falls through the cracks.
+                Gain crystal-clear insights into your leads with advanced tracking and nurturing capabilities that prioritize compliance and efficiency.
               </p>
             </div>
             

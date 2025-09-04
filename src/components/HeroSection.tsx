@@ -62,17 +62,17 @@ const HeroSection = () => {
         </h1>
         
         <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto text-balance">
-          Real Estate on Purpose is the all-in-one SaaS platform designed for top-performing agents. Visualize your strategies, track every lead, automate outreach, and close more deals—while we handle the heavy lifting.
+          Unlock unparalleled success in real estate without the financial burden – join our team with no monthly charges. Experience a supportive environment designed to amplify your performance, streamline your operations, and let you concentrate on forging meaningful client connections that drive repeat business and referrals.
         </p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center pt-6 items-center">
           <Button className="bg-primary text-primary-foreground hover:bg-primary/80 hover:text-primary-foreground text-base h-12 px-8 transition-all duration-200 min-h-[48px]">
-            Get Started Today
+            Join Our Team Today
           </Button>
         </div>
         
         <div className="pt-6 text-sm text-muted-foreground">
-          No credit card required • Free 14-day trial
+          No monthly fees • Full support • Proven systems
         </div>
       </div>
       

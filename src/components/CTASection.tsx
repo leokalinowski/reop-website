@@ -25,10 +25,10 @@ const CTASection = () => {
       <div className="max-w-4xl mx-auto text-center space-y-8 relative z-10">
         <div className="space-y-4">
           <h2 className="text-3xl md:text-5xl font-medium tracking-tighter text-foreground">
-            Ready to Level Up Your Real Estate Game?
+            Join the Real Estate On Purpose Team Today
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Sign up today and start visualizing your success
+            Don't miss out on this game-changing opportunity – join our team today at no cost and propel your real estate career to new heights.
           </p>
         </div>
         
@@ -45,12 +45,12 @@ const CTASection = () => {
             type="submit"
             className="bg-primary text-primary-foreground hover:bg-primary/80 text-base h-12 px-8 whitespace-nowrap"
           >
-            Start Free Trial
+            Apply to Join Our Team
           </Button>
         </form>
         
         <p className="text-sm text-muted-foreground">
-          No credit card required • Free 14-day trial • Cancel anytime
+          No monthly fees • Full support • Proven systems • Cancel anytime
         </p>
       </div>
     </section>

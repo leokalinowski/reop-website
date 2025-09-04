@@ -6,10 +6,10 @@ import transactionImg from '@/assets/images/transaction.jpg';
 
 const TransactionCoordination = () => {
   const features = [
-    "Automated checklists for every transaction stage",
-    "Secure document management and e-signature integration",
-    "Compliance tracking to avoid errors",
-    "Team collaboration tools for seamless communication"
+    "Manages all details from contract to close with precision",
+    "Ensures smooth, error-free processes from start to finish",
+    "Frees you to focus on high-value activities like client acquisition",
+    "Enables confident scaling of your business with peace of mind"
   ];
 
   return (
@@ -23,10 +23,10 @@ const TransactionCoordination = () => {
                 Transaction Coordination
               </Badge>
               <h2 className="text-3xl md:text-4xl font-medium tracking-tighter text-foreground">
-                Streamline Every Deal
+                End-to-End Transaction Handling
               </h2>
               <p className="text-lg text-muted-foreground">
-                Manage transactions from contract to close with automated workflows that ensure nothing falls through the cracks.
+                Reclaim your time and peace of mind with our end-to-end transaction handling – we execute everything flawlessly so you can focus on relationship building.
               </p>
             </div>
             

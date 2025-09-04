@@ -11,6 +11,7 @@ import TransactionCoordination from '@/components/TransactionCoordination';
 import SurpriseDelight from '@/components/SurpriseDelight';
 import Benefits from '@/components/Benefits';
 import Testimonials from '@/components/Testimonials';
+import CEOSection from '@/components/CEOSection';
 import CTASection from '@/components/CTASection';
 import Footer from '@/components/Footer';
 
@@ -30,6 +31,7 @@ const Index = () => {
         <SurpriseDelight />
         <Benefits />
         <Testimonials />
+        <CEOSection />
         <CTASection />
       </main>
       <Footer />

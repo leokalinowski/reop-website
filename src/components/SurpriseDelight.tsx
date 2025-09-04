@@ -6,10 +6,10 @@ import surpriseDelightImg from '@/assets/images/surprise-delight.jpg';
 
 const SurpriseDelight = () => {
   const features = [
-    "Automated gift campaigns for birthdays, closings, or milestones",
-    "Personalized thank-you messages and rewards",
-    "Integration with e-commerce for easy fulfillment",
-    "Feedback tools to measure client satisfaction and loyalty"
+    "Tailored surprises that go beyond expectations, encouraging referrals and repeat business",
+    "Thoughtful, personalized initiatives that create lasting impressions",
+    "Strengthens your brand as a caring, attentive agent in a competitive market",
+    "Fosters client loyalty through memorable experiences and exceptional service"
   ];
 
   return (
@@ -36,7 +36,7 @@ const SurpriseDelight = () => {
                 Create Memorable Experiences
               </h2>
               <p className="text-lg text-muted-foreground">
-                Build lasting relationships with automated gestures that surprise and delight your clients at every milestone.
+                Create lasting impressions and foster client loyalty through thoughtful, personalized initiatives that set you apart in the market.
               </p>
             </div>
             

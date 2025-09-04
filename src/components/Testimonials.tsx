@@ -4,21 +4,21 @@ import React from 'react';
 const Testimonials = () => {
   const testimonials = [
     {
-      quote: "SphereSync automation alone doubled my weekly outreach—results are visible and motivating.",
+      quote: "Real Estate On Purpose has revolutionized how I manage my business. The support is unparalleled!",
       author: "Jessica Martinez",
-      position: "Senior Real Estate Agent",
+      position: "Team Member since 2023",
       avatar: "bg-primary/20"
     },
     {
-      quote: "The deal tracker and social scheduler keep everything in one place. My close rate is up 30%.",
+      quote: "The tools and coaching have taken my career to the next level. Highly recommend!",
       author: "Robert Chen",
-      position: "Real Estate Professional",
+      position: "Team Member since 2022",
       avatar: "bg-primary/30"
     },
     {
-      quote: "As admin, comparing performance helps me coach better—team is performing at a higher level.",
+      quote: "Finally, a team that truly puts agents first. No fees, all value.",
       author: "Amanda Thompson",
-      position: "Team Manager at Prestige Realty",
+      position: "Team Member since 2024",
       avatar: "bg-primary/25"
     }
   ];
@@ -34,7 +34,7 @@ const Testimonials = () => {
             What Our Agents Say
           </h2>
           <p className="text-muted-foreground text-lg">
-            Hear how Real Estate on Purpose is helping teams succeed
+            Hear how Real Estate on Purpose team members are thriving with our support
           </p>
         </div>
         

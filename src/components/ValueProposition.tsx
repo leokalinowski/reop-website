@@ -3,32 +3,32 @@ import React from 'react';
 const ValueProposition = () => {
   const benefits = [
     {
-      title: "Automated Outreach",
-      description: "SphereSync generates weekly call/text lists from your database, ensuring consistent lead nurturing."
+      title: "SphereSync: Automate Your Client Connections",
+      description: "Revolutionize your database management with automated connections without sending any emails, texts, or communications on your behalf, ensuring you remain in full control."
     },
     {
-      title: "Lead Management", 
-      description: "Secure database with CSV uploads, inline editing, and DNC highlighting for organized, compliant contact tracking."
+      title: "Track and Nurture Every Lead", 
+      description: "Gain crystal-clear insights into your leads with advanced tracking that cross-references real-time data with DNC Lists for secure, compliant visibility."
     },
     {
-      title: "Deal Visualization",
-      description: "Drag-and-drop stages from Lead to Closed, with real-time metrics like win rate, average close time, and total value."
+      title: "Event Management",
+      description: "Leave the heavy lifting to us – we handle every detail of your client events so you can shine in building relationships and creating memorable experiences."
     },
     {
-      title: "Event & Newsletter Tools",
-      description: "Plan events, track attendance, and send newsletters with open/click analytics to boost engagement."
+      title: "Newsletter Tools",
+      description: "Elevate your client engagement with seamless newsletter creation and distribution using intuitive tools for designing and sending professional content."
     },
     {
-      title: "Social Media Scheduler",
-      description: "Schedule posts across platforms, upload via CSV, and compare performance metrics like reach, likes, and comments."
+      title: "Fully Automated Social Presence",
+      description: "Dominate social media effortlessly with our hands-on content creation and management service – no AI involved, just expert human touch with professional editing."
     },
     {
-      title: "Coaching & Coordination",
-      description: "Built-in tools for transaction tracking and coaching sessions to level up your skills."
+      title: "Weekly Coaching Sessions",
+      description: "Accelerate your growth with personalized, expert guidance in dynamic weekly sessions led by industry pros to sharpen skills and overcome obstacles."
     },
     {
-      title: "Admin Insights",
-      description: "For team leaders, compare agent performance, aggregate data, and visualize business growth."
+      title: "Transaction Coordination",
+      description: "Reclaim your time and peace of mind with our end-to-end transaction handling – we execute everything flawlessly from contract to close."
     }
   ];
 
@@ -37,10 +37,10 @@ const ValueProposition = () => {
       <div className="max-w-7xl mx-auto space-y-16">
         <div className="text-center space-y-4 max-w-3xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-medium tracking-tighter text-foreground">
-            Why Choose Real Estate on Purpose?
+            Why Choose Real Estate on Purpose Team?
           </h2>
           <p className="text-muted-foreground text-lg">
-            Built for agents like you, our platform turns strategies into results. From automated SphereSync tasks to deal tracking, we help you perform at a higher level by providing clear visualization of your efforts and outcomes.
+            Experience a unique team approach that provides comprehensive support, proven systems, and tools without any financial burden. We help you perform at a higher level by providing the resources and guidance to focus on what matters most – building meaningful client relationships.
           </p>
         </div>
         
