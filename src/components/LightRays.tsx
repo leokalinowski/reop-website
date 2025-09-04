@@ -1,7 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 
 interface LightRaysProps {
-  raysOrigin?: 'top-center' | 'center' | 'bottom-center' | 'top-left' | 'top-right';
+  raysOrigin?: 'top-center' | 'center' | 'bottom-center' | 'top-left' | 'top-right' | 'custom';
+  customOrigin?: { x: number; y: number };
   raysColor?: string;
   raysSpeed?: number;
   lightSpread?: number;
@@ -15,6 +16,7 @@ interface LightRaysProps {
 
 const LightRays: React.FC<LightRaysProps> = ({
   raysOrigin = 'top-center',
+  customOrigin,
   raysColor = '#00ffff',
   raysSpeed = 1.5,
   lightSpread = 0.8,
@@ -79,6 +81,28 @@ const LightRays: React.FC<LightRaysProps> = ({
 
     // Get origin point
     const getOriginPoint = () => {
+      if (raysOrigin === 'custom' && customOrigin) {
+        const canvas = canvasRef.current;
+        if (canvas) {
+          const rect = canvas.getBoundingClientRect();
+          const base = {
+            x: customOrigin.x - rect.left,
+            y: customOrigin.y - rect.top
+          };
+          
+          if (followMouse) {
+            const mouseInfluenceX = (mouseRef.current.x - base.x) * mouseInfluence;
+            const mouseInfluenceY = (mouseRef.current.y - base.y) * mouseInfluence;
+            return {
+              x: base.x + mouseInfluenceX,
+              y: base.y + mouseInfluenceY
+            };
+          }
+          
+          return base;
+        }
+      }
+
       const baseOrigins = {
         'top-center': { x: dimensions.width / 2, y: 0 },
         'center': { x: dimensions.width / 2, y: dimensions.height / 2 },
@@ -87,7 +111,7 @@ const LightRays: React.FC<LightRaysProps> = ({
         'top-right': { x: dimensions.width, y: 0 }
       };
 
-      const base = baseOrigins[raysOrigin];
+      const base = baseOrigins[raysOrigin as keyof typeof baseOrigins] || baseOrigins['top-center'];
       
       if (followMouse) {
         const mouseInfluenceX = (mouseRef.current.x - base.x) * mouseInfluence;
@@ -149,7 +173,7 @@ const LightRays: React.FC<LightRaysProps> = ({
         cancelAnimationFrame(animationRef.current);
       }
     };
-  }, [dimensions, raysOrigin, raysColor, raysSpeed, lightSpread, rayLength, followMouse, mouseInfluence, noiseAmount, distortion]);
+  }, [dimensions, raysOrigin, customOrigin, raysColor, raysSpeed, lightSpread, rayLength, followMouse, mouseInfluence, noiseAmount, distortion]);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
