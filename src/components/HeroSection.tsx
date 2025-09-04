@@ -3,8 +3,6 @@ import { Button } from '@/components/ui/button';
 import TaskBoard from './TaskBoard';
 import { Loader } from 'lucide-react';
 import { ContainerTextFlip } from '@/components/ui/container-text-flip';
-import LightRays from './LightRays';
-import Logo from './Logo';
 
 const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -18,36 +16,12 @@ const HeroSection = () => {
 
   return (
     <section className="relative w-full py-12 md:py-20 px-6 md:px-12 flex flex-col items-center justify-center overflow-hidden bg-background">
-      {/* Light Rays Effect */}
-      <div style={{ width: '100%', height: '600px', position: 'absolute', top: 0, left: 0, right: 0 }}>
-        <LightRays
-          raysOrigin="top-center"
-          raysColor="#005d6c"
-          raysSpeed={1}
-          lightSpread={0.5}
-          rayLength={3}
-          followMouse={false}
-          mouseInfluence={0}
-          noiseAmount={0.13}
-          distortion={0}
-          pulsating={true}
-          fadeDistance={1}
-          saturation={1}
-          className="custom-rays"
-        />
-      </div>
-      
       {/* Cosmic particle effect (background dots) */}
       <div className="absolute inset-0 cosmic-grid opacity-30"></div>
       
       {/* Gradient glow effect */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full">
         <div className="w-full h-full opacity-10 bg-primary blur-[120px]"></div>
-      </div>
-      
-      {/* Logo at the top */}
-      <div className={`relative z-20 flex justify-center mb-8 transition-all duration-700 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-        <Logo />
       </div>
       
       <div className={`relative z-10 max-w-4xl text-center space-y-6 transition-all duration-700 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
@@ -59,16 +33,14 @@ const HeroSection = () => {
           </span>
         </div>
         
-        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium tracking-tighter text-balance text-foreground leading-tight">
-          <span className="block">Empower Your Real Estate Career</span>
-          <span className="block mt-2">
-            <ContainerTextFlip 
-              words={["with Purpose"]}
-              interval={5000}
-              animationDuration={1000}
-              className="text-primary font-medium"
-            />
-          </span>
+        <h1 className="text-4xl md:text-6xl lg:text-7xl font-medium tracking-tighter text-balance text-foreground">
+          Empower Your Real Estate Career{' '}
+          <ContainerTextFlip 
+            words={["with Purpose","with AI, "with Proven Systems", "with Automation"]}
+            interval={5000}
+            animationDuration={1000}
+            className="text-primary font-medium"
+          />
         </h1>
         
         <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto text-balance">
