@@ -35,7 +35,7 @@ const HeroSection = () => {
       </div>
       
       {/* Logo positioned at top */}
-      <div className="absolute top-8 left-1/2 -translate-x-1/2 z-20">
+      <div className="absolute top-16 md:top-20 left-1/2 -translate-x-1/2 z-20">
         <Logo />
       </div>
       
@@ -47,7 +47,7 @@ const HeroSection = () => {
         <div className="w-full h-full opacity-10 bg-primary blur-[120px]"></div>
       </div>
       
-      <div className={`relative z-10 max-w-4xl text-center space-y-6 transition-all duration-700 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+      <div className={`relative z-10 max-w-4xl text-center space-y-6 pt-24 md:pt-32 transition-all duration-700 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         <div className="flex justify-center">
           <span className="inline-flex items-center gap-2 px-3 py-1 text-xs font-medium rounded-full bg-muted text-primary">
             <span className="flex h-2 w-2 rounded-full bg-primary"></span>
