@@ -37,16 +37,16 @@ const ValueProposition = () => {
   ];
 
   return (
-    <section className="w-full py-24 px-6 md:px-12 bg-background relative overflow-hidden">
-      {/* Ambient background glow */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5" />
+    <section className="w-full py-24 px-6 md:px-12 bg-secondary/20 relative overflow-hidden">
+      {/* Dark ambient background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-secondary/30 via-secondary/10 to-primary/20" />
       
       <div className="max-w-7xl mx-auto space-y-20 relative z-10">
         <div className="text-center space-y-6 max-w-4xl mx-auto">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tighter text-foreground">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tighter text-white">
             Why Choose Real Estate on Purpose Team?
           </h2>
-          <p className="text-muted-foreground text-xl leading-relaxed">
+          <p className="text-white/80 text-xl leading-relaxed">
             Experience a unique team approach that provides comprehensive support, proven systems, and tools without any financial burden. We help you perform at a higher level by providing the resources and guidance to focus on what matters most – building meaningful client relationships.
           </p>
         </div>
@@ -60,9 +60,9 @@ const ValueProposition = () => {
                 className="rounded-[22px] w-full"
                 containerClassName="group"
               >
-                <div className="bg-background rounded-3xl p-6 md:p-8 space-y-6 min-h-[360px] flex flex-col hover:scale-[1.02] transition-transform duration-300">
+                <div className="bg-background/95 rounded-3xl p-6 md:p-8 space-y-6 min-h-[360px] flex flex-col hover:scale-[1.02] transition-transform duration-300 border border-white/10">
                   <div className="flex items-center justify-center">
-                    <div className="h-16 w-16 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                    <div className="h-16 w-16 rounded-2xl bg-gradient-to-br from-primary/30 to-primary/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                       <IconComponent className="h-8 w-8 text-primary" />
                     </div>
                   </div>
@@ -77,7 +77,7 @@ const ValueProposition = () => {
                   </div>
                   
                   {/* Subtle inner glow effect */}
-                  <div className="absolute inset-0 rounded-3xl bg-gradient-to-t from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute inset-0 rounded-3xl bg-gradient-to-t from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </div>
               </BackgroundGradient>
             );
