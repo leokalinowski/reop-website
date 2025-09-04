@@ -26,9 +26,9 @@ export default {
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
 				realEstate: {
-					blue: '#007BFF',
-					green: '#28A745',
-					yellow: '#FFC107',
+					teal: '#00a2ad',
+					darkBlue: '#005d6c', 
+					green: '#99ca3c',
 					lightGray: '#F8F9FA',
 					darkGray: '#333333',
 				},

@@ -51,27 +51,27 @@ const ValueProposition = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {benefits.map((benefit, index) => {
             const IconComponent = benefit.icon;
             return (
               <BackgroundGradient
                 key={index}
-                className="rounded-[22px] max-w-sm mx-auto"
+                className="rounded-[22px] w-full"
                 containerClassName="group"
               >
-                <div className="bg-background rounded-3xl p-8 space-y-6 h-full hover:scale-[1.02] transition-transform duration-300">
+                <div className="bg-background rounded-3xl p-6 md:p-8 space-y-6 min-h-[360px] flex flex-col hover:scale-[1.02] transition-transform duration-300">
                   <div className="flex items-center justify-center">
                     <div className="h-16 w-16 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                       <IconComponent className="h-8 w-8 text-primary" />
                     </div>
                   </div>
                   
-                  <div className="text-center space-y-4">
-                    <h3 className="text-xl font-semibold text-foreground leading-tight">
+                  <div className="text-center space-y-4 flex-1 flex flex-col justify-center">
+                    <h3 className="text-lg md:text-xl font-semibold text-foreground leading-tight">
                       {benefit.title}
                     </h3>
-                    <p className="text-muted-foreground leading-relaxed text-sm">
+                    <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
                       {benefit.description}
                     </p>
                   </div>
@@ -86,7 +86,7 @@ const ValueProposition = () => {
         
         {/* Bottom accent */}
         <div className="flex justify-center">
-          <div className="h-1 w-24 bg-gradient-to-r from-primary to-secondary rounded-full" />
+          <div className="h-1 w-24 bg-gradient-to-r from-primary via-secondary to-accent rounded-full" />
         </div>
       </div>
     </section>

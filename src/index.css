@@ -16,16 +16,16 @@
     --popover: 255 255 255;
     --popover-foreground: 188 100% 21%; /* #005d6c brand color */
 
-    --primary: 173 80% 40%; /* #20B2AA teal from logo */
+    --primary: 184 100% 34%; /* #00a2ad brand teal */
     --primary-foreground: 0 0% 98%;
 
-    --secondary: 173 60% 50%; /* Lighter teal */
+    --secondary: 188 100% 21%; /* #005d6c brand dark blue */
     --secondary-foreground: 0 0% 98%;
 
     --muted: 248 250 252; /* Light gray */
     --muted-foreground: 188 80% 35%; /* Lighter brand color for hierarchy */
 
-    --accent: 188 100% 21%; /* #005d6c logo color */
+    --accent: 74 61% 52%; /* #99ca3c brand green */
     --accent-foreground: 0 0% 98%; /* White text on brand color */
 
     --destructive: 0 84% 60%;
@@ -33,36 +33,36 @@
 
     --border: 220 13% 91%; /* Light border */
     --input: 220 13% 91%;
-    --ring: 173 80% 40%; /* Teal ring */
+    --ring: 184 100% 34%; /* Brand teal ring */
 
     --radius: 0.5rem;
   }
 
   .dark-mode {
     --background: 0 0% 8%; /* Dark charcoal */
-    --foreground: 188 70% 65%; /* Lighter brand color for dark mode */
+    --foreground: 184 70% 65%; /* Lighter brand color for dark mode */
 
     --card: 0 0% 12%; /* Slightly lighter charcoal */
-    --card-foreground: 188 70% 65%; /* Lighter brand color for dark mode */
+    --card-foreground: 184 70% 65%; /* Lighter brand color for dark mode */
 
     --popover: 0 0% 12%;
-    --popover-foreground: 188 70% 65%; /* Lighter brand color for dark mode */
+    --popover-foreground: 184 70% 65%; /* Lighter brand color for dark mode */
 
-    --primary: 173 80% 40%; /* #20B2AA teal from logo */
+    --primary: 184 100% 34%; /* #00a2ad brand teal */
     --primary-foreground: 0 0% 98%;
 
-    --secondary: 173 60% 50%; /* Lighter teal */
+    --secondary: 188 100% 21%; /* #005d6c brand dark blue */
     --secondary-foreground: 0 0% 98%;
 
     --muted: 0 0% 22%; /* Lighter charcoal */
-    --muted-foreground: 188 50% 50%; /* Medium brand color for hierarchy */
+    --muted-foreground: 184 50% 50%; /* Medium brand color for hierarchy */
 
-    --accent: 188 100% 21%; /* #005d6c logo color */
+    --accent: 74 61% 52%; /* #99ca3c brand green */
     --accent-foreground: 0 0% 8%;
 
     --border: 0 0% 22%; /* Medium charcoal border */
     --input: 0 0% 22%;
-    --ring: 173 80% 40%; /* Teal ring */
+    --ring: 184 100% 34%; /* Brand teal ring */
   }
 
   * {
