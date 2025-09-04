@@ -4,6 +4,7 @@ import TaskBoard from './TaskBoard';
 import { Loader } from 'lucide-react';
 import { ContainerTextFlip } from '@/components/ui/container-text-flip';
 import LightRays from './LightRays';
+import Logo from './Logo';
 
 const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -21,7 +22,7 @@ const HeroSection = () => {
       <div style={{ width: '100%', height: '600px', position: 'absolute', top: 0, left: 0, right: 0 }}>
         <LightRays
           raysOrigin="top-center"
-          raysColor="#00ffff"
+          raysColor="#005d6c"
           raysSpeed={1.5}
           lightSpread={0.8}
           rayLength={1.2}
@@ -39,6 +40,11 @@ const HeroSection = () => {
       {/* Gradient glow effect */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full">
         <div className="w-full h-full opacity-10 bg-primary blur-[120px]"></div>
+      </div>
+      
+      {/* Logo at the top */}
+      <div className={`relative z-20 flex justify-center mb-8 transition-all duration-700 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+        <Logo />
       </div>
       
       <div className={`relative z-10 max-w-4xl text-center space-y-6 transition-all duration-700 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>

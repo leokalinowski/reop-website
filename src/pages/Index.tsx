@@ -1,5 +1,4 @@
 import React from 'react';
-import Header from '@/components/Header';
 import HeroSection from '@/components/HeroSection';
 import ValueProposition from '@/components/ValueProposition';
 import AutomatedOutreach from '@/components/AutomatedOutreach';
@@ -18,8 +17,7 @@ import Footer from '@/components/Footer';
 const Index = () => {
   return (
     <div className="min-h-screen flex flex-col bg-background text-foreground">
-      <Header />
-      <main className="pt-24">
+      <main>
         <HeroSection />
         <ValueProposition />
         <AutomatedOutreach />
