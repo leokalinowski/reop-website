@@ -1,9 +1,8 @@
-
 import React from 'react';
 import Header from '@/components/Header';
 import HeroSection from '@/components/HeroSection';
 import ValueProposition from '@/components/ValueProposition';
-import FinTechTools from '@/components/FinTechTools';
+import FintechTools from '@/components/FintechTools';
 import Benefits from '@/components/Benefits';
 import Testimonials from '@/components/Testimonials';
 import CTASection from '@/components/CTASection';
@@ -16,7 +15,7 @@ const Index = () => {
       <main>
         <HeroSection />
         <ValueProposition />
-        <FinTechTools />
+        <FintechTools />
         <Benefits />
         <Testimonials />
         <CTASection />
