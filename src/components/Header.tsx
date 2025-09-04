@@ -8,7 +8,7 @@ import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
 import { Switch } from '@/components/ui/switch';
 
 const Header = () => {
-  const [activePage, setActivePage] = useState('features');
+  const [activePage, setActivePage] = useState('fintech-tools');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false); // Default to light mode
   
@@ -61,14 +61,14 @@ const Header = () => {
           <div className="rounded-full px-1 py-1 backdrop-blur-md bg-background/80 border border-border shadow-lg">
             <ToggleGroup type="single" value={activePage} onValueChange={(value) => value && setActivePage(value)}>
               <ToggleGroupItem 
-                value="features"
+                value="fintech-tools"
                 className={cn(
                   "px-4 py-2 rounded-full transition-colors relative",
-                  activePage === 'features' ? 'text-accent-foreground bg-accent' : 'text-muted-foreground hover:text-foreground hover:bg-muted'
+                  activePage === 'fintech-tools' ? 'text-accent-foreground bg-accent' : 'text-muted-foreground hover:text-foreground hover:bg-muted'
                 )}
-                onClick={handleNavClick('features')}
+                onClick={handleNavClick('fintech-tools')}
               >
-                <CircleDot size={16} className="inline-block mr-1.5" /> Features
+                <CircleDot size={16} className="inline-block mr-1.5" /> Tools
               </ToggleGroupItem>
               <ToggleGroupItem 
                 value="dashboard" 
@@ -80,16 +80,6 @@ const Header = () => {
               >
                 <LayoutDashboard size={16} className="inline-block mr-1.5" /> Dashboard
               </ToggleGroupItem>
-              <ToggleGroupItem 
-                value="pricing" 
-                className={cn(
-                  "px-4 py-2 rounded-full transition-colors relative",
-                  activePage === 'pricing' ? 'text-accent-foreground bg-accent' : 'text-muted-foreground hover:text-foreground hover:bg-muted'
-                )}
-                onClick={handleNavClick('pricing')}
-              >
-                <DollarSign size={16} className="inline-block mr-1.5" /> Pricing
-              </ToggleGroupItem>
             </ToggleGroup>
           </div>
         </nav>
@@ -99,13 +89,13 @@ const Header = () => {
           <div className="md:hidden absolute top-20 left-4 right-4 bg-background/95 backdrop-blur-md py-4 px-6 border border-border rounded-2xl shadow-lg z-50">
             <div className="flex flex-col gap-4">
               <a 
-                href="#features" 
+                href="#fintech-tools" 
                 className={`px-3 py-2 text-sm rounded-md transition-colors ${
-                  activePage === 'features' ? 'bg-accent text-accent-foreground' : 'text-muted-foreground hover:text-foreground hover:bg-muted'
+                  activePage === 'fintech-tools' ? 'bg-accent text-accent-foreground' : 'text-muted-foreground hover:text-foreground hover:bg-muted'
                 }`}
-                onClick={handleNavClick('features')}
+                onClick={handleNavClick('fintech-tools')}
               >
-                <CircleDot size={16} className="inline-block mr-1.5" /> Features
+                <CircleDot size={16} className="inline-block mr-1.5" /> Tools
               </a>
               <a 
                 href="#dashboard" 
@@ -115,15 +105,6 @@ const Header = () => {
                 onClick={handleNavClick('dashboard')}
               >
                 <LayoutDashboard size={16} className="inline-block mr-1.5" /> Dashboard
-              </a>
-              <a 
-                href="#pricing" 
-                className={`px-3 py-2 text-sm rounded-md transition-colors ${
-                  activePage === 'pricing' ? 'bg-accent text-accent-foreground' : 'text-muted-foreground hover:text-foreground hover:bg-muted'
-                }`}
-                onClick={handleNavClick('pricing')}
-              >
-                <DollarSign size={16} className="inline-block mr-1.5" /> Pricing
               </a>
               
               {/* Add theme toggle for mobile */}

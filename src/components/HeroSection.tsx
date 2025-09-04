@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import TaskBoard from './TaskBoard';
 import { Loader } from 'lucide-react';
+import { ContainerTextFlip } from '@/components/ui/container-text-flip';
 const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
   useEffect(() => {
@@ -29,7 +30,12 @@ const HeroSection = () => {
         </div>
         
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-medium tracking-tighter text-balance text-foreground">
-          Empower Your Real Estate <span className="text-primary">Career with Purpose</span>
+          Empower Your Real Estate Career <ContainerTextFlip 
+            words={["with Purpose", "with AI", "with Technology", "with Systems", "with Structure"]}
+            interval={2000}
+            animationDuration={500}
+            className="text-primary font-medium"
+          />
         </h1>
         
         <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto text-balance">
