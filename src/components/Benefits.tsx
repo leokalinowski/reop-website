@@ -68,9 +68,10 @@ const Benefits = () => {
           {benefits.map((benefit, index) => (
             <GlowingEffect
               key={index}
-              className="text-center space-y-4 p-6 rounded-xl bg-background/90 backdrop-blur-sm border border-border/50"
-              blur={12}
-              spread={80}
+              className="text-center space-y-4 p-6 rounded-xl bg-background/90 backdrop-blur-sm border border-border/50 group"
+              blur={8}
+              spread={100}
+              borderWidth={2}
             >
               <div className="h-16 w-16 rounded-full bg-gradient-to-br from-primary/20 to-primary/10 flex items-center justify-center mx-auto group-hover:scale-110 transition-transform duration-300">
                 {benefit.icon}

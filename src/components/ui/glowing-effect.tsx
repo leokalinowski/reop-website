@@ -62,39 +62,40 @@ export const GlowingEffect: React.FC<GlowingEffectProps> = ({
       {!disabled && (
         <div
           className={cn(
-            'pointer-events-none absolute inset-0 rounded-xl opacity-0 transition-opacity duration-500',
+            'pointer-events-none absolute -inset-[1px] rounded-xl opacity-0 transition-opacity duration-500',
             isHovered && 'opacity-100'
           )}
           style={{
             background: isHovered
               ? `radial-gradient(${spread}px circle at ${mousePosition.x}px ${mousePosition.y}px, 
-                  rgba(0, 162, 173, 0.4) 0%, 
-                  rgba(0, 93, 108, 0.3) 20%,
-                  rgba(153, 202, 60, 0.2) 40%,
-                  transparent 70%)`
+                  rgba(0, 162, 173, 0.6) 0%, 
+                  rgba(0, 93, 108, 0.4) 30%,
+                  rgba(153, 202, 60, 0.3) 60%,
+                  transparent 100%)`
               : 'none',
             filter: `blur(${blur}px)`,
           }}
         />
       )}
       
-      {/* Border */}
+      {/* Sharp border */}
       {!disabled && (
         <div
           className={cn(
-            'pointer-events-none absolute inset-0 rounded-xl opacity-0 transition-opacity duration-500',
+            'pointer-events-none absolute -inset-[1px] rounded-xl opacity-0 transition-opacity duration-500',
             isHovered && 'opacity-100'
           )}
           style={{
             background: isHovered
-              ? `radial-gradient(${spread * 1.5}px circle at ${mousePosition.x}px ${mousePosition.y}px, 
-                  rgba(0, 162, 173, 0.8) 0%, 
-                  rgba(0, 93, 108, 0.6) 25%,
-                  rgba(153, 202, 60, 0.4) 50%,
+              ? `radial-gradient(${spread * 0.8}px circle at ${mousePosition.x}px ${mousePosition.y}px, 
+                  rgba(0, 162, 173, 1) 0%, 
+                  rgba(0, 93, 108, 0.8) 20%,
+                  rgba(153, 202, 60, 0.6) 40%,
                   transparent 70%)`
               : 'none',
-            maskImage: `linear-gradient(black, black) content-box, linear-gradient(black, black)`,
-            maskComposite: 'exclude',
+            mask: `linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)`,
+            maskComposite: 'xor',
+            WebkitMask: `linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)`,
             WebkitMaskComposite: 'xor',
             padding: `${borderWidth}px`,
           }}
