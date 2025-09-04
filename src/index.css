@@ -207,7 +207,7 @@
     @apply bg-accent/20 transition-all duration-300;
   }
   
-  /* Mobile-specific color fixes */
+  /* Mobile-specific optimizations */
   @media (max-width: 768px) {
     body {
       background-color: hsl(var(--background)) !important;
@@ -215,11 +215,30 @@
     }
     
     .cosmic-glow::before {
-      display: none;
+      opacity: 0.3;
+      filter: blur(40px);
     }
     
     .cosmic-grid {
-      opacity: 0.1;
+      opacity: 0.15;
+      background-size: 20px 20px;
+    }
+    
+    .cosmic-gradient {
+      background: linear-gradient(135deg, hsl(var(--background)) 0%, hsl(var(--muted)) 50%, hsl(var(--background)) 100%) !important;
+    }
+    
+    /* Ensure all visual effects use proper HSL colors on mobile */
+    * {
+      color: hsl(var(--foreground));
+    }
+    
+    .bg-card {
+      background-color: hsl(var(--card)) !important;
+    }
+    
+    .bg-background {
+      background-color: hsl(var(--background)) !important;
     }
   }
 }

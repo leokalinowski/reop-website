@@ -34,20 +34,24 @@ const HeroSection = () => {
         />
       </div>
       
-      {/* Mobile background fallback */}
-      <div className="absolute inset-0 z-[1] md:hidden bg-gradient-to-b from-background via-background to-muted"></div>
+      {/* Mobile background with restored visual effects */}
+      <div className="absolute inset-0 z-[1] md:hidden">
+        <div className="cosmic-gradient h-full w-full"></div>
+        <div className="absolute inset-0 cosmic-grid opacity-20"></div>
+        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] rounded-full bg-primary/10 blur-[80px]"></div>
+      </div>
       
       {/* Logo positioned at top */}
       <div className="absolute top-16 md:top-20 left-1/2 -translate-x-1/2 z-20">
         <Logo />
       </div>
       
-      {/* Cosmic particle effect (background dots) */}
-      <div className="absolute inset-0 cosmic-grid opacity-30 z-[2]"></div>
+      {/* Cosmic particle effect (background dots) - Visible on desktop */}
+      <div className="absolute inset-0 cosmic-grid opacity-30 z-[2] hidden md:block"></div>
       
-      {/* Gradient glow effect */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full z-[2]">
-        <div className="w-full h-full opacity-10 bg-primary blur-[120px]"></div>
+      {/* Gradient glow effect - Reduced on mobile */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] md:w-[600px] h-[300px] md:h-[600px] rounded-full z-[2]">
+        <div className="w-full h-full opacity-5 md:opacity-10 bg-primary blur-[60px] md:blur-[120px]"></div>
       </div>
       
       <div className={`relative z-10 max-w-4xl text-center space-y-6 pt-24 md:pt-32 transition-all duration-700 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
@@ -107,52 +111,77 @@ const HeroSection = () => {
             </div>
             
             {/* Dashboard Content */}
-            <div className="flex h-[600px] overflow-hidden">
-              {/* Sidebar */}
-              <div className="w-64 border-r border-border p-4 space-y-4 hidden md:block bg-card">
-                <div className="space-y-2">
-                  <div className="text-xs text-muted-foreground uppercase">Navigation</div>
-                  <div className="space-y-1">
-                    <div className="flex items-center gap-3 px-3 py-2 rounded-md bg-muted text-foreground">
+            <div className="flex flex-col md:flex-row h-auto md:h-[600px] overflow-hidden">
+              {/* Sidebar - Responsive layout */}
+              <div className="w-full md:w-64 border-b md:border-b-0 md:border-r border-border p-4 space-y-4 bg-card">
+                {/* Mobile: Horizontal navigation */}
+                <div className="block md:hidden">
+                  <div className="flex gap-2 overflow-x-auto pb-2">
+                    <div className="flex items-center gap-2 px-3 py-2 rounded-md bg-muted text-foreground whitespace-nowrap">
                       <div className="h-3 w-3 rounded-sm bg-foreground"></div>
                       <span>Leads</span>
                     </div>
-                    <div className="flex items-center gap-3 px-3 py-2 rounded-md text-muted-foreground hover:bg-muted/50">
+                    <div className="flex items-center gap-2 px-3 py-2 rounded-md text-muted-foreground hover:bg-muted/50 whitespace-nowrap">
                       <div className="h-3 w-3 rounded-sm bg-muted-foreground/30"></div>
                       <span>Deals</span>
                     </div>
-                    <div className="flex items-center gap-3 px-3 py-2 rounded-md text-muted-foreground hover:bg-muted/50">
+                    <div className="flex items-center gap-2 px-3 py-2 rounded-md text-muted-foreground hover:bg-muted/50 whitespace-nowrap">
                       <div className="h-3 w-3 rounded-sm bg-muted-foreground/30"></div>
                       <span>Events</span>
                     </div>
-                    <div className="flex items-center gap-3 px-3 py-2 rounded-md text-muted-foreground hover:bg-muted/50">
+                    <div className="flex items-center gap-2 px-3 py-2 rounded-md text-muted-foreground hover:bg-muted/50 whitespace-nowrap">
                       <div className="h-3 w-3 rounded-sm bg-muted-foreground/30"></div>
-                      <span>Social Media</span>
+                      <span>Social</span>
                     </div>
                   </div>
                 </div>
-                
-                <div className="space-y-2 pt-4">
-                  <div className="text-xs text-muted-foreground uppercase">Departments</div>
-                  <div className="space-y-1">
-                    <div className="flex items-center gap-3 px-3 py-2 rounded-md text-muted-foreground hover:bg-muted/50">
-                      <div className="h-3 w-3 rounded-full bg-muted-foreground/60"></div>
-                      <span>SphereSync</span>
+
+                {/* Desktop: Vertical navigation */}
+                <div className="hidden md:block space-y-4">
+                  <div className="space-y-2">
+                    <div className="text-xs text-muted-foreground uppercase">Navigation</div>
+                    <div className="space-y-1">
+                      <div className="flex items-center gap-3 px-3 py-2 rounded-md bg-muted text-foreground">
+                        <div className="h-3 w-3 rounded-sm bg-foreground"></div>
+                        <span>Leads</span>
+                      </div>
+                      <div className="flex items-center gap-3 px-3 py-2 rounded-md text-muted-foreground hover:bg-muted/50">
+                        <div className="h-3 w-3 rounded-sm bg-muted-foreground/30"></div>
+                        <span>Deals</span>
+                      </div>
+                      <div className="flex items-center gap-3 px-3 py-2 rounded-md text-muted-foreground hover:bg-muted/50">
+                        <div className="h-3 w-3 rounded-sm bg-muted-foreground/30"></div>
+                        <span>Events</span>
+                      </div>
+                      <div className="flex items-center gap-3 px-3 py-2 rounded-md text-muted-foreground hover:bg-muted/50">
+                        <div className="h-3 w-3 rounded-sm bg-muted-foreground/30"></div>
+                        <span>Social Media</span>
+                      </div>
                     </div>
-                    <div className="flex items-center gap-3 px-3 py-2 rounded-md text-muted-foreground hover:bg-muted/50">
-                      <div className="h-3 w-3 rounded-full bg-muted-foreground/50"></div>
-                      <span>Database</span>
-                    </div>
-                    <div className="flex items-center gap-3 px-3 py-2 rounded-md text-muted-foreground hover:bg-muted/50">
-                      <div className="h-3 w-3 rounded-full bg-muted-foreground/40"></div>
-                      <span>Analytics</span>
+                  </div>
+                  
+                  <div className="space-y-2 pt-4">
+                    <div className="text-xs text-muted-foreground uppercase">Departments</div>
+                    <div className="space-y-1">
+                      <div className="flex items-center gap-3 px-3 py-2 rounded-md text-muted-foreground hover:bg-muted/50">
+                        <div className="h-3 w-3 rounded-full bg-muted-foreground/60"></div>
+                        <span>SphereSync</span>
+                      </div>
+                      <div className="flex items-center gap-3 px-3 py-2 rounded-md text-muted-foreground hover:bg-muted/50">
+                        <div className="h-3 w-3 rounded-full bg-muted-foreground/50"></div>
+                        <span>Database</span>
+                      </div>
+                      <div className="flex items-center gap-3 px-3 py-2 rounded-md text-muted-foreground hover:bg-muted/50">
+                        <div className="h-3 w-3 rounded-full bg-muted-foreground/40"></div>
+                        <span>Analytics</span>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
               
               {/* Main Content */}
-              <div className="flex-1 p-4 bg-background overflow-hidden">
+              <div className="flex-1 p-4 bg-background overflow-hidden min-h-[400px] md:min-h-0">
                 {/* Board Header */}
                 <div className="flex items-center justify-between mb-6 min-w-0">
                   <div className="flex items-center gap-2 flex-shrink-0">
