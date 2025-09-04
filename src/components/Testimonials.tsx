@@ -4,13 +4,13 @@ import React from 'react';
 const Testimonials = () => {
   const testimonials = [
     {
-      quote: "PO2 automation alone doubled my weekly outreach—results are visible and motivating.",
+      quote: "SphereSync automation alone doubled my weekly outreach—results are visible and motivating.",
       author: "Jessica Martinez",
       position: "Senior Real Estate Agent",
       avatar: "bg-primary/20"
     },
     {
-      quote: "The pipeline and social scheduler keep everything in one place. My close rate is up 30%.",
+      quote: "The deal tracker and social scheduler keep everything in one place. My close rate is up 30%.",
       author: "Robert Chen",
       position: "Real Estate Professional",
       avatar: "bg-primary/30"

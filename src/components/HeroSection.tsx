@@ -36,7 +36,7 @@ const HeroSection = () => {
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-medium tracking-tighter text-balance text-foreground">
           Empower Your Real Estate Career{' '}
           <ContainerTextFlip 
-            words={["with Purpose", "with AI", "with Technology", "with Systems", "with Structure"]}
+            words={["with Purpose", "with Systems", "efficiently", "successfully"]}
             interval={2000}
             animationDuration={500}
             className="text-primary font-medium"
@@ -68,7 +68,7 @@ const HeroSection = () => {
                 <div className="h-8 w-8 rounded-md bg-muted flex items-center justify-center">
                   <div className="h-3 w-3 rounded-sm bg-foreground"></div>
                 </div>
-                <span className="text-foreground font-medium">Real Estate Pipeline</span>
+                <span className="text-foreground font-medium">SphereSync Dashboard</span>
               </div>
               
               <div className="flex items-center gap-3">
@@ -98,7 +98,7 @@ const HeroSection = () => {
                     </div>
                     <div className="flex items-center gap-3 px-3 py-2 rounded-md text-muted-foreground hover:bg-muted/50">
                       <div className="h-3 w-3 rounded-sm bg-muted-foreground/30"></div>
-                      <span>Pipeline</span>
+                      <span>Deals</span>
                     </div>
                     <div className="flex items-center gap-3 px-3 py-2 rounded-md text-muted-foreground hover:bg-muted/50">
                       <div className="h-3 w-3 rounded-sm bg-muted-foreground/30"></div>
@@ -116,7 +116,7 @@ const HeroSection = () => {
                   <div className="space-y-1">
                     <div className="flex items-center gap-3 px-3 py-2 rounded-md text-muted-foreground hover:bg-muted/50">
                       <div className="h-3 w-3 rounded-full bg-muted-foreground/60"></div>
-                      <span>PO2 Tasks</span>
+                      <span>SphereSync</span>
                     </div>
                     <div className="flex items-center gap-3 px-3 py-2 rounded-md text-muted-foreground hover:bg-muted/50">
                       <div className="h-3 w-3 rounded-full bg-muted-foreground/50"></div>

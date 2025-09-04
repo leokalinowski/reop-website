@@ -4,14 +4,14 @@ const ValueProposition = () => {
   const benefits = [
     {
       title: "Automated Outreach",
-      description: "PO2 Tasks generate weekly call/text lists from your database, ensuring consistent lead nurturing."
+      description: "SphereSync generates weekly call/text lists from your database, ensuring consistent lead nurturing."
     },
     {
       title: "Lead Management", 
       description: "Secure database with CSV uploads, inline editing, and DNC highlighting for organized, compliant contact tracking."
     },
     {
-      title: "Pipeline Visualization",
+      title: "Deal Visualization",
       description: "Drag-and-drop stages from Lead to Closed, with real-time metrics like win rate, average close time, and total value."
     },
     {
@@ -40,7 +40,7 @@ const ValueProposition = () => {
             Why Choose Real Estate on Purpose?
           </h2>
           <p className="text-muted-foreground text-lg">
-            Built for agents like you, our platform turns strategies into results. From automated PO2 tasks to pipeline tracking, we help you perform at a higher level by providing clear visualization of your efforts and outcomes.
+            Built for agents like you, our platform turns strategies into results. From automated SphereSync tasks to deal tracking, we help you perform at a higher level by providing clear visualization of your efforts and outcomes.
           </p>
         </div>
         

@@ -4,7 +4,7 @@ const Benefits = () => {
   const benefits = [
     {
       title: "Visualize Results",
-      description: "See how PO2 tasks, events, and social media drive leads and closures in one dashboard.",
+      description: "See how SphereSync automation, events, and social media drive leads and closures in one dashboard.",
       icon: (
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-primary">
           <line x1="18" y1="20" x2="18" y2="10" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
