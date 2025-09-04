@@ -23,13 +23,16 @@ const HeroSection = () => {
         <LightRays
           raysOrigin="top-center"
           raysColor="#005d6c"
-          raysSpeed={1.5}
-          lightSpread={0.8}
-          rayLength={1.2}
-          followMouse={true}
-          mouseInfluence={0.1}
-          noiseAmount={0.1}
-          distortion={0.05}
+          raysSpeed={1}
+          lightSpread={0.5}
+          rayLength={3}
+          followMouse={false}
+          mouseInfluence={0}
+          noiseAmount={0.13}
+          distortion={0}
+          pulsating={true}
+          fadeDistance={1}
+          saturation={1}
           className="custom-rays"
         />
       </div>
