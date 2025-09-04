@@ -1,84 +1,102 @@
 
 import React from 'react';
 import Logo from './Logo';
+import { Mail, Phone, MapPin, Facebook, Instagram, Youtube, Linkedin } from 'lucide-react';
 
 const Footer = () => {
   return (
     <footer className="w-full py-16 px-6 md:px-12 border-t border-border bg-card">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-10">
-          <div className="md:col-span-2 space-y-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+          {/* Company Info */}
+          <div className="lg:col-span-2 space-y-6">
             <Logo />
-            <p className="text-muted-foreground max-w-xs">
-              Empowering real estate agents with purpose-driven tools for success and growth.
+            <p className="text-muted-foreground max-w-md leading-relaxed">
+              Join the Real Estate on Purpose Team and experience comprehensive support, proven systems, and expert guidance without any financial burden. We help you perform at a higher level by focusing on what matters most – building meaningful client relationships.
             </p>
+            
+            {/* Contact Info */}
+            <div className="space-y-3">
+              <div className="flex items-center gap-3 text-muted-foreground">
+                <Phone className="h-4 w-4 text-primary" />
+                <span className="text-sm">(555) 123-4567</span>
+              </div>
+              <div className="flex items-center gap-3 text-muted-foreground">
+                <Mail className="h-4 w-4 text-primary" />
+                <span className="text-sm">info@realestateuppose.com</span>
+              </div>
+              <div className="flex items-center gap-3 text-muted-foreground">
+                <MapPin className="h-4 w-4 text-primary" />
+                <span className="text-sm">Your City, State 12345</span>
+              </div>
+            </div>
+
+            {/* Social Media */}
             <div className="flex items-center gap-4">
-              <a href="#" className="h-10 w-10 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:text-foreground transition-colors">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M23 3.01s-2.018 1.192-3.14 1.53a4.48 4.48 0 00-7.86 3v1a10.66 10.66 0 01-9-4.53s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5 0-.278-.028-.556-.08-.83C21.94 5.674 23 3.01 23 3.01z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
+              <a href="#" className="h-10 w-10 rounded-full bg-primary/10 hover:bg-primary/20 flex items-center justify-center text-primary hover:text-primary transition-colors group">
+                <Facebook className="h-5 w-5 group-hover:scale-110 transition-transform" />
               </a>
-              <a href="#" className="h-10 w-10 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:text-foreground transition-colors">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M2 9h4v12H2z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  <circle cx="4" cy="4" r="2" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
+              <a href="#" className="h-10 w-10 rounded-full bg-primary/10 hover:bg-primary/20 flex items-center justify-center text-primary hover:text-primary transition-colors group">
+                <Instagram className="h-5 w-5 group-hover:scale-110 transition-transform" />
               </a>
-              <a href="#" className="h-10 w-10 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:text-foreground transition-colors">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3V2z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
+              <a href="#" className="h-10 w-10 rounded-full bg-primary/10 hover:bg-primary/20 flex items-center justify-center text-primary hover:text-primary transition-colors group">
+                <Linkedin className="h-5 w-5 group-hover:scale-110 transition-transform" />
               </a>
-              <a href="#" className="h-10 w-10 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:text-foreground transition-colors">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 11.75a29 29 0 00.46 5.33A2.78 2.78 0 003.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 001.94-2c.313-1.732.467-3.482.46-5.33a29.005 29.005 0 00-.46-5.33z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M9.75 15.02l5.75-3.27-5.75-3.27v6.54z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
+              <a href="#" className="h-10 w-10 rounded-full bg-primary/10 hover:bg-primary/20 flex items-center justify-center text-primary hover:text-primary transition-colors group">
+                <Youtube className="h-5 w-5 group-hover:scale-110 transition-transform" />
               </a>
             </div>
           </div>
           
+          {/* Services */}
           <div className="space-y-4">
-            <h4 className="font-medium text-lg text-foreground">Product</h4>
+            <h4 className="font-semibold text-lg text-foreground">Our Services</h4>
             <ul className="space-y-3">
-              <li><a href="#features" className="text-muted-foreground hover:text-foreground transition-colors">Features</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Integrations</a></li>
-              <li><a href="#pricing" className="text-muted-foreground hover:text-foreground transition-colors">Pricing</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Updates</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Roadmap</a></li>
+              <li><a href="#automated-outreach" className="text-muted-foreground hover:text-primary transition-colors">Automated Outreach</a></li>
+              <li><a href="#lead-management" className="text-muted-foreground hover:text-primary transition-colors">Lead Management</a></li>
+              <li><a href="#event-management" className="text-muted-foreground hover:text-primary transition-colors">Event Management</a></li>
+              <li><a href="#newsletter-tools" className="text-muted-foreground hover:text-primary transition-colors">Newsletter Tools</a></li>
+              <li><a href="#social-media" className="text-muted-foreground hover:text-primary transition-colors">Social Media Management</a></li>
+              <li><a href="#coaching" className="text-muted-foreground hover:text-primary transition-colors">Weekly Coaching</a></li>
+              <li><a href="#transaction-coordination" className="text-muted-foreground hover:text-primary transition-colors">Transaction Coordination</a></li>
             </ul>
           </div>
           
+          {/* Quick Links */}
           <div className="space-y-4">
-            <h4 className="font-medium text-lg text-foreground">Company</h4>
+            <h4 className="font-semibold text-lg text-foreground">Quick Links</h4>
             <ul className="space-y-3">
-              <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">About</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Blog</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Careers</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Press</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Contact</a></li>
-            </ul>
-          </div>
-          
-          <div className="space-y-4">
-            <h4 className="font-medium text-lg text-foreground">Resources</h4>
-            <ul className="space-y-3">
-              <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Documentation</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Help Center</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Guides & Tutorials</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">API Reference</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Community</a></li>
+              <li><a href="#about" className="text-muted-foreground hover:text-primary transition-colors">About Us</a></li>
+              <li><a href="#testimonials" className="text-muted-foreground hover:text-primary transition-colors">Success Stories</a></li>
+              <li><a href="#join-team" className="text-muted-foreground hover:text-primary transition-colors">Join Our Team</a></li>
+              <li><a href="#resources" className="text-muted-foreground hover:text-primary transition-colors">Resources</a></li>
+              <li><a href="#support" className="text-muted-foreground hover:text-primary transition-colors">Support</a></li>
+              <li><a href="#faq" className="text-muted-foreground hover:text-primary transition-colors">FAQ</a></li>
+              <li><a href="#contact" className="text-muted-foreground hover:text-primary transition-colors">Contact</a></li>
             </ul>
           </div>
         </div>
         
-        <div className="mt-16 pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center text-muted-foreground text-sm">
-          <div>© 2025 Real Estate on Purpose. All rights reserved.</div>
-          <div className="flex gap-6 mt-4 md:mt-0">
-            <a href="#" className="hover:text-foreground transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-foreground transition-colors">Terms of Service</a>
-            <a href="#" className="hover:text-foreground transition-colors">Contact Us</a>
+        {/* Bottom Section */}
+        <div className="mt-16 pt-8 border-t border-border">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <div className="text-muted-foreground text-sm">
+              © 2025 Real Estate on Purpose Team. All rights reserved.
+            </div>
+            <div className="flex flex-wrap gap-6 text-sm">
+              <a href="#privacy" className="text-muted-foreground hover:text-primary transition-colors">Privacy Policy</a>
+              <a href="#terms" className="text-muted-foreground hover:text-primary transition-colors">Terms of Service</a>
+              <a href="#legal" className="text-muted-foreground hover:text-primary transition-colors">Legal Disclaimer</a>
+            </div>
+          </div>
+          
+          {/* Professional Disclaimer */}
+          <div className="mt-6 pt-6 border-t border-border/50">
+            <p className="text-xs text-muted-foreground leading-relaxed max-w-4xl">
+              Real Estate on Purpose Team provides professional support services to licensed real estate agents. We are not a real estate brokerage. 
+              All real estate transactions must be conducted through properly licensed brokerages. Individual results may vary. 
+              Professional coaching and support services are provided to help agents grow their business within their respective licensed frameworks.
+            </p>
           </div>
         </div>
       </div>
