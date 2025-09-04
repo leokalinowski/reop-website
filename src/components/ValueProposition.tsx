@@ -43,7 +43,7 @@ const ValueProposition = () => {
       
       <div className="max-w-7xl mx-auto space-y-20 relative z-10">
         <div className="text-center space-y-6 max-w-4xl mx-auto">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tighter text-white">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tighter text-foreground">
             Why Choose Real Estate on Purpose Team?
           </h2>
           <p className="text-white/80 text-xl leading-relaxed">
