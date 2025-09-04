@@ -1,4 +1,5 @@
 import React from 'react';
+import { GlowingEffect } from './ui/glowing-effect';
 
 const Benefits = () => {
   const benefits = [
@@ -47,7 +48,10 @@ const Benefits = () => {
   ];
 
   return (
-    <section className="w-full py-20 px-6 md:px-12 bg-card">
+    <section className="w-full py-20 px-6 md:px-12 bg-card relative overflow-hidden">
+      {/* Ambient background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5" />
+      <div className="absolute inset-0 cosmic-grid opacity-20"></div>
       <div className="absolute inset-0 cosmic-grid opacity-20"></div>
       
       <div className="max-w-7xl mx-auto space-y-16 relative z-10">
@@ -62,16 +66,18 @@ const Benefits = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {benefits.map((benefit, index) => (
-            <div 
+            <GlowingEffect
               key={index}
-              className="text-center space-y-4 p-6 rounded-xl bg-background/80 backdrop-blur-sm border border-border hover:border-primary/30 transition-all duration-300"
+              className="text-center space-y-4 p-6 rounded-xl bg-background/90 backdrop-blur-sm border border-border/50"
+              blur={12}
+              spread={80}
             >
-              <div className="h-16 w-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto">
+              <div className="h-16 w-16 rounded-full bg-gradient-to-br from-primary/20 to-primary/10 flex items-center justify-center mx-auto group-hover:scale-110 transition-transform duration-300">
                 {benefit.icon}
               </div>
               <h3 className="text-xl font-medium text-foreground">{benefit.title}</h3>
-              <p className="text-muted-foreground">{benefit.description}</p>
-            </div>
+              <p className="text-muted-foreground leading-relaxed">{benefit.description}</p>
+            </GlowingEffect>
           ))}
         </div>
       </div>
