@@ -17,8 +17,8 @@ const HeroSection = () => {
 
   return (
     <section className="relative w-full py-12 md:py-20 px-6 md:px-12 flex flex-col items-center justify-center overflow-hidden bg-background">
-      {/* Light Rays Background Effect */}
-      <div className="absolute inset-0 z-[1]">
+      {/* Light Rays Background Effect - Hidden on mobile for performance */}
+      <div className="absolute inset-0 z-[1] hidden md:block">
         <LightRays
           raysColor="#005d6c"
           raysOrigin="top-center"
@@ -33,6 +33,9 @@ const HeroSection = () => {
           saturation={1}
         />
       </div>
+      
+      {/* Mobile background fallback */}
+      <div className="absolute inset-0 z-[1] md:hidden bg-gradient-to-b from-background via-background to-muted"></div>
       
       {/* Logo positioned at top */}
       <div className="absolute top-16 md:top-20 left-1/2 -translate-x-1/2 z-20">
