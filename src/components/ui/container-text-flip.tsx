@@ -33,11 +33,12 @@ export const ContainerTextFlip: React.FC<ContainerTextFlipProps> = ({
     <div className={cn("relative inline-block", className)}>
       <span
         className={cn(
-          "transition-all duration-300 ease-in-out",
+          "transition-all duration-300 ease-in-out text-white px-3 py-1 rounded-md",
           isAnimating ? "opacity-0 transform scale-95" : "opacity-100 transform scale-100"
         )}
         style={{
           transitionDuration: `${animationDuration}ms`,
+          backgroundColor: '#005d6c'
         }}
       >
         {words[currentIndex]}
