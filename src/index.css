@@ -16,10 +16,10 @@
     --popover: 255 255 255;
     --popover-foreground: 210 10% 20%;
 
-    --primary: 212 100% 48%; /* #007BFF blue */
+    --primary: 173 80% 40%; /* #20B2AA teal from logo */
     --primary-foreground: 0 0% 98%;
 
-    --secondary: 134 61% 41%; /* #28A745 green */
+    --secondary: 173 60% 50%; /* Lighter teal */
     --secondary-foreground: 0 0% 98%;
 
     --muted: 248 250 252; /* Light gray */
@@ -33,7 +33,7 @@
 
     --border: 220 13% 91%; /* Light border */
     --input: 220 13% 91%;
-    --ring: 212 100% 48%; /* Blue ring */
+    --ring: 173 80% 40%; /* Teal ring */
 
     --radius: 0.5rem;
   }
@@ -48,10 +48,10 @@
     --popover: 0 0% 12%;
     --popover-foreground: 0 0% 95%;
 
-    --primary: 212 100% 48%; /* #007BFF blue */
+    --primary: 173 80% 40%; /* #20B2AA teal from logo */
     --primary-foreground: 0 0% 98%;
 
-    --secondary: 134 61% 41%; /* #28A745 green */
+    --secondary: 173 60% 50%; /* Lighter teal */
     --secondary-foreground: 0 0% 98%;
 
     --muted: 0 0% 22%; /* Lighter charcoal */
@@ -62,7 +62,7 @@
 
     --border: 0 0% 22%; /* Medium charcoal border */
     --input: 0 0% 22%;
-    --ring: 212 100% 48%; /* Blue ring */
+    --ring: 173 80% 40%; /* Teal ring */
   }
 
   * {
