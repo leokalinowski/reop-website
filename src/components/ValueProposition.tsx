@@ -1,64 +1,92 @@
 import React from 'react';
+import { BackgroundGradient } from '@/components/ui/background-gradient';
+import { Database, Target, Calendar, Mail, Users, FileText } from 'lucide-react';
 
 const ValueProposition = () => {
   const benefits = [
     {
-      title: "SphereSync: Automate Your Client Connections",
-      description: "Revolutionize your database management with automated connections without sending any emails, texts, or communications on your behalf, ensuring you remain in full control."
+      title: "SphereSync & Digital Presence",
+      description: "Revolutionize your database management with automated connections and dominate social media effortlessly with expert human content creation – no AI, just professional touch.",
+      icon: Database
     },
     {
-      title: "Track and Nurture Every Lead", 
-      description: "Gain crystal-clear insights into your leads with advanced tracking that cross-references real-time data with DNC Lists for secure, compliant visibility."
+      title: "Lead Management & Tracking", 
+      description: "Gain crystal-clear insights into your leads with advanced tracking that cross-references real-time data with DNC Lists for secure, compliant visibility and maximum conversion.",
+      icon: Target
     },
     {
       title: "Event Management",
-      description: "Leave the heavy lifting to us – we handle every detail of your client events so you can shine in building relationships and creating memorable experiences."
+      description: "Leave the heavy lifting to us – we handle every detail of your client events so you can shine in building relationships and creating memorable experiences that generate referrals.",
+      icon: Calendar
     },
     {
-      title: "Newsletter Tools",
-      description: "Elevate your client engagement with seamless newsletter creation and distribution using intuitive tools for designing and sending professional content."
-    },
-    {
-      title: "Fully Automated Social Presence",
-      description: "Dominate social media effortlessly with our hands-on content creation and management service – no AI involved, just expert human touch with professional editing."
+      title: "Newsletter & Content Tools",
+      description: "Elevate your client engagement with seamless newsletter creation and distribution using intuitive tools for designing and sending professional content that builds trust.",
+      icon: Mail
     },
     {
       title: "Weekly Coaching Sessions",
-      description: "Accelerate your growth with personalized, expert guidance in dynamic weekly sessions led by industry pros to sharpen skills and overcome obstacles."
+      description: "Accelerate your growth with personalized, expert guidance in dynamic weekly sessions led by industry pros to sharpen skills, share proven tactics, and overcome obstacles.",
+      icon: Users
     },
     {
       title: "Transaction Coordination",
-      description: "Reclaim your time and peace of mind with our end-to-end transaction handling – we execute everything flawlessly from contract to close."
+      description: "Reclaim your time and peace of mind with our end-to-end transaction handling – we execute everything flawlessly from contract to close with precision and care.",
+      icon: FileText
     }
   ];
 
   return (
-    <section className="w-full py-20 px-6 md:px-12 bg-background">
-      <div className="max-w-7xl mx-auto space-y-16">
-        <div className="text-center space-y-4 max-w-3xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-medium tracking-tighter text-foreground">
+    <section className="w-full py-24 px-6 md:px-12 bg-background relative overflow-hidden">
+      {/* Ambient background glow */}
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5" />
+      
+      <div className="max-w-7xl mx-auto space-y-20 relative z-10">
+        <div className="text-center space-y-6 max-w-4xl mx-auto">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tighter text-foreground">
             Why Choose Real Estate on Purpose Team?
           </h2>
-          <p className="text-muted-foreground text-lg">
+          <p className="text-muted-foreground text-xl leading-relaxed">
             Experience a unique team approach that provides comprehensive support, proven systems, and tools without any financial burden. We help you perform at a higher level by providing the resources and guidance to focus on what matters most – building meaningful client relationships.
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {benefits.map((benefit, index) => (
-            <div 
-              key={index}
-              className="p-6 rounded-xl border border-border bg-card/50 backdrop-blur-sm hover:border-primary/30 transition-all duration-300"
-            >
-              <div className="space-y-4">
-                <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center">
-                  <div className="h-6 w-6 rounded-sm bg-primary"></div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+          {benefits.map((benefit, index) => {
+            const IconComponent = benefit.icon;
+            return (
+              <BackgroundGradient
+                key={index}
+                className="rounded-[22px] max-w-sm mx-auto"
+                containerClassName="group"
+              >
+                <div className="bg-background rounded-3xl p-8 space-y-6 h-full hover:scale-[1.02] transition-transform duration-300">
+                  <div className="flex items-center justify-center">
+                    <div className="h-16 w-16 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <IconComponent className="h-8 w-8 text-primary" />
+                    </div>
+                  </div>
+                  
+                  <div className="text-center space-y-4">
+                    <h3 className="text-xl font-semibold text-foreground leading-tight">
+                      {benefit.title}
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed text-sm">
+                      {benefit.description}
+                    </p>
+                  </div>
+                  
+                  {/* Subtle inner glow effect */}
+                  <div className="absolute inset-0 rounded-3xl bg-gradient-to-t from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </div>
-                <h3 className="text-xl font-medium text-foreground">{benefit.title}</h3>
-                <p className="text-muted-foreground">{benefit.description}</p>
-              </div>
-            </div>
-          ))}
+              </BackgroundGradient>
+            );
+          })}
+        </div>
+        
+        {/* Bottom accent */}
+        <div className="flex justify-center">
+          <div className="h-1 w-24 bg-gradient-to-r from-primary to-secondary rounded-full" />
         </div>
       </div>
     </section>
