@@ -13,12 +13,6 @@ const Logo = () => {
         />
       </div>
       
-      {/* Company Name - Hidden on mobile for cleaner look */}
-      <div className="hidden sm:flex flex-col">
-        <span className="text-xl font-semibold text-foreground tracking-tight">
-          Real Estate <span className="text-primary font-bold">on Purpose</span>
-        </span>
-      </div>
     </div>
   );
 };
