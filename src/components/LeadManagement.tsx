@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Users, CheckCircle } from 'lucide-react';
-import leadManagementImg from '@/assets/lead-management.jpg';
+import leadManagementImg from '@/assets/images/lead-management.jpg';
 
 const LeadManagement = () => {
   const features = [

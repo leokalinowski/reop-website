@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Calendar, CheckCircle } from 'lucide-react';
-import eventManagementImg from '@/assets/event-management.jpg';
+import eventManagementImg from '@/assets/images/event-management.jpg';
 
 const EventManagement = () => {
   const features = [

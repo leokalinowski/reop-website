@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Heart, CheckCircle } from 'lucide-react';
-import surpriseDelightImg from '@/assets/surprise-delight.jpg';
+import surpriseDelightImg from '@/assets/images/surprise-delight.jpg';
 
 const SurpriseDelight = () => {
   const features = [

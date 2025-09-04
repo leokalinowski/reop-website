@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Zap, CheckCircle } from 'lucide-react';
-import automatedOutreachImg from '@/assets/automated-outreach.jpg';
+import automatedOutreachImg from '@/assets/images/automated-outreach.jpg';
 
 const AutomatedOutreach = () => {
   const features = [

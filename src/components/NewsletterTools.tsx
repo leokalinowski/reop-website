@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Mail, CheckCircle } from 'lucide-react';
-import newsletterImg from '@/assets/newsletter.jpg';
+import newsletterImg from '@/assets/images/newsletter.jpg';
 
 const NewsletterTools = () => {
   const features = [

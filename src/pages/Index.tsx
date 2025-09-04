@@ -19,7 +19,7 @@ const Index = () => {
   return (
     <div className="min-h-screen flex flex-col bg-background text-foreground">
       <Header />
-      <main>
+      <main className="pt-24">
         <HeroSection />
         <ValueProposition />
         <AutomatedOutreach />
