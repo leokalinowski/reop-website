@@ -50,14 +50,16 @@ const HeroSection = () => {
           </span>
         </div>
         
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-medium tracking-tighter text-balance text-foreground">
-          Empower Your Real Estate Career{' '}
-          <ContainerTextFlip 
-            words={["with Purpose"]}
-            interval={5000}
-            animationDuration={1000}
-            className="text-primary font-medium"
-          />
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium tracking-tighter text-balance text-foreground leading-tight">
+          <span className="block">Empower Your Real Estate Career</span>
+          <span className="block mt-2">
+            <ContainerTextFlip 
+              words={["with Purpose"]}
+              interval={5000}
+              animationDuration={1000}
+              className="text-primary font-medium"
+            />
+          </span>
         </h1>
         
         <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto text-balance">
