@@ -36,9 +36,9 @@ const HeroSection = () => {
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-medium tracking-tighter text-balance text-foreground">
           Empower Your Real Estate Career{' '}
           <ContainerTextFlip 
-            words={["with Purpose", "with Systems", "efficiently", "successfully"]}
-            interval={2000}
-            animationDuration={500}
+            words={["with Purpose", "with AI", "with Sytems"]}
+            interval={5000}
+            animationDuration={1000}
             className="text-primary font-medium"
           />
         </h1>
@@ -49,7 +49,7 @@ const HeroSection = () => {
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center pt-6 items-center">
           <Button className="bg-primary text-primary-foreground hover:bg-primary/80 hover:text-primary-foreground text-base h-12 px-8 transition-all duration-200 min-h-[48px]">
-            Get Started Free
+            Get Started Today
           </Button>
         </div>
         
