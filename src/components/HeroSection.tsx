@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import TaskBoard from './TaskBoard';
 import { Loader } from 'lucide-react';
 import { ContainerTextFlip } from '@/components/ui/container-text-flip';
+import LightRays from './LightRays';
 
 const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -16,6 +17,21 @@ const HeroSection = () => {
 
   return (
     <section className="relative w-full py-12 md:py-20 px-6 md:px-12 flex flex-col items-center justify-center overflow-hidden bg-background">
+      {/* Light Rays Effect */}
+      <div style={{ width: '100%', height: '600px', position: 'absolute', top: 0, left: 0, right: 0 }}>
+        <LightRays
+          raysOrigin="top-center"
+          raysColor="#00ffff"
+          raysSpeed={1.5}
+          lightSpread={0.8}
+          rayLength={1.2}
+          followMouse={true}
+          mouseInfluence={0.1}
+          noiseAmount={0.1}
+          distortion={0.05}
+          className="custom-rays"
+        />
+      </div>
       
       {/* Cosmic particle effect (background dots) */}
       <div className="absolute inset-0 cosmic-grid opacity-30"></div>
