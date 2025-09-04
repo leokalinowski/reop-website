@@ -35,7 +35,7 @@ const HeroSection = () => {
       </div>
       
       {/* Logo positioned at top */}
-      <div className="absolute top-8 left-8 z-20">
+      <div className="absolute top-8 left-1/2 -translate-x-1/2 z-20">
         <Logo />
       </div>
       
