@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import TaskBoard from './TaskBoard';
 import { Loader } from 'lucide-react';
-import { ContainerTextFlip } from '@/components/ui/container-text-flip';
+import Logo from './Logo';
+import LightRays from './LightRays';
 
 const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -16,11 +17,33 @@ const HeroSection = () => {
 
   return (
     <section className="relative w-full py-12 md:py-20 px-6 md:px-12 flex flex-col items-center justify-center overflow-hidden bg-background">
+      {/* Light Rays Background Effect */}
+      <div className="absolute inset-0 z-[1]">
+        <LightRays
+          raysColor="#005d6c"
+          raysOrigin="top-center"
+          raysSpeed={1}
+          lightSpread={0.5}
+          rayLength={3}
+          mouseInfluence={0}
+          noiseAmount={0.13}
+          distortion={0}
+          pulsating={true}
+          fadeDistance={1}
+          saturation={1}
+        />
+      </div>
+      
+      {/* Logo positioned at top */}
+      <div className="absolute top-8 left-8 z-20">
+        <Logo />
+      </div>
+      
       {/* Cosmic particle effect (background dots) */}
-      <div className="absolute inset-0 cosmic-grid opacity-30"></div>
+      <div className="absolute inset-0 cosmic-grid opacity-30 z-[2]"></div>
       
       {/* Gradient glow effect */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full z-[2]">
         <div className="w-full h-full opacity-10 bg-primary blur-[120px]"></div>
       </div>
       
@@ -35,12 +58,7 @@ const HeroSection = () => {
         
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-medium tracking-tighter text-balance text-foreground">
           Empower Your Real Estate Career{' '}
-          <ContainerTextFlip 
-            words={["with Purpose", "with AI", "with Automation"]}
-            interval={5000}
-            animationDuration={1000}
-            className="text-primary font-medium"
-          />
+          <span className="text-primary font-medium">with Purpose</span>
         </h1>
         
         <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto text-balance">
