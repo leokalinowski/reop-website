@@ -7,6 +7,38 @@
 
 @layer base {
   :root {
+    --background: 248 250 252; /* #F8F9FA light gray */
+    --foreground: 210 10% 20%; /* #333333 dark gray */
+
+    --card: 255 255 255; /* White cards */
+    --card-foreground: 210 10% 20%;
+
+    --popover: 255 255 255;
+    --popover-foreground: 210 10% 20%;
+
+    --primary: 212 100% 48%; /* #007BFF blue */
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 134 61% 41%; /* #28A745 green */
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 248 250 252; /* Light gray */
+    --muted-foreground: 210 10% 45%;
+
+    --accent: 45 93% 47%; /* #FFC107 yellow */
+    --accent-foreground: 210 10% 20%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 13% 91%; /* Light border */
+    --input: 220 13% 91%;
+    --ring: 212 100% 48%; /* Blue ring */
+
+    --radius: 0.5rem;
+  }
+
+  .dark-mode {
     --background: 0 0% 8%; /* Dark charcoal */
     --foreground: 0 0% 95%; /* Light grey/white */
 
@@ -16,53 +48,21 @@
     --popover: 0 0% 12%;
     --popover-foreground: 0 0% 95%;
 
-    --primary: 173 80% 40%; /* Teal primary */
-    --primary-foreground: 0 0% 98%; /* Very light grey */
+    --primary: 212 100% 48%; /* #007BFF blue */
+    --primary-foreground: 0 0% 98%;
 
-    --secondary: 0 0% 18%; /* Medium charcoal */
-    --secondary-foreground: 0 0% 95%;
+    --secondary: 134 61% 41%; /* #28A745 green */
+    --secondary-foreground: 0 0% 98%;
 
     --muted: 0 0% 22%; /* Lighter charcoal */
     --muted-foreground: 0 0% 70%; /* Medium grey */
 
-    --accent: 173 70% 45%; /* Teal accent */
-    --accent-foreground: 0 0% 98%;
-
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 210 40% 98%;
+    --accent: 45 93% 47%; /* #FFC107 yellow */
+    --accent-foreground: 0 0% 8%;
 
     --border: 0 0% 22%; /* Medium charcoal border */
     --input: 0 0% 22%;
-    --ring: 173 80% 40%; /* Teal ring */
-
-    --radius: 0.5rem;
-  }
-
-  .light-mode {
-    --background: 0 0% 98%; /* Very light grey */
-    --foreground: 0 0% 20%; /* Dark grey */
-
-    --card: 0 0% 96%; /* Light grey card */
-    --card-foreground: 0 0% 20%;
-
-    --popover: 0 0% 96%;
-    --popover-foreground: 0 0% 20%;
-
-    --primary: 173 80% 40%; /* Teal primary */
-    --primary-foreground: 0 0% 98%; /* Very light grey */
-
-    --secondary: 0 0% 92%; /* Light grey secondary */
-    --secondary-foreground: 0 0% 25%;
-
-    --muted: 0 0% 88%; /* Medium light grey */
-    --muted-foreground: 0 0% 45%; /* Medium grey */
-
-    --accent: 173 70% 45%; /* Teal accent */
-    --accent-foreground: 0 0% 98%;
-
-    --border: 0 0% 85%; /* Light grey border */
-    --input: 0 0% 90%;
-    --ring: 173 80% 40%; /* Teal ring */
+    --ring: 212 100% 48%; /* Blue ring */
   }
 
   * {

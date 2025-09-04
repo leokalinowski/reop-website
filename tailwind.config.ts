@@ -25,12 +25,12 @@ export default {
 				ring: 'hsl(var(--ring))',
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
-				cosmic: {
-					dark: '#404040', /* Medium grey for light mode */
-					darker: '#303030', /* Darker grey for light mode */
-					light: '#f0f0f0', /* Light grey for light mode */
-					accent: 'hsl(173 70% 45%)', /* Teal accent */
-					muted: '#909090', /* Medium grey */
+				realEstate: {
+					blue: '#007BFF',
+					green: '#28A745',
+					yellow: '#FFC107',
+					lightGray: '#F8F9FA',
+					darkGray: '#333333',
 				},
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
