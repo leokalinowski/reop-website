@@ -19,8 +19,8 @@ const Footer = () => {
                 <span className="text-sm">(571) 603-7367</span>
               </div>
               <div className="flex items-center gap-3 text-muted-foreground">
-                <Mail className="h-4 w-4 text-primary" />
-                <span className="text-sm">info@realestateonpurpose.com</span>
+                
+                <span className="text-sm">info@realestateuppose.com</span>
               </div>
               <div className="flex items-center gap-3 text-muted-foreground">
                 <MapPin className="h-4 w-4 text-primary" />
