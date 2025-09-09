@@ -45,20 +45,6 @@ const Footer = () => {
             </div>
           </div>
           
-          {/* Services */}
-          <div className="space-y-4">
-            <h4 className="font-semibold text-lg text-foreground">Our Services</h4>
-            <ul className="space-y-3">
-              <li><a href="#automated-outreach" className="text-muted-foreground hover:text-primary transition-colors">Automated Outreach</a></li>
-              <li><a href="#lead-management" className="text-muted-foreground hover:text-primary transition-colors">Lead Management</a></li>
-              <li><a href="#event-management" className="text-muted-foreground hover:text-primary transition-colors">Event Management</a></li>
-              <li><a href="#newsletter-tools" className="text-muted-foreground hover:text-primary transition-colors">Newsletter Tools</a></li>
-              <li><a href="#social-media" className="text-muted-foreground hover:text-primary transition-colors">Social Media Management</a></li>
-              <li><a href="#coaching" className="text-muted-foreground hover:text-primary transition-colors">Weekly Coaching</a></li>
-              <li><a href="#transaction-coordination" className="text-muted-foreground hover:text-primary transition-colors">Transaction Coordination</a></li>
-            </ul>
-          </div>
-          
           {/* Quick Links */}
           <div className="space-y-4">
             <h4 className="font-semibold text-lg text-foreground">Quick Links</h4>
@@ -70,6 +56,20 @@ const Footer = () => {
               <li><a href="#support" className="text-muted-foreground hover:text-primary transition-colors">Support</a></li>
               <li><a href="#faq" className="text-muted-foreground hover:text-primary transition-colors">FAQ</a></li>
               <li><a href="#contact" className="text-muted-foreground hover:text-primary transition-colors">Contact</a></li>
+            </ul>
+          </div>
+          
+          {/* Services */}
+          <div className="space-y-4">
+            <h4 className="font-semibold text-lg text-foreground">Our Services</h4>
+            <ul className="space-y-3">
+              <li><a href="#automated-outreach" className="text-muted-foreground hover:text-primary transition-colors">Automated Outreach</a></li>
+              <li><a href="#lead-management" className="text-muted-foreground hover:text-primary transition-colors">Lead Management</a></li>
+              <li><a href="#event-management" className="text-muted-foreground hover:text-primary transition-colors">Event Management</a></li>
+              <li><a href="#newsletter-tools" className="text-muted-foreground hover:text-primary transition-colors">Newsletter Tools</a></li>
+              <li><a href="#social-media" className="text-muted-foreground hover:text-primary transition-colors">Social Media Tools</a></li>
+              <li><a href="#weekly-coaching" className="text-muted-foreground hover:text-primary transition-colors">Weekly Coaching</a></li>
+              <li><a href="#transaction-coordination" className="text-muted-foreground hover:text-primary transition-colors">Transaction Coordination</a></li>
             </ul>
           </div>
         </div>
