@@ -4,7 +4,7 @@ import { Mail, Phone, MapPin, Facebook, Instagram, Youtube, Linkedin } from 'luc
 const Footer = () => {
   return <footer className="w-full py-16 px-6 md:px-12 border-t border-border bg-card">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {/* Company Info */}
           <div className="lg:col-span-2 space-y-6">
             <Logo />
@@ -56,20 +56,6 @@ const Footer = () => {
               <li><a href="#social-media" className="text-muted-foreground hover:text-primary transition-colors">Social Media Management</a></li>
               <li><a href="#coaching" className="text-muted-foreground hover:text-primary transition-colors">Weekly Coaching</a></li>
               <li><a href="#transaction-coordination" className="text-muted-foreground hover:text-primary transition-colors">Transaction Coordination</a></li>
-            </ul>
-          </div>
-          
-          {/* Quick Links */}
-          <div className="space-y-4">
-            <h4 className="font-semibold text-lg text-foreground">Quick Links</h4>
-            <ul className="space-y-3">
-              <li><a href="#about" className="text-muted-foreground hover:text-primary transition-colors">About Us</a></li>
-              <li><a href="#testimonials" className="text-muted-foreground hover:text-primary transition-colors">Success Stories</a></li>
-              <li><a href="#join-team" className="text-muted-foreground hover:text-primary transition-colors">Join Our Team</a></li>
-              <li><a href="#resources" className="text-muted-foreground hover:text-primary transition-colors">Resources</a></li>
-              <li><a href="#support" className="text-muted-foreground hover:text-primary transition-colors">Support</a></li>
-              <li><a href="#faq" className="text-muted-foreground hover:text-primary transition-colors">FAQ</a></li>
-              <li><a href="#contact" className="text-muted-foreground hover:text-primary transition-colors">Contact</a></li>
             </ul>
           </div>
         </div>
