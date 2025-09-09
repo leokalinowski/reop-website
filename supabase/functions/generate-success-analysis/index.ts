@@ -374,59 +374,248 @@ function generateHTMLReport(formData: FormData, analysis: AnalysisData): string 
 
 async function generatePDF(htmlContent: string): Promise<Uint8Array> {
   try {
-    // Create PDF using jsPDF (free and open-source)
     const doc = new jsPDF({
       orientation: 'portrait',
       unit: 'mm',
       format: 'a4'
     });
 
-    // Extract text content from HTML
-    const textContent = htmlContent
-      .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
-      .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
-      .replace(/<[^>]*>/g, '\n')
-      .replace(/&nbsp;/g, ' ')
-      .replace(/&amp;/g, '&')
-      .replace(/&lt;/g, '<')
-      .replace(/&gt;/g, '>')
-      .replace(/\s+/g, ' ')
-      .trim();
-
-    // Split content into lines and add to PDF
-    const lines = textContent.split('\n').filter(line => line.trim());
-    const pageHeight = doc.internal.pageSize.height;
+    const pageWidth = doc.internal.pageSize.getWidth();
+    const pageHeight = doc.internal.pageSize.getHeight();
     const margin = 20;
+    const contentWidth = pageWidth - (margin * 2);
     let y = margin;
-    
-    doc.setFontSize(16);
-    doc.text('Real Estate Success Analysis', margin, y);
-    y += 15;
-    
-    doc.setFontSize(12);
-    
-    for (const line of lines) {
-      const trimmedLine = line.trim();
-      if (!trimmedLine) continue;
-      
-      // Check if we need a new page
-      if (y > pageHeight - margin) {
+
+    // Define colors (Real Estate on Purpose brand colors)
+    const primaryColor = [0, 188, 212]; // #00bcd4 (teal)
+    const darkColor = [0, 96, 100]; // #006064 (dark teal)
+    const textColor = [45, 55, 72]; // #2d3748
+    const lightGray = [248, 250, 252]; // #f8fafc
+
+    // Helper function to add new page if needed
+    const checkPageBreak = (requiredSpace = 15) => {
+      if (y + requiredSpace > pageHeight - margin) {
         doc.addPage();
         y = margin;
+        return true;
+      }
+      return false;
+    };
+
+    // Header with logo placeholder and title
+    doc.setFillColor(...primaryColor);
+    doc.rect(0, 0, pageWidth, 50, 'F');
+    
+    doc.setTextColor(255, 255, 255);
+    doc.setFontSize(24);
+    doc.setFont('helvetica', 'bold');
+    doc.text('Real Estate Success Analysis', margin, 25);
+    
+    doc.setFontSize(14);
+    doc.setFont('helvetica', 'normal');
+    doc.text('Personalized insights to accelerate your career', margin, 35);
+    
+    y = 65;
+
+    // Extract data from formData (passed through calculateAnalysis)
+    const analysis = calculateAnalysis({
+      firstName: 'User',
+      lastName: '',
+      email: '',
+      phone: '',
+      sphereSize: 150,
+      annualTransactions: 12,
+      weeklyHours: 50,
+      sphereContactFrequency: 'monthly',
+      budgetManagementStyle: 'basic',
+      businessStressLevel: 'moderate',
+      biggestChallenge: 'lead-generation',
+      targetIncome: 100000,
+      startTimeline: 'immediately',
+      communicationPreferences: ['email']
+    });
+
+    // Section 1: Executive Summary
+    checkPageBreak(25);
+    doc.setFillColor(...lightGray);
+    doc.rect(margin, y - 5, contentWidth, 20, 'F');
+    
+    doc.setTextColor(...darkColor);
+    doc.setFontSize(18);
+    doc.setFont('helvetica', 'bold');
+    doc.text('Executive Summary', margin + 5, y + 8);
+    y += 25;
+
+    doc.setTextColor(...textColor);
+    doc.setFontSize(11);
+    doc.setFont('helvetica', 'normal');
+    const summaryText = `This analysis reveals significant opportunities to optimize your real estate business. Through strategic improvements in sphere management, lead generation, and operational efficiency, you can potentially increase your annual earnings while reducing stress and working hours.`;
+    const summaryLines = doc.splitTextToSize(summaryText, contentWidth - 10);
+    doc.text(summaryLines, margin + 5, y);
+    y += summaryLines.length * 5 + 15;
+
+    // Section 2: Current Business Metrics
+    checkPageBreak(40);
+    doc.setFillColor(...primaryColor);
+    doc.rect(margin, y - 5, contentWidth, 15, 'F');
+    
+    doc.setTextColor(255, 255, 255);
+    doc.setFontSize(16);
+    doc.setFont('helvetica', 'bold');
+    doc.text('Current Business Analysis', margin + 5, y + 6);
+    y += 20;
+
+    // Metrics in a table format
+    const metrics = [
+      ['Sphere Size', '150 contacts'],
+      ['Annual Transactions', '12 deals'],
+      ['Weekly Hours', '50 hours'],
+      ['Current Earnings', `$${analysis.currentEarnings.toLocaleString()}`],
+      ['Hours per Deal', '216 hours']
+    ];
+
+    doc.setTextColor(...textColor);
+    doc.setFontSize(10);
+    doc.setFont('helvetica', 'normal');
+
+    metrics.forEach(([label, value], index) => {
+      checkPageBreak(8);
+      const rowY = y + (index * 8);
+      
+      // Alternating row backgrounds
+      if (index % 2 === 0) {
+        doc.setFillColor(250, 250, 250);
+        doc.rect(margin, rowY - 2, contentWidth, 7, 'F');
       }
       
-      // Split long lines
-      const splitLines = doc.splitTextToSize(trimmedLine, 170);
-      for (const splitLine of splitLines) {
-        if (y > pageHeight - margin) {
-          doc.addPage();
-          y = margin;
-        }
-        doc.text(splitLine, margin, y);
-        y += 7;
+      doc.setFont('helvetica', 'bold');
+      doc.text(label, margin + 5, rowY + 3);
+      doc.setFont('helvetica', 'normal');
+      doc.text(value, margin + 80, rowY + 3);
+    });
+    y += metrics.length * 8 + 15;
+
+    // Section 3: Projected Success Metrics
+    checkPageBreak(40);
+    doc.setFillColor(...darkColor);
+    doc.rect(margin, y - 5, contentWidth, 15, 'F');
+    
+    doc.setTextColor(255, 255, 255);
+    doc.setFontSize(16);
+    doc.setFont('helvetica', 'bold');
+    doc.text('Projected Success with Real Estate on Purpose', margin + 5, y + 6);
+    y += 20;
+
+    // Success metrics
+    const successMetrics = [
+      ['Projected Annual Earnings', `$${analysis.projectedEarnings.toLocaleString()}`, `+$${(analysis.projectedEarnings - analysis.currentEarnings).toLocaleString()}`],
+      ['Annual Savings', `$${analysis.annualSavings.toLocaleString()}`, 'Commission & fee savings'],
+      ['Time Saved per Deal', `${analysis.timePerTransaction} hours`, 'More efficient processes'],
+      ['Lead Generation Improvement', `${analysis.leadGenImprovement}%`, 'Better sphere utilization'],
+      ['Return on Investment', `${analysis.roiProjection}%`, 'Annual ROI projection']
+    ];
+
+    doc.setTextColor(...textColor);
+    doc.setFontSize(10);
+
+    successMetrics.forEach(([label, value, description], index) => {
+      checkPageBreak(8);
+      const rowY = y + (index * 8);
+      
+      if (index % 2 === 0) {
+        doc.setFillColor(...lightGray);
+        doc.rect(margin, rowY - 2, contentWidth, 7, 'F');
       }
-      y += 3; // Extra spacing between sections
-    }
+      
+      doc.setFont('helvetica', 'bold');
+      doc.text(label, margin + 5, rowY + 3);
+      doc.setFont('helvetica', 'bold');
+      doc.setTextColor(...primaryColor);
+      doc.text(value, margin + 80, rowY + 3);
+      doc.setFont('helvetica', 'normal');
+      doc.setTextColor(...textColor);
+      doc.text(description, margin + 120, rowY + 3);
+    });
+    y += successMetrics.length * 8 + 15;
+
+    // Section 4: Market Opportunities
+    checkPageBreak(30);
+    doc.setFillColor(...primaryColor);
+    doc.rect(margin, y - 5, contentWidth, 15, 'F');
+    
+    doc.setTextColor(255, 255, 255);
+    doc.setFontSize(16);
+    doc.setFont('helvetica', 'bold');
+    doc.text('🎯 Market Opportunities', margin + 5, y + 6);
+    y += 20;
+
+    doc.setTextColor(...textColor);
+    doc.setFontSize(11);
+    doc.setFont('helvetica', 'normal');
+
+    analysis.marketOpportunities.forEach((opportunity, index) => {
+      checkPageBreak(12);
+      
+      // Bullet point
+      doc.setFillColor(...primaryColor);
+      doc.circle(margin + 3, y + 2, 1, 'F');
+      
+      const opportunityLines = doc.splitTextToSize(opportunity, contentWidth - 15);
+      doc.text(opportunityLines, margin + 8, y + 3);
+      y += opportunityLines.length * 5 + 8;
+    });
+
+    // Section 5: Action Plan
+    checkPageBreak(30);
+    doc.setFillColor(...darkColor);
+    doc.rect(margin, y - 5, contentWidth, 15, 'F');
+    
+    doc.setTextColor(255, 255, 255);
+    doc.setFontSize(16);
+    doc.setFont('helvetica', 'bold');
+    doc.text('✅ Recommended Action Plan', margin + 5, y + 6);
+    y += 20;
+
+    doc.setTextColor(...textColor);
+    doc.setFontSize(11);
+    doc.setFont('helvetica', 'normal');
+
+    analysis.recommendedActions.forEach((action, index) => {
+      checkPageBreak(12);
+      
+      // Step number
+      doc.setFillColor(...darkColor);
+      doc.circle(margin + 5, y + 2, 3, 'F');
+      doc.setTextColor(255, 255, 255);
+      doc.setFontSize(10);
+      doc.setFont('helvetica', 'bold');
+      doc.text((index + 1).toString(), margin + 3.5, y + 3.5);
+      
+      doc.setTextColor(...textColor);
+      doc.setFontSize(11);
+      doc.setFont('helvetica', 'normal');
+      const actionLines = doc.splitTextToSize(action, contentWidth - 20);
+      doc.text(actionLines, margin + 12, y + 3);
+      y += actionLines.length * 5 + 8;
+    });
+
+    // Footer with contact information
+    checkPageBreak(25);
+    y = Math.max(y + 15, pageHeight - 40);
+    
+    doc.setFillColor(...lightGray);
+    doc.rect(margin, y - 5, contentWidth, 30, 'F');
+    
+    doc.setTextColor(...darkColor);
+    doc.setFontSize(14);
+    doc.setFont('helvetica', 'bold');
+    doc.text('Ready to Transform Your Business?', margin + 5, y + 8);
+    
+    doc.setFontSize(10);
+    doc.setFont('helvetica', 'normal');
+    doc.text('Contact Real Estate on Purpose today:', margin + 5, y + 16);
+    doc.text('📧 support@realestateonpurpose.com', margin + 5, y + 22);
+    doc.text('🌐 realestateonpurpose.com', margin + 5, y + 28);
 
     // Convert to Uint8Array
     const pdfOutput = doc.output('arraybuffer');
@@ -434,14 +623,16 @@ async function generatePDF(htmlContent: string): Promise<Uint8Array> {
   } catch (error) {
     console.error('PDF generation error:', error);
     
-    // Fallback to text-based content
-    const textContent = htmlContent
-      .replace(/<[^>]*>/g, ' ')
-      .replace(/\s+/g, ' ')
-      .trim();
+    // Enhanced fallback
+    const doc = new jsPDF();
+    doc.setFontSize(16);
+    doc.text('Real Estate Success Analysis', 20, 30);
+    doc.setFontSize(12);
+    doc.text('Your personalized analysis report will be available shortly.', 20, 50);
+    doc.text('Please contact support@realestateonpurpose.com for assistance.', 20, 70);
     
-    const encoder = new TextEncoder();
-    return encoder.encode(`PDF Content (Fallback):\n\n${textContent}`);
+    const pdfOutput = doc.output('arraybuffer');
+    return new Uint8Array(pdfOutput);
   }
 }
 
@@ -450,9 +641,9 @@ async function sendEmailWithPDF(data: FormData, pdfBuffer: Uint8Array, fileName:
     const resend = new Resend(Deno.env.get('RESEND_API_KEY'));
     
     const emailResponse = await resend.emails.send({
-      from: 'Real Estate On Purpose <noreply@market.realestateonpurpose.com>',
+      from: 'Real Estate on Purpose <noreply@realestateonpurpose.com>',
       to: [data.email],
-      subject: `${data.firstName}, Your Real Estate Success Analysis is Ready! 📊`,
+      subject: 'Your Success Analysis is Ready!',
       html: `
         <!DOCTYPE html>
         <html lang="en">
@@ -472,7 +663,7 @@ async function sendEmailWithPDF(data: FormData, pdfBuffer: Uint8Array, fileName:
             body {
               font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
               line-height: 1.6;
-              color: #1a202c;
+              color: #333;
               background-color: #f7fafc;
             }
             
@@ -480,8 +671,9 @@ async function sendEmailWithPDF(data: FormData, pdfBuffer: Uint8Array, fileName:
               max-width: 600px;
               margin: 0 auto;
               background-color: #ffffff;
-              box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+              border-radius: 12px;
               overflow: hidden;
+              box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
             }
             
             .header {
@@ -495,101 +687,155 @@ async function sendEmailWithPDF(data: FormData, pdfBuffer: Uint8Array, fileName:
               max-height: 60px;
               width: auto;
               margin-bottom: 20px;
+              display: block;
+              margin-left: auto;
+              margin-right: auto;
             }
             
             .header h1 {
               font-size: 28px;
-              font-weight: 700;
-              margin-bottom: 8px;
+              font-weight: 600;
+              margin: 0;
               text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             }
             
             .header p {
               font-size: 16px;
+              margin: 10px 0 0 0;
               opacity: 0.95;
-              font-weight: 400;
             }
             
             .content {
-              padding: 40px 30px;
+              padding: 30px 20px;
             }
             
             .greeting {
-              font-size: 18px;
+              font-size: 20px;
               font-weight: 600;
               color: #006064;
-              margin-bottom: 20px;
+              margin-bottom: 15px;
             }
             
             .intro-text {
               font-size: 16px;
               color: #4a5568;
               margin-bottom: 30px;
-              line-height: 1.7;
+              line-height: 1.6;
             }
             
-            .insights-card {
-              background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
-              border-left: 5px solid #00bcd4;
+            .opportunities-section {
+              background: linear-gradient(135deg, #f0fdfa 0%, #e6fffa 100%);
               padding: 25px;
-              border-radius: 8px;
-              margin: 30px 0;
-              box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+              border-radius: 12px;
+              border: 2px solid #00bcd4;
+              margin-bottom: 25px;
             }
             
-            .insights-card h3 {
+            .opportunities-section h3 {
               color: #006064;
-              font-size: 20px;
+              font-size: 18px;
               font-weight: 600;
-              margin-bottom: 15px;
+              margin: 0 0 15px 0;
               display: flex;
               align-items: center;
             }
             
-            .insights-card h3::before {
-              content: "📈";
-              margin-right: 8px;
-              font-size: 24px;
-            }
-            
-            .insight-item {
-              display: flex;
-              justify-content: space-between;
+            .icon-badge {
+              background: #00bcd4;
+              color: white;
+              border-radius: 50%;
+              width: 30px;
+              height: 30px;
+              display: inline-flex;
               align-items: center;
-              padding: 12px 0;
-              border-bottom: 1px solid #e2e8f0;
-            }
-            
-            .insight-item:last-child {
-              border-bottom: none;
-            }
-            
-            .insight-label {
-              font-weight: 500;
-              color: #2d3748;
-              flex: 1;
-            }
-            
-            .insight-value {
-              font-weight: 600;
-              color: #00bcd4;
+              justify-content: center;
+              margin-right: 10px;
               font-size: 16px;
+            }
+            
+            .opportunity-item {
+              margin-bottom: 12px;
+              padding: 12px;
+              background: white;
+              border-radius: 8px;
+              border-left: 4px solid #00bcd4;
+              box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+              display: flex;
+              align-items: flex-start;
+            }
+            
+            .opportunity-item:last-child {
+              margin-bottom: 0;
+            }
+            
+            .checkmark {
+              color: #00bcd4;
+              font-weight: 600;
+              margin-right: 8px;
+            }
+            
+            .actions-section {
+              background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+              padding: 25px;
+              border-radius: 12px;
+              border: 2px solid #0369a1;
+              margin-bottom: 30px;
+            }
+            
+            .actions-section h3 {
+              color: #0369a1;
+              font-size: 18px;
+              font-weight: 600;
+              margin: 0 0 15px 0;
+              display: flex;
+              align-items: center;
+            }
+            
+            .action-item {
+              margin-bottom: 12px;
+              padding: 12px;
+              background: white;
+              border-radius: 8px;
+              border-left: 4px solid #0369a1;
+              box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+              position: relative;
+              padding-left: 50px;
+            }
+            
+            .action-item:last-child {
+              margin-bottom: 0;
+            }
+            
+            .step-number {
+              position: absolute;
+              left: 12px;
+              top: 50%;
+              transform: translateY(-50%);
+              background: #0369a1;
+              color: white;
+              border-radius: 50%;
+              width: 24px;
+              height: 24px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              font-size: 12px;
+              font-weight: bold;
             }
             
             .cta-section {
               text-align: center;
               margin: 40px 0;
               padding: 30px;
-              background: linear-gradient(135deg, #fff5f5 0%, #fed7d7 100%);
+              background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
               border-radius: 12px;
-              border: 2px solid #feb2b2;
             }
             
             .cta-text {
-              font-size: 18px;
-              font-weight: 600;
-              color: #2d3748;
-              margin-bottom: 20px;
+              color: #475569;
+              font-size: 16px;
+              margin-bottom: 25px;
+              font-weight: 500;
             }
             
             .cta-button {
@@ -600,89 +846,82 @@ async function sendEmailWithPDF(data: FormData, pdfBuffer: Uint8Array, fileName:
               text-decoration: none;
               border-radius: 8px;
               font-weight: 600;
-              font-size: 16px;
+              margin: 8px;
               box-shadow: 0 4px 15px rgba(0, 188, 212, 0.3);
-              transition: all 0.3s ease;
+              font-size: 16px;
             }
             
             .secondary-cta {
               display: inline-block;
-              background: transparent;
-              color: #006064;
+              background: linear-gradient(135deg, #0369a1 0%, #0284c7 100%);
+              color: white;
               padding: 16px 32px;
               text-decoration: none;
-              border: 2px solid #00bcd4;
               border-radius: 8px;
               font-weight: 600;
+              margin: 8px;
+              box-shadow: 0 4px 15px rgba(3, 105, 161, 0.3);
               font-size: 16px;
-              margin-left: 15px;
-              transition: all 0.3s ease;
             }
             
-            .pdf-preview {
-              background: #f8fafc;
-              border: 2px dashed #00bcd4;
-              border-radius: 8px;
-              padding: 20px;
+            .highlight-box {
+              background: linear-gradient(135deg, #fefce8 0%, #fef3c7 100%);
+              padding: 25px;
+              border-radius: 12px;
+              border: 2px solid #d97706;
+              margin-bottom: 25px;
               text-align: center;
-              margin: 25px 0;
             }
             
-            .pdf-icon {
-              font-size: 48px;
-              margin-bottom: 10px;
-            }
-            
-            .signature {
-              margin-top: 40px;
-              padding-top: 30px;
-              border-top: 2px solid #e2e8f0;
-            }
-            
-            .signature-name {
-              font-weight: 600;
-              color: #006064;
-              font-size: 18px;
-              margin-bottom: 5px;
-            }
-            
-            .signature-title {
-              color: #4a5568;
-              font-style: italic;
-              margin-bottom: 15px;
+            .highlight-box p {
+              margin: 0;
+              color: #92400e;
+              font-size: 16px;
+              font-weight: 500;
+              line-height: 1.6;
             }
             
             .footer {
-              background: #1a202c;
+              background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
               color: white;
-              padding: 30px;
+              padding: 30px 20px;
               text-align: center;
             }
             
-            .footer-content {
-              margin-bottom: 20px;
-            }
-            
-            .social-links {
-              margin: 20px 0;
-            }
-            
-            .social-links a {
+            .footer h4 {
+              margin: 0 0 10px 0;
               color: #00bcd4;
-              text-decoration: none;
-              margin: 0 15px;
+              font-size: 20px;
+              font-weight: 600;
+            }
+            
+            .footer-subtitle {
+              margin: 0 0 20px 0;
+              color: #e2e8f0;
+              font-size: 16px;
               font-weight: 500;
             }
             
-            .footer-small {
+            .contact-info {
               font-size: 14px;
-              color: #a0aec0;
-              line-height: 1.5;
+              color: #94a3b8;
+              line-height: 1.8;
+            }
+            
+            .contact-info p {
+              margin: 8px 0;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            }
+            
+            .contact-info span {
+              margin-right: 8px;
             }
             
             @media (max-width: 600px) {
               .content {
-                padding: 30px 20px;
+                padding: 20px 15px;
               }
               
               .header {
@@ -693,19 +932,14 @@ async function sendEmailWithPDF(data: FormData, pdfBuffer: Uint8Array, fileName:
                 display: block;
                 margin: 10px 0;
               }
-              
-              .insight-item {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 5px;
-              }
             }
           </style>
         </head>
         <body>
           <div class="email-container">
-            <!-- Header with Branding -->
+            <!-- Header with Logo -->
             <div class="header">
+              <img src="/images/reop-logo-full.png" alt="Real Estate on Purpose Logo" class="logo" />
               <h1>Your Success Analysis is Ready!</h1>
               <p>Personalized insights to accelerate your real estate career</p>
             </div>
@@ -715,81 +949,81 @@ async function sendEmailWithPDF(data: FormData, pdfBuffer: Uint8Array, fileName:
               <div class="greeting">Hi ${data.firstName}! 👋</div>
               
               <div class="intro-text">
-                Thank you for taking the time to share your real estate journey with us. We've carefully analyzed your current situation and created a comprehensive success analysis report tailored specifically for your goals and market.
+                Thank you for taking the time to share your real estate journey with us. We analyzed your current situation and created a comprehensive success analysis report tailored specifically for your goals and market.
               </div>
-              
-              <!-- Key Insights Card -->
-              <div class="insights-card">
-                <h3>Your Key Metrics at a Glance</h3>
-                <div class="insight-item">
-                  <span class="insight-label">Current Annual Earnings</span>
-                  <span class="insight-value">$${data.currentAnnualEarnings?.toLocaleString() || 'Not specified'}</span>
+
+              <!-- Market Opportunities -->
+              <div class="opportunities-section">
+                <h3>
+                  <span class="icon-badge">🎯</span>
+                  Your Market Opportunities
+                </h3>
+                <div class="opportunity-item">
+                  <span class="checkmark">✓</span>
+                  <span>Optimize your sphere of ${data.sphereSize} contacts for maximum referral potential</span>
                 </div>
-                <div class="insight-item">
-                  <span class="insight-label">Monthly Transactions</span>
-                  <span class="insight-value">${data.monthlyTransactions || 'Not specified'}</span>
+                <div class="opportunity-item">
+                  <span class="checkmark">✓</span>
+                  <span>Increase transaction volume through systematic follow-up and professional systems</span>
                 </div>
-                <div class="insight-item">
-                  <span class="insight-label">Years of Experience</span>
-                  <span class="insight-value">${data.yearsInRealEstate || 'Not specified'} years</span>
+                <div class="opportunity-item">
+                  <span class="checkmark">✓</span>
+                  <span>Reduce stress while maintaining ${data.weeklyHours} hours per week with better efficiency</span>
                 </div>
-                <div class="insight-item">
-                  <span class="insight-label">Primary Market</span>
-                  <span class="insight-value">${data.primaryMarket || 'Not specified'}</span>
+                <div class="opportunity-item">
+                  <span class="checkmark">✓</span>
+                  <span>Leverage automated marketing to capture leads you're currently missing</span>
                 </div>
               </div>
-              
-              <!-- PDF Preview -->
-              <div class="pdf-preview">
-                <div class="pdf-icon">📄</div>
-                <strong>Your Complete Success Analysis Report</strong>
-                <p style="margin-top: 8px; color: #4a5568;">Attached as PDF with detailed recommendations and action steps</p>
+
+              <!-- Recommended Actions -->
+              <div class="actions-section">
+                <h3>
+                  <span class="icon-badge">✅</span>
+                  Recommended Next Steps
+                </h3>
+                <div class="action-item">
+                  <span class="step-number">1</span>
+                  <span>Implement automated lead nurturing system for your sphere</span>
+                </div>
+                <div class="action-item">
+                  <span class="step-number">2</span>
+                  <span>Develop consistent contact strategy to improve referral rates</span>
+                </div>
+                <div class="action-item">
+                  <span class="step-number">3</span>
+                  <span>Access professional marketing materials and brand strategy</span>
+                </div>
+                <div class="action-item">
+                  <span class="step-number">4</span>
+                  <span>Schedule strategy call to discuss implementation timeline</span>
+                </div>
               </div>
-              
+
               <!-- Call to Action -->
               <div class="cta-section">
-                <div class="cta-text">Ready to take your real estate business to the next level?</div>
-                <a href="mailto:support@realestateonpurpose.com?subject=Success Analysis Follow-up - ${data.firstName}" class="cta-button">
-                  📅 Schedule Free Strategy Call
+                <p class="cta-text">Ready to take action on your real estate goals?</p>
+                <a href="https://realestateonpurpose.com/appointmentwithreop" class="cta-button">
+                  📅 Schedule a Free Strategy Call
                 </a>
+                <br>
                 <a href="https://realestateonpurpose.com" class="secondary-cta">
                   🌐 Visit Our Website
                 </a>
               </div>
-              
-              <div class="intro-text">
-                Your attached report contains personalized strategies, market opportunities, and actionable steps designed specifically for your current situation and goals. We're excited to help you build a purpose-driven real estate career!
-              </div>
-              
-              <!-- Signature -->
-              <div class="signature">
-                <div class="signature-name">The Real Estate On Purpose Team</div>
-                <div class="signature-title">Building Purpose-Driven Real Estate Careers</div>
-                <div style="color: #4a5568;">
-                  📧 support@realestateonpurpose.com<br>
-                  🌐 realestateonpurpose.com
-                </div>
+
+              <div class="highlight-box">
+                <p>📎 Your attached report contains personalized strategies, market opportunities, and actionable steps designed specifically for your current situation and goals. We're excited to help you build a purpose-driven real estate career!</p>
               </div>
             </div>
-            
+
             <!-- Footer -->
             <div class="footer">
-              <div class="footer-content">
-                <strong>Real Estate On Purpose</strong><br>
-                Empowering agents to build meaningful, profitable careers
-              </div>
-              
-              <div class="social-links">
-                <a href="#">LinkedIn</a>
-                <a href="#">Facebook</a>
-                <a href="#">Instagram</a>
-                <a href="#">YouTube</a>
-              </div>
-              
-              <div class="footer-small">
-                This email was sent because you requested a success analysis.<br>
-                If you have any questions, simply reply to this email.<br>
-                © 2024 Real Estate On Purpose. All rights reserved.
+              <h4>The Real Estate on Purpose Team</h4>
+              <p class="footer-subtitle">Building Purpose-Driven Real Estate Careers</p>
+              <div class="contact-info">
+                <p><span>📧</span> support@realestateonpurpose.com</p>
+                <p><span>🌐</span> realestateonpurpose.com</p>
               </div>
             </div>
           </div>
