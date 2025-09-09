@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { CardContainer, CardBody, CardItem } from '@/components/ui/3d-card';
 import { Share2, CheckCircle } from 'lucide-react';
 
 
@@ -40,15 +41,25 @@ const SocialMediaTools = () => {
             </div>
           </div>
           
-          <div className="relative">
-            <div className="cosmic-glow rounded-xl overflow-hidden">
-              <img 
-                src="/images/social-media.png" 
-                alt="Social Media Tools Dashboard"
-                className="w-full h-96 object-cover"
-              />
-            </div>
-          </div>
+          <CardContainer className="inter-var">
+            <CardBody className="bg-gradient-to-br from-secondary/5 to-accent/5 relative group/card border border-border rounded-xl p-6 h-auto w-auto">
+              <CardItem
+                translateZ="50"
+                className="text-xl font-bold text-foreground"
+              >
+                <div className="relative overflow-hidden rounded-lg shadow-2xl">
+                  <CardItem translateZ="100" className="w-full">
+                    <img 
+                      src="/images/social-media.png" 
+                      alt="Social Media Tools Dashboard"
+                      className="w-full h-96 object-cover rounded-lg"
+                    />
+                  </CardItem>
+                  <div className="absolute inset-0 bg-gradient-to-t from-secondary/20 via-transparent to-transparent rounded-lg"></div>
+                </div>
+              </CardItem>
+            </CardBody>
+          </CardContainer>
         </div>
       </div>
     </section>
