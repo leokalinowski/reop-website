@@ -30,8 +30,6 @@ interface AnalysisData {
   projectedEarnings: number;
   annualSavings: number;
   timePerTransaction: number;
-  leadGenImprovement: number;
-  roiProjection: number;
   marketOpportunities: string[];
   recommendedActions: string[];
 }
@@ -90,7 +88,7 @@ async function processAnalysisBackground(
     );
 
     // Generate PDF
-    const pdfBuffer = await generatePDF(htmlContent);
+    const pdfBuffer = await generatePDF(htmlContent, formData);
     
     // Store PDF in Supabase Storage
     const pdfFileName = `${formData.firstName}-${formData.lastName}-success-analysis-${Date.now()}.pdf`;
@@ -176,12 +174,6 @@ function calculateAnalysis(formData: FormData): AnalysisData {
   // Calculate time savings per transaction (baseline 25 hours minus efficiency factors)
   const timePerTransaction = Math.round(Math.max(10, 25 - (formData.weeklyHours / 5)));
   
-  // Calculate lead generation improvement (0.1% per sphere contact + 8% per current transaction)
-  const leadGenImprovement = Math.round(150 + (formData.sphereSize * 0.1) + (formData.annualTransactions * 8));
-  
-  // Calculate ROI projection ((projected increase ÷ $12,000 annual investment) × 100)
-  const roiProjection = Math.round(((projectedEarnings - currentEarnings) / 12000) * 100);
-  
   // Generate market opportunities based on business metrics
   const marketOpportunities = [
     `Sphere optimization: Your ${formData.sphereSize} contacts could generate ${Math.round(formData.sphereSize / 6)} deals annually (1 deal per 6 contacts)`,
@@ -225,8 +217,6 @@ function calculateAnalysis(formData: FormData): AnalysisData {
     projectedEarnings,
     annualSavings,
     timePerTransaction,
-    leadGenImprovement,
-    roiProjection,
     marketOpportunities,
     recommendedActions
   };
@@ -296,14 +286,16 @@ function generateHTMLReport(formData: FormData, analysis: AnalysisData): string 
       </div>
 
       <div class="section">
-        <h2>Business Management & Stress Analysis</h2>
-        <p><strong>Contact Frequency:</strong> ${formData.sphereContactFrequency}</p>
-        <p><strong>Budget Management:</strong> ${formData.budgetManagementStyle}</p>
+        <h2>Current Business Analysis</h2>
+        <p><strong>Sphere Contact Frequency:</strong> You contact your database ${formData.sphereContactFrequency}</p>
+        <p><strong>Budget & P&L Management:</strong> ${formData.budgetManagementStyle.charAt(0).toUpperCase() + formData.budgetManagementStyle.slice(1)} tracking and management</p>
+        <p><strong>Target Annual Income:</strong> $${formData.targetIncome.toLocaleString()}</p>
+        <p><strong>Timeline to Start:</strong> ${formData.startTimeline.charAt(0).toUpperCase() + formData.startTimeline.slice(1)}</p>
         <div class="stress-indicator stress-${formData.businessStressLevel}">
-          <strong>Current Stress Level:</strong> ${formData.businessStressLevel.charAt(0).toUpperCase() + formData.businessStressLevel.slice(1)}
+          <strong>Current Business Stress Level:</strong> ${formData.businessStressLevel.charAt(0).toUpperCase() + formData.businessStressLevel.slice(1)}
         </div>
         <div class="challenge-box">
-          <strong>Biggest Challenge:</strong> ${formData.biggestChallenge.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}
+          <strong>Your Biggest Challenge Right Now:</strong> ${formData.biggestChallenge.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}
         </div>
       </div>
 
@@ -322,20 +314,8 @@ function generateHTMLReport(formData: FormData, analysis: AnalysisData): string 
           <div class="metric-value">${analysis.timePerTransaction}</div>
           <div class="metric-label">Hours Saved Per Deal<br><small>Calculated from baseline 25 hours minus efficiency factors</small></div>
         </div>
-        <div class="metric">
-          <div class="metric-value">${analysis.leadGenImprovement}%</div>
-          <div class="metric-label">Lead Gen Improvement<br><small>Based on sphere optimization (0.1% per contact + 8% per current transaction)</small></div>
-        </div>
       </div>
 
-      <div class="section">
-        <h2>Return on Investment</h2>
-        <div class="highlight">
-          <strong>Projected ROI: ${analysis.roiProjection}%</strong>
-          <br>Calculated as (projected increase ÷ $12,000 annual investment) × 100
-          <br>Based on your specific business metrics and our comprehensive support system.
-        </div>
-      </div>
 
       <div class="section">
         <h2>Personalized Opportunities</h2>
@@ -346,7 +326,7 @@ function generateHTMLReport(formData: FormData, analysis: AnalysisData): string 
 
       <div class="section">
         <h2>Customized Action Plan</h2>
-        <p><strong>Based on your biggest challenge (${formData.biggestChallenge.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}):</strong></p>
+        <p><strong>Personalized recommendations based on your challenge with ${formData.biggestChallenge.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}:</strong></p>
         <ul>
           ${analysis.recommendedActions.map(action => `<li>• ${action}</li>`).join('')}
         </ul>
@@ -375,7 +355,7 @@ function generateHTMLReport(formData: FormData, analysis: AnalysisData): string 
   `;
 }
 
-async function generatePDF(htmlContent: string): Promise<Uint8Array> {
+async function generatePDF(htmlContent: string, formData: FormData): Promise<Uint8Array> {
   try {
     const doc = new jsPDF({
       orientation: 'portrait',
@@ -405,38 +385,26 @@ async function generatePDF(htmlContent: string): Promise<Uint8Array> {
       return false;
     };
 
-    // Header with logo placeholder and title
+    // Header with text branding only (no logo to avoid display issues)
     doc.setFillColor(...primaryColor);
     doc.rect(0, 0, pageWidth, 50, 'F');
     
     doc.setTextColor(255, 255, 255);
-    doc.setFontSize(24);
+    doc.setFontSize(20);
     doc.setFont('helvetica', 'bold');
-    doc.text('Real Estate Success Analysis', margin, 25);
+    doc.text('REAL ESTATE ON PURPOSE', margin, 20);
     
-    doc.setFontSize(14);
+    doc.setFontSize(16);
     doc.setFont('helvetica', 'normal');
-    doc.text('Personalized insights to accelerate your career', margin, 35);
+    doc.text('Personalized Success Analysis', margin, 30);
+    
+    doc.setFontSize(12);
+    doc.text(`For ${formData.firstName} ${formData.lastName}`, margin, 40);
     
     y = 65;
 
-    // Extract data from formData (passed through calculateAnalysis)
-    const analysis = calculateAnalysis({
-      firstName: 'User',
-      lastName: '',
-      email: '',
-      phone: '',
-      sphereSize: 150,
-      annualTransactions: 12,
-      weeklyHours: 50,
-      sphereContactFrequency: 'monthly',
-      budgetManagementStyle: 'basic',
-      businessStressLevel: 'moderate',
-      biggestChallenge: 'lead-generation',
-      targetIncome: 100000,
-      startTimeline: 'immediately',
-      communicationPreferences: ['email']
-    });
+    // Use the actual form data passed to this function
+    const analysis = calculateAnalysis(formData);
 
     // Section 1: Executive Summary
     checkPageBreak(25);
@@ -469,12 +437,21 @@ async function generatePDF(htmlContent: string): Promise<Uint8Array> {
     y += 20;
 
     // Metrics in a table format
+    const sphereUtilizationRate = formData.sphereSize > 0 ? ((formData.annualTransactions / formData.sphereSize) * 100).toFixed(1) : '0';
+    const hoursPerDeal = formData.annualTransactions > 0 ? (formData.weeklyHours * 52 / formData.annualTransactions).toFixed(1) : '0';
+    
     const metrics = [
-      ['Sphere Size', '150 contacts'],
-      ['Annual Transactions', '12 deals'],
-      ['Weekly Hours', '50 hours'],
+      ['Sphere Size', `${formData.sphereSize} contacts`],
+      ['Annual Transactions', `${formData.annualTransactions} deals`],
+      ['Weekly Hours', `${formData.weeklyHours} hours`],
+      ['Sphere Utilization', `${sphereUtilizationRate}%`],
       ['Current Earnings', `$${analysis.currentEarnings.toLocaleString()}`],
-      ['Hours per Deal', '216 hours']
+      ['Hours per Deal', `${hoursPerDeal} hours`],
+      ['Contact Frequency', formData.sphereContactFrequency],
+      ['Budget Management', formData.budgetManagementStyle],
+      ['Stress Level', formData.businessStressLevel],
+      ['Biggest Challenge', formData.biggestChallenge.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')],
+      ['Target Income', `$${formData.targetIncome.toLocaleString()}`]
     ];
 
     doc.setTextColor(...textColor);
@@ -509,13 +486,11 @@ async function generatePDF(htmlContent: string): Promise<Uint8Array> {
     doc.text('Projected Success with Real Estate on Purpose', margin + 5, y + 6);
     y += 20;
 
-    // Success metrics with footnote
+    // Success metrics with footnote (removed lead gen and ROI)
     const successMetrics = [
       ['Projected Annual Earnings*', `$${analysis.projectedEarnings.toLocaleString()}`, `+$${(analysis.projectedEarnings - analysis.currentEarnings).toLocaleString()}`],
       ['Annual Savings', `$${analysis.annualSavings.toLocaleString()}`, '15% of projected earnings'],
-      ['Time Saved per Deal', `${analysis.timePerTransaction} hours`, 'Baseline 25hrs minus efficiency'],
-      ['Lead Generation Improvement', `${analysis.leadGenImprovement}%`, '0.1% per contact + 8% per transaction'],
-      ['Return on Investment', `${analysis.roiProjection}%`, '(increase ÷ $12k investment) × 100']
+      ['Time Saved per Deal', `${analysis.timePerTransaction} hours`, 'Baseline 25hrs minus efficiency']
     ];
 
     doc.setTextColor(...textColor);
