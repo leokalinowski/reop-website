@@ -641,9 +641,9 @@ async function sendEmailWithPDF(data: FormData, pdfBuffer: Uint8Array, fileName:
     const resend = new Resend(Deno.env.get('RESEND_API_KEY'));
     
     const emailResponse = await resend.emails.send({
-      from: 'Real Estate on Purpose <noreply@realestateonpurpose.com>',
+      from: 'Real Estate on Purpose <noreply@market.realestateonpurpose.com>',
       to: [data.email],
-      subject: 'Your Success Analysis is Ready!',
+      subject: 'Your Real Estate on Purpose Success Analysis is Ready!',
       html: `
         <!DOCTYPE html>
         <html lang="en">
