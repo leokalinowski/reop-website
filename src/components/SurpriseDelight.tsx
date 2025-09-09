@@ -26,11 +26,11 @@ const SurpriseDelight = () => {
                 >
                   <div className="relative overflow-hidden rounded-lg shadow-2xl">
                     <CardItem translateZ="100" className="w-full">
-                      <img 
-                        src="/images/surprise-delight.png" 
-                        alt="Surprise & Delight Dashboard"
-                        className="w-full h-96 object-cover rounded-lg"
-                      />
+                        <img 
+                          src="/images/surprise-delight.png" 
+                          alt="Surprise & Delight Dashboard"
+                          className="w-full max-h-80 object-contain rounded-lg"
+                        />
                     </CardItem>
                     <div className="absolute inset-0 bg-gradient-to-t from-secondary/20 via-transparent to-transparent rounded-lg"></div>
                   </div>

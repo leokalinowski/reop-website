@@ -26,11 +26,11 @@ const WeeklyCoaching = () => {
                 >
                   <div className="relative overflow-hidden rounded-lg shadow-2xl">
                     <CardItem translateZ="100" className="w-full">
-                      <img 
-                        src="/images/coaching.png" 
-                        alt="Weekly Coaching Dashboard"
-                        className="w-full h-96 object-cover rounded-lg"
-                      />
+                        <img 
+                          src="/images/coaching.png" 
+                          alt="Weekly Coaching Dashboard"
+                          className="w-full max-h-80 object-contain rounded-lg"
+                        />
                     </CardItem>
                     <div className="absolute inset-0 bg-gradient-to-t from-accent/20 via-transparent to-transparent rounded-lg"></div>
                   </div>
