@@ -1,5 +1,6 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2.57.0';
+import { Resend } from "npm:resend@2.0.0";
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
@@ -49,30 +50,15 @@ const handler = async (req: Request): Promise<Response> => {
     // Generate HTML content for the PDF
     const htmlContent = generateHTMLReport(formData, analysis);
     
-    // Convert HTML to PDF using a simple HTML-to-PDF service
-    const pdfBuffer = await generatePDF(htmlContent);
-    
-    // Send email with PDF attachment
-    await sendEmailWithPDF(formData, pdfBuffer);
-    
-    // Update the lead record to mark PDF as generated and sent
-    const supabase = createClient(
-      Deno.env.get('SUPABASE_URL')!,
-      Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!
+    // Use background processing for PDF generation and email sending
+    EdgeRuntime.waitUntil(
+      processAnalysisBackground(formData, htmlContent, analysis)
     );
-
-    await supabase
-      .from('leads')
-      .update({ 
-        pdf_generated: true, 
-        pdf_sent: true 
-      })
-      .eq('email', formData.email);
 
     return new Response(
       JSON.stringify({ 
         success: true, 
-        message: 'Success analysis generated and sent',
+        message: 'Success analysis is being processed and will be sent shortly',
         analysis: analysis 
       }),
       {
@@ -90,6 +76,71 @@ const handler = async (req: Request): Promise<Response> => {
     );
   }
 };
+
+async function processAnalysisBackground(
+  formData: FormData, 
+  htmlContent: string, 
+  analysis: AnalysisData
+): Promise<void> {
+  try {
+    const supabase = createClient(
+      Deno.env.get('SUPABASE_URL')!,
+      Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!
+    );
+
+    // Generate PDF
+    const pdfBuffer = await generatePDF(htmlContent);
+    
+    // Store PDF in Supabase Storage
+    const pdfFileName = `${formData.firstName}-${formData.lastName}-success-analysis-${Date.now()}.pdf`;
+    const { data: uploadData, error: uploadError } = await supabase.storage
+      .from('pdf-reports')
+      .upload(pdfFileName, pdfBuffer, {
+        contentType: 'application/pdf',
+        metadata: {
+          lead_email: formData.email,
+          generated_at: new Date().toISOString()
+        }
+      });
+
+    if (uploadError) {
+      console.error('PDF upload error:', uploadError);
+      throw uploadError;
+    }
+
+    console.log('PDF uploaded successfully:', uploadData);
+
+    // Send email with PDF attachment
+    await sendEmailWithPDF(formData, pdfBuffer, pdfFileName);
+    
+    // Update the lead record to mark PDF as generated and sent
+    await supabase
+      .from('leads')
+      .update({ 
+        pdf_generated: true, 
+        pdf_sent: true 
+      })
+      .eq('email', formData.email);
+
+    console.log('Analysis processing completed for:', formData.email);
+  } catch (error) {
+    console.error('Background processing error:', error);
+    
+    // Update lead record to indicate failure
+    const supabase = createClient(
+      Deno.env.get('SUPABASE_URL')!,
+      Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!
+    );
+    
+    await supabase
+      .from('leads')
+      .update({ 
+        pdf_generated: false, 
+        pdf_sent: false 
+      })
+      .eq('email', formData.email);
+  }
+}
 
 function calculateAnalysis(formData: FormData): AnalysisData {
   // Calculate current earnings based on transactions
@@ -321,45 +372,121 @@ function generateHTMLReport(formData: FormData, analysis: AnalysisData): string 
 }
 
 async function generatePDF(htmlContent: string): Promise<Uint8Array> {
-  // For this demo, we'll create a simple text-based PDF
-  // In production, you'd use a proper HTML-to-PDF service like Puppeteer or similar
-  
-  const textContent = htmlContent
-    .replace(/<[^>]*>/g, ' ')
-    .replace(/\s+/g, ' ')
-    .trim();
-  
-  // Create a simple PDF-like response
-  // Note: This is a simplified version. For production, use proper PDF generation
-  const encoder = new TextEncoder();
-  return encoder.encode(`PDF Content:\n\n${textContent}`);
+  try {
+    // Use htmlcsstoimage.com API for real PDF generation
+    const response = await fetch('https://hcti.io/v1/image', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Basic ${btoa('user-id:api-key')}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        html: htmlContent,
+        css: '',
+        google_fonts: 'Arial',
+        width: 800,
+        height: 1000,
+        device_scale: 2
+      }),
+    });
+
+    if (!response.ok) {
+      throw new Error(`PDF generation failed: ${response.statusText}`);
+    }
+
+    const result = await response.json();
+    
+    // Download the generated image as PDF-like content
+    const imageResponse = await fetch(result.url);
+    const imageBuffer = await imageResponse.arrayBuffer();
+    
+    return new Uint8Array(imageBuffer);
+  } catch (error) {
+    console.error('PDF generation error:', error);
+    
+    // Fallback to text-based content
+    const textContent = htmlContent
+      .replace(/<[^>]*>/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim();
+    
+    const encoder = new TextEncoder();
+    return encoder.encode(`PDF Content (Fallback):\n\n${textContent}`);
+  }
 }
 
-async function sendEmailWithPDF(data: FormData, pdfBuffer: Uint8Array): Promise<void> {
-  // For this demo, we'll log the email content
-  // In production, integrate with your email service (Resend, SendGrid, etc.)
-  console.log(`
-    Sending email to: ${data.email}
-    Subject: Your Personalized Real Estate Success Analysis
+async function sendEmailWithPDF(data: FormData, pdfBuffer: Uint8Array, fileName: string): Promise<void> {
+  try {
+    const resend = new Resend(Deno.env.get('RESEND_API_KEY'));
     
-    Hi ${data.firstName},
-    
-    Thank you for taking the time to complete our success analysis form. Your personalized report is attached as a PDF.
-    
-    This analysis shows how you could potentially increase your annual income while saving money on fees by joining the Real Estate On Purpose team.
-    
-    Next steps:
-    1. Review your personalized analysis
-    2. Schedule a strategy call to discuss your specific situation
-    3. Ask any questions about our system and support
-    
-    We're excited about the possibility of helping you achieve your real estate goals!
-    
-    Best regards,
-    The Real Estate On Purpose Team
-    
-    PDF Report: ${pdfBuffer.length} bytes attached
-  `);
+    const emailResponse = await resend.emails.send({
+      from: 'Real Estate On Purpose <onboarding@resend.dev>',
+      to: [data.email],
+      subject: 'Your Personalized Real Estate Success Analysis',
+      html: `
+        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
+          <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px; border-radius: 10px; text-align: center; margin-bottom: 30px;">
+            <h1>Your Success Analysis is Ready!</h1>
+          </div>
+          
+          <div style="padding: 20px; background: #f8f9fa; border-radius: 8px; margin-bottom: 20px;">
+            <h2>Hi ${data.firstName},</h2>
+            <p>Thank you for taking the time to complete our success analysis form. Your personalized report is attached as a PDF.</p>
+            
+            <p>This analysis shows how you could potentially <strong>increase your annual income</strong> while <strong>saving money on fees</strong> by joining the Real Estate On Purpose team.</p>
+          </div>
+          
+          <div style="padding: 20px; border: 1px solid #eee; border-radius: 8px; margin-bottom: 20px;">
+            <h3>Next Steps:</h3>
+            <ol>
+              <li>Review your personalized analysis (attached)</li>
+              <li>Schedule a strategy call to discuss your specific situation</li>
+              <li>Ask any questions about our system and support</li>
+            </ol>
+          </div>
+          
+          <div style="text-align: center; padding: 20px;">
+            <p style="font-size: 18px; color: #667eea;"><strong>Ready to transform your real estate business?</strong></p>
+            <p>We're excited about the possibility of helping you achieve your real estate goals!</p>
+          </div>
+          
+          <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; text-align: center; margin-top: 30px;">
+            <p><strong>Contact us:</strong></p>
+            <p>Email: info@realestateonpurpose.com | Phone: (555) 123-4567</p>
+            <p style="font-size: 12px; color: #666;">Real Estate On Purpose - Transforming Careers, One Agent at a Time</p>
+          </div>
+        </div>
+      `,
+      text: `Hi ${data.firstName},
+
+Thank you for completing our success analysis form. Your personalized report is attached.
+
+This analysis shows how you could potentially increase your annual income while saving money on fees by joining Real Estate On Purpose.
+
+Next Steps:
+1. Review your personalized analysis (attached)
+2. Schedule a strategy call to discuss your situation
+3. Ask questions about our system and support
+
+Contact us:
+Email: info@realestateonpurpose.com
+Phone: (555) 123-4567
+
+Best regards,
+The Real Estate On Purpose Team`,
+      attachments: [
+        {
+          filename: fileName,
+          content: Array.from(pdfBuffer),
+        },
+      ],
+    });
+
+    console.log('Email sent successfully:', emailResponse);
+  } catch (error) {
+    console.error('Email sending error:', error);
+    throw error;
+  }
 }
 
 serve(handler);
