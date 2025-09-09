@@ -28,7 +28,6 @@ interface FormData {
 interface AnalysisData {
   currentEarnings: number;
   projectedEarnings: number;
-  annualSavings: number;
   timePerTransaction: number;
   marketOpportunities: string[];
   recommendedActions: string[];
@@ -149,35 +148,21 @@ function calculateAnalysis(formData: FormData): AnalysisData {
   // Calculate sphere utilization rate
   const sphereUtilizationRate = formData.sphereSize > 0 ? (formData.annualTransactions / formData.sphereSize) * 100 : 0;
   
-  // Calculate projected earnings with our system
-  const baseMultiplier = 2.0;
-  
-  // Adjust multiplier based on sphere contact frequency
-  const contactFrequencyBonus = {
-    'weekly': 0.5,
-    'monthly': 0.3,
-    'quarterly': 0.1,
-    'biannually': 0,
-    'annually': -0.1,
-    'rarely': -0.2
-  }[formData.sphereContactFrequency] || 0;
-  
-  // Adjust based on work-life balance (more efficient agents earn more)
-  const efficiencyBonus = formData.weeklyHours > 60 ? -0.2 : formData.weeklyHours < 40 ? 0.3 : 0.1;
-  
-  const finalMultiplier = baseMultiplier + contactFrequencyBonus + efficiencyBonus;
-  const projectedEarnings = Math.round(Math.max(currentEarnings * finalMultiplier, currentEarnings * 1.5));
-  
-  // Calculate annual savings (15% of projected earnings from reduced commission splits and marketing costs)
-  const annualSavings = Math.round(projectedEarnings * 0.15);
+  // Calculate projected earnings: sphere size divided by 6 (industry standard) times average commission
+  const projectedEarnings = Math.round((formData.sphereSize / 6) * averageCommission);
   
   // Calculate time savings per transaction (baseline 25 hours minus efficiency factors)
   const timePerTransaction = Math.round(Math.max(10, 25 - (formData.weeklyHours / 5)));
   
   // Generate market opportunities based on business metrics
+  const potentialDeals = Math.round(formData.sphereSize / 6);
+  const improvementPercentage = formData.annualTransactions > 0 ? 
+    Math.round(((potentialDeals - formData.annualTransactions) / formData.annualTransactions) * 100) : 
+    100;
+  
   const marketOpportunities = [
-    `Sphere optimization: Your ${formData.sphereSize} contacts could generate ${Math.round(formData.sphereSize / 6)} deals annually (1 deal per 6 contacts)`,
-    `Contact frequency improvement could increase referrals by ${contactFrequencyBonus > 0 ? '40%' : '60%'}`,
+    `Sphere optimization: Your ${formData.sphereSize} contacts could generate ${potentialDeals} deals annually vs your current ${formData.annualTransactions} deals`,
+    `Contact frequency improvement could increase referrals by ${improvementPercentage}%`,
     `Professional systems reduce stress while increasing productivity`,
     `Automated follow-up captures leads you're currently missing`
   ];
@@ -215,7 +200,6 @@ function calculateAnalysis(formData: FormData): AnalysisData {
   return {
     currentEarnings,
     projectedEarnings,
-    annualSavings,
     timePerTransaction,
     marketOpportunities,
     recommendedActions
@@ -304,11 +288,7 @@ function generateHTMLReport(formData: FormData, analysis: AnalysisData): string 
         <div class="highlight">
           <strong>Projected Annual Earnings: $${analysis.projectedEarnings.toLocaleString()}</strong>*
           <br>Income Increase: $${(analysis.projectedEarnings - analysis.currentEarnings).toLocaleString()}
-          <br><small>*Based on an average commission of $3,500 per transaction</small>
-        </div>
-        <div class="metric">
-          <div class="metric-value">$${analysis.annualSavings.toLocaleString()}</div>
-          <div class="metric-label">Annual Savings<br><small>15% of projected earnings from reduced commission splits and marketing costs</small></div>
+          <br><small>*Based on industry standard: 1 deal per 6 sphere contacts × $3,500 average commission</small>
         </div>
         <div class="metric">
           <div class="metric-value">${analysis.timePerTransaction}</div>
@@ -347,8 +327,13 @@ function generateHTMLReport(formData: FormData, analysis: AnalysisData): string 
       <div class="footer">
         <p><strong>Ready to transform your real estate business and reduce your stress?</strong></p>
         <p>Your personalized analysis shows the potential for significant improvement.</p>
-        <p>Contact us today to schedule your strategy session!</p>
-        <p>Email: info@realestateonpurpose.com | Phone: (555) 123-4567</p>
+        <p style="margin: 20px 0;">
+          <a href="https://realestateonpurpose.com/appointmentwithreop" 
+             style="background: #667eea; color: white; padding: 15px 30px; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-block;">
+            Schedule Your Strategy Session with Pam
+          </a>
+        </p>
+        <p><em>Book your personalized consultation to discuss your path to success</em></p>
       </div>
     </body>
     </html>
@@ -486,10 +471,9 @@ async function generatePDF(htmlContent: string, formData: FormData): Promise<Uin
     doc.text('Projected Success with Real Estate on Purpose', margin + 5, y + 6);
     y += 20;
 
-    // Success metrics with footnote (removed lead gen and ROI)
+    // Success metrics with footnote (removed annual savings)
     const successMetrics = [
       ['Projected Annual Earnings*', `$${analysis.projectedEarnings.toLocaleString()}`, `+$${(analysis.projectedEarnings - analysis.currentEarnings).toLocaleString()}`],
-      ['Annual Savings', `$${analysis.annualSavings.toLocaleString()}`, '15% of projected earnings'],
       ['Time Saved per Deal', `${analysis.timePerTransaction} hours`, 'Baseline 25hrs minus efficiency']
     ];
 
@@ -520,7 +504,7 @@ async function generatePDF(htmlContent: string, formData: FormData): Promise<Uin
     doc.setTextColor(...textColor);
     doc.setFontSize(8);
     doc.setFont('helvetica', 'italic');
-    doc.text('*Based on an average commission of $3,500 per transaction', margin + 5, y);
+    doc.text('*Based on industry standard: 1 deal per 6 sphere contacts × $3,500 average commission', margin + 5, y);
     y += 15;
 
     // Section 4: Market Opportunities
@@ -688,22 +672,28 @@ async function generatePDF(htmlContent: string, formData: FormData): Promise<Uin
     y += 20;
 
     // Footer with contact information
-    checkPageBreak(25);
-    y = Math.max(y + 15, pageHeight - 40);
+    checkPageBreak(35);
+    y = Math.max(y + 15, pageHeight - 50);
     
-    doc.setFillColor(...lightGray);
-    doc.rect(margin, y - 5, contentWidth, 30, 'F');
+    doc.setFillColor(...primaryColor);
+    doc.rect(margin, y - 5, contentWidth, 40, 'F');
     
-    doc.setTextColor(...darkColor);
-    doc.setFontSize(14);
+    doc.setTextColor(255, 255, 255);
+    doc.setFontSize(16);
     doc.setFont('helvetica', 'bold');
-    doc.text('Ready to Transform Your Business?', margin + 5, y + 8);
+    doc.text('Ready to Transform Your Business?', margin + 5, y + 10);
     
-    doc.setFontSize(10);
+    doc.setFontSize(12);
     doc.setFont('helvetica', 'normal');
-    doc.text('Contact Real Estate on Purpose today:', margin + 5, y + 16);
-    doc.text('Email: support@realestateonpurpose.com', margin + 5, y + 22);
-    doc.text('Website: realestateonpurpose.com', margin + 5, y + 28);
+    doc.text('Schedule Your Strategy Session with Pam:', margin + 5, y + 20);
+    
+    doc.setTextColor(255, 255, 255);
+    doc.setFontSize(11);
+    doc.setFont('helvetica', 'underline');
+    doc.text('realestateonpurpose.com/appointmentwithreop', margin + 5, y + 30);
+    
+    doc.setFont('helvetica', 'normal');
+    doc.text('Book your personalized consultation today!', margin + 5, y + 38);
 
     // Convert to Uint8Array
     const pdfOutput = doc.output('arraybuffer');
