@@ -345,10 +345,10 @@ const LeadCaptureForm: React.FC<LeadCaptureFormProps> = ({ isOpen, onClose }) =>
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="immediately">Immediately</SelectItem>
-                  <SelectItem value="1-3months">Within 1-3 months</SelectItem>
-                  <SelectItem value="3-6months">Within 3-6 months</SelectItem>
-                  <SelectItem value="6+months">6+ months</SelectItem>
-                  <SelectItem value="exploring">Just exploring options</SelectItem>
+                  <SelectItem value="within_month">Within 1-3 months</SelectItem>
+                  <SelectItem value="within_quarter">Within 3-6 months</SelectItem>
+                  <SelectItem value="within_year">6+ months</SelectItem>
+                  <SelectItem value="within_year">Just exploring options</SelectItem>
                 </SelectContent>
               </Select>
             </div>
