@@ -1,6 +1,6 @@
 import React from 'react';
 import Logo from './Logo';
-import { Mail, Phone, MapPin, Facebook, Instagram, Youtube, Linkedin } from 'lucide-react';
+import { Mail, Phone } from 'lucide-react';
 const Footer = () => {
   return <footer className="w-full py-16 px-6 md:px-12 border-t border-border bg-card">
       <div className="max-w-7xl mx-auto">
@@ -22,26 +22,6 @@ const Footer = () => {
                 <Mail className="h-4 w-4 text-primary" />
                 <span className="text-sm">info@realestateonpurpose.com</span>
               </div>
-              <div className="flex items-center gap-3 text-muted-foreground">
-                <MapPin className="h-4 w-4 text-primary" />
-                <span className="text-sm">Your City, State 12345</span>
-              </div>
-            </div>
-
-            {/* Social Media */}
-            <div className="flex items-center gap-4">
-              <a href="#" className="h-10 w-10 rounded-full bg-primary/10 hover:bg-primary/20 flex items-center justify-center text-primary hover:text-primary transition-colors group">
-                <Facebook className="h-5 w-5 group-hover:scale-110 transition-transform" />
-              </a>
-              <a href="#" className="h-10 w-10 rounded-full bg-primary/10 hover:bg-primary/20 flex items-center justify-center text-primary hover:text-primary transition-colors group">
-                <Instagram className="h-5 w-5 group-hover:scale-110 transition-transform" />
-              </a>
-              <a href="#" className="h-10 w-10 rounded-full bg-primary/10 hover:bg-primary/20 flex items-center justify-center text-primary hover:text-primary transition-colors group">
-                <Linkedin className="h-5 w-5 group-hover:scale-110 transition-transform" />
-              </a>
-              <a href="#" className="h-10 w-10 rounded-full bg-primary/10 hover:bg-primary/20 flex items-center justify-center text-primary hover:text-primary transition-colors group">
-                <Youtube className="h-5 w-5 group-hover:scale-110 transition-transform" />
-              </a>
             </div>
           </div>
           
