@@ -145,7 +145,7 @@ const PrivacyPolicy = () => {
                 <div className="flex flex-col gap-2 mt-4">
                   <div className="flex items-center gap-3">
                     <Phone className="h-4 w-4 text-primary" />
-                    <span>(555) 123-4567</span>
+                    <span>(571) 603-7367</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <Mail className="h-4 w-4 text-primary" />
