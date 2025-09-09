@@ -3,7 +3,6 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/u
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Progress } from '@/components/ui/progress';
@@ -12,24 +11,18 @@ import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
 
 interface FormData {
-  // Personal Info
   firstName: string;
   lastName: string;
   email: string;
   phone: string;
-  location: string;
-  
-  // Experience
-  experienceLevel: string;
-  currentBrokerage: string;
+  sphereSize: number;
   annualTransactions: number;
-  
-  // Goals
+  weeklyHours: number;
+  sphereContactFrequency: string;
+  budgetManagementStyle: string;
+  businessStressLevel: string;
+  biggestChallenge: string;
   targetIncome: number;
-  preferredMarkets: string[];
-  businessObjectives: string;
-  
-  // Timeline
   startTimeline: string;
   communicationPreferences: string[];
 }
@@ -50,15 +43,16 @@ const LeadCaptureForm: React.FC<LeadCaptureFormProps> = ({ isOpen, onClose }) =>
     lastName: '',
     email: '',
     phone: '',
-    location: '',
-    experienceLevel: '',
-    currentBrokerage: '',
+    sphereSize: 0,
     annualTransactions: 0,
+    weeklyHours: 0,
+    sphereContactFrequency: '',
+    budgetManagementStyle: '',
+    businessStressLevel: '',
+    biggestChallenge: '',
     targetIncome: 0,
-    preferredMarkets: [],
-    businessObjectives: '',
     startTimeline: '',
-    communicationPreferences: ['email']
+    communicationPreferences: ['email'],
   });
 
   const updateFormData = (field: keyof FormData, value: any) => {
@@ -80,21 +74,21 @@ const LeadCaptureForm: React.FC<LeadCaptureFormProps> = ({ isOpen, onClose }) =>
   const handleSubmit = async () => {
     setIsSubmitting(true);
     try {
-      // Submit to Supabase
-      const { error } = await supabase.from('leads').insert({
+      const { data, error } = await supabase.from('leads').insert({
         first_name: formData.firstName,
         last_name: formData.lastName,
         email: formData.email,
         phone: formData.phone,
-        location: formData.location,
-        experience_level: formData.experienceLevel,
-        current_brokerage: formData.currentBrokerage,
+        sphere_size: formData.sphereSize,
         annual_transactions: formData.annualTransactions,
+        weekly_hours: formData.weeklyHours,
+        sphere_contact_frequency: formData.sphereContactFrequency,
+        budget_management_style: formData.budgetManagementStyle,
+        business_stress_level: formData.businessStressLevel,
+        biggest_challenge: formData.biggestChallenge,
         target_income: formData.targetIncome,
-        preferred_markets: formData.preferredMarkets,
-        business_objectives: formData.businessObjectives,
         start_timeline: formData.startTimeline,
-        communication_preferences: formData.communicationPreferences
+        communication_preferences: formData.communicationPreferences,
       });
 
       if (error) throw error;
@@ -121,15 +115,16 @@ const LeadCaptureForm: React.FC<LeadCaptureFormProps> = ({ isOpen, onClose }) =>
         lastName: '',
         email: '',
         phone: '',
-        location: '',
-        experienceLevel: '',
-        currentBrokerage: '',
+        sphereSize: 0,
         annualTransactions: 0,
+        weeklyHours: 0,
+        sphereContactFrequency: '',
+        budgetManagementStyle: '',
+        businessStressLevel: '',
+        biggestChallenge: '',
         targetIncome: 0,
-        preferredMarkets: [],
-        businessObjectives: '',
         startTimeline: '',
-        communicationPreferences: ['email']
+        communicationPreferences: ['email'],
       });
     } catch (error) {
       console.error('Error submitting form:', error);
@@ -159,8 +154,8 @@ const LeadCaptureForm: React.FC<LeadCaptureFormProps> = ({ isOpen, onClose }) =>
         return (
           <div className="space-y-4">
             <div className="text-center mb-6">
-              <h3 className="text-xl font-semibold text-foreground mb-2">Let's Get to Know You</h3>
-              <p className="text-muted-foreground">Start with your basic information</p>
+              <h3 className="text-xl font-semibold text-foreground mb-2">Personal Information</h3>
+              <p className="text-muted-foreground">Let's start with your contact details</p>
             </div>
             <div className="grid grid-cols-2 gap-4">
               <div>
@@ -205,15 +200,6 @@ const LeadCaptureForm: React.FC<LeadCaptureFormProps> = ({ isOpen, onClose }) =>
                 placeholder="(555) 123-4567"
               />
             </div>
-            <div>
-              <Label htmlFor="location">Location (City, State)</Label>
-              <Input
-                id="location"
-                value={formData.location}
-                onChange={(e) => updateFormData('location', e.target.value)}
-                placeholder="Austin, TX"
-              />
-            </div>
           </div>
         );
 
@@ -221,41 +207,57 @@ const LeadCaptureForm: React.FC<LeadCaptureFormProps> = ({ isOpen, onClose }) =>
         return (
           <div className="space-y-4">
             <div className="text-center mb-6">
-              <h3 className="text-xl font-semibold text-foreground mb-2">Your Real Estate Experience</h3>
-              <p className="text-muted-foreground">Help us understand your current situation</p>
+              <h3 className="text-xl font-semibold text-foreground mb-2">Business Metrics</h3>
+              <p className="text-muted-foreground">Help us understand your current performance</p>
             </div>
             <div>
-              <Label htmlFor="experienceLevel">Experience Level</Label>
-              <Select value={formData.experienceLevel} onValueChange={(value) => updateFormData('experienceLevel', value)}>
-                <SelectTrigger>
-                  <SelectValue placeholder="Select your experience level" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="new">New to Real Estate</SelectItem>
-                  <SelectItem value="experienced">Experienced Agent</SelectItem>
-                  <SelectItem value="veteran">Veteran Agent (5+ years)</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
-            <div>
-              <Label htmlFor="currentBrokerage">Current Brokerage (if any)</Label>
+              <Label htmlFor="sphereSize">What's your Sphere Size (database)?</Label>
               <Input
-                id="currentBrokerage"
-                value={formData.currentBrokerage}
-                onChange={(e) => updateFormData('currentBrokerage', e.target.value)}
-                placeholder="e.g., Keller Williams, RE/MAX, Independent"
+                id="sphereSize"
+                type="number"
+                value={formData.sphereSize}
+                onChange={(e) => updateFormData('sphereSize', parseInt(e.target.value) || 0)}
+                placeholder="Number of contacts in your database"
+                min="0"
               />
             </div>
             <div>
-              <Label htmlFor="annualTransactions">Annual Transactions (Last 12 Months)</Label>
+              <Label htmlFor="annualTransactions">How many deals did you close last year?</Label>
               <Input
                 id="annualTransactions"
                 type="number"
                 value={formData.annualTransactions}
                 onChange={(e) => updateFormData('annualTransactions', parseInt(e.target.value) || 0)}
-                placeholder="0"
+                placeholder="Number of transactions closed"
                 min="0"
               />
+            </div>
+            <div>
+              <Label htmlFor="weeklyHours">How many hours have you been working weekly?</Label>
+              <Input
+                id="weeklyHours"
+                type="number"
+                value={formData.weeklyHours}
+                onChange={(e) => updateFormData('weeklyHours', parseInt(e.target.value) || 0)}
+                placeholder="Hours per week"
+                min="0"
+              />
+            </div>
+            <div>
+              <Label htmlFor="sphereContactFrequency">How often do you get in touch with your Sphere?</Label>
+              <Select value={formData.sphereContactFrequency} onValueChange={(value) => updateFormData('sphereContactFrequency', value)}>
+                <SelectTrigger>
+                  <SelectValue placeholder="Select contact frequency" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="weekly">Weekly</SelectItem>
+                  <SelectItem value="monthly">Monthly</SelectItem>
+                  <SelectItem value="quarterly">Quarterly</SelectItem>
+                  <SelectItem value="biannually">Twice a year</SelectItem>
+                  <SelectItem value="annually">Once a year</SelectItem>
+                  <SelectItem value="rarely">Rarely or never</SelectItem>
+                </SelectContent>
+              </Select>
             </div>
           </div>
         );
@@ -264,38 +266,55 @@ const LeadCaptureForm: React.FC<LeadCaptureFormProps> = ({ isOpen, onClose }) =>
         return (
           <div className="space-y-4">
             <div className="text-center mb-6">
-              <h3 className="text-xl font-semibold text-foreground mb-2">Your Goals & Aspirations</h3>
-              <p className="text-muted-foreground">What do you want to achieve?</p>
+              <h3 className="text-xl font-semibold text-foreground mb-2">Business Management</h3>
+              <p className="text-muted-foreground">Let's understand your current challenges</p>
             </div>
             <div>
-              <Label htmlFor="targetIncome">Target Annual Income</Label>
-              <Input
-                id="targetIncome"
-                type="number"
-                value={formData.targetIncome}
-                onChange={(e) => updateFormData('targetIncome', parseInt(e.target.value) || 0)}
-                placeholder="100000"
-                min="0"
-              />
+              <Label htmlFor="budgetManagementStyle">How do you manage your Budget/P&L?</Label>
+              <Select value={formData.budgetManagementStyle} onValueChange={(value) => updateFormData('budgetManagementStyle', value)}>
+                <SelectTrigger>
+                  <SelectValue placeholder="Select your approach" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="detailed-tracking">Detailed tracking with software</SelectItem>
+                  <SelectItem value="basic-spreadsheet">Basic spreadsheet</SelectItem>
+                  <SelectItem value="rough-estimates">Rough estimates in my head</SelectItem>
+                  <SelectItem value="accountant-handles">My accountant handles it</SelectItem>
+                  <SelectItem value="dont-track">I don't track it</SelectItem>
+                </SelectContent>
+              </Select>
             </div>
             <div>
-              <Label htmlFor="preferredMarkets">Preferred Market Areas (separate with commas)</Label>
-              <Input
-                id="preferredMarkets"
-                value={formData.preferredMarkets.join(', ')}
-                onChange={(e) => updateFormData('preferredMarkets', e.target.value.split(',').map(s => s.trim()).filter(s => s))}
-                placeholder="Downtown, Westlake, Cedar Park"
-              />
+              <Label htmlFor="businessStressLevel">What's your business stress level?</Label>
+              <Select value={formData.businessStressLevel} onValueChange={(value) => updateFormData('businessStressLevel', value)}>
+                <SelectTrigger>
+                  <SelectValue placeholder="Select stress level" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="low">Low - I feel in control</SelectItem>
+                  <SelectItem value="moderate">Moderate - Some challenging days</SelectItem>
+                  <SelectItem value="high">High - Often overwhelmed</SelectItem>
+                  <SelectItem value="severe">Severe - Constantly stressed</SelectItem>
+                </SelectContent>
+              </Select>
             </div>
             <div>
-              <Label htmlFor="businessObjectives">Business Objectives & Challenges</Label>
-              <Textarea
-                id="businessObjectives"
-                value={formData.businessObjectives}
-                onChange={(e) => updateFormData('businessObjectives', e.target.value)}
-                placeholder="What are your main goals and what challenges do you face in reaching them?"
-                rows={4}
-              />
+              <Label htmlFor="biggestChallenge">What's your biggest challenge?</Label>
+              <Select value={formData.biggestChallenge} onValueChange={(value) => updateFormData('biggestChallenge', value)}>
+                <SelectTrigger>
+                  <SelectValue placeholder="Select your biggest challenge" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="lead-generation">Lead generation</SelectItem>
+                  <SelectItem value="time-management">Time management</SelectItem>
+                  <SelectItem value="marketing">Marketing and branding</SelectItem>
+                  <SelectItem value="client-management">Client management</SelectItem>
+                  <SelectItem value="admin-tasks">Administrative tasks</SelectItem>
+                  <SelectItem value="transaction-coordination">Transaction coordination</SelectItem>
+                  <SelectItem value="technology">Technology and systems</SelectItem>
+                  <SelectItem value="work-life-balance">Work-life balance</SelectItem>
+                </SelectContent>
+              </Select>
             </div>
           </div>
         );
@@ -304,40 +323,52 @@ const LeadCaptureForm: React.FC<LeadCaptureFormProps> = ({ isOpen, onClose }) =>
         return (
           <div className="space-y-4">
             <div className="text-center mb-6">
-              <h3 className="text-xl font-semibold text-foreground mb-2">Timeline & Preferences</h3>
-              <p className="text-muted-foreground">When are you ready to make a change?</p>
+              <h3 className="text-xl font-semibold text-foreground mb-2">Goals & Timeline</h3>
+              <p className="text-muted-foreground">What are you looking to achieve?</p>
+            </div>
+            <div>
+              <Label htmlFor="targetIncome">Target Annual Income</Label>
+              <Input
+                id="targetIncome"
+                type="number"
+                value={formData.targetIncome}
+                onChange={(e) => updateFormData('targetIncome', parseInt(e.target.value) || 0)}
+                placeholder="Your income goal"
+                min="0"
+              />
             </div>
             <div>
               <Label htmlFor="startTimeline">When would you like to start?</Label>
               <Select value={formData.startTimeline} onValueChange={(value) => updateFormData('startTimeline', value)}>
                 <SelectTrigger>
-                  <SelectValue placeholder="Select your timeline" />
+                  <SelectValue placeholder="Select your preferred timeline" />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="immediately">Immediately</SelectItem>
-                  <SelectItem value="within_month">Within a month</SelectItem>
-                  <SelectItem value="within_quarter">Within 3 months</SelectItem>
-                  <SelectItem value="within_year">Within a year</SelectItem>
+                  <SelectItem value="1-3months">Within 1-3 months</SelectItem>
+                  <SelectItem value="3-6months">Within 3-6 months</SelectItem>
+                  <SelectItem value="6+months">6+ months</SelectItem>
+                  <SelectItem value="exploring">Just exploring options</SelectItem>
                 </SelectContent>
               </Select>
             </div>
             <div>
-              <Label>How would you like us to contact you? (Select all that apply)</Label>
-              <div className="flex flex-col space-y-2 mt-2">
-                {['email', 'phone', 'text'].map((method) => (
+              <Label>Communication Preferences</Label>
+              <div className="grid grid-cols-2 gap-2 mt-2">
+                {['Email', 'Phone', 'Text', 'Video Call'].map((method) => (
                   <div key={method} className="flex items-center space-x-2">
                     <Checkbox
                       id={method}
-                      checked={formData.communicationPreferences.includes(method)}
+                      checked={formData.communicationPreferences.includes(method.toLowerCase())}
                       onCheckedChange={(checked) => {
                         if (checked) {
-                          updateFormData('communicationPreferences', [...formData.communicationPreferences, method]);
+                          updateFormData('communicationPreferences', [...formData.communicationPreferences, method.toLowerCase()]);
                         } else {
-                          updateFormData('communicationPreferences', formData.communicationPreferences.filter(pref => pref !== method));
+                          updateFormData('communicationPreferences', formData.communicationPreferences.filter(m => m !== method.toLowerCase()));
                         }
                       }}
                     />
-                    <Label htmlFor={method} className="capitalize">{method}</Label>
+                    <Label htmlFor={method} className="text-sm">{method}</Label>
                   </div>
                 ))}
               </div>

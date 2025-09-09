@@ -17,7 +17,10 @@ export type Database = {
       leads: {
         Row: {
           annual_transactions: number | null
+          biggest_challenge: string | null
+          budget_management_style: string | null
           business_objectives: string | null
+          business_stress_level: string | null
           communication_preferences: string[] | null
           created_at: string
           current_brokerage: string | null
@@ -31,14 +34,20 @@ export type Database = {
           pdf_sent: boolean | null
           phone: string | null
           preferred_markets: string[] | null
+          sphere_contact_frequency: string | null
+          sphere_size: number | null
           start_timeline: string | null
           status: string | null
           target_income: number | null
           updated_at: string
+          weekly_hours: number | null
         }
         Insert: {
           annual_transactions?: number | null
+          biggest_challenge?: string | null
+          budget_management_style?: string | null
           business_objectives?: string | null
+          business_stress_level?: string | null
           communication_preferences?: string[] | null
           created_at?: string
           current_brokerage?: string | null
@@ -52,14 +61,20 @@ export type Database = {
           pdf_sent?: boolean | null
           phone?: string | null
           preferred_markets?: string[] | null
+          sphere_contact_frequency?: string | null
+          sphere_size?: number | null
           start_timeline?: string | null
           status?: string | null
           target_income?: number | null
           updated_at?: string
+          weekly_hours?: number | null
         }
         Update: {
           annual_transactions?: number | null
+          biggest_challenge?: string | null
+          budget_management_style?: string | null
           business_objectives?: string | null
+          business_stress_level?: string | null
           communication_preferences?: string[] | null
           created_at?: string
           current_brokerage?: string | null
@@ -73,10 +88,13 @@ export type Database = {
           pdf_sent?: boolean | null
           phone?: string | null
           preferred_markets?: string[] | null
+          sphere_contact_frequency?: string | null
+          sphere_size?: number | null
           start_timeline?: string | null
           status?: string | null
           target_income?: number | null
           updated_at?: string
+          weekly_hours?: number | null
         }
         Relationships: []
       }

@@ -10,14 +10,15 @@ interface FormData {
   firstName: string;
   lastName: string;
   email: string;
-  phone?: string;
-  location?: string;
-  experienceLevel: string;
-  currentBrokerage?: string;
+  phone: string;
+  sphereSize: number;
   annualTransactions: number;
+  weeklyHours: number;
+  sphereContactFrequency: string;
+  budgetManagementStyle: string;
+  businessStressLevel: string;
+  biggestChallenge: string;
   targetIncome: number;
-  preferredMarkets: string[];
-  businessObjectives?: string;
   startTimeline: string;
   communicationPreferences: string[];
 }
@@ -90,61 +91,81 @@ const handler = async (req: Request): Promise<Response> => {
   }
 };
 
-function calculateAnalysis(data: FormData): AnalysisData {
-  // Base calculations based on experience level and current performance
-  const baseCommissionPerTransaction = 7500; // Average $7,500 per transaction
-  const currentEarnings = data.annualTransactions * baseCommissionPerTransaction;
+function calculateAnalysis(formData: FormData): AnalysisData {
+  // Calculate current earnings based on transactions
+  const currentEarnings = formData.annualTransactions * 3500; // Average commission per transaction
   
-  // Calculate improvement multipliers based on experience level
-  let improvementMultiplier = 1.0;
-  switch (data.experienceLevel) {
-    case 'new':
-      improvementMultiplier = 2.5; // New agents can see dramatic improvement
-      break;
-    case 'experienced':
-      improvementMultiplier = 1.8; // Experienced agents see good improvement
-      break;
-    case 'veteran':
-      improvementMultiplier = 1.4; // Veterans see efficiency gains
-      break;
-  }
-
-  // Projected earnings with Real Estate On Purpose
-  const projectedTransactions = Math.max(
-    data.annualTransactions * improvementMultiplier,
-    Math.ceil(data.targetIncome / baseCommissionPerTransaction)
-  );
-  const projectedEarnings = projectedTransactions * baseCommissionPerTransaction;
-
-  // Annual savings (no monthly fees vs typical brokerages)
-  const annualSavings = 3600; // $300/month * 12 months saved
-
-  // Time savings per transaction (hours)
-  const timePerTransaction = data.experienceLevel === 'new' ? 8 : 5;
-
-  // Lead generation improvement (percentage)
-  const leadGenImprovement = data.experienceLevel === 'new' ? 300 : 150;
-
-  // ROI calculation
-  const additionalEarnings = projectedEarnings - currentEarnings;
-  const roiProjection = additionalEarnings + annualSavings;
-
-  // Market opportunities based on preferred markets
-  const marketOpportunities = data.preferredMarkets.map(market => 
-    `${market}: High growth potential with average home price trends showing 8-12% annual appreciation`
-  );
-
-  // Recommended actions based on profile
-  const recommendedActions = [
-    'Join our automated lead generation system to increase qualified prospects by 300%',
-    'Access our proven transaction coordination system to save 5-8 hours per deal',
-    'Implement our social media automation to build your personal brand',
-    'Use our surprise & delight system to generate more referrals'
+  // Calculate sphere utilization rate
+  const sphereUtilizationRate = formData.sphereSize > 0 ? (formData.annualTransactions / formData.sphereSize) * 100 : 0;
+  
+  // Calculate projected earnings with our system
+  const baseMultiplier = 2.0;
+  
+  // Adjust multiplier based on sphere contact frequency
+  const contactFrequencyBonus = {
+    'weekly': 0.5,
+    'monthly': 0.3,
+    'quarterly': 0.1,
+    'biannually': 0,
+    'annually': -0.1,
+    'rarely': -0.2
+  }[formData.sphereContactFrequency] || 0;
+  
+  // Adjust based on work-life balance (more efficient agents earn more)
+  const efficiencyBonus = formData.weeklyHours > 60 ? -0.2 : formData.weeklyHours < 40 ? 0.3 : 0.1;
+  
+  const finalMultiplier = baseMultiplier + contactFrequencyBonus + efficiencyBonus;
+  const projectedEarnings = Math.round(Math.max(currentEarnings * finalMultiplier, currentEarnings * 1.5));
+  
+  // Calculate annual savings (commission splits, marketing, etc.)
+  const annualSavings = Math.round(projectedEarnings * 0.15);
+  
+  // Calculate time savings per transaction based on current workload
+  const timePerTransaction = Math.round(Math.max(10, 25 - (formData.weeklyHours / 5)));
+  
+  // Calculate lead generation improvement based on sphere size and contact frequency
+  const leadGenImprovement = Math.round(150 + (formData.sphereSize * 0.1) + (formData.annualTransactions * 8));
+  
+  // Calculate ROI projection
+  const roiProjection = Math.round(((projectedEarnings - currentEarnings) / 12000) * 100);
+  
+  // Generate market opportunities based on business metrics
+  const marketOpportunities = [
+    `Sphere optimization: Your ${formData.sphereSize} contacts could generate ${Math.round(formData.sphereSize * 0.05)} deals annually`,
+    `Contact frequency improvement could increase referrals by ${contactFrequencyBonus > 0 ? '40%' : '60%'}`,
+    `Professional systems reduce stress while increasing productivity`,
+    `Automated follow-up captures leads you're currently missing`
   ];
-
-  if (data.experienceLevel === 'new') {
-    recommendedActions.unshift('Complete our comprehensive agent training program');
-  }
+  
+  // Generate recommended actions based on biggest challenge
+  const challengeActions = {
+    'lead-generation': [
+      "Implement automated lead nurturing system",
+      "Develop sphere contact strategy",
+      "Create consistent social media presence"
+    ],
+    'time-management': [
+      "Delegate administrative tasks to our team",
+      "Implement time-blocking strategies",
+      "Use transaction coordination services"
+    ],
+    'marketing': [
+      "Access professional marketing materials",
+      "Develop personal brand strategy",
+      "Leverage social media automation"
+    ],
+    'work-life-balance': [
+      "Implement efficient systems to reduce hours",
+      "Focus on high-value activities only",
+      "Use our support team for admin tasks"
+    ]
+  };
+  
+  const recommendedActions = challengeActions[formData.biggestChallenge] || [
+    "Schedule strategy call to discuss your specific needs",
+    "Review our comprehensive support system",
+    "Connect with successful agents in our network"
+  ];
 
   return {
     currentEarnings,
@@ -158,111 +179,142 @@ function calculateAnalysis(data: FormData): AnalysisData {
   };
 }
 
-function generateHTMLReport(data: FormData, analysis: AnalysisData): string {
+function generateHTMLReport(formData: FormData, analysis: AnalysisData): string {
+  const sphereUtilizationRate = formData.sphereSize > 0 ? ((formData.annualTransactions / formData.sphereSize) * 100).toFixed(1) : '0';
+  const hoursPerDeal = formData.annualTransactions > 0 ? (formData.weeklyHours * 52 / formData.annualTransactions).toFixed(1) : '0';
+  
   return `
     <!DOCTYPE html>
     <html>
     <head>
-        <meta charset="UTF-8">
-        <style>
-            body { font-family: 'Arial', sans-serif; margin: 0; padding: 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
-            .container { max-width: 800px; margin: 0 auto; background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
-            .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 40px; text-align: center; }
-            .content { padding: 40px; }
-            .metric-card { background: #f8f9fa; border-radius: 8px; padding: 20px; margin: 20px 0; border-left: 4px solid #667eea; }
-            .metric-value { font-size: 2em; font-weight: bold; color: #667eea; }
-            .metric-label { color: #666; margin-top: 5px; }
-            .section { margin: 30px 0; }
-            .section h2 { color: #333; border-bottom: 2px solid #667eea; padding-bottom: 10px; }
-            .action-item { background: #e3f2fd; padding: 15px; margin: 10px 0; border-radius: 5px; border-left: 3px solid #2196f3; }
-            .footer { background: #f8f9fa; padding: 30px; text-align: center; color: #666; }
-            .highlight { background: linear-gradient(120deg, #a8edea 0%, #fed6e3 100%); padding: 2px 6px; border-radius: 3px; }
-        </style>
+      <meta charset="utf-8">
+      <title>Real Estate Success Analysis - ${formData.firstName} ${formData.lastName}</title>
+      <style>
+        body { font-family: Arial, sans-serif; margin: 40px; color: #333; line-height: 1.6; }
+        .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px; border-radius: 10px; text-align: center; margin-bottom: 30px; }
+        .section { margin-bottom: 30px; padding: 20px; border: 1px solid #eee; border-radius: 8px; }
+        .metric { display: inline-block; margin: 10px 15px; padding: 15px; background: #f8f9fa; border-radius: 5px; text-align: center; min-width: 120px; }
+        .metric-value { font-size: 24px; font-weight: bold; color: #667eea; }
+        .metric-label { font-size: 12px; color: #666; }
+        .highlight { background: #fff3cd; padding: 15px; border-radius: 5px; margin: 10px 0; }
+        .challenge-box { background: #f8d7da; padding: 15px; border-radius: 5px; margin: 10px 0; border-left: 4px solid #dc3545; }
+        ul { list-style-type: none; padding: 0; }
+        li { padding: 8px 0; border-bottom: 1px solid #eee; }
+        .footer { text-align: center; margin-top: 40px; padding: 20px; background: #f8f9fa; border-radius: 8px; }
+        .stress-indicator { padding: 10px; border-radius: 5px; margin: 10px 0; }
+        .stress-low { background: #d4edda; border-left: 4px solid #28a745; }
+        .stress-moderate { background: #fff3cd; border-left: 4px solid #ffc107; }
+        .stress-high { background: #f8d7da; border-left: 4px solid #dc3545; }
+      </style>
     </head>
     <body>
-        <div class="container">
-            <div class="header">
-                <h1>Your Personalized Success Analysis</h1>
-                <h2>Real Estate On Purpose - Success Roadmap</h2>
-                <p>Prepared for ${data.firstName} ${data.lastName}</p>
-            </div>
-            
-            <div class="content">
-                <div class="section">
-                    <h2>Your Current Situation</h2>
-                    <div class="metric-card">
-                        <div class="metric-value">$${analysis.currentEarnings.toLocaleString()}</div>
-                        <div class="metric-label">Current Annual Earnings (${data.annualTransactions} transactions)</div>
-                    </div>
-                    <p>Based on your ${data.experienceLevel} experience level and ${data.annualTransactions} annual transactions, we've analyzed your potential for growth.</p>
-                </div>
+      <div class="header">
+        <h1>Personalized Real Estate Success Analysis</h1>
+        <h2>For ${formData.firstName} ${formData.lastName}</h2>
+        <p>Generated on ${new Date().toLocaleDateString()}</p>
+      </div>
 
-                <div class="section">
-                    <h2>Your Projected Success with Real Estate On Purpose</h2>
-                    <div class="metric-card">
-                        <div class="metric-value">$${analysis.projectedEarnings.toLocaleString()}</div>
-                        <div class="metric-label">Projected Annual Earnings</div>
-                    </div>
-                    <div class="metric-card">
-                        <div class="metric-value">$${analysis.annualSavings.toLocaleString()}</div>
-                        <div class="metric-label">Annual Savings (No Monthly Fees)</div>
-                    </div>
-                    <div class="metric-card">
-                        <div class="metric-value">${analysis.timePerTransaction} hours</div>
-                        <div class="metric-label">Time Saved Per Transaction</div>
-                    </div>
-                    <div class="metric-card">
-                        <div class="metric-value">${analysis.leadGenImprovement}%</div>
-                        <div class="metric-label">Lead Generation Improvement</div>
-                    </div>
-                </div>
-
-                <div class="section">
-                    <h2>Your Total ROI Potential</h2>
-                    <div class="metric-card">
-                        <div class="metric-value">$${analysis.roiProjection.toLocaleString()}</div>
-                        <div class="metric-label">Additional Annual Income + Savings</div>
-                    </div>
-                    <p>This represents the <span class="highlight">additional value</span> you could gain by joining our team, combining increased earnings with eliminated monthly fees.</p>
-                </div>
-
-                ${analysis.marketOpportunities.length > 0 ? `
-                <div class="section">
-                    <h2>Market Opportunities in Your Areas</h2>
-                    ${analysis.marketOpportunities.map(opp => `<div class="action-item">${opp}</div>`).join('')}
-                </div>
-                ` : ''}
-
-                <div class="section">
-                    <h2>Your Personalized Action Plan</h2>
-                    ${analysis.recommendedActions.map(action => `<div class="action-item">✓ ${action}</div>`).join('')}
-                </div>
-
-                <div class="section">
-                    <h2>What Makes This Possible?</h2>
-                    <p>Our proven system includes:</p>
-                    <ul>
-                        <li><strong>Automated Lead Generation:</strong> AI-powered system that attracts qualified buyers and sellers</li>
-                        <li><strong>Transaction Coordination:</strong> Streamlined process that saves hours per deal</li>
-                        <li><strong>Social Media Automation:</strong> Build your brand while you focus on clients</li>
-                        <li><strong>Surprise & Delight System:</strong> Turn clients into raving fans and referral sources</li>
-                        <li><strong>Weekly Coaching:</strong> Stay accountable and continuously improve</li>
-                        <li><strong>Zero Monthly Fees:</strong> Keep more of what you earn</li>
-                    </ul>
-                </div>
-
-                <div class="section">
-                    <h2>Ready to Start Your Success Story?</h2>
-                    <p>Based on your timeline of <strong>${data.startTimeline.replace('_', ' ')}</strong>, we recommend scheduling a strategy call within the next 7 days to discuss your specific situation and answer any questions.</p>
-                </div>
-            </div>
-
-            <div class="footer">
-                <p>This analysis was generated specifically for ${data.firstName} ${data.lastName}</p>
-                <p>Real Estate On Purpose • Building Successful Careers • Zero Monthly Fees</p>
-                <p>Ready to take the next step? Reply to this email or call us directly.</p>
-            </div>
+      <div class="section">
+        <h2>Your Current Business Snapshot</h2>
+        <div class="metric">
+          <div class="metric-value">${formData.sphereSize}</div>
+          <div class="metric-label">Sphere Size</div>
         </div>
+        <div class="metric">
+          <div class="metric-value">${formData.annualTransactions}</div>
+          <div class="metric-label">Deals Last Year</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value">${formData.weeklyHours}</div>
+          <div class="metric-label">Weekly Hours</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value">${sphereUtilizationRate}%</div>
+          <div class="metric-label">Sphere Utilization</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value">${hoursPerDeal}</div>
+          <div class="metric-label">Hours Per Deal</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value">$${analysis.currentEarnings.toLocaleString()}</div>
+          <div class="metric-label">Current Annual Earnings</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Business Management & Stress Analysis</h2>
+        <p><strong>Contact Frequency:</strong> ${formData.sphereContactFrequency}</p>
+        <p><strong>Budget Management:</strong> ${formData.budgetManagementStyle}</p>
+        <div class="stress-indicator stress-${formData.businessStressLevel}">
+          <strong>Current Stress Level:</strong> ${formData.businessStressLevel.charAt(0).toUpperCase() + formData.businessStressLevel.slice(1)}
+        </div>
+        <div class="challenge-box">
+          <strong>Biggest Challenge:</strong> ${formData.biggestChallenge.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Your Projected Success with Real Estate On Purpose</h2>
+        <div class="highlight">
+          <strong>Projected Annual Earnings: $${analysis.projectedEarnings.toLocaleString()}</strong>
+          <br>Income Increase: $${(analysis.projectedEarnings - analysis.currentEarnings).toLocaleString()}
+        </div>
+        <div class="metric">
+          <div class="metric-value">$${analysis.annualSavings.toLocaleString()}</div>
+          <div class="metric-label">Annual Savings</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value">${analysis.timePerTransaction}</div>
+          <div class="metric-label">Hours Saved Per Deal</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value">${analysis.leadGenImprovement}%</div>
+          <div class="metric-label">Lead Gen Improvement</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Return on Investment</h2>
+        <div class="highlight">
+          <strong>Projected ROI: ${analysis.roiProjection}%</strong>
+          <br>Based on your specific business metrics and our comprehensive support system.
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Personalized Opportunities</h2>
+        <ul>
+          ${analysis.marketOpportunities.map(opportunity => `<li>• ${opportunity}</li>`).join('')}
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>Customized Action Plan</h2>
+        <p><strong>Based on your biggest challenge (${formData.biggestChallenge.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}):</strong></p>
+        <ul>
+          ${analysis.recommendedActions.map(action => `<li>• ${action}</li>`).join('')}
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>Why Real Estate On Purpose Solves Your Challenges</h2>
+        <ul>
+          <li>• <strong>No monthly fees</strong> - Keep more of your hard-earned commissions</li>
+          <li>• <strong>Complete transaction coordination</strong> - Reduce your hours per deal significantly</li>
+          <li>• <strong>Automated sphere management</strong> - Stay in touch effortlessly and consistently</li>
+          <li>• <strong>Professional marketing systems</strong> - Generate more leads from your existing network</li>
+          <li>• <strong>Weekly coaching sessions</strong> - Reduce stress with proven strategies</li>
+          <li>• <strong>Comprehensive administrative support</strong> - Focus on what you do best</li>
+        </ul>
+      </div>
+
+      <div class="footer">
+        <p><strong>Ready to transform your real estate business and reduce your stress?</strong></p>
+        <p>Your personalized analysis shows the potential for significant improvement.</p>
+        <p>Contact us today to schedule your strategy session!</p>
+        <p>Email: info@realestateonpurpose.com | Phone: (555) 123-4567</p>
+      </div>
     </body>
     </html>
   `;
