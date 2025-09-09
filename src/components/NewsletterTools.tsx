@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Mail, CheckCircle } from 'lucide-react';
-import newsletterImg from '@/assets/images/newsletter.jpg';
+
 
 const NewsletterTools = () => {
   const features = [
@@ -19,7 +19,7 @@ const NewsletterTools = () => {
           <div className="relative order-2 lg:order-1">
             <div className="cosmic-glow rounded-xl overflow-hidden">
               <img 
-                src={newsletterImg} 
+                src="/images/newsletter.png" 
                 alt="Newsletter Tools Dashboard"
                 className="w-full h-96 object-cover"
               />

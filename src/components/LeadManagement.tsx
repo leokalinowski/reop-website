@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Users, CheckCircle } from 'lucide-react';
-import leadManagementImg from '@/assets/images/lead-management.jpg';
+
 
 const LeadManagement = () => {
   const features = [
@@ -19,7 +19,7 @@ const LeadManagement = () => {
           <div className="relative order-2 lg:order-1">
             <div className="cosmic-glow rounded-xl overflow-hidden">
               <img 
-                src={leadManagementImg} 
+                src="/images/lead-management.png" 
                 alt="Lead Management Dashboard"
                 className="w-full h-96 object-cover"
               />

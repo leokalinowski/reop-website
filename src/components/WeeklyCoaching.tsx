@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { UserPlus, CheckCircle } from 'lucide-react';
-import coachingImg from '@/assets/images/coaching.jpg';
+
 
 const WeeklyCoaching = () => {
   const features = [
@@ -19,7 +19,7 @@ const WeeklyCoaching = () => {
           <div className="relative order-2 lg:order-1">
             <div className="cosmic-glow rounded-xl overflow-hidden">
               <img 
-                src={coachingImg} 
+                src="/images/coaching.png" 
                 alt="Weekly Coaching Dashboard"
                 className="w-full h-96 object-cover"
               />

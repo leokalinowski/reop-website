@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Zap, CheckCircle } from 'lucide-react';
-import automatedOutreachImg from '@/assets/images/automated-outreach.jpg';
+
 
 const AutomatedOutreach = () => {
   const features = [
@@ -43,7 +43,7 @@ const AutomatedOutreach = () => {
           <div className="relative">
             <div className="cosmic-glow rounded-xl overflow-hidden">
               <img 
-                src={automatedOutreachImg} 
+                src="/images/automated-outreach.png" 
                 alt="Automated Outreach Dashboard"
                 className="w-full h-96 object-cover"
               />

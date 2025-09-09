@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { FileText, CheckCircle } from 'lucide-react';
-import transactionImg from '@/assets/images/transaction.jpg';
+
 
 const TransactionCoordination = () => {
   const features = [
@@ -43,7 +43,7 @@ const TransactionCoordination = () => {
           <div className="relative">
             <div className="cosmic-glow rounded-xl overflow-hidden">
               <img 
-                src={transactionImg} 
+                src="/images/transaction.png" 
                 alt="Transaction Coordination Dashboard"
                 className="w-full h-96 object-cover"
               />

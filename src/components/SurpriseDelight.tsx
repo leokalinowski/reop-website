@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Heart, CheckCircle } from 'lucide-react';
-import surpriseDelightImg from '@/assets/images/surprise-delight.jpg';
+
 
 const SurpriseDelight = () => {
   const features = [
@@ -19,7 +19,7 @@ const SurpriseDelight = () => {
           <div className="relative order-2 lg:order-1">
             <div className="cosmic-glow rounded-xl overflow-hidden">
               <img 
-                src={surpriseDelightImg} 
+                src="/images/surprise-delight.png" 
                 alt="Surprise & Delight Dashboard"
                 className="w-full h-96 object-cover"
               />

@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Calendar, CheckCircle } from 'lucide-react';
-import eventManagementImg from '@/assets/images/event-management.jpg';
+
 
 const EventManagement = () => {
   const features = [
@@ -43,7 +43,7 @@ const EventManagement = () => {
           <div className="relative">
             <div className="cosmic-glow rounded-xl overflow-hidden">
               <img 
-                src={eventManagementImg} 
+                src="/images/event-management.png" 
                 alt="Event Management Dashboard"
                 className="w-full h-96 object-cover"
               />

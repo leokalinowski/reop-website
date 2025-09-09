@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Share2, CheckCircle } from 'lucide-react';
-import socialMediaImg from '@/assets/images/social-media.jpg';
+
 
 const SocialMediaTools = () => {
   const features = [
@@ -43,7 +43,7 @@ const SocialMediaTools = () => {
           <div className="relative">
             <div className="cosmic-glow rounded-xl overflow-hidden">
               <img 
-                src={socialMediaImg} 
+                src="/images/social-media.png" 
                 alt="Social Media Tools Dashboard"
                 className="w-full h-96 object-cover"
               />
