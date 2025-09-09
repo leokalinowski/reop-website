@@ -848,12 +848,12 @@ async function sendEmailWithPDF(data: FormData, pdfBuffer: Uint8Array, fileName:
               background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
               padding: 25px;
               border-radius: 12px;
-              border: 2px solid #0369a1;
+              border: 2px solid #00a2ad;
               margin-bottom: 30px;
             }
             
             .actions-section h3 {
-              color: #0369a1;
+              color: #005d6c;
               font-size: 18px;
               font-weight: 600;
               margin: 0 0 15px 0;
@@ -866,7 +866,7 @@ async function sendEmailWithPDF(data: FormData, pdfBuffer: Uint8Array, fileName:
               padding: 12px;
               background: white;
               border-radius: 8px;
-              border-left: 4px solid #0369a1;
+              border-left: 4px solid #00a2ad;
               box-shadow: 0 2px 4px rgba(0,0,0,0.1);
               position: relative;
               padding-left: 50px;
@@ -881,7 +881,7 @@ async function sendEmailWithPDF(data: FormData, pdfBuffer: Uint8Array, fileName:
               left: 12px;
               top: 50%;
               transform: translateY(-50%);
-              background: #0369a1;
+              background: #00a2ad;
               color: white;
               border-radius: 50%;
               width: 24px;
@@ -923,14 +923,14 @@ async function sendEmailWithPDF(data: FormData, pdfBuffer: Uint8Array, fileName:
             
             .secondary-cta {
               display: inline-block;
-              background: linear-gradient(135deg, #0369a1 0%, #0284c7 100%);
+              background: linear-gradient(135deg, #00a2ad 0%, #005d6c 100%);
               color: white;
               padding: 16px 32px;
               text-decoration: none;
               border-radius: 8px;
               font-weight: 600;
               margin: 8px;
-              box-shadow: 0 4px 15px rgba(3, 105, 161, 0.3);
+              box-shadow: 0 4px 15px rgba(0, 162, 173, 0.3);
               font-size: 16px;
             }
             
