@@ -144,8 +144,9 @@ async function processAnalysisBackground(
 }
 
 function calculateAnalysis(formData: FormData): AnalysisData {
-  // Calculate current earnings based on transactions
-  const currentEarnings = formData.annualTransactions * 3500; // Average commission per transaction
+  // Calculate current earnings based on transactions (using $3,500 average commission)
+  const averageCommission = 3500;
+  const currentEarnings = formData.annualTransactions * averageCommission;
   
   // Calculate sphere utilization rate
   const sphereUtilizationRate = formData.sphereSize > 0 ? (formData.annualTransactions / formData.sphereSize) * 100 : 0;
@@ -169,21 +170,21 @@ function calculateAnalysis(formData: FormData): AnalysisData {
   const finalMultiplier = baseMultiplier + contactFrequencyBonus + efficiencyBonus;
   const projectedEarnings = Math.round(Math.max(currentEarnings * finalMultiplier, currentEarnings * 1.5));
   
-  // Calculate annual savings (commission splits, marketing, etc.)
+  // Calculate annual savings (15% of projected earnings from reduced commission splits and marketing costs)
   const annualSavings = Math.round(projectedEarnings * 0.15);
   
-  // Calculate time savings per transaction based on current workload
+  // Calculate time savings per transaction (baseline 25 hours minus efficiency factors)
   const timePerTransaction = Math.round(Math.max(10, 25 - (formData.weeklyHours / 5)));
   
-  // Calculate lead generation improvement based on sphere size and contact frequency
+  // Calculate lead generation improvement (0.1% per sphere contact + 8% per current transaction)
   const leadGenImprovement = Math.round(150 + (formData.sphereSize * 0.1) + (formData.annualTransactions * 8));
   
-  // Calculate ROI projection
+  // Calculate ROI projection ((projected increase ÷ $12,000 annual investment) × 100)
   const roiProjection = Math.round(((projectedEarnings - currentEarnings) / 12000) * 100);
   
   // Generate market opportunities based on business metrics
   const marketOpportunities = [
-    `Sphere optimization: Your ${formData.sphereSize} contacts could generate ${Math.round(formData.sphereSize * 0.05)} deals annually`,
+    `Sphere optimization: Your ${formData.sphereSize} contacts could generate ${Math.round(formData.sphereSize / 6)} deals annually (1 deal per 6 contacts)`,
     `Contact frequency improvement could increase referrals by ${contactFrequencyBonus > 0 ? '40%' : '60%'}`,
     `Professional systems reduce stress while increasing productivity`,
     `Automated follow-up captures leads you're currently missing`
@@ -309,20 +310,21 @@ function generateHTMLReport(formData: FormData, analysis: AnalysisData): string 
       <div class="section">
         <h2>Your Projected Success with Real Estate On Purpose</h2>
         <div class="highlight">
-          <strong>Projected Annual Earnings: $${analysis.projectedEarnings.toLocaleString()}</strong>
+          <strong>Projected Annual Earnings: $${analysis.projectedEarnings.toLocaleString()}</strong>*
           <br>Income Increase: $${(analysis.projectedEarnings - analysis.currentEarnings).toLocaleString()}
+          <br><small>*Based on an average commission of $3,500 per transaction</small>
         </div>
         <div class="metric">
           <div class="metric-value">$${analysis.annualSavings.toLocaleString()}</div>
-          <div class="metric-label">Annual Savings</div>
+          <div class="metric-label">Annual Savings<br><small>15% of projected earnings from reduced commission splits and marketing costs</small></div>
         </div>
         <div class="metric">
           <div class="metric-value">${analysis.timePerTransaction}</div>
-          <div class="metric-label">Hours Saved Per Deal</div>
+          <div class="metric-label">Hours Saved Per Deal<br><small>Calculated from baseline 25 hours minus efficiency factors</small></div>
         </div>
         <div class="metric">
           <div class="metric-value">${analysis.leadGenImprovement}%</div>
-          <div class="metric-label">Lead Gen Improvement</div>
+          <div class="metric-label">Lead Gen Improvement<br><small>Based on sphere optimization (0.1% per contact + 8% per current transaction)</small></div>
         </div>
       </div>
 
@@ -330,6 +332,7 @@ function generateHTMLReport(formData: FormData, analysis: AnalysisData): string 
         <h2>Return on Investment</h2>
         <div class="highlight">
           <strong>Projected ROI: ${analysis.roiProjection}%</strong>
+          <br>Calculated as (projected increase ÷ $12,000 annual investment) × 100
           <br>Based on your specific business metrics and our comprehensive support system.
         </div>
       </div>
@@ -506,13 +509,13 @@ async function generatePDF(htmlContent: string): Promise<Uint8Array> {
     doc.text('Projected Success with Real Estate on Purpose', margin + 5, y + 6);
     y += 20;
 
-    // Success metrics
+    // Success metrics with footnote
     const successMetrics = [
-      ['Projected Annual Earnings', `$${analysis.projectedEarnings.toLocaleString()}`, `+$${(analysis.projectedEarnings - analysis.currentEarnings).toLocaleString()}`],
-      ['Annual Savings', `$${analysis.annualSavings.toLocaleString()}`, 'Commission & fee savings'],
-      ['Time Saved per Deal', `${analysis.timePerTransaction} hours`, 'More efficient processes'],
-      ['Lead Generation Improvement', `${analysis.leadGenImprovement}%`, 'Better sphere utilization'],
-      ['Return on Investment', `${analysis.roiProjection}%`, 'Annual ROI projection']
+      ['Projected Annual Earnings*', `$${analysis.projectedEarnings.toLocaleString()}`, `+$${(analysis.projectedEarnings - analysis.currentEarnings).toLocaleString()}`],
+      ['Annual Savings', `$${analysis.annualSavings.toLocaleString()}`, '15% of projected earnings'],
+      ['Time Saved per Deal', `${analysis.timePerTransaction} hours`, 'Baseline 25hrs minus efficiency'],
+      ['Lead Generation Improvement', `${analysis.leadGenImprovement}%`, '0.1% per contact + 8% per transaction'],
+      ['Return on Investment', `${analysis.roiProjection}%`, '(increase ÷ $12k investment) × 100']
     ];
 
     doc.setTextColor(...textColor);
@@ -536,7 +539,14 @@ async function generatePDF(htmlContent: string): Promise<Uint8Array> {
       doc.setTextColor(...textColor);
       doc.text(description, margin + 120, rowY + 3);
     });
-    y += successMetrics.length * 8 + 15;
+    y += successMetrics.length * 8 + 10;
+    
+    // Add footnote for projected earnings
+    doc.setTextColor(...textColor);
+    doc.setFontSize(8);
+    doc.setFont('helvetica', 'italic');
+    doc.text('*Based on an average commission of $3,500 per transaction', margin + 5, y);
+    y += 15;
 
     // Section 4: Market Opportunities
     checkPageBreak(30);
@@ -546,7 +556,7 @@ async function generatePDF(htmlContent: string): Promise<Uint8Array> {
     doc.setTextColor(255, 255, 255);
     doc.setFontSize(16);
     doc.setFont('helvetica', 'bold');
-    doc.text('🎯 Market Opportunities', margin + 5, y + 6);
+    doc.text('Market Opportunities', margin + 5, y + 6);
     y += 20;
 
     doc.setTextColor(...textColor);
@@ -573,7 +583,7 @@ async function generatePDF(htmlContent: string): Promise<Uint8Array> {
     doc.setTextColor(255, 255, 255);
     doc.setFontSize(16);
     doc.setFont('helvetica', 'bold');
-    doc.text('✅ Recommended Action Plan', margin + 5, y + 6);
+    doc.text('Recommended Action Plan', margin + 5, y + 6);
     y += 20;
 
     doc.setTextColor(...textColor);
@@ -599,6 +609,109 @@ async function generatePDF(htmlContent: string): Promise<Uint8Array> {
       y += actionLines.length * 5 + 8;
     });
 
+    // Add new page for REOP Services & Deliverables
+    doc.addPage();
+    y = margin;
+
+    // REOP Services Header
+    doc.setFillColor(...primaryColor);
+    doc.rect(0, 0, pageWidth, 50, 'F');
+    
+    doc.setTextColor(255, 255, 255);
+    doc.setFontSize(24);
+    doc.setFont('helvetica', 'bold');
+    doc.text('REOP Services & Deliverables', margin, 25);
+    
+    doc.setFontSize(14);
+    doc.setFont('helvetica', 'normal');
+    doc.text('Your comprehensive business support system', margin, 35);
+    
+    y = 65;
+
+    // Service sections
+    const services = [
+      {
+        title: 'Outreach Division',
+        items: [
+          'SphereSync™ - Automated contact management and follow-up system',
+          'Client Events - Quarterly appreciation events and networking opportunities',
+          'Homeowner.ai Partnership - Advanced lead generation technology',
+          'Social Media Outreach - Professional content and engagement strategies'
+        ]
+      },
+      {
+        title: 'Conversion Division', 
+        items: [
+          'Buyer Blueprint™ - Complete buyer consultation and presentation system',
+          'Seller Blueprint™ - Comprehensive listing presentation and market analysis',
+          'Objection Crusher Matrix™ - Proven responses to common objections'
+        ]
+      },
+      {
+        title: 'Delight Division',
+        items: [
+          'Client Experience Videos™ - Custom video content for different stages',
+          'Vendor Perks - Exclusive discounts and preferred partnerships',
+          'Wow Moments - Surprise and delight campaigns for clients'
+        ]
+      },
+      {
+        title: 'Performance Division',
+        items: [
+          'Agent Ops HQ™ - Complete business operations and transaction management system',
+          'Weekly coaching sessions with proven industry leaders',
+          'Performance analytics and growth tracking',
+          'Administrative support and documentation assistance'
+        ]
+      }
+    ];
+
+    services.forEach((service, serviceIndex) => {
+      checkPageBreak(25);
+      
+      // Service title
+      doc.setFillColor(...darkColor);
+      doc.rect(margin, y - 5, contentWidth, 15, 'F');
+      
+      doc.setTextColor(255, 255, 255);
+      doc.setFontSize(14);
+      doc.setFont('helvetica', 'bold');
+      doc.text(service.title, margin + 5, y + 6);
+      y += 20;
+
+      // Service items
+      doc.setTextColor(...textColor);
+      doc.setFontSize(10);
+      doc.setFont('helvetica', 'normal');
+
+      service.items.forEach((item, itemIndex) => {
+        checkPageBreak(8);
+        
+        // Bullet point
+        doc.setFillColor(...primaryColor);
+        doc.circle(margin + 3, y + 2, 1, 'F');
+        
+        // Wrap text properly
+        const itemLines = doc.splitTextToSize(item, contentWidth - 15);
+        doc.text(itemLines, margin + 8, y + 3);
+        y += itemLines.length * 4 + 3;
+      });
+      
+      y += 10; // Space between sections
+    });
+
+    // Agent Ops HQ tagline
+    checkPageBreak(15);
+    doc.setFillColor(...lightGray);
+    doc.rect(margin, y - 5, contentWidth, 12, 'F');
+    
+    doc.setTextColor(...darkColor);
+    doc.setFontSize(12);
+    doc.setFont('helvetica', 'bold');
+    const taglineText = 'Agent Ops HQ™: Your complete business operations partner';
+    doc.text(taglineText, margin + 5, y + 4);
+    y += 20;
+
     // Footer with contact information
     checkPageBreak(25);
     y = Math.max(y + 15, pageHeight - 40);
@@ -614,8 +727,8 @@ async function generatePDF(htmlContent: string): Promise<Uint8Array> {
     doc.setFontSize(10);
     doc.setFont('helvetica', 'normal');
     doc.text('Contact Real Estate on Purpose today:', margin + 5, y + 16);
-    doc.text('📧 support@realestateonpurpose.com', margin + 5, y + 22);
-    doc.text('🌐 realestateonpurpose.com', margin + 5, y + 28);
+    doc.text('Email: support@realestateonpurpose.com', margin + 5, y + 22);
+    doc.text('Website: realestateonpurpose.com', margin + 5, y + 28);
 
     // Convert to Uint8Array
     const pdfOutput = doc.output('arraybuffer');
