@@ -1,16 +1,9 @@
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
+import LeadCaptureForm from './LeadCaptureForm';
 
 const CTASection = () => {
-  const [email, setEmail] = useState('');
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // TODO: Integrate with Supabase for sign-up
-    console.log('Email submitted:', email);
-    setEmail('');
-  };
+  const [isFormOpen, setIsFormOpen] = useState(false);
 
   return (
     <section className="w-full py-20 px-6 md:px-12 bg-primary/5 relative overflow-hidden">
@@ -25,34 +18,32 @@ const CTASection = () => {
       <div className="max-w-4xl mx-auto text-center space-y-8 relative z-10">
         <div className="space-y-4">
           <h2 className="text-3xl md:text-5xl font-medium tracking-tighter text-foreground">
-            Join the Real Estate On Purpose Team Today
+            Discover Your Real Estate Success Potential
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Don't miss out on this game-changing opportunity – join our team today at no cost and propel your real estate career to new heights.
+            Get your free personalized analysis showing exactly how much more you could earn by joining our team.
           </p>
         </div>
         
-        <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
-          <Input
-            type="email"
-            placeholder="Enter your email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-            className="flex-1 h-12 text-base"
-          />
+        <div className="flex justify-center">
           <Button 
-            type="submit"
-            className="bg-primary text-primary-foreground hover:bg-primary/80 text-base h-12 px-8 whitespace-nowrap"
+            onClick={() => setIsFormOpen(true)}
+            size="lg"
+            className="bg-primary text-primary-foreground hover:bg-primary/80 text-lg h-14 px-12 shadow-lg hover:shadow-xl transition-all duration-300"
           >
-            Apply to Join Our Team
+            Get My Free Success Analysis
           </Button>
-        </form>
+        </div>
         
         <p className="text-sm text-muted-foreground">
-          No monthly fees • Full support • Proven systems • Cancel anytime
+          No monthly fees • Full support • Proven systems • See your potential in minutes
         </p>
       </div>
+
+      <LeadCaptureForm 
+        isOpen={isFormOpen}
+        onClose={() => setIsFormOpen(false)}
+      />
     </section>
   );
 };

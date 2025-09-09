@@ -4,9 +4,11 @@ import TaskBoard from './TaskBoard';
 import { Loader } from 'lucide-react';
 import Logo from './Logo';
 import LightRays from './LightRays';
+import LeadCaptureForm from './LeadCaptureForm';
 
 const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [isFormOpen, setIsFormOpen] = useState(false);
   
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -16,6 +18,7 @@ const HeroSection = () => {
   }, []);
 
   return (
+    <>
     <section className="relative w-full py-12 md:py-20 px-6 md:px-12 flex flex-col items-center justify-center overflow-hidden bg-background">
       {/* Light Rays Background Effect - Hidden on mobile for performance */}
       <div className="absolute inset-0 z-[1] hidden md:block">
@@ -73,8 +76,11 @@ const HeroSection = () => {
         </p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center pt-6 items-center">
-          <Button className="bg-primary text-primary-foreground hover:bg-primary/80 hover:text-primary-foreground text-base h-12 px-8 transition-all duration-200 min-h-[48px]">
-            Join Our Team Today
+          <Button 
+            onClick={() => setIsFormOpen(true)}
+            className="bg-primary text-primary-foreground hover:bg-primary/80 hover:text-primary-foreground text-base h-12 px-8 transition-all duration-200 min-h-[48px]"
+          >
+            Get Your Free Success Analysis
           </Button>
         </div>
         
@@ -218,6 +224,12 @@ const HeroSection = () => {
         </div>
       </div>
     </section>
+    
+    <LeadCaptureForm 
+      isOpen={isFormOpen}
+      onClose={() => setIsFormOpen(false)}
+    />
+    </>
   );
 };
 

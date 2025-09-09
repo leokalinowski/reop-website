@@ -14,7 +14,72 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      leads: {
+        Row: {
+          annual_transactions: number | null
+          business_objectives: string | null
+          communication_preferences: string[] | null
+          created_at: string
+          current_brokerage: string | null
+          email: string
+          experience_level: string | null
+          first_name: string
+          id: string
+          last_name: string
+          location: string | null
+          pdf_generated: boolean | null
+          pdf_sent: boolean | null
+          phone: string | null
+          preferred_markets: string[] | null
+          start_timeline: string | null
+          status: string | null
+          target_income: number | null
+          updated_at: string
+        }
+        Insert: {
+          annual_transactions?: number | null
+          business_objectives?: string | null
+          communication_preferences?: string[] | null
+          created_at?: string
+          current_brokerage?: string | null
+          email: string
+          experience_level?: string | null
+          first_name: string
+          id?: string
+          last_name: string
+          location?: string | null
+          pdf_generated?: boolean | null
+          pdf_sent?: boolean | null
+          phone?: string | null
+          preferred_markets?: string[] | null
+          start_timeline?: string | null
+          status?: string | null
+          target_income?: number | null
+          updated_at?: string
+        }
+        Update: {
+          annual_transactions?: number | null
+          business_objectives?: string | null
+          communication_preferences?: string[] | null
+          created_at?: string
+          current_brokerage?: string | null
+          email?: string
+          experience_level?: string | null
+          first_name?: string
+          id?: string
+          last_name?: string
+          location?: string | null
+          pdf_generated?: boolean | null
+          pdf_sent?: boolean | null
+          phone?: string | null
+          preferred_markets?: string[] | null
+          start_timeline?: string | null
+          status?: string | null
+          target_income?: number | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
