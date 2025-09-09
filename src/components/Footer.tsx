@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Logo from './Logo';
 import { Mail, Phone } from 'lucide-react';
 const Footer = () => {
@@ -47,9 +48,9 @@ const Footer = () => {
               © 2025 Real Estate on Purpose Team. All rights reserved.
             </div>
             <div className="flex flex-wrap gap-6 text-sm">
-              <a href="#privacy" className="text-muted-foreground hover:text-primary transition-colors">Privacy Policy</a>
-              <a href="#terms" className="text-muted-foreground hover:text-primary transition-colors">Terms of Service</a>
-              <a href="#legal" className="text-muted-foreground hover:text-primary transition-colors">Legal Disclaimer</a>
+              <Link to="/privacy-policy" className="text-muted-foreground hover:text-primary transition-colors">Privacy Policy</Link>
+              <Link to="/terms-of-service" className="text-muted-foreground hover:text-primary transition-colors">Terms of Service</Link>
+              <Link to="/legal-disclaimer" className="text-muted-foreground hover:text-primary transition-colors">Legal Disclaimer</Link>
             </div>
           </div>
           
