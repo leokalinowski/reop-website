@@ -1,11 +1,8 @@
-
 import React from 'react';
 import Logo from './Logo';
 import { Mail, Phone, MapPin, Facebook, Instagram, Youtube, Linkedin } from 'lucide-react';
-
 const Footer = () => {
-  return (
-    <footer className="w-full py-16 px-6 md:px-12 border-t border-border bg-card">
+  return <footer className="w-full py-16 px-6 md:px-12 border-t border-border bg-card">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Company Info */}
@@ -19,7 +16,7 @@ const Footer = () => {
             <div className="space-y-3">
               <div className="flex items-center gap-3 text-muted-foreground">
                 <Phone className="h-4 w-4 text-primary" />
-                <span className="text-sm">(555) 123-4567</span>
+                <span className="text-sm">(571) 603-7367</span>
               </div>
               <div className="flex items-center gap-3 text-muted-foreground">
                 <Mail className="h-4 w-4 text-primary" />
@@ -100,8 +97,6 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;
