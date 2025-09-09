@@ -1,6 +1,7 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2.57.0';
 import { Resend } from "npm:resend@2.0.0";
+import jsPDF from "https://esm.sh/jspdf@2.5.1";
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
@@ -373,34 +374,63 @@ function generateHTMLReport(formData: FormData, analysis: AnalysisData): string 
 
 async function generatePDF(htmlContent: string): Promise<Uint8Array> {
   try {
-    // Use htmlcsstoimage.com API for real PDF generation
-    const response = await fetch('https://hcti.io/v1/image', {
-      method: 'POST',
-      headers: {
-        'Authorization': `Basic ${btoa('user-id:api-key')}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        html: htmlContent,
-        css: '',
-        google_fonts: 'Arial',
-        width: 800,
-        height: 1000,
-        device_scale: 2
-      }),
+    // Create PDF using jsPDF (free and open-source)
+    const doc = new jsPDF({
+      orientation: 'portrait',
+      unit: 'mm',
+      format: 'a4'
     });
 
-    if (!response.ok) {
-      throw new Error(`PDF generation failed: ${response.statusText}`);
+    // Extract text content from HTML
+    const textContent = htmlContent
+      .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
+      .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
+      .replace(/<[^>]*>/g, '\n')
+      .replace(/&nbsp;/g, ' ')
+      .replace(/&amp;/g, '&')
+      .replace(/&lt;/g, '<')
+      .replace(/&gt;/g, '>')
+      .replace(/\s+/g, ' ')
+      .trim();
+
+    // Split content into lines and add to PDF
+    const lines = textContent.split('\n').filter(line => line.trim());
+    const pageHeight = doc.internal.pageSize.height;
+    const margin = 20;
+    let y = margin;
+    
+    doc.setFontSize(16);
+    doc.text('Real Estate Success Analysis', margin, y);
+    y += 15;
+    
+    doc.setFontSize(12);
+    
+    for (const line of lines) {
+      const trimmedLine = line.trim();
+      if (!trimmedLine) continue;
+      
+      // Check if we need a new page
+      if (y > pageHeight - margin) {
+        doc.addPage();
+        y = margin;
+      }
+      
+      // Split long lines
+      const splitLines = doc.splitTextToSize(trimmedLine, 170);
+      for (const splitLine of splitLines) {
+        if (y > pageHeight - margin) {
+          doc.addPage();
+          y = margin;
+        }
+        doc.text(splitLine, margin, y);
+        y += 7;
+      }
+      y += 3; // Extra spacing between sections
     }
 
-    const result = await response.json();
-    
-    // Download the generated image as PDF-like content
-    const imageResponse = await fetch(result.url);
-    const imageBuffer = await imageResponse.arrayBuffer();
-    
-    return new Uint8Array(imageBuffer);
+    // Convert to Uint8Array
+    const pdfOutput = doc.output('arraybuffer');
+    return new Uint8Array(pdfOutput);
   } catch (error) {
     console.error('PDF generation error:', error);
     
@@ -420,7 +450,7 @@ async function sendEmailWithPDF(data: FormData, pdfBuffer: Uint8Array, fileName:
     const resend = new Resend(Deno.env.get('RESEND_API_KEY'));
     
     const emailResponse = await resend.emails.send({
-      from: 'Real Estate On Purpose <onboarding@resend.dev>',
+      from: 'Real Estate On Purpose <noreply@market.realestateonpurpose.com>',
       to: [data.email],
       subject: 'Your Personalized Real Estate Success Analysis',
       html: `
