@@ -27,7 +27,7 @@ export default {
 				foreground: 'hsl(var(--foreground))',
 				realEstate: {
 					teal: 'hsl(184 100% 34%)',
-					darkBlue: 'hsl(188 100% 21%)', 
+					darkBlue: 'hsl(188 100% 21%)',
 					green: 'hsl(74 61% 52%)',
 					lightGray: 'hsl(210 20% 98%)',
 					darkGray: 'hsl(0 0% 20%)',

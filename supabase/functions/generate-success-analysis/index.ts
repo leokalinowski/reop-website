@@ -387,8 +387,8 @@ async function generatePDF(htmlContent: string): Promise<Uint8Array> {
     let y = margin;
 
     // Define colors (Real Estate on Purpose brand colors)
-    const primaryColor = [0, 188, 212]; // #00bcd4 (teal)
-    const darkColor = [0, 96, 100]; // #006064 (dark teal)
+    const primaryColor = [0, 162, 173]; // #00a2ad (teal)
+    const darkColor = [0, 93, 108]; // #005d6c (dark teal)
     const textColor = [45, 55, 72]; // #2d3748
     const lightGray = [248, 250, 252]; // #f8fafc
 
@@ -677,7 +677,7 @@ async function sendEmailWithPDF(data: FormData, pdfBuffer: Uint8Array, fileName:
             }
             
             .header {
-              background: linear-gradient(135deg, #00bcd4 0%, #006064 100%);
+              background: linear-gradient(135deg, #00a2ad 0%, #005d6c 100%);
               padding: 40px 30px;
               text-align: center;
               color: white;
@@ -712,7 +712,7 @@ async function sendEmailWithPDF(data: FormData, pdfBuffer: Uint8Array, fileName:
             .greeting {
               font-size: 20px;
               font-weight: 600;
-              color: #006064;
+              color: #005d6c;
               margin-bottom: 15px;
             }
             
@@ -727,12 +727,12 @@ async function sendEmailWithPDF(data: FormData, pdfBuffer: Uint8Array, fileName:
               background: linear-gradient(135deg, #f0fdfa 0%, #e6fffa 100%);
               padding: 25px;
               border-radius: 12px;
-              border: 2px solid #00bcd4;
+              border: 2px solid #00a2ad;
               margin-bottom: 25px;
             }
             
             .opportunities-section h3 {
-              color: #006064;
+              color: #005d6c;
               font-size: 18px;
               font-weight: 600;
               margin: 0 0 15px 0;
@@ -741,7 +741,7 @@ async function sendEmailWithPDF(data: FormData, pdfBuffer: Uint8Array, fileName:
             }
             
             .icon-badge {
-              background: #00bcd4;
+              background: #00a2ad;
               color: white;
               border-radius: 50%;
               width: 30px;
@@ -758,7 +758,7 @@ async function sendEmailWithPDF(data: FormData, pdfBuffer: Uint8Array, fileName:
               padding: 12px;
               background: white;
               border-radius: 8px;
-              border-left: 4px solid #00bcd4;
+              border-left: 4px solid #00a2ad;
               box-shadow: 0 2px 4px rgba(0,0,0,0.1);
               display: flex;
               align-items: flex-start;
@@ -769,7 +769,7 @@ async function sendEmailWithPDF(data: FormData, pdfBuffer: Uint8Array, fileName:
             }
             
             .checkmark {
-              color: #00bcd4;
+              color: #00a2ad;
               font-weight: 600;
               margin-right: 8px;
             }
@@ -840,7 +840,7 @@ async function sendEmailWithPDF(data: FormData, pdfBuffer: Uint8Array, fileName:
             
             .cta-button {
               display: inline-block;
-              background: linear-gradient(135deg, #00bcd4 0%, #006064 100%);
+              background: linear-gradient(135deg, #00a2ad 0%, #005d6c 100%);
               color: white;
               padding: 16px 32px;
               text-decoration: none;
@@ -890,7 +890,7 @@ async function sendEmailWithPDF(data: FormData, pdfBuffer: Uint8Array, fileName:
             
             .footer h4 {
               margin: 0 0 10px 0;
-              color: #00bcd4;
+              color: #00a2ad;
               font-size: 20px;
               font-weight: 600;
             }
