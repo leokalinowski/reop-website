@@ -218,10 +218,10 @@ function generateHTMLReport(formData: FormData, analysis: AnalysisData): string 
       <title>Real Estate Success Analysis - ${formData.firstName} ${formData.lastName}</title>
       <style>
         body { font-family: Arial, sans-serif; margin: 40px; color: #333; line-height: 1.6; }
-        .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px; border-radius: 10px; text-align: center; margin-bottom: 30px; }
+        .header { background: linear-gradient(135deg, #00a2ad 0%, #005d6c 100%); color: white; padding: 30px; border-radius: 10px; text-align: center; margin-bottom: 30px; }
         .section { margin-bottom: 30px; padding: 20px; border: 1px solid #eee; border-radius: 8px; }
         .metric { display: inline-block; margin: 10px 15px; padding: 15px; background: #f8f9fa; border-radius: 5px; text-align: center; min-width: 120px; }
-        .metric-value { font-size: 24px; font-weight: bold; color: #667eea; }
+        .metric-value { font-size: 24px; font-weight: bold; color: #00a2ad; }
         .metric-label { font-size: 12px; color: #666; }
         .highlight { background: #fff3cd; padding: 15px; border-radius: 5px; margin: 10px 0; }
         .challenge-box { background: #f8d7da; padding: 15px; border-radius: 5px; margin: 10px 0; border-left: 4px solid #dc3545; }
@@ -329,7 +329,7 @@ function generateHTMLReport(formData: FormData, analysis: AnalysisData): string 
         <p>Your personalized analysis shows the potential for significant improvement.</p>
         <p style="margin: 20px 0;">
           <a href="https://realestateonpurpose.com/appointmentwithreop" 
-             style="background: #667eea; color: white; padding: 15px 30px; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-block;">
+             style="background: #00a2ad; color: white; padding: 15px 30px; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-block;">
             Schedule Your Strategy Session with Pam
           </a>
         </p>
@@ -761,14 +761,6 @@ async function sendEmailWithPDF(data: FormData, pdfBuffer: Uint8Array, fileName:
               color: white;
             }
             
-            .logo {
-              max-height: 60px;
-              width: auto;
-              margin-bottom: 20px;
-              display: block;
-              margin-left: auto;
-              margin-right: auto;
-            }
             
             .header h1 {
               font-size: 28px;
@@ -1017,7 +1009,7 @@ async function sendEmailWithPDF(data: FormData, pdfBuffer: Uint8Array, fileName:
           <div class="email-container">
             <!-- Header with Logo -->
             <div class="header">
-              <img src="/images/reop-logo-full.png" alt="Real Estate on Purpose Logo" class="logo" />
+              <h2 style="color: white; margin: 0; font-size: 28px;">Real Estate on Purpose</h2>
               <h1>Your Success Analysis is Ready!</h1>
               <p>Personalized insights to accelerate your real estate career</p>
             </div>
