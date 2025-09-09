@@ -939,7 +939,7 @@ async function sendEmailWithPDF(data: FormData, pdfBuffer: Uint8Array, fileName:
           <div class="email-container">
             <!-- Header with Logo -->
             <div class="header">
-              <img src="https://7e280466-cf12-44a1-a74f-78db59f85499.sandbox.lovable.dev/images/reop-logo-full.png" alt="Real Estate on Purpose Logo" class="logo" />
+              <img src="/images/reop-logo-full.png" alt="Real Estate on Purpose Logo" class="logo" />
               <h1>Your Success Analysis is Ready!</h1>
               <p>Personalized insights to accelerate your real estate career</p>
             </div>
@@ -968,7 +968,7 @@ async function sendEmailWithPDF(data: FormData, pdfBuffer: Uint8Array, fileName:
                 </div>
                 <div class="opportunity-item">
                   <span class="checkmark">✓</span>
-                  <span>Reduce stress while maintaining ${data.weeklyHours} hours per week with better efficiency</span>
+                  <span>Reduce stress and lower your ${data.weeklyHours} hours per week with increased efficiency</span>
                 </div>
                 <div class="opportunity-item">
                   <span class="checkmark">✓</span>
@@ -984,7 +984,7 @@ async function sendEmailWithPDF(data: FormData, pdfBuffer: Uint8Array, fileName:
                 </h3>
                 <div class="action-item">
                   <span class="step-number">1</span>
-                  <span>Implement automated lead nurturing system for your sphere</span>
+                  <span>Implement automated lead nurturing system for your Sphere</span>
                 </div>
                 <div class="action-item">
                   <span class="step-number">2</span>
@@ -1043,7 +1043,7 @@ Next Steps:
 
 Contact us:
 Email: info@realestateonpurpose.com
-Phone: (555) 123-4567
+Phone: (571)603-7367
 
 Best regards,
 The Real Estate On Purpose Team`,
