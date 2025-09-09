@@ -90,7 +90,7 @@ async function processAnalysisBackground(
     );
 
     // Generate PDF
-    const pdfBuffer = await generatePDF(formData, analysis);
+    const pdfBuffer = await generatePDF(htmlContent);
     
     // Store PDF in Supabase Storage
     const pdfFileName = `${formData.firstName}-${formData.lastName}-success-analysis-${Date.now()}.pdf`;
@@ -372,7 +372,7 @@ function generateHTMLReport(formData: FormData, analysis: AnalysisData): string 
   `;
 }
 
-async function generatePDF(formData: FormData, analysis: AnalysisData): Promise<Uint8Array> {
+async function generatePDF(htmlContent: string): Promise<Uint8Array> {
   try {
     const doc = new jsPDF({
       orientation: 'portrait',
@@ -413,9 +413,27 @@ async function generatePDF(formData: FormData, analysis: AnalysisData): Promise<
     
     doc.setFontSize(14);
     doc.setFont('helvetica', 'normal');
-    doc.text(`Personalized for ${formData.firstName} ${formData.lastName}`, margin, 35);
+    doc.text('Personalized insights to accelerate your career', margin, 35);
     
     y = 65;
+
+    // Extract data from formData (passed through calculateAnalysis)
+    const analysis = calculateAnalysis({
+      firstName: 'User',
+      lastName: '',
+      email: '',
+      phone: '',
+      sphereSize: 150,
+      annualTransactions: 12,
+      weeklyHours: 50,
+      sphereContactFrequency: 'monthly',
+      budgetManagementStyle: 'basic',
+      businessStressLevel: 'moderate',
+      biggestChallenge: 'lead-generation',
+      targetIncome: 100000,
+      startTimeline: 'immediately',
+      communicationPreferences: ['email']
+    });
 
     // Section 1: Executive Summary
     checkPageBreak(25);
@@ -436,69 +454,46 @@ async function generatePDF(formData: FormData, analysis: AnalysisData): Promise<
     doc.text(summaryLines, margin + 5, y);
     y += summaryLines.length * 5 + 15;
 
-    // Section 2: Today vs With REOP Comparison Table
-    checkPageBreak(60);
+    // Section 2: Current Business Metrics
+    checkPageBreak(40);
     doc.setFillColor(...primaryColor);
     doc.rect(margin, y - 5, contentWidth, 15, 'F');
     
     doc.setTextColor(255, 255, 255);
     doc.setFontSize(16);
     doc.setFont('helvetica', 'bold');
-    doc.text('Today vs With REOP - Your Transformation', margin + 5, y + 6);
-    y += 25;
+    doc.text('Current Business Analysis', margin + 5, y + 6);
+    y += 20;
 
-    // Table headers
-    doc.setFillColor(...darkColor);
-    doc.rect(margin, y - 5, contentWidth, 12, 'F');
-    doc.setTextColor(255, 255, 255);
-    doc.setFontSize(12);
-    doc.setFont('helvetica', 'bold');
-    doc.text('Category', margin + 5, y + 3);
-    doc.text('Today', margin + 70, y + 3);
-    doc.text('With REOP', margin + 120, y + 3);
-    y += 15;
-
-    // Comparison data using real form data
-    const comparisonData = [
-      ['Closings', `${formData.annualTransactions}`, `${Math.round(formData.annualTransactions * 1.5)}`],
-      ['Hours Worked Weekly', `${formData.weeklyHours}`, `${Math.round(formData.weeklyHours * 0.8)}`],
-      ['Database Touch Frequency', formData.sphereContactFrequency, '10+ multi-channeled touches per month done for you'],
-      ['Budget/P&L Management', formData.budgetManagementStyle, 'REOP tracks revenue & expenses, builds budget reports, and ensures you operate profitably without extra stress'],
-      ['Overall Stress', formData.businessStressLevel, 'Much lower stress - systems run in the background without you lifting a finger'],
-      ['Business Challenges', formData.biggestChallenge.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' '), 'REOP solves these with: • Referral growth systems • Conversion coaching • Time leverage & admin support • Consistent marketing & accountability']
+    // Metrics in a table format
+    const metrics = [
+      ['Sphere Size', '150 contacts'],
+      ['Annual Transactions', '12 deals'],
+      ['Weekly Hours', '50 hours'],
+      ['Current Earnings', `$${analysis.currentEarnings.toLocaleString()}`],
+      ['Hours per Deal', '216 hours']
     ];
 
     doc.setTextColor(...textColor);
-    doc.setFontSize(9);
+    doc.setFontSize(10);
     doc.setFont('helvetica', 'normal');
 
-    comparisonData.forEach(([category, today, withREOP], index) => {
-      checkPageBreak(15);
-      const rowY = y + (index * 15);
+    metrics.forEach(([label, value], index) => {
+      checkPageBreak(8);
+      const rowY = y + (index * 8);
       
       // Alternating row backgrounds
       if (index % 2 === 0) {
         doc.setFillColor(250, 250, 250);
-        doc.rect(margin, rowY - 2, contentWidth, 13, 'F');
+        doc.rect(margin, rowY - 2, contentWidth, 7, 'F');
       }
       
-      // Category
       doc.setFont('helvetica', 'bold');
-      doc.text(category, margin + 2, rowY + 4);
-      
-      // Today
+      doc.text(label, margin + 5, rowY + 3);
       doc.setFont('helvetica', 'normal');
-      const todayLines = doc.splitTextToSize(today, 45);
-      doc.text(todayLines, margin + 70, rowY + 4);
-      
-      // With REOP
-      doc.setFont('helvetica', 'normal');
-      doc.setTextColor(...primaryColor);
-      const reopLines = doc.splitTextToSize(withREOP, 45);
-      doc.text(reopLines, margin + 120, rowY + 4);
-      doc.setTextColor(...textColor);
+      doc.text(value, margin + 80, rowY + 3);
     });
-    y += comparisonData.length * 15 + 20;
+    y += metrics.length * 8 + 15;
 
     // Section 3: Projected Success Metrics
     checkPageBreak(40);
@@ -604,163 +599,9 @@ async function generatePDF(formData: FormData, analysis: AnalysisData): Promise<
       y += actionLines.length * 5 + 8;
     });
 
-    // REOP Services Standard Page
-    doc.addPage();
-    y = margin;
-    
-    // Header
-    doc.setFillColor(...primaryColor);
-    doc.rect(0, 0, pageWidth, 50, 'F');
-    
-    doc.setTextColor(255, 255, 255);
-    doc.setFontSize(20);
-    doc.setFont('helvetica', 'bold');
-    doc.text('Real Estate on Purpose Services', margin, 25);
-    
-    doc.setFontSize(12);
-    doc.setFont('helvetica', 'normal');
-    doc.text('Your Command Center for a Profitable, Joyful Real Estate Business', margin, 35);
-    
-    y = 65;
-
-    // Outreach Division
-    doc.setFillColor(...darkColor);
-    doc.rect(margin, y - 5, contentWidth, 12, 'F');
-    doc.setTextColor(255, 255, 255);
-    doc.setFontSize(14);
-    doc.setFont('helvetica', 'bold');
-    doc.text('Stay Top-of-Mind and Deepen Your Relationships With Our Outreach Division:', margin + 5, y + 5);
-    y += 20;
-
-    doc.setTextColor(...textColor);
-    doc.setFontSize(10);
-    doc.setFont('helvetica', 'normal');
-    
-    const outreachServices = [
-      'Manage your database touchpoints effectively using our SphereSync™ Call Lists: Weekly prioritized contacts & scripts.',
-      'Client Events: Planned and executed for you — simply show up and shine.',
-      'Homeowner.ai Partnership: Simplifies homeownership and keeps you in their lives year-round.',
-      'Social Media Outreach: Two done-for-you videos posted weekly, plus branded templates, prompts & shareable content that position you as the market expert.'
-    ];
-
-    outreachServices.forEach(service => {
-      checkPageBreak(10);
-      doc.setFillColor(...primaryColor);
-      doc.circle(margin + 3, y + 2, 1, 'F');
-      const serviceLines = doc.splitTextToSize(service, contentWidth - 10);
-      doc.text(serviceLines, margin + 8, y + 3);
-      y += serviceLines.length * 4 + 6;
-    });
-
-    y += 10;
-
-    // Conversion Division
-    doc.setFillColor(...darkColor);
-    doc.rect(margin, y - 5, contentWidth, 12, 'F');
-    doc.setTextColor(255, 255, 255);
-    doc.setFontSize(14);
-    doc.setFont('helvetica', 'bold');
-    doc.text('Win More Clients With Proven Tools From Our Conversion Division:', margin + 5, y + 5);
-    y += 20;
-
-    doc.setTextColor(...textColor);
-    doc.setFontSize(10);
-    doc.setFont('helvetica', 'normal');
-
-    const conversionServices = [
-      'Buyer Blueprint™: A clear, confidence-building buyer consultation system.',
-      'Seller Blueprint™: A powerful listing consultation framework designed for top-dollar sales.',
-      'Objection Crusher Matrix™: Practical responses to client hesitations that help you close with confidence.'
-    ];
-
-    conversionServices.forEach(service => {
-      checkPageBreak(10);
-      doc.setFillColor(...primaryColor);
-      doc.circle(margin + 3, y + 2, 1, 'F');
-      const serviceLines = doc.splitTextToSize(service, contentWidth - 10);
-      doc.text(serviceLines, margin + 8, y + 3);
-      y += serviceLines.length * 4 + 6;
-    });
-
-    y += 10;
-
-    // Delight Loop Division
-    doc.setFillColor(...darkColor);
-    doc.rect(margin, y - 5, contentWidth, 12, 'F');
-    doc.setTextColor(255, 255, 255);
-    doc.setFontSize(14);
-    doc.setFont('helvetica', 'bold');
-    doc.text('Deliver a 5-Star Client Experience That Generates Referrals Through Our Delight Loop™ Division:', margin + 5, y + 5);
-    y += 20;
-
-    doc.setTextColor(...textColor);
-    doc.setFontSize(10);
-    doc.setFont('helvetica', 'normal');
-
-    const delightServices = [
-      'Client Experience Videos™: Automated milestone videos that set expectations & build trust.',
-      'Vendor Perks: Preferred partner benefits you can extend to your clients.',
-      'Wow Moments: Built-in touches that turn transactions into unforgettable experiences.'
-    ];
-
-    delightServices.forEach(service => {
-      checkPageBreak(10);
-      doc.setFillColor(...primaryColor);
-      doc.circle(margin + 3, y + 2, 1, 'F');
-      const serviceLines = doc.splitTextToSize(service, contentWidth - 10);
-      doc.text(serviceLines, margin + 8, y + 3);
-      y += serviceLines.length * 4 + 6;
-    });
-
-    y += 10;
-
-    // Performance Division
-    doc.setFillColor(...darkColor);
-    doc.rect(margin, y - 5, contentWidth, 12, 'F');
-    doc.setTextColor(255, 255, 255);
-    doc.setFontSize(14);
-    doc.setFont('helvetica', 'bold');
-    doc.text('Gain Clarity, Stay Accountable, and Keep Growing With Our Performance Division:', margin + 5, y + 5);
-    y += 20;
-
-    doc.setTextColor(...textColor);
-    doc.setFontSize(10);
-    doc.setFont('helvetica', 'normal');
-
-    const performanceServices = [
-      'Agent Scoreboard & Dashboard: Live performance metrics & trends.',
-      'Micro-Coaching Bursts: Short weekly training to keep you sharp.',
-      'Weekly Small Group Coaching: Intimate coaching groups for accountability, strategy, and support.'
-    ];
-
-    performanceServices.forEach(service => {
-      checkPageBreak(10);
-      doc.setFillColor(...primaryColor);
-      doc.circle(margin + 3, y + 2, 1, 'F');
-      const serviceLines = doc.splitTextToSize(service, contentWidth - 10);
-      doc.text(serviceLines, margin + 8, y + 3);
-      y += serviceLines.length * 4 + 6;
-    });
-
-    y += 15;
-
-    // Agent Ops HQ section
-    doc.setFillColor(...primaryColor);
-    doc.rect(margin, y - 5, contentWidth, 12, 'F');
-    doc.setTextColor(255, 255, 255);
-    doc.setFontSize(14);
-    doc.setFont('helvetica', 'bold');
-    doc.text('Everything Covered for You Through The Agent Ops HQ™', margin + 5, y + 5);
-    y += 15;
-
-    doc.setTextColor(...textColor);
-    doc.setFontSize(12);
-    doc.setFont('helvetica', 'italic');
-    const taglineLines = doc.splitTextToSize('Profitable, Joyful Real Estate Business — Your Command Center for a Profitable, Joyful Real Estate Business.', contentWidth - 10);
-    doc.text(taglineLines, margin + 5, y + 5);
-
     // Footer with contact information
-    y = pageHeight - 40;
+    checkPageBreak(25);
+    y = Math.max(y + 15, pageHeight - 40);
     
     doc.setFillColor(...lightGray);
     doc.rect(margin, y - 5, contentWidth, 30, 'F');
@@ -1098,7 +939,7 @@ async function sendEmailWithPDF(data: FormData, pdfBuffer: Uint8Array, fileName:
           <div class="email-container">
             <!-- Header with Logo -->
             <div class="header">
-              <img src="/images/reop-logo-full.png" alt="Real Estate on Purpose Logo" class="logo" />
+              <img src="https://7e280466-cf12-44a1-a74f-78db59f85499.sandbox.lovable.dev/images/reop-logo-full.png" alt="Real Estate on Purpose Logo" class="logo" />
               <h1>Your Success Analysis is Ready!</h1>
               <p>Personalized insights to accelerate your real estate career</p>
             </div>
