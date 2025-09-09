@@ -93,13 +93,25 @@ const LeadCaptureForm: React.FC<LeadCaptureFormProps> = ({ isOpen, onClose }) =>
 
       if (error) throw error;
 
-      // Generate and send PDF
+      // Generate and send PDF (background process)
       const pdfResponse = await supabase.functions.invoke('generate-success-analysis', {
         body: formData
       });
 
       if (pdfResponse.error) {
         console.error('PDF generation error:', pdfResponse.error);
+      }
+
+      // Send lead data to Go High Level webhook (parallel process)
+      const webhookResponse = await supabase.functions.invoke('send-to-ghl-webhook', {
+        body: formData
+      });
+
+      if (webhookResponse.error) {
+        console.error('GHL webhook error:', webhookResponse.error);
+        // Don't fail the form submission if webhook fails
+      } else {
+        console.log('Lead sent to Go High Level successfully');
       }
 
       toast({
