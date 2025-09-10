@@ -3,6 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { CardContainer, CardBody, CardItem } from '@/components/ui/3d-card';
 import { Calendar, CheckCircle } from 'lucide-react';
+import eventManagementImage from '@/assets/images/event-management.png';
 
 
 const EventManagement = () => {
@@ -50,7 +51,7 @@ const EventManagement = () => {
                 <div className="relative overflow-hidden rounded-lg shadow-2xl">
                   <CardItem translateZ="100" className="w-full">
                       <img 
-                        src="/images/event-management.png" 
+                        src={eventManagementImage} 
                         alt="Event Management Dashboard"
                         className="w-full max-h-80 object-contain rounded-lg"
                       />

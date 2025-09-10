@@ -3,6 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { CardContainer, CardBody, CardItem } from '@/components/ui/3d-card';
 import { Users, CheckCircle } from 'lucide-react';
+import leadManagementImage from '@/assets/images/lead-management.png';
 
 
 const LeadManagement = () => {
@@ -27,7 +28,7 @@ const LeadManagement = () => {
                   <div className="relative overflow-hidden rounded-lg shadow-2xl">
                     <CardItem translateZ="100" className="w-full">
                         <img 
-                          src="/images/lead-management.png" 
+                          src={leadManagementImage} 
                           alt="Lead Management Dashboard"
                           className="w-full max-h-80 object-contain rounded-lg"
                         />

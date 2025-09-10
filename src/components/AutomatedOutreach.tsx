@@ -3,6 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { CardContainer, CardBody, CardItem } from '@/components/ui/3d-card';
 import { Zap, CheckCircle } from 'lucide-react';
+import automatedOutreachImage from '@/assets/images/automated-outreach.png';
 
 
 const AutomatedOutreach = () => {
@@ -50,7 +51,7 @@ const AutomatedOutreach = () => {
                 <div className="relative overflow-hidden rounded-lg shadow-2xl">
                   <CardItem translateZ="100" className="w-full">
                       <img 
-                        src="/images/automated-outreach.png" 
+                        src={automatedOutreachImage} 
                         alt="Automated Outreach Dashboard"
                         className="w-full max-h-80 object-contain rounded-lg"
                       />

@@ -3,6 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { CardContainer, CardBody, CardItem } from '@/components/ui/3d-card';
 import { Heart, CheckCircle } from 'lucide-react';
+import surpriseDelightImage from '@/assets/images/surprise-delight.png';
 
 
 const SurpriseDelight = () => {
@@ -27,7 +28,7 @@ const SurpriseDelight = () => {
                   <div className="relative overflow-hidden rounded-lg shadow-2xl">
                     <CardItem translateZ="100" className="w-full">
                         <img 
-                          src="/images/surprise-delight.png" 
+                          src={surpriseDelightImage} 
                           alt="Surprise & Delight Dashboard"
                           className="w-full max-h-80 object-contain rounded-lg"
                         />

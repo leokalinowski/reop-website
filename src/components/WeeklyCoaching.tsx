@@ -3,6 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { CardContainer, CardBody, CardItem } from '@/components/ui/3d-card';
 import { UserPlus, CheckCircle } from 'lucide-react';
+import coachingImage from '@/assets/images/coaching.png';
 
 
 const WeeklyCoaching = () => {
@@ -27,7 +28,7 @@ const WeeklyCoaching = () => {
                   <div className="relative overflow-hidden rounded-lg shadow-2xl">
                     <CardItem translateZ="100" className="w-full">
                         <img 
-                          src="/images/coaching.png" 
+                          src={coachingImage} 
                           alt="Weekly Coaching Dashboard"
                           className="w-full max-h-80 object-contain rounded-lg"
                         />

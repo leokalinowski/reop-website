@@ -1,4 +1,5 @@
 import React from 'react';
+import logoImage from '@/assets/logos/reop-logo-full.png';
 
 const Logo = () => {
   return (
@@ -6,7 +7,7 @@ const Logo = () => {
       {/* Logo Image */}
       <div className="h-16 w-auto flex items-center justify-center">
         <img 
-          src="/images/reop-logo-full.png" 
+          src={logoImage} 
           alt="Real Estate on Purpose Logo"
           className="h-16 w-auto object-contain"
           loading="eager"

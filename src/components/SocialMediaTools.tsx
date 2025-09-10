@@ -3,6 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { CardContainer, CardBody, CardItem } from '@/components/ui/3d-card';
 import { Share2, CheckCircle } from 'lucide-react';
+import socialMediaImage from '@/assets/images/social-media.png';
 
 
 const SocialMediaTools = () => {
@@ -50,7 +51,7 @@ const SocialMediaTools = () => {
                 <div className="relative overflow-hidden rounded-lg shadow-2xl">
                   <CardItem translateZ="100" className="w-full">
                       <img 
-                        src="/images/social-media.png" 
+                        src={socialMediaImage} 
                         alt="Social Media Tools Dashboard"
                         className="w-full max-h-80 object-contain rounded-lg"
                       />
