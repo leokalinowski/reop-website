@@ -50,19 +50,12 @@ const Testimonials = () => {
                 ))}
               </div>
               <p className="text-lg mb-8 text-foreground/90 italic">"{testimonial.quote}"</p>
-               <div className="flex items-end gap-4">
-                <img 
-                  src={testimonial.avatar} 
-                  alt={`${testimonial.author} profile`}
-                  className="h-12 w-12 rounded-full object-cover bg-muted"
-                  onError={(e) => {
-                    const target = e.currentTarget as HTMLImageElement;
-                    target.style.display = 'none';
-                    const fallback = target.nextElementSibling as HTMLElement;
-                    if (fallback) fallback.style.display = 'block';
-                  }}
-                />
-                <div className="h-12 w-12 rounded-full bg-muted hidden"></div>
+              <div className="flex items-end gap-4">
+                <div className="h-12 w-12 rounded-full bg-primary/20 flex items-center justify-center">
+                  <span className="text-primary font-medium text-sm">
+                    {testimonial.author.split(' ').map(n => n[0]).join('')}
+                  </span>
+                </div>
                 <div>
                   <h4 className="font-medium text-foreground">{testimonial.author}</h4>
                   <p className="text-sm text-muted-foreground">{testimonial.position}</p>
