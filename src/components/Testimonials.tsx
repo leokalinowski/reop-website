@@ -42,20 +42,26 @@ const Testimonials = () => {
           {testimonials.map((testimonial, index) => (
             <div 
               key={index}
-              className="p-6 rounded-xl border border-border bg-background/80 backdrop-blur-sm hover:border-border/60 transition-all duration-300"
+              className="p-6 rounded-xl border border-border bg-background/80 backdrop-blur-sm hover:border-border/60 transition-all duration-300 flex flex-col justify-between"
             >
-              <div className="mb-6">
-                {[...Array(5)].map((_, i) => (
-                  <span key={i} className="text-primary inline-block mr-1">★</span>
-                ))}
-              </div>
-              <p className="text-lg mb-8 text-foreground/90 italic">"{testimonial.quote}"</p>
-              <div className="flex items-end gap-4">
-                <div className="h-12 w-12 rounded-full bg-primary/20 flex items-center justify-center">
-                  <span className="text-primary font-medium text-sm">
-                    {testimonial.author.split(' ').map(n => n[0]).join('')}
-                  </span>
+              <div>
+                <div className="mb-6">
+                  {[...Array(5)].map((_, i) => (
+                    <span key={i} className="text-primary inline-block mr-1">★</span>
+                  ))}
                 </div>
+                <p className="text-lg mb-8 text-foreground/90 italic">"{testimonial.quote}"</p>
+              </div>
+              <div className="flex items-center gap-4">
+                <img 
+                  src={testimonial.avatar} 
+                  alt={`${testimonial.author} profile`}
+                  className="h-12 w-12 rounded-full object-cover"
+                  onError={(e) => {
+                    const target = e.currentTarget as HTMLImageElement;
+                    target.outerHTML = `<div class="h-12 w-12 rounded-full bg-primary/20 flex items-center justify-center"><span class="text-primary font-medium text-sm">${testimonial.author.split(' ').map(n => n[0]).join('')}</span></div>`;
+                  }}
+                />
                 <div>
                   <h4 className="font-medium text-foreground">{testimonial.author}</h4>
                   <p className="text-sm text-muted-foreground">{testimonial.position}</p>
