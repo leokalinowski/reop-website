@@ -1,8 +1,8 @@
 
 import React from 'react';
-import samirRedwanImage from '@/assets/images/samir-redwan.png';
-import johnBenedictisImage from '@/assets/images/john-benedictis.png';
-import jeffPenningtonImage from '@/assets/images/jeff-pennington.png';
+import samirRedwanImage from '@/assets/images/samir-redwan.png?url';
+import johnBenedictisImage from '@/assets/images/john-benedictis.png?url';
+import jeffPenningtonImage from '@/assets/images/jeff-pennington.png?url';
 
 const Testimonials = () => {
   const testimonials = [
