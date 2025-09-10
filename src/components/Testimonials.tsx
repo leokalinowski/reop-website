@@ -7,19 +7,19 @@ const Testimonials = () => {
       quote: "Real Estate On Purpose has revolutionized how I manage my business. The support is unparalleled!",
       author: "Samir Redwan",
       position: "Bluejay Properties Group",
-      avatar: "bg-primary/20"
+      avatar: "/images/samir-redwan.jpg"
     },
     {
       quote: "The tools and coaching have taken my career to the next level. Highly recommend!",
       author: "Aminda Kadir",
       position: "Bluejay Properties Group",
-      avatar: "bg-primary/30"
+      avatar: "/images/aminda-kadir.jpg"
     },
     {
       quote: "Finally, a team that truly puts agents first. No fees, all value.",
       author: "Jeff Pennington",
       position: "Team Member since 2025",
-      avatar: "bg-primary/25"
+      avatar: "/images/jeff-pennington.jpg"
     }
   ];
   
@@ -50,8 +50,19 @@ const Testimonials = () => {
                 ))}
               </div>
               <p className="text-lg mb-8 text-foreground/90 italic">"{testimonial.quote}"</p>
-              <div className="flex items-center gap-4">
-                <div className={`h-12 w-12 rounded-full ${testimonial.avatar} bg-muted`}></div>
+               <div className="flex items-end gap-4">
+                <img 
+                  src={testimonial.avatar} 
+                  alt={`${testimonial.author} profile`}
+                  className="h-12 w-12 rounded-full object-cover bg-muted"
+                  onError={(e) => {
+                    const target = e.currentTarget as HTMLImageElement;
+                    target.style.display = 'none';
+                    const fallback = target.nextElementSibling as HTMLElement;
+                    if (fallback) fallback.style.display = 'block';
+                  }}
+                />
+                <div className="h-12 w-12 rounded-full bg-muted hidden"></div>
                 <div>
                   <h4 className="font-medium text-foreground">{testimonial.author}</h4>
                   <p className="text-sm text-muted-foreground">{testimonial.position}</p>
