@@ -1,9 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
 import { User, Award, Calendar } from 'lucide-react';
+import pamImage from '@/assets/images/pamobryant.png';
 
 const CEOSection = () => {
+  const [imageSrc, setImageSrc] = useState("/lovable-uploads/0fd3c82e-6c0c-481f-af2a-71ee027b0690.png");
+  const [imageLoading, setImageLoading] = useState(true);
+
+  const handleImageError = () => {
+    console.log("Uploaded image failed to load, switching to local fallback");
+    setImageSrc(pamImage);
+    setImageLoading(false);
+  };
+
+  const handleImageLoad = () => {
+    console.log("Image loaded successfully:", imageSrc);
+    setImageLoading(false);
+  };
+
   const achievements = [
     "Over 40 years of real estate experience, licensed since 1981",
     "Former Keller Williams executive and Master Faculty member",
@@ -44,10 +59,17 @@ const CEOSection = () => {
             {/* Image Container */}
             <div className="cosmic-glow rounded-xl overflow-hidden max-w-[300px] mx-auto">
               <div className="relative w-full h-[400px] bg-gradient-to-br from-primary/5 to-accent/5">
+                {imageLoading && (
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
+                  </div>
+                )}
                 <img 
-                  src="/lovable-uploads/0fd3c82e-6c0c-481f-af2a-71ee027b0690.png" 
+                  src={imageSrc}
                   alt="Pam O'Bryant, CEO and Founder of Real Estate On Purpose"
                   className="w-full h-full object-contain"
+                  onError={handleImageError}
+                  onLoad={handleImageLoad}
                 />
               </div>
             </div>
