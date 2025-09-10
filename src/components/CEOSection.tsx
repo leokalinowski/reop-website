@@ -1,7 +1,7 @@
 import React from 'react';
 import { Badge } from '@/components/ui/badge';
+import { Card, CardContent } from '@/components/ui/card';
 import { User, Award, Calendar } from 'lucide-react';
-import pamImage from '@/assets/images/pamobryant.png';
 
 const CEOSection = () => {
   const achievements = [
@@ -40,53 +40,38 @@ const CEOSection = () => {
             </div>
           </div>
           
-          <div className="relative">
-            <div className="cosmic-glow rounded-xl overflow-hidden">
-              <div className="relative w-full h-[500px] bg-gradient-to-br from-primary/5 to-accent/5">
+          <div className="space-y-6">
+            {/* Image Container */}
+            <div className="cosmic-glow rounded-xl overflow-hidden max-w-[300px] mx-auto">
+              <div className="relative w-full h-[400px] bg-gradient-to-br from-primary/5 to-accent/5">
                 <img 
-                  src={pamImage} 
+                  src="/lovable-uploads/0fd3c82e-6c0c-481f-af2a-71ee027b0690.png" 
                   alt="Pam O'Bryant, CEO and Founder of Real Estate On Purpose"
-                  className="w-full h-full object-cover object-center"
-                  onError={(e) => {
-                    // Fallback to placeholder if image doesn't exist yet
-                    e.currentTarget.style.display = 'none';
-                    const nextElement = e.currentTarget.nextElementSibling as HTMLElement;
-                    if (nextElement) {
-                      nextElement.style.display = 'flex';
-                    }
-                  }}
+                  className="w-full h-full object-contain"
                 />
-                {/* Fallback placeholder */}
-                <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-primary/10 to-accent/10" style={{display: 'none'}}>
-                  <div className="text-center space-y-4">
-                    <div className="h-32 w-32 rounded-full bg-primary/20 flex items-center justify-center mx-auto">
-                      <User className="h-16 w-16 text-primary" />
-                    </div>
-                    <div>
-                      <h3 className="text-2xl font-medium text-foreground">Pam O'Bryant</h3>
-                      <p className="text-lg text-muted-foreground">CEO & Founder</p>
-                    </div>
-                  </div>
-                </div>
-                {/* Overlay with stats */}
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-background/90 to-transparent p-6">
-                  <div className="text-center space-y-3">
-                    <h3 className="text-2xl font-medium text-foreground">Pam O'Bryant</h3>
-                    <p className="text-lg text-muted-foreground">CEO & Founder</p>
-                    <div className="flex items-center justify-center gap-6 text-sm">
-                      <div className="flex items-center gap-2 bg-background/80 rounded-full px-3 py-2">
-                        <Calendar className="h-4 w-4 text-primary" />
-                        <span className="font-medium">40+ Years</span>
-                      </div>
-                      <div className="flex items-center gap-2 bg-background/80 rounded-full px-3 py-2">
-                        <Award className="h-4 w-4 text-primary" />
-                        <span className="font-medium">70+ Deals/Year</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
+            
+            {/* Text Info Card */}
+            <Card className="max-w-[300px] mx-auto bg-card/50 backdrop-blur-sm border-primary/20">
+              <CardContent className="p-6 text-center space-y-4">
+                <div className="space-y-2">
+                  <h3 className="text-2xl font-medium text-foreground">Pam O'Bryant</h3>
+                  <p className="text-lg text-muted-foreground">CEO & Founder</p>
+                </div>
+                
+                <div className="flex items-center justify-center gap-4 pt-2">
+                  <div className="flex items-center gap-2 bg-primary/10 rounded-full px-3 py-2">
+                    <Calendar className="h-4 w-4 text-primary" />
+                    <span className="text-sm font-medium text-foreground">40+ Years</span>
+                  </div>
+                  <div className="flex items-center gap-2 bg-primary/10 rounded-full px-3 py-2">
+                    <Award className="h-4 w-4 text-primary" />
+                    <span className="text-sm font-medium text-foreground">70+ Deals/Year</span>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </div>
