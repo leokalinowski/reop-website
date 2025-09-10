@@ -5,20 +5,20 @@ const Testimonials = () => {
   const testimonials = [
     {
       quote: "Real Estate On Purpose has revolutionized how I manage my business. The support is unparalleled!",
-      author: "Jessica Martinez",
-      position: "Team Member since 2023",
+      author: "Samir Redwan",
+      position: "Bluejay Properties Group",
       avatar: "bg-primary/20"
     },
     {
       quote: "The tools and coaching have taken my career to the next level. Highly recommend!",
-      author: "Robert Chen",
-      position: "Team Member since 2022",
+      author: "Aminda Kadir",
+      position: "Bluejay Properties Group",
       avatar: "bg-primary/30"
     },
     {
       quote: "Finally, a team that truly puts agents first. No fees, all value.",
-      author: "Amanda Thompson",
-      position: "Team Member since 2024",
+      author: "Jeff Pennington",
+      position: "Team Member since 2025",
       avatar: "bg-primary/25"
     }
   ];
