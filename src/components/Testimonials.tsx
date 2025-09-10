@@ -7,19 +7,19 @@ const Testimonials = () => {
       quote: "Real Estate On Purpose has revolutionized how I manage my business. The support is unparalleled!",
       author: "Samir Redwan",
       position: "BlueJay Properties Group",
-      avatar: "/images/samir-redwan.png"
+      avatar: "src/assets/images/samir-redwan.png"
     },
     {
       quote: "The tools and coaching have taken my career to the next level. Highly recommend!",
       author: "John Benedictis",
       position: "Platinum Home Team",
-      avatar: "/images/john-benedictis.png"
+      avatar: "src/assets/images/john-benedictis.png"
     },
     {
       quote: "Finally, a team that truly puts agents first. No fees, all value.",
       author: "Jeff Pennington",
       position: "Jeff Sells Nova",
-      avatar: "/images/jeff-pennington.png"
+      avatar: "src/assets/images/jeff-pennington.png"
     }
   ];
   
