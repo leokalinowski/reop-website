@@ -1,7 +1,6 @@
 import React from 'react';
 import { Badge } from '@/components/ui/badge';
 import { User, Award, Calendar } from 'lucide-react';
-import pamImage from '@/assets/images/pamobryant.png';
 
 const CEOSection = () => {
   const achievements = [
@@ -42,14 +41,11 @@ const CEOSection = () => {
           
           <div className="relative">
             <div className="cosmic-glow rounded-xl overflow-hidden">
-              <div className="relative w-full h-96">
-                <img 
-                  src={pamImage} 
-                  alt="Pam O'Bryant, CEO & Founder" 
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
-                <div className="absolute bottom-6 left-6 right-6 text-center space-y-2">
+              <div className="w-full h-96 bg-muted/50 flex items-center justify-center">
+                <div className="text-center space-y-4">
+                  <div className="h-24 w-24 rounded-full bg-primary/20 flex items-center justify-center mx-auto">
+                    <User className="h-12 w-12 text-primary" />
+                  </div>
                   <div>
                     <h3 className="text-xl font-medium text-foreground">Pam O'Bryant</h3>
                     <p className="text-muted-foreground">CEO & Founder</p>
