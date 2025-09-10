@@ -1,6 +1,7 @@
 import React from 'react';
 import { Badge } from '@/components/ui/badge';
 import { User, Award, Calendar } from 'lucide-react';
+import pamImage from '@/assets/images/pamobryant.png';
 
 const CEOSection = () => {
   const achievements = [
@@ -41,23 +42,46 @@ const CEOSection = () => {
           
           <div className="relative">
             <div className="cosmic-glow rounded-xl overflow-hidden">
-              <div className="w-full h-96 bg-muted/50 flex items-center justify-center">
-                <div className="text-center space-y-4">
-                  <div className="h-24 w-24 rounded-full bg-primary/20 flex items-center justify-center mx-auto">
-                    <User className="h-12 w-12 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-medium text-foreground">Pam O'Bryant</h3>
-                    <p className="text-muted-foreground">CEO & Founder</p>
-                  </div>
-                  <div className="flex items-center justify-center gap-4 text-sm text-muted-foreground">
-                    <div className="flex items-center gap-1">
-                      <Calendar className="h-4 w-4" />
-                      <span>40+ Years</span>
+              <div className="relative w-full h-[500px] bg-gradient-to-br from-primary/5 to-accent/5">
+                <img 
+                  src={pamImage} 
+                  alt="Pam O'Bryant, CEO and Founder of Real Estate On Purpose"
+                  className="w-full h-full object-cover object-center"
+                  onError={(e) => {
+                    // Fallback to placeholder if image doesn't exist yet
+                    e.currentTarget.style.display = 'none';
+                    const nextElement = e.currentTarget.nextElementSibling as HTMLElement;
+                    if (nextElement) {
+                      nextElement.style.display = 'flex';
+                    }
+                  }}
+                />
+                {/* Fallback placeholder */}
+                <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-primary/10 to-accent/10" style={{display: 'none'}}>
+                  <div className="text-center space-y-4">
+                    <div className="h-32 w-32 rounded-full bg-primary/20 flex items-center justify-center mx-auto">
+                      <User className="h-16 w-16 text-primary" />
                     </div>
-                    <div className="flex items-center gap-1">
-                      <Award className="h-4 w-4" />
-                      <span>70+ Deals/Year</span>
+                    <div>
+                      <h3 className="text-2xl font-medium text-foreground">Pam O'Bryant</h3>
+                      <p className="text-lg text-muted-foreground">CEO & Founder</p>
+                    </div>
+                  </div>
+                </div>
+                {/* Overlay with stats */}
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-background/90 to-transparent p-6">
+                  <div className="text-center space-y-3">
+                    <h3 className="text-2xl font-medium text-foreground">Pam O'Bryant</h3>
+                    <p className="text-lg text-muted-foreground">CEO & Founder</p>
+                    <div className="flex items-center justify-center gap-6 text-sm">
+                      <div className="flex items-center gap-2 bg-background/80 rounded-full px-3 py-2">
+                        <Calendar className="h-4 w-4 text-primary" />
+                        <span className="font-medium">40+ Years</span>
+                      </div>
+                      <div className="flex items-center gap-2 bg-background/80 rounded-full px-3 py-2">
+                        <Award className="h-4 w-4 text-primary" />
+                        <span className="font-medium">70+ Deals/Year</span>
+                      </div>
                     </div>
                   </div>
                 </div>
