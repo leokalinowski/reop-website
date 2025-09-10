@@ -1,5 +1,8 @@
 
 import React from 'react';
+import samirRedwanImage from '@/assets/images/samir-redwan.png';
+import johnBenedictisImage from '@/assets/images/john-benedictis.png';
+import jeffPenningtonImage from '@/assets/images/jeff-pennington.png';
 
 const Testimonials = () => {
   const testimonials = [
@@ -7,19 +10,19 @@ const Testimonials = () => {
       quote: "Real Estate On Purpose has revolutionized how I manage my business. The support is unparalleled!",
       author: "Samir Redwan",
       position: "BlueJay Properties Group",
-      avatar: "src/assets/images/samir-redwan.png"
+      avatar: samirRedwanImage
     },
     {
       quote: "The tools and coaching have taken my career to the next level. Highly recommend!",
       author: "John Benedictis",
       position: "Platinum Home Team",
-      avatar: "src/assets/images/john-benedictis.png"
+      avatar: johnBenedictisImage
     },
     {
       quote: "Finally, a team that truly puts agents first. No fees, all value.",
       author: "Jeff Pennington",
       position: "Jeff Sells Nova",
-      avatar: "src/assets/images/jeff-pennington.png"
+      avatar: jeffPenningtonImage
     }
   ];
   
