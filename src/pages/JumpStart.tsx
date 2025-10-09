@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { CheckCircle2, Calendar, Users, TrendingUp, Database, Zap, Shield } from 'lucide-react';
+import { CheckCircle2, Calendar, Users, TrendingUp, Database, Zap, Shield, Sparkles } from 'lucide-react';
+import { BackgroundGradient } from '@/components/ui/background-gradient';
 import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+import FooterMinimal from '@/components/FooterMinimal';
 import LeadCaptureForm from '@/components/LeadCaptureForm';
 
 const JumpStart = () => {
@@ -89,8 +90,11 @@ const JumpStart = () => {
         <div className="absolute inset-0 cosmic-grid opacity-10"></div>
         <div className="absolute inset-0 cosmic-glow"></div>
         
-        <div className="max-w-5xl mx-auto text-center space-y-8 relative z-10">
-          <Badge className="text-sm px-4 py-2">6-Month Program</Badge>
+        <div className="max-w-5xl mx-auto text-center space-y-8 relative z-10 animate-fade-in">
+          <Badge className="text-sm px-4 py-2 animate-scale-in border-primary/20 shadow-lg">
+            <Sparkles className="w-3 h-3 mr-1 inline" />
+            6-Month Program
+          </Badge>
           
           <h1 className="text-5xl md:text-7xl font-medium tracking-tighter text-foreground">
             The 6-Month Jump Start™
@@ -111,7 +115,7 @@ const JumpStart = () => {
           <Button 
             onClick={() => setIsFormOpen(true)}
             size="lg"
-            className="text-lg h-14 px-12 shadow-lg hover:shadow-xl transition-all duration-300"
+            className="text-lg h-14 px-12 shadow-lg hover:shadow-xl transition-all duration-300 animate-pulse hover:animate-none hover:scale-105"
           >
             Get Started Today
           </Button>
@@ -133,19 +137,19 @@ const JumpStart = () => {
           </div>
 
           <div className="grid md:grid-cols-3 gap-6 mt-12">
-            <Card className="cosmic-card p-8 text-center space-y-4">
+            <Card className="cosmic-card p-8 text-center space-y-4 hover:scale-105 transition-transform duration-300">
               <p className="text-lg font-medium text-foreground">
                 "I'll clean up my database next week."
               </p>
             </Card>
             
-            <Card className="cosmic-card p-8 text-center space-y-4">
+            <Card className="cosmic-card p-8 text-center space-y-4 hover:scale-105 transition-transform duration-300">
               <p className="text-lg font-medium text-foreground">
                 "I know I should call, but I don't know what to say."
               </p>
             </Card>
             
-            <Card className="cosmic-card p-8 text-center space-y-4">
+            <Card className="cosmic-card p-8 text-center space-y-4 hover:scale-105 transition-transform duration-300">
               <p className="text-lg font-medium text-foreground">
                 "I'll do it myself... when things slow down."
               </p>
@@ -175,11 +179,13 @@ const JumpStart = () => {
             </p>
           </div>
 
-          <Card className="cosmic-card p-8 text-center mt-12">
-            <p className="text-2xl font-medium text-foreground">
-              <span className="text-primary">Promise:</span> In six months, you'll have a clean, connected database, a full follow-up rhythm, and booked appointments — guaranteed.
-            </p>
-          </Card>
+          <BackgroundGradient className="rounded-[22px] p-1 mt-12">
+            <Card className="cosmic-card p-8 text-center border-0">
+              <p className="text-2xl font-medium text-foreground">
+                <span className="text-primary">Promise:</span> In six months, you'll have a clean, connected database, a full follow-up rhythm, and booked appointments — guaranteed.
+              </p>
+            </Card>
+          </BackgroundGradient>
         </div>
       </section>
 
@@ -196,7 +202,12 @@ const JumpStart = () => {
 
           <div className="space-y-4">
             {features.map((feature, index) => (
-              <Card key={index} className="cosmic-card p-6 grid md:grid-cols-3 gap-4 items-start">
+              <Card 
+                key={index} 
+                className={`cosmic-card p-6 grid md:grid-cols-3 gap-4 items-start hover:scale-[1.02] transition-transform duration-300 ${
+                  index % 2 === 0 ? 'bg-card' : 'bg-card/50'
+                }`}
+              >
                 <div className="font-semibold text-foreground">{feature.category}</div>
                 <div className="text-muted-foreground md:col-span-1">{feature.what}</div>
                 <div className="text-sm text-primary font-medium">{feature.format}</div>
@@ -229,14 +240,17 @@ const JumpStart = () => {
             ))}
           </div>
 
-          <Card className="cosmic-card p-8 text-center mt-12 border-2 border-primary/20">
-            <p className="text-xl font-medium text-foreground">
-              And if you follow the plan but don't book new appointments — <span className="text-primary">we'll keep coaching you until you do.</span>
-            </p>
-            <p className="text-lg text-muted-foreground mt-2">
-              That's our Appointment Assurance Guarantee.
-            </p>
-          </Card>
+          <BackgroundGradient className="rounded-[22px] p-1 mt-12">
+            <Card className="cosmic-card p-8 text-center border-0">
+              <div className="flex items-center justify-center gap-2 mb-3">
+                <Shield className="w-6 h-6 text-primary" />
+                <p className="text-xl font-semibold text-primary">Appointment Assurance Guarantee</p>
+              </div>
+              <p className="text-xl font-medium text-foreground">
+                And if you follow the plan but don't book new appointments — <span className="text-primary">we'll keep coaching you until you do.</span>
+              </p>
+            </Card>
+          </BackgroundGradient>
         </div>
       </section>
 
@@ -281,7 +295,7 @@ const JumpStart = () => {
           </div>
 
           <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            <Card className="cosmic-card p-8 space-y-6 text-center">
+            <Card className="cosmic-card p-8 space-y-6 text-center hover:scale-105 transition-transform duration-300">
               <h3 className="text-2xl font-semibold text-foreground">Monthly Plan</h3>
               <div className="space-y-2">
                 <p className="text-4xl font-bold text-primary">$397</p>
@@ -296,22 +310,24 @@ const JumpStart = () => {
               </Button>
             </Card>
 
-            <Card className="cosmic-card p-8 space-y-6 text-center border-2 border-primary/50">
-              <Badge className="mb-2">Save $385</Badge>
-              <h3 className="text-2xl font-semibold text-foreground">Pay in Full</h3>
-              <div className="space-y-2">
-                <p className="text-4xl font-bold text-primary">$1,997</p>
-                <p className="text-muted-foreground">one-time payment</p>
-                <p className="text-sm text-primary font-medium">+ Free Personal PR System mini-course</p>
-              </div>
-              <Button 
-                onClick={() => setIsFormOpen(true)}
-                className="w-full"
-                size="lg"
-              >
-                Get Started
-              </Button>
-            </Card>
+            <BackgroundGradient className="rounded-[22px] p-1">
+              <Card className="cosmic-card p-8 space-y-6 text-center border-0 shadow-xl">
+                <Badge className="mb-2 animate-pulse">Save $385</Badge>
+                <h3 className="text-2xl font-semibold text-foreground">Pay in Full</h3>
+                <div className="space-y-2">
+                  <p className="text-4xl font-bold text-primary">$1,997</p>
+                  <p className="text-muted-foreground">one-time payment</p>
+                  <p className="text-sm text-primary font-medium">+ Free Personal PR System mini-course</p>
+                </div>
+                <Button 
+                  onClick={() => setIsFormOpen(true)}
+                  className="w-full shadow-lg hover:shadow-xl"
+                  size="lg"
+                >
+                  Get Started
+                </Button>
+              </Card>
+            </BackgroundGradient>
           </div>
 
           <Card className="cosmic-card p-6 text-center max-w-3xl mx-auto">
@@ -382,7 +398,7 @@ const JumpStart = () => {
           <Button 
             onClick={() => setIsFormOpen(true)}
             size="lg"
-            className="text-lg h-14 px-12 shadow-lg hover:shadow-xl transition-all duration-300"
+            className="text-lg h-14 px-12 shadow-lg hover:shadow-xl transition-all duration-300 animate-pulse hover:animate-none hover:scale-110"
           >
             Start Your 6-Month Jump Start™
           </Button>
@@ -393,7 +409,7 @@ const JumpStart = () => {
         </div>
       </section>
 
-      <Footer />
+      <FooterMinimal />
 
       <LeadCaptureForm 
         isOpen={isFormOpen}
