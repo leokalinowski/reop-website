@@ -25,6 +25,7 @@ interface FormData {
   targetIncome: number;
   startTimeline: string;
   communicationPreferences: string[];
+  honeypot: string; // Bot detection field
 }
 
 interface LeadCaptureFormProps {
@@ -53,6 +54,7 @@ const LeadCaptureForm: React.FC<LeadCaptureFormProps> = ({ isOpen, onClose }) =>
     targetIncome: 0,
     startTimeline: '',
     communicationPreferences: ['email'],
+    honeypot: '', // Hidden field for bot detection
   });
 
   const updateFormData = (field: keyof FormData, value: any) => {
@@ -72,46 +74,41 @@ const LeadCaptureForm: React.FC<LeadCaptureFormProps> = ({ isOpen, onClose }) =>
   };
 
   const handleSubmit = async () => {
+    // Basic client-side validation
+    if (!formData.firstName.trim() || !formData.lastName.trim() || !formData.email.trim()) {
+      toast({
+        title: "Validation Error",
+        description: "Please fill in all required fields (First Name, Last Name, Email).",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      toast({
+        title: "Validation Error",
+        description: "Please enter a valid email address.",
+        variant: "destructive"
+      });
+      return;
+    }
+
     setIsSubmitting(true);
     try {
-      const { data, error } = await supabase.from('leads').insert({
-        first_name: formData.firstName,
-        last_name: formData.lastName,
-        email: formData.email,
-        phone: formData.phone,
-        sphere_size: formData.sphereSize,
-        annual_transactions: formData.annualTransactions,
-        weekly_hours: formData.weeklyHours,
-        sphere_contact_frequency: formData.sphereContactFrequency,
-        budget_management_style: formData.budgetManagementStyle,
-        business_stress_level: formData.businessStressLevel,
-        biggest_challenge: formData.biggestChallenge,
-        target_income: formData.targetIncome,
-        start_timeline: formData.startTimeline,
-        communication_preferences: formData.communicationPreferences,
-      });
-
-      if (error) throw error;
-
-      // Generate and send PDF (background process)
-      const pdfResponse = await supabase.functions.invoke('generate-success-analysis', {
+      // Submit via secure Edge Function instead of direct DB insert
+      const response = await supabase.functions.invoke('submit-lead', {
         body: formData
       });
 
-      if (pdfResponse.error) {
-        console.error('PDF generation error:', pdfResponse.error);
+      if (response.error) {
+        throw new Error(response.error.message || 'Submission failed');
       }
 
-      // Send lead data to Go High Level webhook (parallel process)
-      const webhookResponse = await supabase.functions.invoke('send-to-ghl-webhook', {
-        body: formData
-      });
-
-      if (webhookResponse.error) {
-        console.error('GHL webhook error:', webhookResponse.error);
-        // Don't fail the form submission if webhook fails
-      } else {
-        console.log('Lead sent to Go High Level successfully');
+      // Check for rate limit or validation errors
+      if (response.data?.error) {
+        throw new Error(response.data.error);
       }
 
       toast({
@@ -137,12 +134,16 @@ const LeadCaptureForm: React.FC<LeadCaptureFormProps> = ({ isOpen, onClose }) =>
         targetIncome: 0,
         startTimeline: '',
         communicationPreferences: ['email'],
+        honeypot: '',
       });
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error submitting form:', error);
+      
+      const errorMessage = error.message || "There was an issue processing your request. Please try again.";
+      
       toast({
         title: "Error",
-        description: "There was an issue processing your request. Please try again.",
+        description: errorMessage,
         variant: "destructive"
       });
     } finally {
@@ -169,30 +170,46 @@ const LeadCaptureForm: React.FC<LeadCaptureFormProps> = ({ isOpen, onClose }) =>
               <h3 className="text-xl font-semibold text-foreground mb-2">Personal Information</h3>
               <p className="text-muted-foreground">Let's start with your contact details</p>
             </div>
+            
+            {/* Honeypot field - hidden from users, bots will fill it */}
+            <div style={{ position: 'absolute', left: '-9999px' }} aria-hidden="true">
+              <Label htmlFor="website">Website</Label>
+              <Input
+                id="website"
+                name="website"
+                tabIndex={-1}
+                autoComplete="off"
+                value={formData.honeypot}
+                onChange={(e) => updateFormData('honeypot', e.target.value)}
+              />
+            </div>
+
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <Label htmlFor="firstName">First Name</Label>
+                <Label htmlFor="firstName">First Name *</Label>
                 <Input
                   id="firstName"
                   value={formData.firstName}
                   onChange={(e) => updateFormData('firstName', e.target.value)}
                   placeholder="John"
                   required
+                  maxLength={100}
                 />
               </div>
               <div>
-                <Label htmlFor="lastName">Last Name</Label>
+                <Label htmlFor="lastName">Last Name *</Label>
                 <Input
                   id="lastName"
                   value={formData.lastName}
                   onChange={(e) => updateFormData('lastName', e.target.value)}
                   placeholder="Doe"
                   required
+                  maxLength={100}
                 />
               </div>
             </div>
             <div>
-              <Label htmlFor="email">Email Address</Label>
+              <Label htmlFor="email">Email Address *</Label>
               <Input
                 id="email"
                 type="email"
@@ -200,6 +217,7 @@ const LeadCaptureForm: React.FC<LeadCaptureFormProps> = ({ isOpen, onClose }) =>
                 onChange={(e) => updateFormData('email', e.target.value)}
                 placeholder="john@example.com"
                 required
+                maxLength={255}
               />
             </div>
             <div>
@@ -210,6 +228,7 @@ const LeadCaptureForm: React.FC<LeadCaptureFormProps> = ({ isOpen, onClose }) =>
                 value={formData.phone}
                 onChange={(e) => updateFormData('phone', e.target.value)}
                 placeholder="(555) 123-4567"
+                maxLength={20}
               />
             </div>
           </div>
