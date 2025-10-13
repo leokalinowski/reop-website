@@ -8,6 +8,7 @@ import JumpStart from "./pages/JumpStart";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import LegalDisclaimer from "./pages/LegalDisclaimer";
+import AnnouncementBar from "./components/AnnouncementBar";
 
 const queryClient = new QueryClient();
 
@@ -17,6 +18,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <AnnouncementBar />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/jump-start" element={<JumpStart />} />
