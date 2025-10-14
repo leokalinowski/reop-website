@@ -43,7 +43,7 @@ const AnnouncementBar = () => {
             className="whitespace-nowrap"
           >
             <a
-              href="https://api.leadconnectorhq.com/widget/bookings/strategy-session-reop"
+              href="https://lp.realestateonpurpose.com/appointmentwithreop"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Book a strategy session"

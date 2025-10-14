@@ -690,7 +690,7 @@ async function generatePDF(htmlContent: string, formData: FormData): Promise<Uin
     doc.setTextColor(255, 255, 255);
     doc.setFontSize(11);
     doc.setFont('helvetica', 'underline');
-    doc.text('realestateonpurpose.com/appointmentwithreop', margin + 5, y + 30);
+    doc.text('lp.realestateonpurpose.com/appointmentwithreop', margin + 5, y + 30);
     
     doc.setFont('helvetica', 'normal');
     doc.text('Book your personalized consultation today!', margin + 5, y + 38);
@@ -1073,9 +1073,9 @@ async function sendEmailWithPDF(data: FormData, pdfBuffer: Uint8Array, fileName:
               <!-- Call to Action -->
               <div class="cta-section">
                 <p class="cta-text">Ready to take action on your real estate goals?</p>
-                <a href="https://realestateonpurpose.com/appointmentwithreop" class="cta-button">
-                  📅 Schedule a Free Strategy Call
-                </a>
+              <a href="https://lp.realestateonpurpose.com/appointmentwithreop" class="cta-button">
+                📅 Schedule a Free Strategy Call
+              </a>
                 <br>
                 <a href="https://realestateonpurpose.com" class="secondary-cta">
                   🌐 Visit Our Website
