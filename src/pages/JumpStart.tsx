@@ -7,78 +7,49 @@ import { BackgroundGradient } from '@/components/ui/background-gradient';
 import Header from '@/components/Header';
 import FooterMinimal from '@/components/FooterMinimal';
 import LeadCaptureForm from '@/components/LeadCaptureForm';
-
 const JumpStart = () => {
   const [isFormOpen, setIsFormOpen] = useState(false);
-
-  const features = [
-    {
-      category: "SphereSync™ Execution",
-      what: "We send your weekly SphereSync messages (email, text, video prompt) — you review and hit send.",
-      format: "Done-for-you + automation"
-    },
-    {
-      category: "Weekly Group Coaching",
-      what: "Accountability, dialogues, objection handling, and action plans — live and recorded.",
-      format: "Zoom (recorded)"
-    },
-    {
-      category: "Monthly Skill Workshops",
-      what: "High-impact topics: AI, systems, events, referral generation.",
-      format: "Live + replay"
-    },
-    {
-      category: "Client Experience Starter Kit",
-      what: "2 milestone videos + plug-and-play templates to upgrade your client experience.",
-      format: "Downloadables"
-    },
-    {
-      category: "Database Power Score™ Audit",
-      what: "See your data gaps and connection % — like a \"credit score\" for your database.",
-      format: "PDF worksheet"
-    },
-    {
-      category: "End-of-Program Strategy Call",
-      what: "Personalized plan for your next 6 months — whether you keep scaling or graduate to full REOP.",
-      format: "1:1 Zoom"
-    }
-  ];
-
-  const expectations = [
-    "A clean, prioritized database that actually creates conversations",
-    "A consistent weekly rhythm (SphereSync + Coaching = Execution)",
-    "New appointments booked and referrals re-opened",
-    "The clarity and confidence to sustain growth into Spring 2026"
-  ];
-
-  const whyItWorks = [
-    "Automation where it helps.",
-    "Accountability where it matters.",
-    "Small-group coaching (max 6 agents) so you can't hide.",
-    "Real-time execution — you act while we guide."
-  ];
-
-  const faqs = [
-    {
-      question: "How much time does it take?",
-      answer: "Plan 2–4 hours per week — including SphereSync outreach and your group call."
-    },
-    {
-      question: "Do I need a new CRM?",
-      answer: "No. We make what you have work better — you'll simply upload your CSV for the audit."
-    },
-    {
-      question: "What if I'm on a team?",
-      answer: "Join as a team or request a private cohort (ask about team pricing)."
-    },
-    {
-      question: "Is there a guarantee?",
-      answer: "Yes — attend your calls and complete weekly SphereSyncs, and we'll coach you until you book 10 new appointments."
-    }
-  ];
-
-  return (
-    <div className="min-h-screen bg-background">
+  const features = [{
+    category: "SphereSync™ Execution",
+    what: "We send your weekly SphereSync messages (email, text, video prompt) — you review and hit send.",
+    format: "Done-for-you + automation"
+  }, {
+    category: "Weekly Group Coaching",
+    what: "Accountability, dialogues, objection handling, and action plans — live and recorded.",
+    format: "Zoom (recorded)"
+  }, {
+    category: "Monthly Skill Workshops",
+    what: "High-impact topics: AI, systems, events, referral generation.",
+    format: "Live + replay"
+  }, {
+    category: "Client Experience Starter Kit",
+    what: "2 milestone videos + plug-and-play templates to upgrade your client experience.",
+    format: "Downloadables"
+  }, {
+    category: "Database Power Score™ Audit",
+    what: "See your data gaps and connection % — like a \"credit score\" for your database.",
+    format: "PDF worksheet"
+  }, {
+    category: "End-of-Program Strategy Call",
+    what: "Personalized plan for your next 6 months — whether you keep scaling or graduate to full REOP.",
+    format: "1:1 Zoom"
+  }];
+  const expectations = ["A clean, prioritized database that actually creates conversations", "A consistent weekly rhythm (SphereSync + Coaching = Execution)", "New appointments booked and referrals re-opened", "The clarity and confidence to sustain growth into Spring 2026"];
+  const whyItWorks = ["Automation where it helps.", "Accountability where it matters.", "Small-group coaching (max 6 agents) so you can't hide.", "Real-time execution — you act while we guide."];
+  const faqs = [{
+    question: "How much time does it take?",
+    answer: "Plan 2–4 hours per week — including SphereSync outreach and your group call."
+  }, {
+    question: "Do I need a new CRM?",
+    answer: "No. We make what you have work better — you'll simply upload your CSV for the audit."
+  }, {
+    question: "What if I'm on a team?",
+    answer: "Join as a team or request a private cohort (ask about team pricing)."
+  }, {
+    question: "Is there a guarantee?",
+    answer: "Yes — attend your calls and complete weekly SphereSyncs, and we'll coach you until you book 10 new appointments."
+  }];
+  return <div className="min-h-screen bg-background">
       <Header />
       
       {/* Hero Section */}
@@ -104,18 +75,8 @@ const JumpStart = () => {
             Schedule Your Strategy Session with Founder Pam O'Bryant
           </p>
           
-          <Button 
-            asChild
-            size="lg"
-            className="text-lg h-14 px-12 shadow-lg hover:shadow-xl transition-all duration-300 animate-pulse hover:animate-none hover:scale-105"
-          >
-            <a 
-              href="https://link.fastpaydirect.com/payment-link/68ff94c22197098009e30c30"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Book Now
-            </a>
+          <Button asChild size="lg" className="text-lg h-14 px-12 shadow-lg hover:shadow-xl transition-all duration-300 animate-pulse hover:animate-none hover:scale-105">
+            <a href="https://link.fastpaydirect.com/payment-link/68ff94c22197098009e30c30" target="_blank" rel="noopener noreferrer">I'm ready!</a>
           </Button>
         </div>
       </section>
@@ -202,18 +163,11 @@ const JumpStart = () => {
           </div>
 
           <div className="space-y-4">
-            {features.map((feature, index) => (
-              <Card 
-                key={index} 
-                className={`cosmic-card p-6 grid md:grid-cols-3 gap-4 items-start hover:scale-[1.02] transition-transform duration-300 ${
-                  index % 2 === 0 ? 'bg-card' : 'bg-card/50'
-                }`}
-              >
+            {features.map((feature, index) => <Card key={index} className={`cosmic-card p-6 grid md:grid-cols-3 gap-4 items-start hover:scale-[1.02] transition-transform duration-300 ${index % 2 === 0 ? 'bg-card' : 'bg-card/50'}`}>
                 <div className="font-semibold text-foreground">{feature.category}</div>
                 <div className="text-muted-foreground md:col-span-1">{feature.what}</div>
                 <div className="text-sm text-primary font-medium">{feature.format}</div>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </div>
       </section>
@@ -233,12 +187,10 @@ const JumpStart = () => {
           </div>
 
           <div className="grid md:grid-cols-2 gap-6">
-            {expectations.map((item, index) => (
-              <Card key={index} className="cosmic-card p-6 flex gap-4 items-start">
+            {expectations.map((item, index) => <Card key={index} className="cosmic-card p-6 flex gap-4 items-start">
                 <CheckCircle2 className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
                 <p className="text-lg text-foreground">{item}</p>
-              </Card>
-            ))}
+              </Card>)}
           </div>
 
           <BackgroundGradient className="rounded-[22px] p-1 mt-12">
@@ -270,12 +222,10 @@ const JumpStart = () => {
           </div>
 
           <div className="space-y-4">
-            {whyItWorks.map((item, index) => (
-              <Card key={index} className="cosmic-card p-6 flex gap-4 items-center">
+            {whyItWorks.map((item, index) => <Card key={index} className="cosmic-card p-6 flex gap-4 items-center">
                 <Zap className="w-6 h-6 text-primary flex-shrink-0" />
                 <p className="text-lg text-foreground">{item}</p>
-              </Card>
-            ))}
+              </Card>)}
           </div>
 
           <p className="text-xl text-center text-muted-foreground italic mt-8">
@@ -302,16 +252,8 @@ const JumpStart = () => {
                 <p className="text-4xl font-bold text-primary">$397</p>
                 <p className="text-muted-foreground">per month × 6 months</p>
               </div>
-              <Button 
-                asChild
-                className="w-full"
-                size="lg"
-              >
-                <a 
-                  href="https://link.fastpaydirect.com/payment-link/68ff96e267ee3be8ff6a3feb"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+              <Button asChild className="w-full" size="lg">
+                <a href="https://link.fastpaydirect.com/payment-link/68ff96e267ee3be8ff6a3feb" target="_blank" rel="noopener noreferrer">
                   Get Started
                 </a>
               </Button>
@@ -326,16 +268,8 @@ const JumpStart = () => {
                   <p className="text-muted-foreground">one-time payment</p>
                   <p className="text-sm text-primary font-medium">+ Free Personal PR System mini-course</p>
                 </div>
-                <Button 
-                  asChild
-                  className="w-full shadow-lg hover:shadow-xl"
-                  size="lg"
-                >
-                  <a 
-                    href="https://link.fastpaydirect.com/payment-link/68ff94c22197098009e30c30"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
+                <Button asChild className="w-full shadow-lg hover:shadow-xl" size="lg">
+                  <a href="https://link.fastpaydirect.com/payment-link/68ff94c22197098009e30c30" target="_blank" rel="noopener noreferrer">
                     Get Started
                   </a>
                 </Button>
@@ -372,12 +306,10 @@ const JumpStart = () => {
           </div>
 
           <div className="space-y-6">
-            {faqs.map((faq, index) => (
-              <Card key={index} className="cosmic-card p-6 space-y-3">
+            {faqs.map((faq, index) => <Card key={index} className="cosmic-card p-6 space-y-3">
                 <h3 className="text-xl font-semibold text-foreground">{faq.question}</h3>
                 <p className="text-muted-foreground">{faq.answer}</p>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </div>
       </section>
@@ -403,16 +335,8 @@ const JumpStart = () => {
             This is the system that helps you activate them — and rebuild your pipeline with purpose.
           </p>
           
-          <Button 
-            asChild
-            size="lg"
-            className="text-lg h-14 px-12 shadow-lg hover:shadow-xl transition-all duration-300 animate-pulse hover:animate-none hover:scale-110"
-          >
-            <a 
-              href="https://link.fastpaydirect.com/payment-link/68ff94c22197098009e30c30"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+          <Button asChild size="lg" className="text-lg h-14 px-12 shadow-lg hover:shadow-xl transition-all duration-300 animate-pulse hover:animate-none hover:scale-110">
+            <a href="https://link.fastpaydirect.com/payment-link/68ff94c22197098009e30c30" target="_blank" rel="noopener noreferrer">
               Start Your 6-Month Jump Start™
             </a>
           </Button>
@@ -425,12 +349,7 @@ const JumpStart = () => {
 
       <FooterMinimal />
 
-      <LeadCaptureForm 
-        isOpen={isFormOpen}
-        onClose={() => setIsFormOpen(false)}
-      />
-    </div>
-  );
+      <LeadCaptureForm isOpen={isFormOpen} onClose={() => setIsFormOpen(false)} />
+    </div>;
 };
-
 export default JumpStart;
