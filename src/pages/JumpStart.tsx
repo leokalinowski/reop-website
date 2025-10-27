@@ -71,9 +71,7 @@ const JumpStart = () => {
             Hit Reset — and Fall in Love with Your Business Again
           </p>
           
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Schedule Your Strategy Session with Founder Pam O'Bryant
-          </p>
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">Make this year the year you finally “clean up your database” for good!</p>
           
           <Button asChild size="lg" className="text-lg h-14 px-12 shadow-lg hover:shadow-xl transition-all duration-300 animate-pulse hover:animate-none hover:scale-105">
             <a href="https://link.fastpaydirect.com/payment-link/68ff94c22197098009e30c30" target="_blank" rel="noopener noreferrer">I'm ready!</a>
