@@ -113,11 +113,17 @@ const JumpStart = () => {
           </p>
           
           <Button 
-            onClick={() => setIsFormOpen(true)}
+            asChild
             size="lg"
             className="text-lg h-14 px-12 shadow-lg hover:shadow-xl transition-all duration-300 animate-pulse hover:animate-none hover:scale-105"
           >
-            Get Started Today
+            <a 
+              href="https://link.fastpaydirect.com/payment-link/68ff94c22197098009e30c30"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Get Started Today
+            </a>
           </Button>
         </div>
       </section>
@@ -302,11 +308,17 @@ const JumpStart = () => {
                 <p className="text-muted-foreground">per month × 6 months</p>
               </div>
               <Button 
-                onClick={() => setIsFormOpen(true)}
+                asChild
                 className="w-full"
                 size="lg"
               >
-                Get Started
+                <a 
+                  href="https://link.fastpaydirect.com/payment-link/68ff96e267ee3be8ff6a3feb"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Get Started
+                </a>
               </Button>
             </Card>
 
@@ -320,11 +332,17 @@ const JumpStart = () => {
                   <p className="text-sm text-primary font-medium">+ Free Personal PR System mini-course</p>
                 </div>
                 <Button 
-                  onClick={() => setIsFormOpen(true)}
+                  asChild
                   className="w-full shadow-lg hover:shadow-xl"
                   size="lg"
                 >
-                  Get Started
+                  <a 
+                    href="https://link.fastpaydirect.com/payment-link/68ff94c22197098009e30c30"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Get Started
+                  </a>
                 </Button>
               </Card>
             </BackgroundGradient>
@@ -396,11 +414,17 @@ const JumpStart = () => {
           </p>
           
           <Button 
-            onClick={() => setIsFormOpen(true)}
+            asChild
             size="lg"
             className="text-lg h-14 px-12 shadow-lg hover:shadow-xl transition-all duration-300 animate-pulse hover:animate-none hover:scale-110"
           >
-            Start Your 6-Month Jump Start™
+            <a 
+              href="https://link.fastpaydirect.com/payment-link/68ff94c22197098009e30c30"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Start Your 6-Month Jump Start™
+            </a>
           </Button>
           
           <p className="text-sm text-muted-foreground">
