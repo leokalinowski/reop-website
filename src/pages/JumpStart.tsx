@@ -14,70 +14,66 @@ const JumpStart = () => {
   const features = [
     {
       category: "SphereSync™ Execution",
-      what: "We send your weekly SphereSync messages (email, text, video prompt) — you just review and hit send.",
+      what: "We send your weekly SphereSync messages (email, text, video prompt) — you review and hit send.",
       format: "Done-for-you + automation"
     },
     {
       category: "Weekly Group Coaching",
-      what: "Accountability, scripts, objection handling, and action plans — live and recorded.",
+      what: "Accountability, dialogues, objection handling, and action plans — live and recorded.",
       format: "Zoom (recorded)"
     },
     {
-      category: "Monthly Skill Workshop",
-      what: "High-impact themes: AI, systems, events, referral generation.",
+      category: "Monthly Skill Workshops",
+      what: "High-impact topics: AI, systems, events, referral generation.",
       format: "Live + replay"
     },
     {
       category: "Client Experience Starter Kit",
-      what: "3 milestone videos + plug-and-play templates to upgrade your client experience fast.",
+      what: "2 milestone videos + plug-and-play templates to upgrade your client experience.",
       format: "Downloadables"
     },
     {
       category: "Database Power Score™ Audit",
-      what: "See your connection %, data gaps, and next steps — like a \"credit score\" for your database.",
-      format: "PDF + call"
-    },
-    {
-      category: "Private Community Access",
-      what: "A momentum hub for wins, accountability, and resources.",
-      format: "Private Facebook group"
+      what: "See your data gaps and connection % — like a \"credit score\" for your database.",
+      format: "PDF worksheet"
     },
     {
       category: "End-of-Program Strategy Call",
-      what: "Personalized plan for your next 6 months — whether you keep scaling or move into full REOP.",
+      what: "Personalized plan for your next 6 months — whether you keep scaling or graduate to full REOP.",
       format: "1:1 Zoom"
     }
   ];
 
   const expectations = [
-    "A clean, prioritized database that actually produces conversations",
-    "A consistent weekly rhythm (SphereSync + Coaching = execution)",
-    "New appointments booked and referrals reopened",
-    "The confidence and clarity to sustain growth into Spring 2026"
+    "A clean, prioritized database that actually creates conversations",
+    "A consistent weekly rhythm (SphereSync + Coaching = Execution)",
+    "New appointments booked and referrals re-opened",
+    "The clarity and confidence to sustain growth into Spring 2026"
   ];
 
   const whyItWorks = [
-    "Automation where it helps, accountability where it matters.",
+    "Automation where it helps.",
+    "Accountability where it matters.",
     "Small-group coaching (max 6 agents) so you can't hide.",
-    "Momentum in motion: You act while we guide."
+    "Real-time execution — you act while we guide."
   ];
 
   const faqs = [
     {
       question: "How much time does it take?",
-      answer: "About 2–4 hours per week — including your SphereSync outreach and live group call."
+      answer: "Plan 2–4 hours per week — including SphereSync outreach and your group call."
     },
     {
-      question: "Do I need to change my CRM?",
-      answer: "No. We make what you have work better. You'll just upload your CSV for the audit."
+      question: "Do I need a new CRM?",
+      answer: "No. We make what you have work better — you'll simply upload your CSV for the audit."
     },
     {
       question: "What if I'm on a team?",
-      answer: "You can join as a team or request a private cohort. Ask us for team pricing."
+      answer: "Join as a team or request a private cohort (ask about team pricing)."
     },
     {
       question: "Is there a guarantee?",
-      answer: "Yes — if you attend your calls and complete your weekly SphereSyncs, we'll keep coaching you until you book 10 new appointments."
+      answer: "Yes — attend your calls and complete weekly SphereSyncs, and we'll coach you until you book 10 new appointments."
     }
   ];
 
@@ -101,15 +97,11 @@ const JumpStart = () => {
           </h1>
           
           <p className="text-2xl md:text-3xl text-muted-foreground max-w-3xl mx-auto">
-            A 6-month reset for agents ready to get their business back.
+            Hit Reset — and Fall in Love with Your Business Again
           </p>
           
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Hit reset — and make 2026 your best year ever.
-          </p>
-          
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            This six-month accelerator helps you clean up your database, rebuild your systems, and reignite momentum so you start the new year confident, organized, and in control of your business again.
+            Schedule Your Strategy Session with Founder Pam O'Bryant
           </p>
           
           <Button 
@@ -122,7 +114,7 @@ const JumpStart = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Get Started Today
+              Book Now
             </a>
           </Button>
         </div>
@@ -135,10 +127,11 @@ const JumpStart = () => {
         <div className="max-w-6xl mx-auto space-y-12 relative z-10">
           <div className="text-center space-y-4">
             <h2 className="text-4xl md:text-5xl font-medium tracking-tighter text-foreground">
-              🚧 The Problem Every Agent Knows
+              🚧 The Real Problem (That No One Wants to Admit)
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              If your income feels like a rollercoaster, it's not because you're bad at real estate — it's because your systems stopped keeping up with your relationships.
+              If your income feels like a rollercoaster, it's not because you're bad at real estate.
+              It's because your systems stopped keeping up with your relationships.
             </p>
           </div>
 
@@ -163,7 +156,7 @@ const JumpStart = () => {
           </div>
 
           <p className="text-xl text-center text-muted-foreground max-w-3xl mx-auto mt-12">
-            Sound familiar? Every month you wait costs you opportunities already sitting in your sphere.
+            And somehow, next week never comes. Every month you wait, opportunities are quietly slipping through the cracks — the ones already sitting in your sphere.
           </p>
         </div>
       </section>
@@ -175,20 +168,22 @@ const JumpStart = () => {
         <div className="max-w-5xl mx-auto space-y-8 relative z-10">
           <div className="text-center space-y-4">
             <h2 className="text-4xl md:text-5xl font-medium tracking-tighter text-foreground">
-              ⚡ The 6-Month Jump Start™ Fixes That
+              ⚡ The REOP 6-Month Jump Start™
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              We built REOP Jump Start™ as a guided reboot for agents who want consistent income again — without another expensive coaching contract or CRM overhaul.
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-semibold">
+              A Guided Reboot for Agents Who Want Consistent Income Again
             </p>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              It's a done-with-you growth system that combines automation, live accountability, and practical coaching so you can actually follow through.
+              No expensive coaching contract.
+              No tech overhaul.
+              Just a done-with-you growth system that blends automation, accountability, and real-world coaching — so you actually follow through.
             </p>
           </div>
 
           <BackgroundGradient className="rounded-[22px] p-1 mt-12">
             <Card className="cosmic-card p-8 text-center border-0">
               <p className="text-2xl font-medium text-foreground">
-                <span className="text-primary">Promise:</span> In six months, you'll have a clean, connected database, a full follow-up rhythm, and booked appointments — guaranteed.
+                <span className="text-primary">Our promise:</span> In six months, you'll have a clean, connected database, a steady follow-up rhythm, and booked appointments — guaranteed.
               </p>
             </Card>
           </BackgroundGradient>
@@ -253,7 +248,7 @@ const JumpStart = () => {
                 <p className="text-xl font-semibold text-primary">Appointment Assurance Guarantee</p>
               </div>
               <p className="text-xl font-medium text-foreground">
-                And if you follow the plan but don't book new appointments — <span className="text-primary">we'll keep coaching you until you do.</span>
+                If you follow the plan and don't book new appointments, we'll keep coaching you until you do.
               </p>
             </Card>
           </BackgroundGradient>
@@ -267,10 +262,10 @@ const JumpStart = () => {
         <div className="max-w-5xl mx-auto space-y-12 relative z-10">
           <div className="text-center space-y-4">
             <h2 className="text-4xl md:text-5xl font-medium tracking-tighter text-foreground">
-              💡 Why This Works (and Others Don't)
+              💡 Why This Works (When Others Don't)
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Most "get more leads" programs sell you more complexity. We focus on what's already in your business — your relationships — and give you the structure to follow through week after week.
+              Most "lead gen" programs sell you complexity. We focus on what's already working — your relationships — and give you the rhythm and structure to nurture them consistently.
             </p>
           </div>
 
@@ -284,7 +279,7 @@ const JumpStart = () => {
           </div>
 
           <p className="text-xl text-center text-muted-foreground italic mt-8">
-            This isn't theory — it's the exact rhythm top agents use to rebuild pipelines fast.
+            This isn't theory. It's the same rhythm top agents use to rebuild momentum and pipelines fast.
           </p>
         </div>
       </section>
@@ -348,11 +343,6 @@ const JumpStart = () => {
             </BackgroundGradient>
           </div>
 
-          <Card className="cosmic-card p-6 text-center max-w-3xl mx-auto">
-            <p className="text-lg text-foreground">
-              <span className="font-semibold text-primary">Early Enrollment Bonus:</span> Join within 5 days of the webinar and get a free Database Power Score™ Audit (a $297 value).
-            </p>
-          </Card>
         </div>
       </section>
 
@@ -362,13 +352,10 @@ const JumpStart = () => {
         
         <div className="max-w-4xl mx-auto text-center space-y-6 relative z-10">
           <h2 className="text-4xl md:text-5xl font-medium tracking-tighter text-foreground">
-            🕓 Doors Close Soon
+            🕓 Limited Enrollment
           </h2>
           <p className="text-xl text-muted-foreground">
-            Each cohort is capped at 6 agents to keep accountability personal.
-          </p>
-          <p className="text-lg text-foreground font-medium">
-            Enrollment closes 5 days after the webinar — or when groups fill.
+            Each cohort is capped at 6 agents to keep coaching personal.
           </p>
         </div>
       </section>
@@ -407,10 +394,13 @@ const JumpStart = () => {
             🗝️ Why Join Now
           </h2>
           <p className="text-xl text-muted-foreground">
-            Every agent says "I'll get to it soon." The ones who take action now will own the listings by spring.
+            Every agent says "I'll get to it soon." In the DMV, sellers chose their listing agent in January, February and March. Agents who act now will own the listings this spring.
           </p>
           <p className="text-lg text-foreground">
-            You've already built the relationships. This is the system that helps you activate them — and rebuild your pipeline with purpose.
+            You've already built the relationships.
+          </p>
+          <p className="text-lg text-foreground">
+            This is the system that helps you activate them — and rebuild your pipeline with purpose.
           </p>
           
           <Button 
