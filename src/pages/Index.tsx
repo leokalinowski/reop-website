@@ -1,4 +1,5 @@
 import React, { lazy } from 'react';
+import Navigation from '@/components/Navigation';
 import HeroSection from '@/components/HeroSection';
 import ValueProposition from '@/components/ValueProposition';
 import LazySection from '@/components/LazySection';
@@ -21,6 +22,7 @@ const CTASection = lazy(() => import('@/components/CTASection'));
 const Index = () => {
   return (
     <div className="min-h-screen flex flex-col bg-background text-foreground">
+      <Navigation />
       <main>
         <HeroSection />
         <ValueProposition />
