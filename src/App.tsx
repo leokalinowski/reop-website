@@ -5,6 +5,13 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
 import Index from "./pages/Index";
 import JumpStart from "./pages/JumpStart";
+import Blog from "./pages/Blog";
+import BlogPost from "./pages/BlogPost";
+import Resources from "./pages/Resources";
+import Resource from "./pages/Resource";
+import ResourceThankYou from "./pages/ResourceThankYou";
+import AdminLogin from "./pages/admin/Login";
+import AdminDashboard from "./pages/admin/Dashboard";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import LegalDisclaimer from "./pages/LegalDisclaimer";
@@ -22,6 +29,13 @@ const AppContent = () => {
       <Routes>
         <Route path="/" element={<Index />} />
         <Route path="/jump-start" element={<JumpStart />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/blog/:slug" element={<BlogPost />} />
+        <Route path="/resources" element={<Resources />} />
+        <Route path="/resources/:slug" element={<Resource />} />
+        <Route path="/resources/thank-you" element={<ResourceThankYou />} />
+        <Route path="/admin/login" element={<AdminLogin />} />
+        <Route path="/admin/dashboard" element={<AdminDashboard />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/terms-of-service" element={<TermsOfService />} />
         <Route path="/legal-disclaimer" element={<LegalDisclaimer />} />

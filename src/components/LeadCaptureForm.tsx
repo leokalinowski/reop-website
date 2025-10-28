@@ -29,11 +29,13 @@ interface FormData {
 }
 
 interface LeadCaptureFormProps {
-  isOpen: boolean;
-  onClose: () => void;
+  isOpen?: boolean;
+  onClose?: () => void;
+  resourceId?: string;
+  onSuccess?: () => void;
 }
 
-const LeadCaptureForm: React.FC<LeadCaptureFormProps> = ({ isOpen, onClose }) => {
+const LeadCaptureForm: React.FC<LeadCaptureFormProps> = ({ isOpen = true, onClose, resourceId, onSuccess }) => {
   const [currentStep, setCurrentStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
@@ -111,31 +113,69 @@ const LeadCaptureForm: React.FC<LeadCaptureFormProps> = ({ isOpen, onClose }) =>
         throw new Error(response.data.error);
       }
 
-      toast({
-        title: "Success!",
-        description: "Your personalized success analysis has been sent to your email!",
-      });
+      // If downloading a resource, handle that flow
+      if (resourceId && response.data?.leadId) {
+        try {
+          const downloadResponse = await supabase.functions.invoke('download-resource', {
+            body: { 
+              resourceId, 
+              leadId: response.data.leadId 
+            }
+          });
 
-      onClose();
-      // Reset form
-      setCurrentStep(1);
-      setFormData({
-        firstName: '',
-        lastName: '',
-        email: '',
-        phone: '',
-        sphereSize: 0,
-        annualTransactions: 0,
-        weeklyHours: 0,
-        sphereContactFrequency: '',
-        budgetManagementStyle: '',
-        businessStressLevel: '',
-        biggestChallenge: '',
-        targetIncome: 0,
-        startTimeline: '',
-        communicationPreferences: ['email'],
-        honeypot: '',
-      });
+          if (downloadResponse.error) throw downloadResponse.error;
+
+          toast({
+            title: "Success!",
+            description: "Your download is starting...",
+          });
+
+          // Navigate to thank you page with download URL
+          const downloadUrl = downloadResponse.data?.downloadUrl;
+          window.location.href = `/resources/thank-you?resourceId=${resourceId}&downloadUrl=${encodeURIComponent(downloadUrl)}`;
+          
+          onSuccess?.();
+        } catch (downloadError) {
+          console.error('Download error:', downloadError);
+          toast({
+            title: "Error",
+            description: "Your lead was saved, but there was an issue with the download. We'll send it to your email.",
+            variant: "destructive"
+          });
+          window.location.href = `/resources/thank-you?resourceId=${resourceId}`;
+          onSuccess?.();
+        }
+      } else {
+        // Original flow for jump-start page
+        toast({
+          title: "Success!",
+          description: "Your personalized success analysis has been sent to your email!",
+        });
+
+        if (onClose) {
+          onClose();
+        }
+        
+        // Reset form
+        setCurrentStep(1);
+        setFormData({
+          firstName: '',
+          lastName: '',
+          email: '',
+          phone: '',
+          sphereSize: 0,
+          annualTransactions: 0,
+          weeklyHours: 0,
+          sphereContactFrequency: '',
+          budgetManagementStyle: '',
+          businessStressLevel: '',
+          biggestChallenge: '',
+          targetIncome: 0,
+          startTimeline: '',
+          communicationPreferences: ['email'],
+          honeypot: '',
+        });
+      }
     } catch (error: any) {
       console.error('Error submitting form:', error);
       
@@ -411,6 +451,65 @@ const LeadCaptureForm: React.FC<LeadCaptureFormProps> = ({ isOpen, onClose }) =>
         return null;
     }
   };
+
+  // If used as standalone (no dialog wrapper)
+  if (!onClose) {
+    return (
+      <div className="w-full">
+        {/* Progress Bar */}
+        <div className="space-y-2 mb-6">
+          <div className="flex justify-between items-center">
+            <span className="text-sm text-muted-foreground">Step {currentStep} of {totalSteps}</span>
+            <span className="text-sm text-muted-foreground">{Math.round((currentStep / totalSteps) * 100)}% Complete</span>
+          </div>
+          <Progress value={(currentStep / totalSteps) * 100} className="w-full" />
+        </div>
+
+        {/* Step Icons */}
+        <div className="flex justify-center space-x-4 py-4">
+          {[1, 2, 3, 4].map((step) => (
+            <div
+              key={step}
+              className={`flex items-center justify-center w-10 h-10 rounded-full border-2 transition-colors ${
+                step <= currentStep
+                  ? 'bg-primary border-primary text-primary-foreground'
+                  : 'border-muted-foreground text-muted-foreground'
+              }`}
+            >
+              {getStepIcon(step)}
+            </div>
+          ))}
+        </div>
+
+        {/* Form Content */}
+        <div className="py-4">
+          {renderStep()}
+        </div>
+
+        {/* Navigation Buttons */}
+        <div className="flex justify-between pt-4">
+          <Button
+            variant="outline"
+            onClick={prevStep}
+            disabled={currentStep === 1 || isSubmitting}
+          >
+            <ArrowLeft className="w-4 h-4 mr-2" />
+            Previous
+          </Button>
+          {currentStep < totalSteps ? (
+            <Button onClick={nextStep} disabled={isSubmitting}>
+              Next
+              <ArrowRight className="w-4 h-4 ml-2" />
+            </Button>
+          ) : (
+            <Button onClick={handleSubmit} disabled={isSubmitting}>
+              {isSubmitting ? 'Submitting...' : 'Get My Analysis'}
+            </Button>
+          )}
+        </div>
+      </div>
+    );
+  }
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
