@@ -2,3 +2,6 @@ project_id = "ofdlhkjtpyopayoxuzrz"
 
 [functions.generate-success-analysis]
 verify_jwt = false
+
+[functions.download-resource]
+verify_jwt = false

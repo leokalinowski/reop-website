@@ -12,6 +12,9 @@ import Resource from "./pages/Resource";
 import ResourceThankYou from "./pages/ResourceThankYou";
 import AdminLogin from "./pages/admin/Login";
 import AdminDashboard from "./pages/admin/Dashboard";
+import AdminBlogPosts from "./pages/admin/BlogPosts";
+import AdminBlogPostEditor from "./pages/admin/BlogPostEditor";
+import AdminResourcesManager from "./pages/admin/ResourcesManager";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import LegalDisclaimer from "./pages/LegalDisclaimer";
@@ -36,6 +39,9 @@ const AppContent = () => {
         <Route path="/resources/thank-you" element={<ResourceThankYou />} />
         <Route path="/admin/login" element={<AdminLogin />} />
         <Route path="/admin/dashboard" element={<AdminDashboard />} />
+        <Route path="/admin/blog-posts" element={<AdminBlogPosts />} />
+        <Route path="/admin/blog-posts/:id" element={<AdminBlogPostEditor />} />
+        <Route path="/admin/resources" element={<AdminResourcesManager />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/terms-of-service" element={<TermsOfService />} />
         <Route path="/legal-disclaimer" element={<LegalDisclaimer />} />
