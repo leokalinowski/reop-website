@@ -111,9 +111,10 @@ export default {
 			'gradient-shift': 'gradient-shift 8s ease infinite',
 			'slide-in-down': 'slide-in-down 0.3s ease-out'
 		},
-			fontFamily: {
-				'inter': ['Inter', 'sans-serif']
-			},
+		fontFamily: {
+			'inter': ['Inter', 'sans-serif'],
+			'handwritten': ['Caveat', 'cursive']
+		},
 			letterSpacing: {
 				'tighter': '-0.05em',
 			},

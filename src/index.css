@@ -207,6 +207,49 @@
     @apply bg-accent/20 transition-all duration-300;
   }
   
+  /* Video Placeholder Styles */
+  .video-placeholder {
+    @apply relative bg-muted rounded-lg overflow-hidden;
+    aspect-ratio: 16 / 9;
+  }
+
+  .video-placeholder::before {
+    content: "";
+    @apply absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10;
+  }
+
+  .video-placeholder::after {
+    content: "📹 Video will be placed here";
+    @apply absolute inset-0 flex items-center justify-center text-muted-foreground text-sm font-medium;
+  }
+
+  /* Image Placeholder Styles */
+  .image-placeholder {
+    @apply relative bg-muted rounded-lg overflow-hidden;
+    aspect-ratio: 4 / 3;
+  }
+
+  .image-placeholder::before {
+    content: "";
+    @apply absolute inset-0 bg-gradient-to-br from-secondary/10 to-primary/10;
+  }
+
+  .image-placeholder::after {
+    content: "🖼️ Image will be placed here";
+    @apply absolute inset-0 flex items-center justify-center text-muted-foreground text-sm font-medium;
+  }
+
+  /* Section spacing utilities */
+  .section-padding {
+    @apply py-16 md:py-24 px-6 md:px-12;
+  }
+
+  /* Animated overlay text */
+  .overlay-text {
+    @apply text-2xl md:text-4xl font-medium text-primary;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
   /* Mobile-specific optimizations */
   @media (max-width: 768px) {
     body {
