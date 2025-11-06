@@ -23,14 +23,14 @@ const ProofSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section ref={ref} className="section-padding section-dark relative overflow-hidden">
+    <section ref={ref} className="section-padding section-dark relative overflow-hidden py-12 md:py-16 lg:py-24">
       {/* Background Elements */}
       <div className="absolute inset-0 opacity-30">
         <div className="absolute inset-0 cosmic-grid opacity-20"></div>
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-purple-500/10 rounded-full blur-[150px]"></div>
       </div>
       
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 relative z-10">
         {/* Header */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
@@ -47,7 +47,7 @@ const ProofSection = () => {
         </motion.div>
 
         {/* Video Grid */}
-        <div className="grid md:grid-cols-3 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={testimonial.name}
@@ -89,7 +89,7 @@ const ProofSection = () => {
           <Button 
             size="lg"
             variant="outline"
-            className="h-14 px-8 text-base font-semibold"
+            className="h-14 px-8 text-base font-semibold w-full sm:w-auto"
           >
             🎥 Watch Their Stories
           </Button>

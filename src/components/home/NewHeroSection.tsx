@@ -65,31 +65,31 @@ const NewHeroSection = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1, delay: 0.8 }}
-                className="flex items-center gap-4 flex-wrap"
+                className="flex items-center gap-2 sm:gap-4 flex-wrap"
               >
                 <motion.span 
                   initial={{ opacity: 0, x: -10 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 1 }}
-                  className="overlay-text text-lg md:text-2xl"
+                  className="overlay-text text-base sm:text-lg md:text-2xl"
                 >
                   Relationships
                 </motion.span>
-                <ArrowRight className="w-5 h-5 text-accent" />
+                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 text-accent flex-shrink-0" />
                 <motion.span 
                   initial={{ opacity: 0, x: -10 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 1.2 }}
-                  className="overlay-text text-lg md:text-2xl"
+                  className="overlay-text text-base sm:text-lg md:text-2xl"
                 >
                   Systems
                 </motion.span>
-                <ArrowRight className="w-5 h-5 text-accent" />
+                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 text-accent flex-shrink-0" />
                 <motion.span 
                   initial={{ opacity: 0, x: -10 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 1.4 }}
-                  className="overlay-text text-lg md:text-2xl"
+                  className="overlay-text text-base sm:text-lg md:text-2xl"
                 >
                   Results
                 </motion.span>
@@ -100,7 +100,7 @@ const NewHeroSection = () => {
                 <Button 
                   onClick={() => setIsFormOpen(true)}
                   size="lg"
-                  className="h-14 px-8 text-base font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+                  className="h-14 px-8 text-base font-semibold shadow-lg hover:shadow-xl transition-all duration-300 w-full sm:w-auto"
                 >
                   🎁 Get the Free Agent Systems Starter Pack
                 </Button>
@@ -108,7 +108,7 @@ const NewHeroSection = () => {
                   onClick={scrollToAgentOps}
                   variant="outline"
                   size="lg"
-                  className="h-14 px-8 text-base font-semibold"
+                  className="h-14 px-8 text-base font-semibold w-full sm:w-auto"
                 >
                   See How REOP Works <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>

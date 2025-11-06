@@ -61,7 +61,7 @@ const AgentOpsHQ = () => {
         </motion.div>
 
         {/* 4-Division Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           {divisions.map((division, index) => {
             const Icon = division.icon;
             return (
@@ -71,9 +71,9 @@ const AgentOpsHQ = () => {
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <div className="bg-card border-2 border-transparent hover:border-primary/20 rounded-2xl p-8 h-full min-h-[360px] shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col">
-                  <div className={`w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-4 ${division.color}`}>
-                    <Icon className="w-7 h-7" />
+                <div className="bg-card border-2 border-transparent hover:border-primary/20 rounded-2xl p-6 md:p-8 h-full min-h-[280px] md:min-h-[360px] shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col">
+                  <div className={`w-12 h-12 md:w-14 md:h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-4 ${division.color}`}>
+                    <Icon className="w-6 h-6 md:w-7 md:h-7" />
                   </div>
                   <h3 className="text-xl font-semibold text-foreground mb-3">
                     {division.title}
@@ -97,7 +97,7 @@ const AgentOpsHQ = () => {
           <Button 
             size="lg"
             variant="outline"
-            className="h-14 px-8 text-base font-semibold"
+            className="h-14 px-8 text-base font-semibold w-full sm:w-auto"
           >
             Explore the Agent Ops HQ Framework →
           </Button>

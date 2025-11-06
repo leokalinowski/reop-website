@@ -42,9 +42,9 @@ const SupportedAgentModel = () => {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={isInView ? { opacity: 1, scale: 1 } : {}}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="cosmic-glass rounded-3xl p-8 md:p-12 backdrop-blur-xl shadow-2xl"
+          className="cosmic-glass rounded-3xl p-6 sm:p-8 md:p-12 backdrop-blur-xl shadow-2xl"
         >
-          <div className="grid lg:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Left Column */}
             <div className="space-y-6">
               <div>
@@ -106,7 +106,7 @@ const SupportedAgentModel = () => {
               <div className="pt-6">
                 <Button 
                   size="lg"
-                  className="w-full h-14 text-base font-semibold"
+                  className="w-full sm:w-auto h-14 text-base font-semibold"
                 >
                   Explore Supported Agent Model →
                 </Button>

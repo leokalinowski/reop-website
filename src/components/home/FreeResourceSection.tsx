@@ -94,7 +94,7 @@ const FreeResourceSection = () => {
             <Button 
               onClick={() => setIsFormOpen(true)}
               size="lg"
-              className="h-14 px-8 text-base font-semibold shadow-xl hover:shadow-2xl transition-all duration-300"
+              className="h-14 px-8 text-base font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 w-full sm:w-auto"
             >
               🎁 Get My Free Starter Pack
             </Button>

@@ -6,14 +6,14 @@ const ProblemSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section ref={ref} className="section-padding section-dark relative overflow-hidden">
+    <section ref={ref} className="section-padding section-dark relative overflow-hidden py-12 md:py-16 lg:py-24">
       {/* Background Elements */}
       <div className="absolute inset-0 opacity-30">
         <div className="absolute inset-0 cosmic-grid opacity-20"></div>
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-500/10 rounded-full blur-[150px]"></div>
       </div>
       
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 relative z-10">
         {/* Header */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
@@ -28,7 +28,7 @@ const ProblemSection = () => {
         </motion.div>
 
         {/* Image Grid */}
-        <div className="grid md:grid-cols-2 gap-8 items-center mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mb-16">
           {/* Left Side - Chaos */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}

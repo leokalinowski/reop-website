@@ -11,14 +11,14 @@ const PersonalInvitation = () => {
 
   return (
     <>
-      <section ref={ref} className="section-padding section-dark relative overflow-hidden">
+      <section ref={ref} className="section-padding section-dark relative overflow-hidden py-12 md:py-16 lg:py-24">
         {/* Background Elements */}
         <div className="absolute inset-0 opacity-20">
           <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-pink-500/10 rounded-full blur-[150px]"></div>
         </div>
         
-        <div className="max-w-6xl mx-auto px-6 relative z-10">
-          <div className="grid lg:grid-cols-5 gap-12 items-center">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-12 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-center">
             {/* Left Column - Image (2 cols) */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
@@ -75,7 +75,7 @@ const PersonalInvitation = () => {
                 <Button 
                   onClick={() => setIsFormOpen(true)}
                   size="lg"
-                  className="h-14 px-8 text-base font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+                  className="h-14 px-8 text-base font-semibold shadow-lg hover:shadow-xl transition-all duration-300 w-full sm:w-auto"
                 >
                   <Calendar className="mr-2 w-5 h-5" />
                   Book a Discovery Call
