@@ -100,7 +100,7 @@ const NewHeroSection = () => {
                 <Button 
                   onClick={() => setIsFormOpen(true)}
                   size="lg"
-                  className="text-lg h-14 px-8 shadow-lg hover:shadow-xl transition-all duration-300"
+                  className="h-14 px-8 text-base font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
                 >
                   🎁 Get the Free Agent Systems Starter Pack
                 </Button>
@@ -108,7 +108,7 @@ const NewHeroSection = () => {
                   onClick={scrollToAgentOps}
                   variant="outline"
                   size="lg"
-                  className="text-lg h-14 px-8"
+                  className="h-14 px-8 text-base font-semibold"
                 >
                   See How REOP Works <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>

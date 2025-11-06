@@ -1,32 +1,35 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { useInView } from 'framer-motion';
-import { useRef } from 'react';
+import React, { useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
 
 const ProblemSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section ref={ref} className="section-padding section-dark cosmic-grid relative overflow-hidden">
+    <section ref={ref} className="section-padding section-dark relative overflow-hidden">
       {/* Background Elements */}
-      <div className="absolute inset-0 cosmic-glow"></div>
+      <div className="absolute inset-0 opacity-30">
+        <div className="absolute inset-0 cosmic-grid opacity-20"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-500/10 rounded-full blur-[150px]"></div>
+      </div>
       
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
+        {/* Header */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12 sm:mb-16 space-y-4 px-4"
+          className="text-center mb-16 space-y-4"
         >
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter max-w-4xl mx-auto">
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tighter" style={{ color: '#f8fafc' }}>
             The Hardest Part Isn't Selling Homes —{' '}
             <span className="text-primary">It's Holding Everything Together.</span>
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-12 items-center">
-          {/* Left Side - Chaos Image Placeholder */}
+        {/* Image Grid */}
+        <div className="grid md:grid-cols-2 gap-8 items-center mb-16">
+          {/* Left Side - Chaos */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
@@ -37,12 +40,12 @@ const ProblemSection = () => {
               data-image-slot="problem-chaos"
               style={{ aspectRatio: '4/3' }}
             />
-            <p className="text-xs sm:text-sm text-center mt-3 sm:mt-4 font-medium">
+            <p className="text-sm text-center mt-4 font-medium" style={{ color: '#cbd5e1' }}>
               Before: Overwhelmed & Scattered
             </p>
           </motion.div>
 
-          {/* Right Side - Clarity Image Placeholder */}
+          {/* Right Side - Clarity */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
@@ -53,7 +56,7 @@ const ProblemSection = () => {
               data-image-slot="problem-clarity"
               style={{ aspectRatio: '4/3' }}
             />
-            <p className="text-xs sm:text-sm text-center mt-3 sm:mt-4 font-medium">
+            <p className="text-sm text-center mt-4 font-medium" style={{ color: '#cbd5e1' }}>
               After: Organized & In Control
             </p>
           </motion.div>
@@ -64,18 +67,18 @@ const ProblemSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.6 }}
-          className="mt-12 sm:mt-16 max-w-3xl mx-auto space-y-4 sm:space-y-6 text-center px-4"
+          className="max-w-3xl mx-auto space-y-6 text-center"
         >
-          <p className="text-base sm:text-lg md:text-xl leading-relaxed">
+          <p className="text-lg leading-relaxed" style={{ color: '#e2e8f0' }}>
             You started in real estate to help people move. But somewhere between chasing leads, juggling closings, and trying to "stay in touch," the joy got buried under the chaos.
           </p>
-          <p className="text-base sm:text-lg md:text-xl leading-relaxed">
+          <p className="text-lg leading-relaxed" style={{ color: '#e2e8f0' }}>
             You don't need another course, app, or coach yelling "do more."
           </p>
-          <p className="text-base sm:text-lg md:text-xl leading-relaxed font-medium">
+          <p className="text-lg leading-relaxed font-medium" style={{ color: '#f8fafc' }}>
             You need <span className="text-primary">clarity</span>, <span className="text-primary">systems</span>, and <span className="text-primary">support</span> — the kind that brings your business back into alignment with your life.
           </p>
-          <p className="text-sm sm:text-base italic mt-6 sm:mt-8 opacity-80">
+          <p className="text-base italic mt-8" style={{ color: '#cbd5e1' }}>
             Because burnout isn't a badge of honor. It's a signal that something needs to change.
           </p>
         </motion.div>

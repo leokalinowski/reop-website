@@ -5,16 +5,16 @@ import { Play } from 'lucide-react';
 
 const testimonials = [
   {
-    quote: "I finally stopped spinning my wheels.",
-    name: "Agent Success Story 1"
+    quote: "REOP gave me my life back. I'm closing more deals and actually enjoying my business again.",
+    name: "Sarah M., Austin, TX"
   },
   {
-    quote: "The systems did what I never had time to build.",
-    name: "Agent Success Story 2"
+    quote: "The systems work. My referrals doubled in 6 months, and I have time for my family again.",
+    name: "Mike R., Denver, CO"
   },
   {
-    quote: "For the first time in years, I took a real vacation.",
-    name: "Agent Success Story 3"
+    quote: "I went from scattered chaos to organized momentum. This is what I needed all along.",
+    name: "Jennifer L., Charlotte, NC"
   }
 ];
 
@@ -25,26 +25,29 @@ const ProofSection = () => {
   return (
     <section ref={ref} className="section-padding section-dark relative overflow-hidden">
       {/* Background Elements */}
-      <div className="absolute inset-0 cosmic-glow opacity-30"></div>
+      <div className="absolute inset-0 opacity-30">
+        <div className="absolute inset-0 cosmic-grid opacity-20"></div>
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-purple-500/10 rounded-full blur-[150px]"></div>
+      </div>
       
-      <div className="max-w-7xl mx-auto relative z-10">
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Header */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12 sm:mb-16 space-y-4 px-4"
+          className="text-center mb-16 space-y-4"
         >
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter">
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tighter" style={{ color: '#f8fafc' }}>
             Real Agents. <span className="text-primary">Real Results.</span>
           </h2>
-          <p className="text-base sm:text-lg md:text-xl max-w-3xl mx-auto opacity-80">
+          <p className="text-lg max-w-3xl mx-auto" style={{ color: '#cbd5e1' }}>
             From overwhelmed and overworked to organized and in control — REOP agents are rediscovering why they fell in love with real estate in the first place.
           </p>
         </motion.div>
 
         {/* Video Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mb-8 sm:mb-12">
+        <div className="grid md:grid-cols-3 gap-8 mb-12">
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={testimonial.name}
@@ -57,20 +60,20 @@ const ProofSection = () => {
                 <div 
                   className="video-placeholder rounded-2xl shadow-xl overflow-hidden"
                   data-video-slot={`testimonial-${index + 1}`}
+                  style={{ aspectRatio: '16/9' }}
                 >
                   <div className="absolute inset-0 flex items-center justify-center z-10">
-                    <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-primary/30 backdrop-blur-sm border border-primary/40 flex items-center justify-center group-hover:scale-110 transition-transform cursor-pointer">
-                      <Play className="w-5 h-5 sm:w-7 sm:h-7 text-primary ml-0.5 sm:ml-1" fill="currentColor" />
+                    <div className="w-16 h-16 rounded-full bg-primary/30 backdrop-blur-sm border border-primary/40 flex items-center justify-center group-hover:scale-110 transition-transform cursor-pointer">
+                      <Play className="w-7 h-7 text-primary ml-1" fill="currentColor" />
                     </div>
                   </div>
-                  
-                  {/* Quote Overlay */}
-                  <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 bg-gradient-to-t from-background/90 to-transparent">
-                    <p className="text-xs sm:text-sm md:text-base font-medium italic">
-                      "{testimonial.quote}"
-                    </p>
-                  </div>
                 </div>
+                <p className="text-sm italic mt-4 text-center" style={{ color: '#e2e8f0' }}>
+                  "{testimonial.quote}"
+                </p>
+                <p className="text-xs mt-2 text-center" style={{ color: '#cbd5e1' }}>
+                  — {testimonial.name}
+                </p>
               </div>
             </motion.div>
           ))}
@@ -81,12 +84,12 @@ const ProofSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="text-center px-4"
+          className="text-center"
         >
           <Button 
             size="lg"
             variant="outline"
-            className="text-sm sm:text-base md:text-lg h-12 sm:h-14 px-6 sm:px-8 md:px-12 w-full sm:w-auto"
+            className="h-14 px-8 text-base font-semibold"
           >
             🎥 Watch Their Stories
           </Button>

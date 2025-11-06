@@ -1,34 +1,33 @@
 import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
+import { Users, Calendar, Heart, TrendingUp } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { BackgroundGradient } from '@/components/ui/background-gradient';
-import { Send, Target, TrendingUp, Gift } from 'lucide-react';
 
 const divisions = [
   {
-    icon: Send,
-    title: "Outreach Division",
-    description: "Keep your sphere connected through SphereSync™, e-newsletters, and done-for-you Client Events.",
-    color: "text-primary"
+    title: "Database & Client Relations",
+    description: "Organize, segment, and stay in touch with your sphere effortlessly.",
+    icon: Users,
+    color: "text-blue-500",
   },
   {
-    icon: Target,
-    title: "Conversion Division",
-    description: "Guide clients seamlessly from first contact to closing with Buyer & Seller Blueprints and automated nurturing.",
-    color: "text-accent"
+    title: "Event Management",
+    description: "Plan, execute, and track client appreciation events that strengthen relationships.",
+    icon: Calendar,
+    color: "text-green-500",
   },
   {
+    title: "Surprise & Delight",
+    description: "Thoughtful touchpoints that keep you top-of-mind without the stress.",
+    icon: Heart,
+    color: "text-pink-500",
+  },
+  {
+    title: "Operations & Growth",
+    description: "Weekly coaching, accountability, and systems that scale with you.",
     icon: TrendingUp,
-    title: "Performance Division",
-    description: "Track your real results — conversations → closings — through the Agent Success Scoreboard™ and weekly coaching.",
-    color: "text-secondary"
+    color: "text-purple-500",
   },
-  {
-    icon: Gift,
-    title: "Delight Loop Division",
-    description: "Keep past clients engaged with thoughtful gifts, post-closing touches, and value drops that generate referrals.",
-    color: "text-primary"
-  }
 ];
 
 const AgentOpsHQ = () => {
@@ -39,30 +38,30 @@ const AgentOpsHQ = () => {
     <section id="agent-ops-hq" ref={ref} className="section-padding bg-background relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 cosmic-grid opacity-5"></div>
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent/10 rounded-full blur-[150px]"></div>
+      <div className="absolute top-1/2 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[150px]"></div>
       
-      <div className="max-w-7xl mx-auto relative z-10">
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Header */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12 sm:mb-16 space-y-4 px-4"
+          className="text-center mb-16 space-y-4"
         >
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter text-foreground">
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tighter text-foreground">
             We've Built the Systems.{' '}
             <span className="text-primary">You Choose How to Use Them.</span>
           </h2>
-          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
             REOP (Real Estate on Purpose™) gives you everything you need to grow a referral-based business that actually feels good to run.
           </p>
-          <p className="text-sm sm:text-base text-foreground max-w-3xl mx-auto">
+          <p className="text-base text-foreground max-w-3xl mx-auto">
             We've built, tested, and refined the systems top agents use to stay consistent — and now, we bring them to you through our signature <span className="font-semibold text-primary">Agent Ops HQ™</span> framework.
           </p>
         </motion.div>
 
-        {/* 4-Quadrant Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8 mb-12">
+        {/* 4-Division Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           {divisions.map((division, index) => {
             const Icon = division.icon;
             return (
@@ -72,19 +71,17 @@ const AgentOpsHQ = () => {
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <BackgroundGradient className="rounded-2xl p-1 h-full min-h-[280px]">
-                  <div className="bg-card rounded-2xl p-6 sm:p-8 h-full hover:scale-[1.02] transition-transform duration-300">
-                    <div className={`w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-3 sm:mb-4 ${division.color}`}>
-                      <Icon className="w-6 h-6 sm:w-7 sm:h-7" />
-                    </div>
-                    <h3 className="text-lg sm:text-xl font-semibold text-foreground mb-2 sm:mb-3">
-                      {division.title}
-                    </h3>
-                    <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
-                      {division.description}
-                    </p>
+                <div className="bg-card border-2 border-transparent hover:border-primary/20 rounded-2xl p-8 h-full min-h-[360px] shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col">
+                  <div className={`w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-4 ${division.color}`}>
+                    <Icon className="w-7 h-7" />
                   </div>
-                </BackgroundGradient>
+                  <h3 className="text-xl font-semibold text-foreground mb-3">
+                    {division.title}
+                  </h3>
+                  <p className="text-muted-foreground leading-relaxed flex-grow">
+                    {division.description}
+                  </p>
+                </div>
               </motion.div>
             );
           })}
@@ -95,12 +92,12 @@ const AgentOpsHQ = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="text-center px-4"
+          className="text-center"
         >
           <Button 
             size="lg"
             variant="outline"
-            className="text-sm sm:text-base md:text-lg h-12 sm:h-14 px-6 sm:px-8 md:px-12 w-full sm:w-auto"
+            className="h-14 px-8 text-base font-semibold"
           >
             Explore the Agent Ops HQ Framework →
           </Button>
