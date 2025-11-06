@@ -47,22 +47,22 @@ const AgentOpsHQ = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16 space-y-4"
+          className="text-center mb-12 sm:mb-16 space-y-4 px-4"
         >
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tighter text-foreground">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter text-foreground">
             We've Built the Systems.{' '}
             <span className="text-primary">You Choose How to Use Them.</span>
           </h2>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
             REOP (Real Estate on Purpose™) gives you everything you need to grow a referral-based business that actually feels good to run.
           </p>
-          <p className="text-base text-foreground max-w-3xl mx-auto">
+          <p className="text-sm sm:text-base text-foreground max-w-3xl mx-auto">
             We've built, tested, and refined the systems top agents use to stay consistent — and now, we bring them to you through our signature <span className="font-semibold text-primary">Agent Ops HQ™</span> framework.
           </p>
         </motion.div>
 
         {/* 4-Quadrant Grid */}
-        <div className="grid md:grid-cols-2 gap-6 md:gap-8 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8 mb-12">
           {divisions.map((division, index) => {
             const Icon = division.icon;
             return (
@@ -72,15 +72,15 @@ const AgentOpsHQ = () => {
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <BackgroundGradient className="rounded-2xl p-1 h-full">
-                  <div className="bg-card rounded-2xl p-8 h-full hover:scale-[1.02] transition-transform duration-300">
-                    <div className={`w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-4 ${division.color}`}>
-                      <Icon className="w-7 h-7" />
+                <BackgroundGradient className="rounded-2xl p-1 h-full min-h-[280px]">
+                  <div className="bg-card rounded-2xl p-6 sm:p-8 h-full hover:scale-[1.02] transition-transform duration-300">
+                    <div className={`w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-3 sm:mb-4 ${division.color}`}>
+                      <Icon className="w-6 h-6 sm:w-7 sm:h-7" />
                     </div>
-                    <h3 className="text-xl font-semibold text-foreground mb-3">
+                    <h3 className="text-lg sm:text-xl font-semibold text-foreground mb-2 sm:mb-3">
                       {division.title}
                     </h3>
-                    <p className="text-muted-foreground leading-relaxed">
+                    <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
                       {division.description}
                     </p>
                   </div>
@@ -95,12 +95,12 @@ const AgentOpsHQ = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="text-center"
+          className="text-center px-4"
         >
           <Button 
             size="lg"
             variant="outline"
-            className="text-lg h-14 px-8"
+            className="text-sm sm:text-base md:text-lg h-12 sm:h-14 px-6 sm:px-8 md:px-12 w-full sm:w-auto"
           >
             Explore the Agent Ops HQ Framework →
           </Button>

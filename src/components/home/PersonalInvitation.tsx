@@ -47,14 +47,14 @@ const PersonalInvitation = () => {
               initial={{ opacity: 0, x: 30 }}
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="order-1 md:order-2 space-y-6"
+              className="order-1 lg:order-2 space-y-4 sm:space-y-6 px-4 lg:px-0"
             >
-              <h2 className="text-3xl md:text-5xl font-bold tracking-tighter text-foreground">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter">
                 Hey, I'm Pam — and I Built REOP{' '}
                 <span className="text-primary">for Agents Like You.</span>
               </h2>
               
-              <div className="space-y-4 text-base md:text-lg text-foreground leading-relaxed">
+              <div className="space-y-3 sm:space-y-4 text-sm sm:text-base md:text-lg leading-relaxed">
                 <p>
                   After nearly three decades in real estate — from building teams to teaching across the country — I saw too many talented agents burning out.
                 </p>
@@ -70,13 +70,13 @@ const PersonalInvitation = () => {
               </div>
 
               {/* CTA */}
-              <div className="pt-4">
+              <div className="pt-2 sm:pt-4">
                 <Button 
                   onClick={() => setIsFormOpen(true)}
                   size="lg"
-                  className="text-lg h-14 px-8 shadow-lg hover:shadow-xl transition-all duration-300"
+                  className="text-sm sm:text-base md:text-lg h-12 sm:h-14 px-6 sm:px-8 shadow-lg hover:shadow-xl transition-all duration-300 w-full sm:w-auto"
                 >
-                  <Calendar className="mr-2 w-5 h-5" />
+                  <Calendar className="mr-2 w-4 h-4 sm:w-5 sm:h-5" />
                   Book a Discovery Call
                 </Button>
               </div>
