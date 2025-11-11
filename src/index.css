@@ -178,6 +178,78 @@
   .task-card {
     @apply transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-lg hover:border-primary/30;
   }
+
+  /* Blog post typography overrides for brand consistency */
+  .prose :where(h1, h2, h3, h4, h5, h6) {
+    color: hsl(var(--foreground)) !important;
+  }
+  
+  .prose :where(a) {
+    color: hsl(var(--primary)) !important;
+    text-decoration: underline;
+  }
+  
+  .prose :where(a:hover) {
+    opacity: 0.85;
+  }
+  
+  .prose :where(blockquote) {
+    border-left: 4px solid hsl(var(--primary));
+    padding-left: 1.5rem;
+    color: hsl(var(--muted-foreground));
+    font-style: italic;
+  }
+  
+  .prose :where(code) {
+    background: hsl(var(--muted));
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+  }
+  
+  .prose :where(pre) {
+    background: hsl(var(--muted));
+    padding: 1rem;
+    border-radius: 0.75rem;
+    overflow-x: auto;
+  }
+  
+  .prose :where(hr) {
+    border-color: hsl(var(--border));
+  }
+  
+  .prose :where(img) {
+    border-radius: 0.75rem;
+  }
+  
+  .prose :where(table) {
+    width: 100%;
+    border: 1px solid hsl(var(--border));
+    border-radius: 0.5rem;
+    overflow: hidden;
+  }
+  
+  .prose :where(th) {
+    background: hsl(var(--muted));
+    color: hsl(var(--foreground)) !important;
+    font-weight: 600;
+    text-align: left;
+  }
+  
+  .prose :where(td, th) {
+    border: 1px solid hsl(var(--border));
+    padding: 0.75rem;
+  }
+  
+  .prose :where(button, .button, [role="button"]) {
+    display: inline-block;
+    background: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  
   
   .task-card.dragging {
     @apply scale-105 shadow-lg border-primary opacity-70 rotate-1 z-10;

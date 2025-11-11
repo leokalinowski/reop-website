@@ -10,6 +10,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Skeleton } from "@/components/ui/skeleton";
 import CTASection from "@/components/CTASection";
 import SEO from "@/components/SEO";
+import { sanitizeHtml } from "@/lib/sanitizeHtml";
 
 const BlogPost = () => {
   const { slug } = useParams();
@@ -179,8 +180,8 @@ const BlogPost = () => {
 
             {/* Content */}
             <div 
-              className="prose prose-slate md:prose-lg lg:prose-xl max-w-3xl mx-auto mb-12"
-              dangerouslySetInnerHTML={{ __html: post.content }}
+              className="prose md:prose-lg max-w-3xl mx-auto mb-12"
+              dangerouslySetInnerHTML={{ __html: sanitizeHtml(post.content) }}
             />
           </div>
         </div>
