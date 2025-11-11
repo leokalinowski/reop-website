@@ -1,4 +1,6 @@
 import React from 'react';
+import chaoticAgent from '@/assets/images/chaotic-agent.jpg';
+import calmAgent from '@/assets/images/calm-agent.jpg';
 
 const ProblemSection = () => {
   return (
@@ -34,20 +36,18 @@ const ProblemSection = () => {
           <div className="relative">
             <div className="grid grid-cols-2 gap-4">
               {/* Chaotic agent */}
-              <div className="bg-slate-800 rounded-xl p-6 border border-slate-700">
-                <div className="space-y-3">
-                  <div className="h-32 bg-slate-700 rounded-lg flex items-center justify-center">
-                    <div className="text-center text-slate-400">
-                      <div className="text-4xl mb-2">😰</div>
-                      <div className="text-sm">Overwhelmed</div>
-                    </div>
-                  </div>
-                  <div className="space-y-2">
-                    <div className="h-2 bg-red-500/30 rounded"></div>
-                    <div className="h-2 bg-red-500/30 rounded w-3/4"></div>
-                    <div className="h-2 bg-red-500/30 rounded w-1/2"></div>
-                  </div>
-                  <div className="flex gap-1 flex-wrap">
+              <div className="bg-slate-800 rounded-xl overflow-hidden border border-slate-700">
+                <div className="relative h-48">
+                  <img 
+                    src={chaoticAgent} 
+                    alt="Overwhelmed real estate agent surrounded by sticky notes and chaos" 
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-800 to-transparent"></div>
+                </div>
+                <div className="p-4 space-y-2">
+                  <div className="text-center text-slate-300 font-medium">Overwhelmed</div>
+                  <div className="flex gap-1 flex-wrap justify-center">
                     <span className="text-xs bg-red-500/20 text-red-300 px-2 py-1 rounded">Follow up!</span>
                     <span className="text-xs bg-red-500/20 text-red-300 px-2 py-1 rounded">Urgent</span>
                     <span className="text-xs bg-red-500/20 text-red-300 px-2 py-1 rounded">Late</span>
@@ -56,20 +56,18 @@ const ProblemSection = () => {
               </div>
               
               {/* Calm agent with dashboard */}
-              <div className="bg-slate-800 rounded-xl p-6 border border-primary/30">
-                <div className="space-y-3">
-                  <div className="h-32 bg-gradient-to-br from-primary/20 to-accent/20 rounded-lg flex items-center justify-center">
-                    <div className="text-center text-slate-200">
-                      <div className="text-4xl mb-2">😊</div>
-                      <div className="text-sm">In Control</div>
-                    </div>
-                  </div>
-                  <div className="space-y-2">
-                    <div className="h-2 bg-primary/40 rounded"></div>
-                    <div className="h-2 bg-primary/40 rounded w-4/5"></div>
-                    <div className="h-2 bg-primary/40 rounded w-3/5"></div>
-                  </div>
-                  <div className="flex gap-1 flex-wrap">
+              <div className="bg-slate-800 rounded-xl overflow-hidden border border-primary/30">
+                <div className="relative h-48">
+                  <img 
+                    src={calmAgent} 
+                    alt="Calm organized real estate agent reviewing dashboard" 
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-800 to-transparent"></div>
+                </div>
+                <div className="p-4 space-y-2">
+                  <div className="text-center text-slate-300 font-medium">In Control</div>
+                  <div className="flex gap-1 flex-wrap justify-center">
                     <span className="text-xs bg-primary/20 text-primary px-2 py-1 rounded">On track</span>
                     <span className="text-xs bg-primary/20 text-primary px-2 py-1 rounded">Organized</span>
                   </div>
