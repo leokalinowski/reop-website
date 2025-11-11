@@ -1,6 +1,7 @@
 import React, { lazy } from 'react';
 import Navigation from '@/components/Navigation';
 import HeroSection from '@/components/HeroSection';
+import ProblemSection from '@/components/ProblemSection';
 import ValueProposition from '@/components/ValueProposition';
 import LazySection from '@/components/LazySection';
 import Footer from '@/components/Footer';
@@ -25,6 +26,7 @@ const Index = () => {
       <Navigation />
       <main>
         <HeroSection />
+        <ProblemSection />
         <ValueProposition />
         
         <LazySection>
