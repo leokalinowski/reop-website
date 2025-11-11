@@ -228,11 +228,6 @@
       background: linear-gradient(135deg, hsl(var(--background)) 0%, hsl(var(--muted)) 50%, hsl(var(--background)) 100%) !important;
     }
     
-    /* Ensure all visual effects use proper HSL colors on mobile */
-    * {
-      color: hsl(var(--foreground));
-    }
-    
     .bg-card {
       background-color: hsl(var(--card)) !important;
     }

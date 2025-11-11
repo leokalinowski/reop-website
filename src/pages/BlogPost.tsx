@@ -9,6 +9,7 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import CTASection from "@/components/CTASection";
+import SEO from "@/components/SEO";
 
 const BlogPost = () => {
   const { slug } = useParams();
@@ -91,6 +92,22 @@ const BlogPost = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO 
+        title={post.title}
+        description={post.excerpt || post.seo_description || ''}
+        keywords={
+          post.seo_keywords 
+            ? Array.isArray(post.seo_keywords) 
+              ? post.seo_keywords 
+              : String(post.seo_keywords).split(',')
+            : []
+        }
+        image={post.featured_image_url || '/reop-logo-full.png'}
+        type="article"
+        author={post.author_name || 'Pam O\'Bryant'}
+        publishedTime={post.published_at}
+        modifiedTime={post.updated_at}
+      />
       <Navigation />
       
       <article className="py-12">
@@ -162,7 +179,7 @@ const BlogPost = () => {
 
             {/* Content */}
             <div 
-              className="prose md:prose-lg max-w-3xl mx-auto mb-12"
+              className="prose prose-slate md:prose-lg lg:prose-xl max-w-3xl mx-auto mb-12"
               dangerouslySetInnerHTML={{ __html: post.content }}
             />
           </div>
