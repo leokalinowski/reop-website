@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { Plus, Edit, Trash2, Upload, Download } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
@@ -26,6 +26,7 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const ResourcesManager = () => {
   const [deleteId, setDeleteId] = useState<string | null>(null);
@@ -36,6 +37,17 @@ const ResourcesManager = () => {
   const [uploading, setUploading] = useState(false);
 
   const queryClient = useQueryClient();
+
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const isNewPath = location.pathname.endsWith("/admin/resources/new");
+    const params = new URLSearchParams(location.search);
+    if (isNewPath || params.get("new") === "1") {
+      openCreateDialog();
+    }
+  }, [location.pathname, location.search]);
 
   const { data: resources, isLoading } = useQuery({
     queryKey: ["admin-resources"],
@@ -109,6 +121,7 @@ const ResourcesManager = () => {
       setEditingResource(null);
       setResourceFile(null);
       setThumbnailFile(null);
+      navigate("/admin/resources");
     },
     onError: (error: any) => {
       toast.error("Failed to save: " + error.message);
@@ -232,7 +245,7 @@ const ResourcesManager = () => {
         </div>
 
         {/* Edit/Create Dialog */}
-        <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+        <Dialog open={isDialogOpen} onOpenChange={(open) => { setIsDialogOpen(open); if (!open) navigate("/admin/resources"); }}>
           <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
             <DialogHeader>
               <DialogTitle>

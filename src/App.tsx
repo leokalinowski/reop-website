@@ -42,6 +42,7 @@ const AppContent = () => {
         <Route path="/admin/blog-posts" element={<AdminBlogPosts />} />
         <Route path="/admin/blog-posts/:id" element={<AdminBlogPostEditor />} />
         <Route path="/admin/resources" element={<AdminResourcesManager />} />
+        <Route path="/admin/resources/new" element={<AdminResourcesManager />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/terms-of-service" element={<TermsOfService />} />
         <Route path="/legal-disclaimer" element={<LegalDisclaimer />} />

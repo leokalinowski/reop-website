@@ -26,10 +26,10 @@ const AdminLogin = () => {
 
       if (error) throw error;
 
-      // Check if user is admin
-      const { data: isAdmin } = await supabase.rpc("is_admin");
+      const userId = data.user?.id;
+      const { data: isAdmin, error: adminError } = await supabase.rpc("is_admin", { _user_id: userId });
 
-      if (!isAdmin) {
+      if (adminError || !isAdmin) {
         await supabase.auth.signOut();
         throw new Error("Access denied. Admin privileges required.");
       }
