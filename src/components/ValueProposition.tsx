@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { BackgroundGradient } from '@/components/ui/background-gradient';
 import { Users, Target, BarChart, Gift } from 'lucide-react';
 
 const ValueProposition = () => {
@@ -94,39 +93,30 @@ const ValueProposition = () => {
             const IconComponent = division.icon;
             const delays = ['delay-[0ms]', 'delay-[100ms]', 'delay-[200ms]', 'delay-[300ms]'];
             return (
-              <BackgroundGradient
-                key={index}
-                className="rounded-[22px] w-full"
-                containerClassName="group"
-              >
-                <div className={`bg-background/95 rounded-3xl p-5 md:p-6 hover:scale-[1.02] transition-all duration-300 border border-white/10 ${delays[index]}`}>
-                  <div className="flex gap-4 items-start">
-                    {/* Number Badge + Icon */}
-                    <div className="flex-shrink-0 relative">
-                      <div className="h-12 w-12 rounded-xl bg-gradient-to-br from-primary/30 to-primary/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 relative">
-                        <IconComponent className="h-7 w-7 text-primary relative z-10" />
-                        <div className="absolute inset-0 bg-primary/20 rounded-xl blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                      </div>
-                      <div className="absolute -top-2 -left-2 h-6 w-6 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-xs font-bold shadow-lg">
-                        0{index + 1}
-                      </div>
+              <div key={index} className={`bg-white rounded-2xl border-2 border-primary p-5 md:p-6 shadow-lg hover:scale-[1.02] transition-transform duration-300 group ${delays[index]}`}>
+                <div className="flex gap-4 items-start">
+                  {/* Number Badge + Icon */}
+                  <div className="flex-shrink-0 relative">
+                    <div className="h-12 w-12 rounded-xl bg-gradient-to-br from-primary/30 to-primary/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 relative">
+                      <IconComponent className="h-7 w-7 text-primary relative z-10" />
+                      <div className="absolute inset-0 bg-primary/20 rounded-xl blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     </div>
-                    
-                    {/* Content */}
-                    <div className="flex-1 space-y-2">
-                      <h3 className="text-lg md:text-xl font-bold text-foreground leading-tight">
-                        {division.title}
-                      </h3>
-                      <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
-                        {division.description}
-                      </p>
+                    <div className="absolute -top-2 -left-2 h-6 w-6 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-xs font-bold shadow-lg">
+                      0{index + 1}
                     </div>
                   </div>
                   
-                  {/* Subtle inner glow effect */}
-                  <div className="absolute inset-0 rounded-3xl bg-gradient-to-t from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                  {/* Content */}
+                  <div className="flex-1 space-y-2">
+                    <h3 className="text-lg md:text-xl font-bold text-foreground leading-tight">
+                      {division.title}
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
+                      {division.description}
+                    </p>
+                  </div>
                 </div>
-              </BackgroundGradient>
+              </div>
             );
           })}
         </div>
