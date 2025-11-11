@@ -40,7 +40,7 @@ const CEOSection = () => {
               </p>
             </div>
             
-            <div className="space-y-4">
+            <div className="space-y-6">
               <p className="text-foreground">
                 They didn't need more motivation. They needed clarity, accountability, and a little help implementing what they already knew worked.
               </p>
@@ -49,17 +49,21 @@ const CEOSection = () => {
                 That's why I built REOP: a modern, human-centered platform where agents can focus on what they do best — building relationships — while we handle the rest.
               </p>
               
-              <p className="text-foreground">
-                Ready to get your time, energy, and joy back? I'd love to talk.
-              </p>
+              <div className="pt-2">
+                <p className="text-xl text-primary border-l-4 border-primary pl-4 py-2">
+                  Ready to get your time, energy, and joy back? I'd love to talk.
+                </p>
+              </div>
               
-              <Button 
-                onClick={() => setIsFormOpen(true)} 
-                size="lg" 
-                className="h-14 px-8"
-              >
-                Book a Discovery Call
-              </Button>
+              <div className="pt-4">
+                <Button 
+                  onClick={() => setIsFormOpen(true)} 
+                  size="lg" 
+                  className="h-14 px-8"
+                >
+                  Book a Discovery Call
+                </Button>
+              </div>
             </div>
           </div>
           
