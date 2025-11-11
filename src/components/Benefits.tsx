@@ -93,9 +93,9 @@ const Benefits = () => {
 
             {/* Investment Section */}
             <div className="pt-6 border-t border-border">
-              <div className="space-y-3">
+              <div className="space-y-3 text-center">
                 <h3 className="text-lg md:text-xl font-bold text-foreground">Your Investment</h3>
-                <div className="pl-4 border-l-4 border-primary">
+                <div>
                   <p className="text-2xl font-bold text-foreground mb-1">25% referral fee on closings</p>
                   <p className="text-sm text-muted-foreground">
                     No monthly fees • No upfront costs • No software subscriptions
