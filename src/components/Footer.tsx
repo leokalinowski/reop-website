@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Logo from './Logo';
 import { Mail, Phone } from 'lucide-react';
 const Footer = () => {
-  return <footer className="w-full py-16 px-6 md:px-12 border-t border-border bg-card">
+  return <footer className="w-full py-16 px-6 md:px-12 border-t border-border bg-card text-left">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Company Info */}
@@ -16,7 +16,7 @@ const Footer = () => {
             </p>
             
             {/* Contact Info */}
-            <div className="flex flex-col sm:flex-row sm:gap-8 gap-3">
+            <div className="flex flex-col sm:flex-row flex-wrap items-start gap-x-8 gap-y-3">
               <a href="tel:5716037367" className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors">
                 <Phone className="h-4 w-4 text-primary" />
                 <span className="text-base">(571) 603-7367</span>
@@ -29,7 +29,7 @@ const Footer = () => {
           </div>
           
           {/* Services */}
-          <div className="space-y-4">
+          <div className="space-y-4 text-left">
             <h4 className="font-semibold text-lg text-foreground">Our Services</h4>
             <ul className="space-y-3">
               <li><a href="#automated-outreach" className="text-muted-foreground hover:text-primary transition-colors">SphereSync™</a></li>
@@ -43,7 +43,7 @@ const Footer = () => {
           </div>
           
           {/* Quick Links */}
-          <div className="space-y-4">
+          <div className="space-y-4 text-left">
             <h4 className="font-semibold text-lg text-foreground">Quick Links</h4>
             <ul className="space-y-3">
               <li><Link to="/resources" className="text-muted-foreground hover:text-primary transition-colors">Free Resources</Link></li>
@@ -59,7 +59,7 @@ const Footer = () => {
             <div className="text-muted-foreground text-sm text-center md:text-left">
               © 2025 Real Estate on Purpose Team. All rights reserved.
             </div>
-            <div className="flex flex-col md:flex-row gap-4 md:gap-6 text-sm">
+            <div className="flex flex-col md:flex-row gap-4 md:gap-6 text-sm text-center md:text-left">
               <Link to="/privacy-policy" className="text-muted-foreground hover:text-primary transition-colors">Privacy Policy</Link>
               <Link to="/terms-of-service" className="text-muted-foreground hover:text-primary transition-colors">Terms of Service</Link>
               <Link to="/legal-disclaimer" className="text-muted-foreground hover:text-primary transition-colors">Legal Disclaimer</Link>
