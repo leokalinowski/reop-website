@@ -7,7 +7,7 @@ const Benefits = () => {
   const [isFormOpen, setIsFormOpen] = useState(false);
 
   return (
-    <section className="w-full py-20 px-6 md:px-12 bg-card relative overflow-hidden">
+    <section className="w-full py-20 px-6 md:px-12 bg-slate-900 relative overflow-hidden">
       {/* Ambient background */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5" />
       <div className="absolute inset-0 cosmic-grid opacity-20"></div>
@@ -15,10 +15,10 @@ const Benefits = () => {
       <div className="max-w-7xl mx-auto space-y-12 relative z-10">
         {/* Section Header */}
         <div className="text-center space-y-4 max-w-3xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-medium tracking-tighter text-foreground">
+          <h2 className="text-3xl md:text-4xl font-medium tracking-tighter text-slate-50">
             The Plug and Play Business for Successful Agents
           </h2>
-          <p className="text-muted-foreground text-lg">
+          <p className="text-slate-200 text-lg">
             One model. Full support. Built for agents who are ready to delegate and grow.
           </p>
         </div>
@@ -121,7 +121,7 @@ const Benefits = () => {
 
           {/* Optional Trust Element */}
           <div className="text-center mt-6">
-            <p className="text-sm text-muted-foreground">
+            <p className="text-sm text-slate-400">
               Join 200+ supported agents growing their business with REOP
             </p>
           </div>
