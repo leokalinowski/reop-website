@@ -59,10 +59,10 @@ const ValueProposition = () => {
               We've Built the Systems. You Choose How to Use Them.
             </h2>
             <div className="space-y-3">
-              <p className="text-white/80 text-lg md:text-xl leading-relaxed">
+              <p className="text-white/95 text-lg md:text-xl leading-relaxed">
                 REOP (Real Estate on Purpose™) gives you everything you need to grow a referral-based business that actually feels good to run.
               </p>
-              <p className="text-white/80 text-lg md:text-xl leading-relaxed">
+              <p className="text-white/95 text-lg md:text-xl leading-relaxed">
                 We've built, tested, and refined the systems top agents use to stay consistent—and now, we bring them to you through our signature Agent Ops HQ™ framework.
               </p>
             </div>
@@ -133,7 +133,7 @@ const ValueProposition = () => {
         
         {/* Bottom Callout */}
         <div className="text-center space-y-4 pt-4">
-          <p className="text-white/60 text-sm md:text-base font-medium">
+          <p className="text-white/90 text-sm md:text-base font-medium">
             Four divisions. One complete system. Zero overwhelm.
           </p>
           <div className="flex justify-center">
