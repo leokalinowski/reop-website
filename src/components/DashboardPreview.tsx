@@ -80,37 +80,35 @@ const DashboardPreview = () => {
                   <div className="space-y-1">
                     <div className="flex items-center gap-3 px-3 py-2 rounded-md bg-cosmic-light/10 text-white">
                       <div className="h-3 w-3 rounded-sm bg-cosmic-accent"></div>
-                      <span>Board</span>
+                      <span>Agent Dashboard</span>
                     </div>
                     <div className="flex items-center gap-3 px-3 py-2 rounded-md text-cosmic-muted hover:bg-cosmic-light/5">
                       <div className="h-3 w-3 rounded-sm bg-cosmic-muted/30"></div>
-                      <span>Timeline</span>
+                      <span>SphereSync</span>
                     </div>
                     <div className="flex items-center gap-3 px-3 py-2 rounded-md text-cosmic-muted hover:bg-cosmic-light/5">
                       <div className="h-3 w-3 rounded-sm bg-cosmic-muted/30"></div>
-                      <span>Calendar</span>
+                      <span>Database</span>
                     </div>
                     <div className="flex items-center gap-3 px-3 py-2 rounded-md text-cosmic-muted hover:bg-cosmic-light/5">
                       <div className="h-3 w-3 rounded-sm bg-cosmic-muted/30"></div>
-                      <span>Files</span>
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="space-y-2 pt-4">
-                  <div className="text-xs text-cosmic-muted uppercase">Teams</div>
-                  <div className="space-y-1">
-                    <div className="flex items-center gap-3 px-3 py-2 rounded-md text-cosmic-muted hover:bg-cosmic-light/5">
-                      <div className="h-3 w-3 rounded-full bg-cosmic-accent/80"></div>
-                      <span>Marketing</span>
+                      <span>Events</span>
                     </div>
                     <div className="flex items-center gap-3 px-3 py-2 rounded-md text-cosmic-muted hover:bg-cosmic-light/5">
-                      <div className="h-3 w-3 rounded-full bg-purple-400/80"></div>
-                      <span>Design</span>
+                      <div className="h-3 w-3 rounded-sm bg-cosmic-muted/30"></div>
+                      <span>E-Newsletter</span>
                     </div>
                     <div className="flex items-center gap-3 px-3 py-2 rounded-md text-cosmic-muted hover:bg-cosmic-light/5">
-                      <div className="h-3 w-3 rounded-full bg-blue-400/80"></div>
-                      <span>Development</span>
+                      <div className="h-3 w-3 rounded-sm bg-cosmic-muted/30"></div>
+                      <span>Social Media</span>
+                    </div>
+                    <div className="flex items-center gap-3 px-3 py-2 rounded-md text-cosmic-muted hover:bg-cosmic-light/5">
+                      <div className="h-3 w-3 rounded-sm bg-cosmic-muted/30"></div>
+                      <span>Success Scoreboard</span>
+                    </div>
+                    <div className="flex items-center gap-3 px-3 py-2 rounded-md text-cosmic-muted hover:bg-cosmic-light/5">
+                      <div className="h-3 w-3 rounded-sm bg-cosmic-muted/30"></div>
+                      <span>Transaction Coordination</span>
                     </div>
                   </div>
                 </div>
@@ -138,7 +136,7 @@ const DashboardPreview = () => {
                       </svg>
                     </div>
                     <div className="h-8 px-3 rounded-md bg-cosmic-accent text-cosmic-darker flex items-center justify-center text-sm font-medium">
-                      New Task
+                      New Opportunity
                     </div>
                   </div>
                 </div>
