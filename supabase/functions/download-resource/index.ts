@@ -14,6 +14,23 @@ serve(async (req) => {
   try {
     const { resourceId, leadId } = await req.json()
     
+    // Validate required parameters
+    if (!resourceId || !leadId) {
+      return new Response(JSON.stringify({ error: 'Missing required parameters' }), {
+        status: 400,
+        headers: { ...corsHeaders, 'Content-Type': 'application/json' }
+      })
+    }
+
+    // Validate UUID format
+    const UUID_REGEX = /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i
+    if (!UUID_REGEX.test(resourceId) || !UUID_REGEX.test(leadId)) {
+      return new Response(JSON.stringify({ error: 'Invalid parameters' }), {
+        status: 400,
+        headers: { ...corsHeaders, 'Content-Type': 'application/json' }
+      })
+    }
+    
     const supabaseClient = createClient(
       Deno.env.get('SUPABASE_URL') ?? '',
       Deno.env.get('SUPABASE_SERVICE_ROLE_KEY') ?? ''
