@@ -16,7 +16,7 @@ const Footer = () => {
             </p>
             
             {/* Contact Info */}
-            <div className="flex flex-col sm:flex-row flex-wrap items-start gap-x-8 gap-y-3">
+            <div className="flex flex-col items-start gap-y-3">
               <a href="tel:5716037367" className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors">
                 <Phone className="h-4 w-4 text-primary" />
                 <span className="text-base font-semibold">(571) 603-7367</span>
