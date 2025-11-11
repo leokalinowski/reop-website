@@ -1,59 +1,74 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { BackgroundGradient } from '@/components/ui/background-gradient';
-import { Database, Target, Calendar, Mail, Users, FileText } from 'lucide-react';
+import { Users, Target, BarChart, Gift } from 'lucide-react';
 
 const ValueProposition = () => {
-  const benefits = [
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  const divisions = [
     {
-      title: "SphereSync & Digital Presence",
-      description: "Revolutionize your database management with automated connections and dominate social media effortlessly with expert human content creation – no AI, just professional touch.",
-      icon: Database
-    },
-    {
-      title: "Lead Management & Tracking", 
-      description: "Gain crystal-clear insights into your leads with advanced tracking that cross-references real-time data with DNC Lists for secure, compliant visibility and maximum conversion.",
-      icon: Target
-    },
-    {
-      title: "Event Management",
-      description: "Leave the heavy lifting to us – we handle every detail of your client events so you can shine in building relationships and creating memorable experiences that generate referrals.",
-      icon: Calendar
-    },
-    {
-      title: "Newsletter & Content Tools",
-      description: "Elevate your client engagement with seamless newsletter creation and distribution using intuitive tools for designing and sending professional content that builds trust.",
-      icon: Mail
-    },
-    {
-      title: "Weekly Coaching Sessions",
-      description: "Accelerate your growth with personalized, expert guidance in dynamic weekly sessions led by industry pros to sharpen skills, share proven tactics, and overcome obstacles.",
+      title: "Outreach Division",
+      description: "Keep your sphere connected through SphereSync™, e-newsletters, and done-for-you Client Events.",
       icon: Users
     },
     {
-      title: "Transaction Coordination",
-      description: "Reclaim your time and peace of mind with our end-to-end transaction handling – we execute everything flawlessly from contract to close with precision and care.",
-      icon: FileText
+      title: "Conversion Division", 
+      description: "Guide clients seamlessly from first contact to closing with Buyer & Seller Blueprints and automated nurturing.",
+      icon: Target
+    },
+    {
+      title: "Performance Division",
+      description: "Track your real results — conversations → closings — through the Agent Success Scoreboard™ and weekly coaching.",
+      icon: BarChart
+    },
+    {
+      title: "Delight Loop Division",
+      description: "Keep past clients engaged with thoughtful gifts, post-closing touches, and value drops that generate referrals.",
+      icon: Gift
     }
   ];
 
   return (
-    <section className="w-full py-24 px-6 md:px-12 bg-secondary/20 relative overflow-hidden">
+    <section ref={sectionRef} className="w-full py-24 px-6 md:px-12 bg-secondary/20 relative overflow-hidden">
       {/* Dark ambient background */}
       <div className="absolute inset-0 bg-gradient-to-br from-secondary/30 via-secondary/10 to-primary/20" />
       
-      <div className="max-w-7xl mx-auto space-y-20 relative z-10">
+      <div className={`max-w-7xl mx-auto space-y-12 relative z-10 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         <div className="text-center space-y-6 max-w-4xl mx-auto">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tighter text-foreground">
-            Why Choose Real Estate on Purpose Team?
+            We've Built the Systems. You Choose How to Use Them.
           </h2>
-          <p className="text-white/80 text-xl leading-relaxed">
-            Experience a unique team approach that provides comprehensive support, proven systems, and tools without any financial burden. We help you perform at a higher level by providing the resources and guidance to focus on what matters most – building meaningful client relationships.
-          </p>
+          <div className="space-y-4">
+            <p className="text-white/80 text-xl md:text-2xl leading-relaxed">
+              REOP (Real Estate on Purpose™) gives you everything you need to grow a referral-based business that actually feels good to run.
+            </p>
+            <p className="text-white/80 text-xl md:text-2xl leading-relaxed">
+              We've built, tested, and refined the systems top agents use to stay consistent—and now, we bring them to you through our signature Agent Ops HQ™ framework.
+            </p>
+          </div>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {benefits.map((benefit, index) => {
-            const IconComponent = benefit.icon;
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+          {divisions.map((division, index) => {
+            const IconComponent = division.icon;
             return (
               <BackgroundGradient
                 key={index}
@@ -68,11 +83,11 @@ const ValueProposition = () => {
                   </div>
                   
                   <div className="text-center space-y-4 flex-1 flex flex-col justify-center">
-                    <h3 className="text-lg md:text-xl font-semibold text-foreground leading-tight">
-                      {benefit.title}
+                    <h3 className="text-xl md:text-2xl font-semibold text-foreground leading-tight">
+                      {division.title}
                     </h3>
                     <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
-                      {benefit.description}
+                      {division.description}
                     </p>
                   </div>
                   
