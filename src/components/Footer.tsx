@@ -5,7 +5,7 @@ import { Mail, Phone } from 'lucide-react';
 const Footer = () => {
   return <footer className="w-full py-16 px-6 md:px-12 border-t border-border bg-card text-left">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {/* Company Info */}
           <div className="space-y-6">
             <div className="mb-6">
