@@ -5,13 +5,13 @@ import { Mail, Phone } from 'lucide-react';
 const Footer = () => {
   return <footer className="w-full py-16 px-6 md:px-12 border-t border-border bg-card text-left">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[2fr_1.5fr_1fr] gap-12 lg:gap-16">
           {/* Company Info */}
           <div className="space-y-6">
             <div className="mb-6">
               <Logo />
             </div>
-            <p className="text-muted-foreground max-w-md leading-relaxed">
+            <p className="text-muted-foreground max-w-sm leading-relaxed">
               Real Estate on Purpose provides comprehensive done-for-you support and proven systems so you can focus on what you do best — building meaningful client relationships.
             </p>
             
@@ -19,11 +19,11 @@ const Footer = () => {
             <div className="flex flex-col sm:flex-row flex-wrap items-start gap-x-8 gap-y-3">
               <a href="tel:5716037367" className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors">
                 <Phone className="h-4 w-4 text-primary" />
-                <span className="text-base">(571) 603-7367</span>
+                <span className="text-base font-semibold">(571) 603-7367</span>
               </a>
               <a href="mailto:info@realestateonpurpose.com" className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors">
                 <Mail className="h-4 w-4 text-primary" />
-                <span className="text-base">info@realestateonpurpose.com</span>
+                <span className="text-base font-semibold">info@realestateonpurpose.com</span>
               </a>
             </div>
           </div>
