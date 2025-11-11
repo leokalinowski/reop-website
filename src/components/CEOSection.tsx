@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
 import { User, Award, Calendar } from 'lucide-react';
 import pamImage from '@/assets/images/pamobryant.png';
+import LeadCaptureForm from '@/components/LeadCaptureForm';
 
 const CEOSection = () => {
   const [imageSrc, setImageSrc] = useState("/lovable-uploads/0fd3c82e-6c0c-481f-af2a-71ee027b0690.png");
   const [imageLoading, setImageLoading] = useState(true);
+  const [isFormOpen, setIsFormOpen] = useState(false);
 
   const handleImageError = () => {
     console.log("Uploaded image failed to load, switching to local fallback");
@@ -19,13 +22,6 @@ const CEOSection = () => {
     setImageLoading(false);
   };
 
-  const achievements = [
-    "Over 40 years of real estate experience, licensed since 1981",
-    "Former Keller Williams executive and Master Faculty member",
-    "Proven system: 70+ deals per year with no cold calls",
-    "Nationally recognized real estate coach and author"
-  ];
-
   return (
     <section className="w-full py-20 px-6 md:px-12 bg-background">
       <div className="max-w-7xl mx-auto">
@@ -37,21 +33,33 @@ const CEOSection = () => {
                 Leadership
               </Badge>
               <h2 className="text-3xl md:text-4xl font-medium tracking-tighter text-foreground">
-                Meet Our CEO and Founder: Pam O'Bryant
+                Hey, I'm Pam — and I Built REOP for Agents Like You.
               </h2>
               <p className="text-lg text-muted-foreground">
-                Pam O'Bryant is the visionary CEO and Founder of Real Estate On Purpose. With over 40 years of experience in the real estate industry, licensed since 1981, Pam has been involved in every facet of the business – from selling homes and managing offices to serving as a general manager.
+                After nearly three decades in real estate — from building teams to teaching across the country — I saw too many talented agents burning out.
               </p>
             </div>
             
             <div className="space-y-4">
               <p className="text-foreground">
-                Her illustrious career includes a long tenure with Keller Williams (KW), where she joined the San Antonio office in 1997 at its inception and rose to become a key executive. Pam is a nationally recognized real estate coach, author, and entrepreneur, specializing in systems, business development, and leadership coaching.
+                They didn't need more motivation. They needed clarity, accountability, and a little help implementing what they already knew worked.
               </p>
               
               <p className="text-foreground">
-                Pam built a proven system that helped her close over 70 deals per year consistently, with no cold calls and no cold outreach, focusing instead on strategic client engagement and referrals. Under Pam's leadership, Real Estate On Purpose is dedicated to empowering agents with the tools and support they need to succeed without unnecessary burdens.
+                That's why I built REOP: a modern, human-centered platform where agents can focus on what they do best — building relationships — while we handle the rest.
               </p>
+              
+              <p className="text-foreground">
+                Ready to get your time, energy, and joy back? I'd love to talk.
+              </p>
+              
+              <Button 
+                onClick={() => setIsFormOpen(true)} 
+                size="lg" 
+                className="h-14 px-8"
+              >
+                Book a Discovery Call
+              </Button>
             </div>
           </div>
           
@@ -97,6 +105,11 @@ const CEOSection = () => {
           </div>
         </div>
       </div>
+
+      <LeadCaptureForm 
+        isOpen={isFormOpen}
+        onClose={() => setIsFormOpen(false)}
+      />
     </section>
   );
 };
