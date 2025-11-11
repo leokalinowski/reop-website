@@ -1,11 +1,35 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import chaoticAgent from '@/assets/images/chaotic-agent.jpg';
 import calmAgent from '@/assets/images/calm-agent.jpg';
 
 const ProblemSection = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
   return (
-    <section className="py-16 md:py-24 px-6 bg-slate-900">
-      <div className="max-w-6xl mx-auto">
+    <section ref={sectionRef} className="py-16 md:py-24 px-6 bg-slate-900">
+      <div className={`max-w-6xl mx-auto transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left side - Text content */}
           <div className="space-y-6">
