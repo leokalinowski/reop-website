@@ -71,8 +71,8 @@ const HeroSection = () => {
           <span className="text-primary font-medium">Loves You Back!</span>
         </h1>
         
-        <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto text-balance">
-          Everything you need to build a thriving, referral-based business — whether you want to do it yourself or have us do it for you.
+        <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto text-balance italic">
+          Everything you need to build a thriving, referral-based business — whether you want to do it yourself or have us do it for you
         </p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center pt-6 items-center">
