@@ -3,6 +3,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
+import NewIndex from "./pages/NewIndex";
 import Index from "./pages/Index";
 import JumpStart from "./pages/JumpStart";
 import Blog from "./pages/Blog";
@@ -30,7 +31,8 @@ const AppContent = () => {
     <>
       {showAnnouncementBar && <AnnouncementBar />}
       <Routes>
-        <Route path="/" element={<Index />} />
+        <Route path="/" element={<NewIndex />} />
+        <Route path="/old" element={<Index />} />
         <Route path="/jump-start" element={<JumpStart />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog/:slug" element={<BlogPost />} />
