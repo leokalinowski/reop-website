@@ -15,6 +15,7 @@ import AdminDashboard from "./pages/admin/Dashboard";
 import AdminBlogPosts from "./pages/admin/BlogPosts";
 import AdminBlogPostEditor from "./pages/admin/BlogPostEditor";
 import AdminResourcesManager from "./pages/admin/ResourcesManager";
+import AdminLeadsManager from "./pages/admin/LeadsManager";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import LegalDisclaimer from "./pages/LegalDisclaimer";
@@ -43,6 +44,7 @@ const AppContent = () => {
         <Route path="/admin/blog-posts/:id" element={<AdminBlogPostEditor />} />
         <Route path="/admin/resources" element={<AdminResourcesManager />} />
         <Route path="/admin/resources/new" element={<AdminResourcesManager />} />
+        <Route path="/admin/leads" element={<AdminLeadsManager />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/terms-of-service" element={<TermsOfService />} />
         <Route path="/legal-disclaimer" element={<LegalDisclaimer />} />
