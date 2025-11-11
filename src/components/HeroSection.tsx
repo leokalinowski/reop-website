@@ -125,11 +125,15 @@ const HeroSection = () => {
                   <div className="flex gap-2 overflow-x-auto pb-2">
                     <div className="flex items-center gap-2 px-3 py-2 rounded-md bg-muted text-foreground whitespace-nowrap">
                       <div className="h-3 w-3 rounded-sm bg-foreground"></div>
-                      <span>Leads</span>
+                      <span>Agent Dashboard</span>
                     </div>
                     <div className="flex items-center gap-2 px-3 py-2 rounded-md text-muted-foreground hover:bg-muted/50 whitespace-nowrap">
                       <div className="h-3 w-3 rounded-sm bg-muted-foreground/30"></div>
-                      <span>Deals</span>
+                      <span>SphereSync</span>
+                    </div>
+                    <div className="flex items-center gap-2 px-3 py-2 rounded-md text-muted-foreground hover:bg-muted/50 whitespace-nowrap">
+                      <div className="h-3 w-3 rounded-sm bg-muted-foreground/30"></div>
+                      <span>Database</span>
                     </div>
                     <div className="flex items-center gap-2 px-3 py-2 rounded-md text-muted-foreground hover:bg-muted/50 whitespace-nowrap">
                       <div className="h-3 w-3 rounded-sm bg-muted-foreground/30"></div>
@@ -137,7 +141,19 @@ const HeroSection = () => {
                     </div>
                     <div className="flex items-center gap-2 px-3 py-2 rounded-md text-muted-foreground hover:bg-muted/50 whitespace-nowrap">
                       <div className="h-3 w-3 rounded-sm bg-muted-foreground/30"></div>
-                      <span>Social</span>
+                      <span>E-Newsletter</span>
+                    </div>
+                    <div className="flex items-center gap-2 px-3 py-2 rounded-md text-muted-foreground hover:bg-muted/50 whitespace-nowrap">
+                      <div className="h-3 w-3 rounded-sm bg-muted-foreground/30"></div>
+                      <span>Social Media</span>
+                    </div>
+                    <div className="flex items-center gap-2 px-3 py-2 rounded-md text-muted-foreground hover:bg-muted/50 whitespace-nowrap">
+                      <div className="h-3 w-3 rounded-sm bg-muted-foreground/30"></div>
+                      <span>Success Scoreboard</span>
+                    </div>
+                    <div className="flex items-center gap-2 px-3 py-2 rounded-md text-muted-foreground hover:bg-muted/50 whitespace-nowrap">
+                      <div className="h-3 w-3 rounded-sm bg-muted-foreground/30"></div>
+                      <span>Transaction Coordination</span>
                     </div>
                   </div>
                 </div>
@@ -149,11 +165,15 @@ const HeroSection = () => {
                     <div className="space-y-1">
                       <div className="flex items-center gap-3 px-3 py-2 rounded-md bg-muted text-foreground">
                         <div className="h-3 w-3 rounded-sm bg-foreground"></div>
-                        <span>Leads</span>
+                        <span>Agent Dashboard</span>
                       </div>
                       <div className="flex items-center gap-3 px-3 py-2 rounded-md text-muted-foreground hover:bg-muted/50">
                         <div className="h-3 w-3 rounded-sm bg-muted-foreground/30"></div>
-                        <span>Deals</span>
+                        <span>SphereSync</span>
+                      </div>
+                      <div className="flex items-center gap-3 px-3 py-2 rounded-md text-muted-foreground hover:bg-muted/50">
+                        <div className="h-3 w-3 rounded-sm bg-muted-foreground/30"></div>
+                        <span>Database</span>
                       </div>
                       <div className="flex items-center gap-3 px-3 py-2 rounded-md text-muted-foreground hover:bg-muted/50">
                         <div className="h-3 w-3 rounded-sm bg-muted-foreground/30"></div>
@@ -161,25 +181,19 @@ const HeroSection = () => {
                       </div>
                       <div className="flex items-center gap-3 px-3 py-2 rounded-md text-muted-foreground hover:bg-muted/50">
                         <div className="h-3 w-3 rounded-sm bg-muted-foreground/30"></div>
+                        <span>E-Newsletter</span>
+                      </div>
+                      <div className="flex items-center gap-3 px-3 py-2 rounded-md text-muted-foreground hover:bg-muted/50">
+                        <div className="h-3 w-3 rounded-sm bg-muted-foreground/30"></div>
                         <span>Social Media</span>
                       </div>
-                    </div>
-                  </div>
-                  
-                  <div className="space-y-2 pt-4">
-                    <div className="text-xs text-muted-foreground uppercase">Departments</div>
-                    <div className="space-y-1">
                       <div className="flex items-center gap-3 px-3 py-2 rounded-md text-muted-foreground hover:bg-muted/50">
-                        <div className="h-3 w-3 rounded-full bg-muted-foreground/60"></div>
-                        <span>SphereSync</span>
+                        <div className="h-3 w-3 rounded-sm bg-muted-foreground/30"></div>
+                        <span>Success Scoreboard</span>
                       </div>
                       <div className="flex items-center gap-3 px-3 py-2 rounded-md text-muted-foreground hover:bg-muted/50">
-                        <div className="h-3 w-3 rounded-full bg-muted-foreground/50"></div>
-                        <span>Database</span>
-                      </div>
-                      <div className="flex items-center gap-3 px-3 py-2 rounded-md text-muted-foreground hover:bg-muted/50">
-                        <div className="h-3 w-3 rounded-full bg-muted-foreground/40"></div>
-                        <span>Analytics</span>
+                        <div className="h-3 w-3 rounded-sm bg-muted-foreground/30"></div>
+                        <span>Transaction Coordination</span>
                       </div>
                     </div>
                   </div>
@@ -209,7 +223,7 @@ const HeroSection = () => {
                       </svg>
                     </div>
                     <div className="h-8 px-3 rounded-md bg-foreground text-background flex items-center justify-center text-sm font-medium whitespace-nowrap">
-                      New Deal
+                      New Opportunity
                     </div>
                   </div>
                 </div>
