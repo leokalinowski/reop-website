@@ -3,7 +3,7 @@ import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
 import { Plus, Edit, Trash2, Eye, EyeOff } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
-import Navigation from "@/components/Navigation";
+import AdminNavigation from "@/components/AdminNavigation";
 import Footer from "@/components/Footer";
 import ProtectedRoute from "@/components/ProtectedRoute";
 import { Button } from "@/components/ui/button";
@@ -76,7 +76,7 @@ const BlogPosts = () => {
   return (
     <ProtectedRoute>
       <div className="min-h-screen bg-background">
-        <Navigation />
+        <AdminNavigation />
         
         <div className="container mx-auto px-4 py-12">
           <div className="flex justify-between items-center mb-8">

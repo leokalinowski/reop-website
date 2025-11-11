@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { Plus, Edit, Trash2, Upload, Download } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
-import Navigation from "@/components/Navigation";
+import AdminNavigation from "@/components/AdminNavigation";
 import Footer from "@/components/Footer";
 import ProtectedRoute from "@/components/ProtectedRoute";
 import { Button } from "@/components/ui/button";
@@ -169,7 +169,7 @@ const ResourcesManager = () => {
   return (
     <ProtectedRoute>
       <div className="min-h-screen bg-background">
-        <Navigation />
+        <AdminNavigation />
         
         <div className="container mx-auto px-4 py-12">
           <div className="flex justify-between items-center mb-8">

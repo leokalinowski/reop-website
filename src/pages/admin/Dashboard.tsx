@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
 import { FileText, Download, Users, TrendingUp } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
-import Navigation from "@/components/Navigation";
+import AdminNavigation from "@/components/AdminNavigation";
 import Footer from "@/components/Footer";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -31,7 +31,7 @@ const Dashboard = () => {
   return (
     <ProtectedRoute>
       <div className="min-h-screen bg-background">
-        <Navigation />
+        <AdminNavigation />
         
         <div className="container mx-auto px-4 py-12">
           <h1 className="text-4xl font-bold mb-8">Admin Dashboard</h1>
