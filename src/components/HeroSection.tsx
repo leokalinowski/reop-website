@@ -67,12 +67,12 @@ const HeroSection = () => {
         </div>
         
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-medium tracking-tighter text-balance text-foreground">
-          Empower Your Real Estate Career{' '}
-          <span className="text-primary font-medium">with Purpose</span>
+          Build a Business that{' '}
+          <span className="text-primary font-medium">Loves You Back!</span>
         </h1>
         
         <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto text-balance">
-          Unlock unparalleled success in real estate without the financial burden – join our team with no monthly charges. Experience a supportive environment designed to amplify your performance, streamline your operations, and let you concentrate on forging meaningful client connections that drive repeat business and referrals.
+          Everything you need to build a thriving, referral-based business — whether you want to do it yourself or have us do it for you.
         </p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center pt-6 items-center">
