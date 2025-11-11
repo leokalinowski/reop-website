@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import AdminNavigation from "@/components/AdminNavigation";
+import ProtectedRoute from "@/components/ProtectedRoute";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -247,8 +248,9 @@ const LeadsManager = () => {
   const closedLeads = leads?.filter((l) => l.status === "closed").length || 0;
 
   return (
-    <div className="min-h-screen bg-background">
-      <AdminNavigation />
+    <ProtectedRoute>
+      <div className="min-h-screen bg-background">
+        <AdminNavigation />
 
       <div className="container mx-auto px-6 py-8 max-w-7xl">
         {/* Header */}
@@ -740,6 +742,7 @@ const LeadsManager = () => {
         </DialogContent>
       </Dialog>
     </div>
+    </ProtectedRoute>
   );
 };
 
