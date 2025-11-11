@@ -25,8 +25,16 @@ const ProtectedRoute = ({ children }: ProtectedRouteProps) => {
         return;
       }
 
-      const { data: adminCheck } = await supabase.rpc("is_admin");
-      setIsAdmin(adminCheck === true);
+      const { data: adminCheck, error } = await supabase.rpc("is_admin", {
+        _user_id: user.id
+      });
+      
+      if (error) {
+        console.error("Admin check error:", error);
+        setIsAdmin(false);
+      } else {
+        setIsAdmin(adminCheck === true);
+      }
     } catch (error) {
       console.error("Admin check error:", error);
       setIsAdmin(false);
