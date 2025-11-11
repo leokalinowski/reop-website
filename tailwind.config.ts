@@ -19,6 +19,94 @@ export default {
 			}
 		},
 		extend: {
+			typography: {
+				DEFAULT: {
+					css: {
+						fontFamily: 'Inter, sans-serif',
+						color: 'hsl(var(--foreground))',
+						'--tw-prose-headings': 'hsl(var(--foreground))',
+						'--tw-prose-links': 'hsl(var(--primary))',
+						'--tw-prose-bold': 'hsl(var(--foreground))',
+						'--tw-prose-counters': 'hsl(var(--muted-foreground))',
+						'--tw-prose-bullets': 'hsl(var(--muted-foreground))',
+						'--tw-prose-quotes': 'hsl(var(--muted-foreground))',
+						h1: {
+							fontSize: '2.5rem',
+							fontWeight: '700',
+							lineHeight: '1.2',
+							marginTop: '2rem',
+							marginBottom: '1rem',
+						},
+						h2: {
+							fontSize: '2rem',
+							fontWeight: '700',
+							lineHeight: '1.3',
+							marginTop: '2rem',
+							marginBottom: '1rem',
+						},
+						h3: {
+							fontSize: '1.5rem',
+							fontWeight: '600',
+							lineHeight: '1.4',
+							marginTop: '1.5rem',
+							marginBottom: '0.75rem',
+						},
+						h4: {
+							fontSize: '1.25rem',
+							fontWeight: '600',
+							lineHeight: '1.4',
+							marginTop: '1.5rem',
+							marginBottom: '0.75rem',
+						},
+						p: {
+							fontSize: '1.125rem',
+							lineHeight: '1.75',
+							marginTop: '1.25rem',
+							marginBottom: '1.25rem',
+						},
+						a: {
+							color: 'hsl(var(--primary))',
+							textDecoration: 'underline',
+							fontWeight: '500',
+							'&:hover': {
+								color: 'hsl(var(--primary))',
+								opacity: '0.8',
+							},
+						},
+						ul: {
+							marginTop: '1.25rem',
+							marginBottom: '1.25rem',
+						},
+						ol: {
+							marginTop: '1.25rem',
+							marginBottom: '1.25rem',
+						},
+						li: {
+							marginTop: '0.5rem',
+							marginBottom: '0.5rem',
+							fontSize: '1.125rem',
+						},
+						blockquote: {
+							fontStyle: 'italic',
+							borderLeftWidth: '4px',
+							borderLeftColor: 'hsl(var(--primary))',
+							paddingLeft: '1.5rem',
+							marginTop: '1.5rem',
+							marginBottom: '1.5rem',
+							fontSize: '1.25rem',
+						},
+						code: {
+							backgroundColor: 'hsl(var(--muted))',
+							padding: '0.25rem 0.5rem',
+							borderRadius: '0.25rem',
+							fontSize: '0.875em',
+						},
+						strong: {
+							fontWeight: '600',
+						},
+					},
+				},
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
