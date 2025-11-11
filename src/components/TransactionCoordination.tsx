@@ -8,10 +8,10 @@ import transactionImage from '@/assets/images/transaction.png';
 
 const TransactionCoordination = () => {
   const features = [
-    "Manages all details from contract to close with precision",
-    "Ensures smooth, error-free processes from start to finish",
-    "Frees you to focus on high-value activities like client acquisition",
-    "Enables confident scaling of your business with peace of mind"
+    "We manage every detail from contract to close—deadlines, documents, compliance, all of it",
+    "Surprise & Delight campaigns woven throughout the process drive 5-star reviews and referrals",
+    "Your clients feel cared for at every step, turning transactions into raving fans",
+    "You stay focused on generating new business while we ensure flawless execution"
   ];
 
   return (
@@ -25,10 +25,10 @@ const TransactionCoordination = () => {
                 Transaction Coordination
               </Badge>
               <h2 className="text-3xl md:text-4xl font-medium tracking-tighter text-foreground">
-                End-to-End Transaction Handling
+                We Run Your Transactions. You Collect Referrals.
               </h2>
               <p className="text-lg text-muted-foreground">
-                Reclaim your time and peace of mind with our end-to-end transaction handling – we execute everything flawlessly so you can focus on relationship building.
+                From contract to close, we handle every detail and deploy Surprise & Delight campaigns that turn clients into raving fans.
               </p>
             </div>
             

@@ -8,10 +8,10 @@ import socialMediaImage from '@/assets/images/social-media.png';
 
 const SocialMediaTools = () => {
   const features = [
-    "We record, professionally edit, and schedule your content to maintain consistency",
-    "Hands-on content creation and management service – no AI involved, just expert human touch",
-    "Maintains a consistent, top-of-mind presence across all platforms",
-    "Delivers detailed analytics for performance tracking and strategy refinement"
+    "We record, edit, schedule, and post your social media content—no AI, just real expertise",
+    "Consistent, professional presence across all platforms keeps you top-of-mind",
+    "We analyze performance and adjust strategy so your content actually generates leads",
+    "You stay focused on selling while we handle the full content creation process"
   ];
 
   return (
@@ -25,10 +25,10 @@ const SocialMediaTools = () => {
                 Social Media Tools
               </Badge>
               <h2 className="text-3xl md:text-4xl font-medium tracking-tighter text-foreground">
-                Fully Automated Social Presence
+                We Handle Your Social Media. You Handle the Leads.
               </h2>
               <p className="text-lg text-muted-foreground">
-                Dominate social media effortlessly with our hands-on content creation and management service that maximizes your online impact for more leads and closings.
+                From recording to editing to posting—we manage your entire social media presence so you stay top-of-mind without lifting a finger.
               </p>
             </div>
             

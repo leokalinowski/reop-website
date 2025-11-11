@@ -8,10 +8,10 @@ import automatedOutreachImage from '@/assets/images/automated-outreach.png';
 
 const AutomatedOutreach = () => {
   const features = [
-    "Automates connections without sending any emails, texts, or communications on your behalf",
-    "Ensures you remain in full control of all client communications",
-    "Empowers you to nurture genuine relationships, fostering loyalty and long-term success",
-    "Revolutionizes database management with effortless client relationship maintenance"
+    "Every week, we send you a curated list of contacts to reach out to—cross-checked against DNC lists",
+    "You receive ready-to-use conversation starters to make outreach easy and effective",
+    "Stay consistent with your sphere without wondering who to call or what to say",
+    "Save hours each week while building stronger relationships that lead to more closings"
   ];
 
   return (
@@ -25,10 +25,10 @@ const AutomatedOutreach = () => {
                 SphereSync
               </Badge>
               <h2 className="text-3xl md:text-4xl font-medium tracking-tighter text-foreground">
-                Automate Your Client Connections
+                Never Wonder Who to Call This Week
               </h2>
               <p className="text-lg text-muted-foreground">
-                Revolutionize your database management with SphereSync, the ultimate tool for effortless client relationship maintenance that keeps you in complete control.
+                We curate your weekly contact list and give you the conversation starters—you make the calls and close the deals.
               </p>
             </div>
             

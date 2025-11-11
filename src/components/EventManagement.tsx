@@ -8,10 +8,10 @@ import eventManagementImage from '@/assets/images/event-management.png';
 
 const EventManagement = () => {
   const features = [
-    "Tools for scheduling open houses, webinars, or client events",
-    "Automated invitations, RSVPs, and reminders",
-    "Post-event follow-up campaigns for engagement",
-    "Analytics to track event success and ROI"
+    "We plan and execute your client events from start to finish—speakers, logistics, sponsors, location, everything",
+    "We handle invitations, RSVPs, and all the details so your events run flawlessly",
+    "You show up, connect with your sphere, and build relationships that lead to referrals",
+    "No event planning headaches—just meaningful face time with the people who matter most"
   ];
 
   return (
@@ -25,10 +25,10 @@ const EventManagement = () => {
                 Event Management
               </Badge>
               <h2 className="text-3xl md:text-4xl font-medium tracking-tighter text-foreground">
-                Build Stronger Client Relationships
+                We Plan the Events. You Show Up and Shine.
               </h2>
               <p className="text-lg text-muted-foreground">
-                Simplify event planning and execution to create meaningful connections with your clients through memorable experiences.
+                From speakers to logistics to invitations, we handle every detail of your client events—you just connect with your sphere.
               </p>
             </div>
             

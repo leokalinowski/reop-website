@@ -47,7 +47,7 @@ const WeeklyCoaching = () => {
                 Weekly Coaching
               </Badge>
               <h2 className="text-3xl md:text-4xl font-medium tracking-tighter text-foreground">
-                Accelerate Your Growth
+                Stay Sharp. Stay Accountable. Stay Growing.
               </h2>
               <p className="text-lg text-muted-foreground">
                 Accelerate your growth with personalized, expert guidance in our dynamic weekly sessions designed to help you achieve ambitious goals faster.

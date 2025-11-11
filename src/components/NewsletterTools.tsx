@@ -8,10 +8,10 @@ import newsletterImage from '@/assets/images/newsletter.png';
 
 const NewsletterTools = () => {
   const features = [
-    "Intuitive tools for designing, customizing, and sending professional newsletters",
-    "Keeps your audience informed and connected with regular updates",
-    "Builds trust and positions you as the go-to expert in your market",
-    "Drives sustained interest in your services and strengthens client relationships"
+    "Every month, we send a custom newsletter written specifically for your contacts",
+    "Content is tailored to each recipient's zip code with hyperlocal market data and insights",
+    "Positions you as the neighborhood expert and starts conversations that lead to listings",
+    "Zero effort on your part—we write it, personalize it, and send it for you"
   ];
 
   return (
@@ -47,10 +47,10 @@ const NewsletterTools = () => {
                 Newsletter Tools
               </Badge>
               <h2 className="text-3xl md:text-4xl font-medium tracking-tighter text-foreground">
-                Elevate Your Client Engagement
+                Hyperlocal Market Intelligence. Sent Monthly. Written for You.
               </h2>
               <p className="text-lg text-muted-foreground">
-                Elevate your client engagement with seamless newsletter creation and distribution that keeps your audience informed and connected.
+                We write and send custom newsletters tailored to each contact's zip code—keeping you top-of-mind as the neighborhood expert.
               </p>
             </div>
             

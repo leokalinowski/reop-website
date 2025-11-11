@@ -50,7 +50,7 @@ const SurpriseDelight = () => {
                 Create Memorable Experiences
               </h2>
               <p className="text-lg text-muted-foreground">
-                Create lasting impressions and foster client loyalty through thoughtful, personalized initiatives that set you apart in the market.
+                Turn clients into raving fans with thoughtful, personalized touches that generate referrals and repeat business.
               </p>
             </div>
             

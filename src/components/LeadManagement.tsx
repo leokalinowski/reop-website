@@ -50,7 +50,7 @@ const LeadManagement = () => {
                 Track and Nurture Every Lead
               </h2>
               <p className="text-lg text-muted-foreground">
-                Gain crystal-clear insights into your leads with advanced tracking and nurturing capabilities that prioritize compliance and efficiency.
+                Know exactly who to contact, when to contact them, and what to say—with full DNC compliance built in so you can work confidently.
               </p>
             </div>
             
