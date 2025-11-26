@@ -8,7 +8,7 @@ const Testimonials = () => {
       author: "Aminda Kadir"
     },
     {
-      videoUrl: "/videos/testimonials/jeff-pennington.mov",
+      videoUrl: "/videos/testimonials/jeff-pennington.mp4",
       author: "Jeff Pennington"
     }
   ];
