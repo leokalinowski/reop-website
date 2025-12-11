@@ -1,14 +1,13 @@
-
 import React from 'react';
 
 const Testimonials = () => {
   const testimonials = [
     {
-      videoUrl: "/videos/testimonials/aminda-kadir.mp4",
+      youtubeId: "v9CbYlbrXOo",
       author: "Aminda Kadir"
     },
     {
-      videoUrl: "/videos/testimonials/jeff-pennington.mp4",
+      youtubeId: "0akPYBucSLg",
       author: "Jeff Pennington"
     }
   ];
@@ -30,15 +29,15 @@ const Testimonials = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
           {testimonials.map((testimonial, index) => (
             <div key={index} className="text-center space-y-4">
-              <video 
-                className="w-full aspect-video object-cover rounded-xl shadow-lg"
-                src={testimonial.videoUrl}
-                controls
-                preload="metadata"
-                aria-label={`Video testimonial from ${testimonial.author}`}
-              >
-                Your browser does not support the video tag.
-              </video>
+              <div className="w-full aspect-video rounded-xl shadow-lg overflow-hidden">
+                <iframe
+                  className="w-full h-full"
+                  src={`https://www.youtube.com/embed/${testimonial.youtubeId}`}
+                  title={`Video testimonial from ${testimonial.author}`}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              </div>
               <p className="text-lg font-medium text-foreground">{testimonial.author}</p>
             </div>
           ))}
