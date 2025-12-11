@@ -8,6 +8,51 @@ const corsHeaders = {
   'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
 };
 
+// Rate limiting configuration
+const RATE_LIMIT_WINDOW_MS = 60 * 60 * 1000; // 1 hour
+const MAX_REQUESTS_PER_WINDOW = 5; // 5 requests per hour per email
+
+// In-memory rate limit store (resets on function cold start)
+const rateLimitStore = new Map<string, { count: number; resetTime: number }>();
+
+// Clean up expired entries periodically
+function cleanupRateLimitStore() {
+  const now = Date.now();
+  for (const [key, value] of rateLimitStore.entries()) {
+    if (now > value.resetTime) {
+      rateLimitStore.delete(key);
+    }
+  }
+}
+
+// Check rate limit for an email
+function checkRateLimit(email: string): { allowed: boolean; remaining: number } {
+  cleanupRateLimitStore();
+  const now = Date.now();
+  const normalizedEmail = email.toLowerCase().trim();
+  
+  const existing = rateLimitStore.get(normalizedEmail);
+  
+  if (!existing || now > existing.resetTime) {
+    // New window
+    rateLimitStore.set(normalizedEmail, { 
+      count: 1, 
+      resetTime: now + RATE_LIMIT_WINDOW_MS 
+    });
+    return { allowed: true, remaining: MAX_REQUESTS_PER_WINDOW - 1 };
+  }
+  
+  if (existing.count >= MAX_REQUESTS_PER_WINDOW) {
+    return { allowed: false, remaining: 0 };
+  }
+  
+  existing.count++;
+  return { allowed: true, remaining: MAX_REQUESTS_PER_WINDOW - existing.count };
+}
+
+// Email validation regex
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
 interface FormData {
   firstName: string;
   lastName: string;
@@ -40,7 +85,44 @@ const handler = async (req: Request): Promise<Response> => {
 
   try {
     const formData: FormData = await req.json();
-    console.log('Processing success analysis for:', formData.email);
+    
+    // Input validation
+    if (!formData.email || typeof formData.email !== 'string') {
+      console.log('Missing or invalid email in request');
+      return new Response(
+        JSON.stringify({ error: 'Valid email address is required' }),
+        { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      );
+    }
+
+    const email = formData.email.trim().toLowerCase();
+    
+    if (!EMAIL_REGEX.test(email)) {
+      console.log('Invalid email format:', email);
+      return new Response(
+        JSON.stringify({ error: 'Invalid email format' }),
+        { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      );
+    }
+
+    // Rate limiting check
+    const rateLimit = checkRateLimit(email);
+    if (!rateLimit.allowed) {
+      console.log('Rate limit exceeded for email:', email);
+      return new Response(
+        JSON.stringify({ error: 'Too many requests. Please try again later.' }),
+        { 
+          status: 429, 
+          headers: { 
+            ...corsHeaders, 
+            'Content-Type': 'application/json',
+            'X-RateLimit-Remaining': '0'
+          } 
+        }
+      );
+    }
+
+    console.log('Processing success analysis for:', email, 'Remaining requests:', rateLimit.remaining);
 
     // Calculate personalized metrics
     const analysis = calculateAnalysis(formData);
@@ -60,13 +142,17 @@ const handler = async (req: Request): Promise<Response> => {
         analysis: analysis 
       }),
       {
-        headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+        headers: { 
+          ...corsHeaders, 
+          'Content-Type': 'application/json',
+          'X-RateLimit-Remaining': String(rateLimit.remaining)
+        },
       }
     );
   } catch (error) {
     console.error('Error in generate-success-analysis function:', error);
     return new Response(
-      JSON.stringify({ error: error.message }),
+      JSON.stringify({ error: 'An error occurred processing your request' }),
       {
         status: 500,
         headers: { ...corsHeaders, 'Content-Type': 'application/json' },
