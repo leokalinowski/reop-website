@@ -30,13 +30,11 @@ const ProtectedRoute = ({ children }: ProtectedRouteProps) => {
       });
       
       if (error) {
-        console.error("Admin check error:", error);
         setIsAdmin(false);
       } else {
         setIsAdmin(adminCheck === true);
       }
-    } catch (error) {
-      console.error("Admin check error:", error);
+    } catch {
       setIsAdmin(false);
     } finally {
       setIsLoading(false);
