@@ -218,6 +218,17 @@ const resourceContentMap: Record<string, ResourceContent> = {
   "the-complete-client-events-strategy-guide": clientEventsContent
 };
 
+// Fallback thumbnail images for each resource
+const resourceThumbnails: Record<string, string> = {
+  "spheresync-method": "/images/resources/spheresync-method-cover.png",
+  "the-spheresync-method": "/images/resources/spheresync-method-cover.png",
+  "the-complete-client-events-strategy-guide": "/images/resources/client-events-guide-cover.png"
+};
+
+export function getThumbnailForSlug(slug: string): string | null {
+  return resourceThumbnails[slug] || null;
+}
+
 export function getResourceContent(slug: string): ResourceContent {
   return resourceContentMap[slug] || defaultContent;
 }
