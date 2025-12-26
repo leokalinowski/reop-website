@@ -26,11 +26,15 @@ const BlogPost = () => {
         .single();
       if (error) throw error;
       
-      // Increment view count
-      await supabase
-        .from("blog_posts")
-        .update({ view_count: (data.view_count || 0) + 1 })
-        .eq("id", data.id);
+      // Increment view count only once per session per post
+      const viewedKey = `blog_viewed_${data.id}`;
+      if (!sessionStorage.getItem(viewedKey)) {
+        sessionStorage.setItem(viewedKey, 'true');
+        await supabase
+          .from("blog_posts")
+          .update({ view_count: (data.view_count || 0) + 1 })
+          .eq("id", data.id);
+      }
       
       return data;
     },

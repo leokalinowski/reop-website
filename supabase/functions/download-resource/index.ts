@@ -49,8 +49,8 @@ serve(async (req) => {
       .single()
 
     if (leadError || !lead) {
-      console.log('Lead not found:', leadId)
-      return new Response(JSON.stringify({ error: 'Lead not found' }), {
+      console.error('Lead validation failed:', leadId, leadError?.message);
+      return new Response(JSON.stringify({ error: 'Unable to validate access. Please try again.' }), {
         status: 404,
         headers: { ...corsHeaders, 'Content-Type': 'application/json' }
       })
@@ -62,7 +62,7 @@ serve(async (req) => {
     const timeSinceCreation = now - leadCreatedAt
 
     if (timeSinceCreation > DOWNLOAD_WINDOW_MS) {
-      console.log('Download window expired for lead:', leadId, 'created:', lead.created_at)
+      console.error('Download window expired for lead:', leadId);
       return new Response(JSON.stringify({ error: 'Download link has expired. Please submit the form again to get a new download link.' }), {
         status: 403,
         headers: { ...corsHeaders, 'Content-Type': 'application/json' }
@@ -78,8 +78,8 @@ serve(async (req) => {
       .single()
 
     if (resourceError || !resource) {
-      console.log('Resource not found:', resourceId)
-      return new Response(JSON.stringify({ error: 'Resource not found' }), {
+      console.error('Resource lookup failed:', resourceId, resourceError?.message);
+      return new Response(JSON.stringify({ error: 'Resource not available. Please try again.' }), {
         status: 404,
         headers: { ...corsHeaders, 'Content-Type': 'application/json' }
       })
@@ -106,14 +106,14 @@ serve(async (req) => {
       .createSignedUrl(resource.file_url, 3600)
 
     if (urlError || !signedUrlData) {
-      console.error('Could not generate signed URL:', urlError)
-      return new Response(JSON.stringify({ error: 'Could not generate download URL' }), {
+      console.error('Signed URL generation failed:', urlError?.message);
+      return new Response(JSON.stringify({ error: 'Unable to prepare download. Please try again.' }), {
         status: 500,
         headers: { ...corsHeaders, 'Content-Type': 'application/json' }
       })
     }
 
-    console.log('Download URL generated successfully for lead:', leadId, 'resource:', resourceId)
+    console.log('Download URL generated successfully');
     
     return new Response(
       JSON.stringify({ 
