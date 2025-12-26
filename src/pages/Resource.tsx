@@ -4,30 +4,26 @@ import { useQuery } from "@tanstack/react-query";
 import { 
   Download, 
   CheckCircle, 
-  Star, 
   Clock, 
   Shield, 
   ArrowRight,
   Quote,
   ChevronDown,
   ChevronUp,
-  Users,
-  TrendingUp,
-  Target
+  Users
 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import ResourceLandingHeader from "@/components/ResourceLandingHeader";
 import ResourceLandingFooter from "@/components/ResourceLandingFooter";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import LeadCaptureForm from "@/components/LeadCaptureForm";
 import pamImage from "@/assets/images/pamobryant.png";
+import { getResourceContent, getBenefitIconsForSlug } from "@/config/resourceContent";
 
 
 const Resource = () => {
   const { slug } = useParams();
-  const [isFormOpen, setIsFormOpen] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const formRef = useRef<HTMLDivElement>(null);
 
@@ -49,57 +45,9 @@ const Resource = () => {
     formRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
-  // FAQ items - dynamic based on resource type
-  const getFaqItems = () => {
-    return [
-      {
-        question: "Is this really free?",
-        answer: "Yes, 100% free. No credit card required. We believe in providing value upfront. All we ask is for your email so we can send you more helpful resources."
-      },
-      {
-        question: "Who is this for?",
-        answer: "This resource is designed specifically for real estate agents who want to grow their business, save time, and reduce stress. Whether you're a new agent or a seasoned pro, you'll find actionable insights."
-      },
-      {
-        question: "How is this different from other resources?",
-        answer: "This isn't theory—it's based on real strategies that have helped hundreds of agents transform their businesses. Pam O'Bryant has over 25 years of experience and has coached agents to achieve remarkable results."
-      },
-      {
-        question: "What happens after I download?",
-        answer: "You'll get instant access to download the resource. We'll also send you a copy via email, along with some bonus tips to help you implement what you learn."
-      },
-      {
-        question: "Will I be spammed?",
-        answer: "Absolutely not. We respect your inbox. You'll receive valuable content that helps your business, and you can unsubscribe at any time with one click."
-      }
-    ];
-  };
-
-  // Benefits based on resource
-  const getBenefits = () => {
-    return [
-      {
-        icon: <TrendingUp className="h-6 w-6" />,
-        title: "Increase Your Income",
-        description: "Proven strategies that help agents close more deals and earn more"
-      },
-      {
-        icon: <Clock className="h-6 w-6" />,
-        title: "Save Valuable Time",
-        description: "Stop working 60+ hour weeks and reclaim your personal life"
-      },
-      {
-        icon: <Target className="h-6 w-6" />,
-        title: "Work Smarter",
-        description: "Systems and processes that top producers use every day"
-      },
-      {
-        icon: <Users className="h-6 w-6" />,
-        title: "Build Lasting Relationships",
-        description: "Turn your sphere into a referral-generating machine"
-      }
-    ];
-  };
+  // Get resource-specific content
+  const resourceContent = getResourceContent(slug || "");
+  const benefitIcons = getBenefitIconsForSlug(slug || "");
 
   if (isLoading) {
     return (
@@ -127,8 +75,8 @@ const Resource = () => {
     );
   }
 
-  const faqItems = getFaqItems();
-  const benefits = getBenefits();
+  const faqItems = resourceContent.faqs;
+  const benefits = resourceContent.benefits;
 
   return (
     <div className="min-h-screen bg-background">
@@ -220,14 +168,7 @@ const Resource = () => {
               Sound Familiar?
             </h2>
             <div className="grid md:grid-cols-2 gap-6 text-left">
-              {[
-                "Working 60+ hours a week but still struggling to hit your income goals",
-                "Feeling overwhelmed by the endless to-do list that never gets done",
-                "Watching other agents succeed while you're spinning your wheels",
-                "Knowing you should be doing more marketing but never finding the time",
-                "Missing family events because you're always 'on call'",
-                "Tired of the feast-or-famine cycle in your business"
-              ].map((pain, index) => (
+              {resourceContent.painPoints.map((pain, index) => (
                 <div key={index} className="flex items-start gap-3 p-4 bg-background rounded-lg border border-border/50">
                   <div className="h-6 w-6 rounded-full bg-destructive/10 flex items-center justify-center flex-shrink-0 mt-0.5">
                     <span className="text-destructive text-sm font-bold">!</span>
@@ -258,32 +199,28 @@ const Resource = () => {
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {benefits.map((benefit, index) => (
-                <div 
-                  key={index}
-                  className="p-6 bg-card rounded-xl border border-border/50 hover:border-primary/30 hover:shadow-lg transition-all duration-300"
-                >
-                  <div className="h-12 w-12 rounded-lg bg-primary/10 text-primary flex items-center justify-center mb-4">
-                    {benefit.icon}
+              {benefits.map((benefit, index) => {
+                const IconComponent = benefitIcons[index];
+                return (
+                  <div 
+                    key={index}
+                    className="p-6 bg-card rounded-xl border border-border/50 hover:border-primary/30 hover:shadow-lg transition-all duration-300"
+                  >
+                    <div className="h-12 w-12 rounded-lg bg-primary/10 text-primary flex items-center justify-center mb-4">
+                      <IconComponent className="h-6 w-6" />
+                    </div>
+                    <h3 className="text-lg font-semibold mb-2">{benefit.title}</h3>
+                    <p className="text-muted-foreground text-sm">{benefit.description}</p>
                   </div>
-                  <h3 className="text-lg font-semibold mb-2">{benefit.title}</h3>
-                  <p className="text-muted-foreground text-sm">{benefit.description}</p>
-                </div>
-              ))}
+                );
+              })}
             </div>
 
             {/* What's Included List */}
             <div className="mt-16 bg-gradient-to-br from-primary/5 to-secondary/5 rounded-2xl p-8 md:p-12">
               <h3 className="text-2xl font-bold mb-8 text-center">Here's Exactly What's Included:</h3>
               <div className="grid md:grid-cols-2 gap-4">
-                {[
-                  "Step-by-step implementation guide you can follow today",
-                  "Ready-to-use templates and scripts that actually work",
-                  "Proven strategies from top 1% producing agents",
-                  "Time-saving systems to automate your follow-up",
-                  "Checklists to keep you organized and on track",
-                  "Bonus tips for maximizing your sphere of influence"
-                ].map((item, index) => (
+                {resourceContent.whatsIncluded.map((item, index) => (
                   <div key={index} className="flex items-start gap-3">
                     <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
                     <span className="text-foreground">{item}</span>
