@@ -14,29 +14,11 @@ interface ScrapedEventData {
   organizer: string | null;
 }
 
-function extractTextContent(html: string, pattern: RegExp): string | null {
-  const match = html.match(pattern);
-  if (match && match[1]) {
-    // Remove HTML tags and decode entities
-    return match[1]
-      .replace(/<[^>]*>/g, '')
-      .replace(/&nbsp;/g, ' ')
-      .replace(/&amp;/g, '&')
-      .replace(/&lt;/g, '<')
-      .replace(/&gt;/g, '>')
-      .replace(/&quot;/g, '"')
-      .replace(/&#39;/g, "'")
-      .trim();
-  }
-  return null;
-}
-
-function parseEventDate(dateStr: string | null): string | null {
+function parseEventDate(dateStr: string): string | null {
   if (!dateStr) return null;
   
   try {
-    // Try to parse various date formats
-    // Example: "Tue, Jan 7, 2025" or "January 7, 2025"
+    // Parse formats like "Wednesday, January 14, 2026"
     const date = new Date(dateStr);
     if (!isNaN(date.getTime())) {
       return date.toISOString();
@@ -48,8 +30,114 @@ function parseEventDate(dateStr: string | null): string | null {
   return null;
 }
 
+function extractFromMarkdown(markdown: string): ScrapedEventData {
+  const eventData: ScrapedEventData = {
+    title: null,
+    description: null,
+    event_date: null,
+    event_time: null,
+    location: null,
+    image_url: null,
+    event_type: null,
+    organizer: "Pam O'Bryant",
+  };
+
+  const lines = markdown.split('\n').map(line => line.trim()).filter(Boolean);
+  
+  // Extract title - first H1 heading
+  for (const line of lines) {
+    if (line.startsWith('# ') && !line.includes('About')) {
+      eventData.title = line.replace(/^#\s+/, '').trim();
+      break;
+    }
+  }
+
+  // Find sections by looking for specific patterns
+  let currentSection = '';
+  let descriptionLines: string[] = [];
+  let inAboutSection = false;
+
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    
+    // Detect section headers
+    if (line === 'Date & Time' || line === 'Date and Time') {
+      currentSection = 'datetime';
+      continue;
+    }
+    if (line === 'Location') {
+      currentSection = 'location';
+      continue;
+    }
+    if (line === 'Event Type') {
+      currentSection = 'eventtype';
+      continue;
+    }
+    if (line.includes('About This Event') || line.startsWith('## About')) {
+      currentSection = 'description';
+      inAboutSection = true;
+      continue;
+    }
+    
+    // Extract values based on current section
+    if (currentSection === 'datetime') {
+      // Look for date pattern (day name, month day, year)
+      const dateMatch = line.match(/(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday),?\s+(\w+\s+\d{1,2},?\s+\d{4})/i);
+      if (dateMatch) {
+        eventData.event_date = parseEventDate(line);
+      }
+      // Look for time pattern
+      const timeMatch = line.match(/(\d{1,2}:\d{2}\s*(?:AM|PM)?)/i);
+      if (timeMatch && !dateMatch) {
+        eventData.event_time = timeMatch[1].trim();
+      }
+      // Move to next section after getting both
+      if (eventData.event_date && eventData.event_time) {
+        currentSection = '';
+      }
+    }
+    
+    if (currentSection === 'location' && !line.startsWith('#')) {
+      if (!eventData.location && line.length > 0) {
+        eventData.location = line;
+        currentSection = '';
+      }
+    }
+    
+    if (currentSection === 'eventtype' && !line.startsWith('#')) {
+      if (!eventData.event_type && line.length > 0) {
+        eventData.event_type = line;
+        currentSection = '';
+      }
+    }
+    
+    if (inAboutSection && currentSection === 'description') {
+      // Stop at next major section or end markers
+      if (line.startsWith('##') || line.includes('RSVP') || line.includes('Register')) {
+        inAboutSection = false;
+        currentSection = '';
+        continue;
+      }
+      if (!line.startsWith('#') && line.length > 0) {
+        descriptionLines.push(line);
+      }
+    }
+  }
+
+  // Build description from collected lines
+  if (descriptionLines.length > 0) {
+    eventData.description = descriptionLines.join('\n\n');
+  }
+
+  // Fallback title extraction
+  if (!eventData.title) {
+    eventData.title = 'Untitled Event';
+  }
+
+  return eventData;
+}
+
 Deno.serve(async (req) => {
-  // Handle CORS preflight requests
   if (req.method === 'OPTIONS') {
     return new Response(null, { headers: corsHeaders });
   }
@@ -64,7 +152,7 @@ Deno.serve(async (req) => {
       );
     }
 
-    // Validate URL format
+    // Format URL
     let formattedUrl = url.trim();
     if (!formattedUrl.startsWith('http://') && !formattedUrl.startsWith('https://')) {
       formattedUrl = `https://${formattedUrl}`;
@@ -78,108 +166,63 @@ Deno.serve(async (req) => {
       );
     }
 
-    console.log('Scraping Hub event URL:', formattedUrl);
+    console.log('Scraping Hub event URL with Firecrawl:', formattedUrl);
 
-    // Fetch the page
-    const response = await fetch(formattedUrl, {
-      headers: {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
-        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
-      },
-    });
-
-    if (!response.ok) {
-      console.error('Failed to fetch page:', response.status, response.statusText);
+    const apiKey = Deno.env.get('FIRECRAWL_API_KEY');
+    if (!apiKey) {
+      console.error('FIRECRAWL_API_KEY not configured');
       return new Response(
-        JSON.stringify({ success: false, error: `Failed to fetch page: ${response.status}` }),
-        { status: response.status, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+        JSON.stringify({ success: false, error: 'Firecrawl API key not configured' }),
+        { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
       );
     }
 
-    const html = await response.text();
-    console.log('Fetched HTML length:', html.length);
+    // Call Firecrawl to scrape the page with JS rendering
+    const firecrawlResponse = await fetch('https://api.firecrawl.dev/v1/scrape', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${apiKey}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        url: formattedUrl,
+        formats: ['markdown'],
+        onlyMainContent: true,
+        waitFor: 3000, // Wait for JS to render
+      }),
+    });
 
-    // Extract event data from HTML
-    const eventData: ScrapedEventData = {
-      title: null,
-      description: null,
-      event_date: null,
-      event_time: null,
-      location: null,
-      image_url: null,
-      event_type: null,
-      organizer: null,
-    };
+    const firecrawlData = await firecrawlResponse.json();
 
-    // Extract title - look for h1 or main title
-    eventData.title = extractTextContent(html, /<h1[^>]*>([^<]+)<\/h1>/i) ||
-                      extractTextContent(html, /<title>([^<]+)<\/title>/i) ||
-                      'Untitled Event';
-
-    // Extract meta description
-    const metaDescMatch = html.match(/<meta\s+name=["']description["']\s+content=["']([^"']+)["']/i) ||
-                          html.match(/<meta\s+content=["']([^"']+)["']\s+name=["']description["']/i);
-    if (metaDescMatch) {
-      eventData.description = metaDescMatch[1].trim();
+    if (!firecrawlResponse.ok) {
+      console.error('Firecrawl API error:', firecrawlData);
+      return new Response(
+        JSON.stringify({ success: false, error: firecrawlData.error || 'Failed to scrape page' }),
+        { status: firecrawlResponse.status, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      );
     }
 
-    // Extract Open Graph image
-    const ogImageMatch = html.match(/<meta\s+property=["']og:image["']\s+content=["']([^"']+)["']/i) ||
-                         html.match(/<meta\s+content=["']([^"']+)["']\s+property=["']og:image["']/i);
-    if (ogImageMatch) {
-      eventData.image_url = ogImageMatch[1].trim();
-    }
-
-    // Look for date patterns in the page
-    // Common patterns: "January 7, 2025", "Jan 7, 2025", "2025-01-07"
-    const datePatterns = [
-      /(?:Date|When|Date\s*&\s*Time)[:\s]*([A-Z][a-z]{2,8}\s+\d{1,2},?\s+\d{4})/i,
-      /(\d{4}-\d{2}-\d{2})/,
-      /([A-Z][a-z]{2},?\s+[A-Z][a-z]{2,8}\s+\d{1,2},?\s+\d{4})/i,
-    ];
-
-    for (const pattern of datePatterns) {
-      const match = html.match(pattern);
-      if (match) {
-        eventData.event_date = parseEventDate(match[1]);
-        if (eventData.event_date) break;
-      }
-    }
-
-    // Look for time patterns
-    const timeMatch = html.match(/(\d{1,2}:\d{2}\s*(?:AM|PM|am|pm)?(?:\s*-\s*\d{1,2}:\d{2}\s*(?:AM|PM|am|pm)?)?)/i);
-    if (timeMatch) {
-      eventData.event_time = timeMatch[1].trim();
-    }
-
-    // Look for location
-    const locationPatterns = [
-      /(?:Location|Where|Venue)[:\s]*([^<\n]+)/i,
-      /(?:Virtual|Online|Zoom|Google Meet)/i,
-    ];
+    const markdown = firecrawlData.data?.markdown || firecrawlData.markdown;
     
-    for (const pattern of locationPatterns) {
-      const match = html.match(pattern);
-      if (match) {
-        if (match[1]) {
-          eventData.location = match[1].trim().substring(0, 200);
-        } else if (match[0].toLowerCase().includes('virtual') || 
-                   match[0].toLowerCase().includes('online') ||
-                   match[0].toLowerCase().includes('zoom')) {
-          eventData.location = 'Virtual Event';
-        }
-        break;
-      }
+    if (!markdown) {
+      console.error('No markdown content returned from Firecrawl');
+      return new Response(
+        JSON.stringify({ success: false, error: 'No content found on page' }),
+        { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      );
     }
 
-    // Look for event type
-    const eventTypeMatch = html.match(/(?:Event\s*Type|Type)[:\s]*([^<\n]+)/i);
-    if (eventTypeMatch) {
-      eventData.event_type = eventTypeMatch[1].trim().substring(0, 50);
-    }
+    console.log('Firecrawl markdown length:', markdown.length);
+    console.log('Markdown preview:', markdown.substring(0, 500));
 
-    // Default organizer
-    eventData.organizer = "Pam O'Bryant";
+    // Extract event data from markdown
+    const eventData = extractFromMarkdown(markdown);
+
+    // Try to get image from metadata
+    const metadata = firecrawlData.data?.metadata || firecrawlData.metadata;
+    if (metadata?.ogImage) {
+      eventData.image_url = metadata.ogImage;
+    }
 
     console.log('Extracted event data:', eventData);
 
