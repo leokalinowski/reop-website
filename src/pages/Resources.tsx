@@ -78,11 +78,15 @@ const Resources = () => {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
               {resources?.map((resource) => {
                 const Icon = resourceIcons[resource.resource_type] || FileText;
+                const thumbnailSrc = resource.thumbnail_url
+                  ? `${resource.thumbnail_url}${resource.updated_at ? `?v=${encodeURIComponent(resource.updated_at)}` : ""}`
+                  : null;
+
                 return (
                   <Card key={resource.id} className="hover:shadow-lg transition-shadow">
-                    {resource.thumbnail_url ? (
+                    {thumbnailSrc ? (
                       <img
-                        src={resource.thumbnail_url}
+                        src={thumbnailSrc}
                         alt={resource.title}
                         className="w-full h-48 object-cover rounded-t-lg"
                       />

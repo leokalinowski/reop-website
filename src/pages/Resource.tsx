@@ -49,9 +49,17 @@ const Resource = () => {
   const resourceContent = getResourceContent(slug || "");
   const benefitIcons = getBenefitIconsForSlug(slug || "");
   const fallbackThumbnail = getThumbnailForSlug(slug || "");
-  
+
   // Use database thumbnail or fallback to config
   const thumbnailUrl = resource?.thumbnail_url || fallbackThumbnail;
+
+  const withCacheBust = (url: string | null | undefined, version: string | null | undefined) => {
+    if (!url || !version) return url ?? null;
+    const sep = url.includes("?") ? "&" : "?";
+    return `${url}${sep}v=${encodeURIComponent(version)}`;
+  };
+
+  const thumbnailSrc = withCacheBust(thumbnailUrl, resource?.updated_at ?? resource?.created_at);
 
   if (isLoading) {
     return (
@@ -142,9 +150,9 @@ const Resource = () => {
               {/* Right - Resource Image */}
               <div className="relative">
                 <div className="relative z-10">
-                  {thumbnailUrl ? (
+                  {thumbnailSrc ? (
                     <img
-                      src={thumbnailUrl}
+                      src={thumbnailSrc}
                       alt={resource.title}
                       className="w-full max-w-md mx-auto rounded-lg shadow-2xl transform hover:scale-105 transition-transform duration-300"
                       loading="eager"
