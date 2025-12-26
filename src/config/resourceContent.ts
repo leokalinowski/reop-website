@@ -220,9 +220,9 @@ const resourceContentMap: Record<string, ResourceContent> = {
 
 // Fallback thumbnail images for each resource
 const resourceThumbnails: Record<string, string> = {
-  "spheresync-method": "/images/resources/spheresync-method-cover.png",
-  "the-spheresync-method": "/images/resources/spheresync-method-cover.png",
-  "the-complete-client-events-strategy-guide": "/images/resources/client-events-guide-cover.png"
+  "spheresync-method": "/images/resources/spheresync-method-cover.jpg",
+  "the-spheresync-method": "/images/resources/spheresync-method-cover.jpg",
+  "the-complete-client-events-strategy-guide": "/images/resources/client-events-guide-cover.jpg"
 };
 
 export function getThumbnailForSlug(slug: string): string | null {
