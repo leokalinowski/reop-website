@@ -213,6 +213,7 @@ const defaultContent: ResourceContent = {
 
 // Map slugs to content
 const resourceContentMap: Record<string, ResourceContent> = {
+  "spheresync-method": sphereSyncContent,
   "the-spheresync-method": sphereSyncContent,
   "the-complete-client-events-strategy-guide": clientEventsContent
 };
@@ -229,7 +230,7 @@ export const benefitIcons = {
 };
 
 export function getBenefitIconsForSlug(slug: string) {
-  if (slug === "the-spheresync-method") return benefitIcons.sphereSync;
+  if (slug === "spheresync-method" || slug === "the-spheresync-method") return benefitIcons.sphereSync;
   if (slug === "the-complete-client-events-strategy-guide") return benefitIcons.clientEvents;
   return benefitIcons.default;
 }
