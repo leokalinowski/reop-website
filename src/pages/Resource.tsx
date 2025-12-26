@@ -19,7 +19,7 @@ import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import LeadCaptureForm from "@/components/LeadCaptureForm";
 import pamImage from "@/assets/images/pamobryant.png";
-import { getResourceContent, getBenefitIconsForSlug } from "@/config/resourceContent";
+import { getResourceContent, getBenefitIconsForSlug, getThumbnailForSlug } from "@/config/resourceContent";
 
 
 const Resource = () => {
@@ -48,6 +48,10 @@ const Resource = () => {
   // Get resource-specific content
   const resourceContent = getResourceContent(slug || "");
   const benefitIcons = getBenefitIconsForSlug(slug || "");
+  const fallbackThumbnail = getThumbnailForSlug(slug || "");
+  
+  // Use database thumbnail or fallback to config
+  const thumbnailUrl = resource?.thumbnail_url || fallbackThumbnail;
 
   if (isLoading) {
     return (
@@ -138,9 +142,9 @@ const Resource = () => {
               {/* Right - Resource Image */}
               <div className="relative">
                 <div className="relative z-10">
-                  {resource.thumbnail_url ? (
+                  {thumbnailUrl ? (
                     <img
-                      src={resource.thumbnail_url}
+                      src={thumbnailUrl}
                       alt={resource.title}
                       className="w-full max-w-md mx-auto rounded-lg shadow-2xl transform hover:scale-105 transition-transform duration-300"
                       loading="eager"
