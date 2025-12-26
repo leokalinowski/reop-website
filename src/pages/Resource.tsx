@@ -93,7 +93,7 @@ const Resource = () => {
               {/* Left - Copy */}
               <div className="space-y-8">
                 {/* Social proof badge */}
-                {resource.download_count && resource.download_count > 10 && (
+                {resource.download_count > 10 && (
                   <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium">
                     <Users className="h-4 w-4" />
                     <span>Downloaded by {resource.download_count}+ agents</span>
