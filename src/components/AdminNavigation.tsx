@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Menu, X, LogOut, LayoutDashboard, FileText, Download, Users } from "lucide-react";
+import { Menu, X, LogOut, LayoutDashboard, FileText, Download, Users, Calendar } from "lucide-react";
 import Logo from "./Logo";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
@@ -16,6 +16,7 @@ const AdminNavigation = () => {
     { name: "Blog Posts", path: "/admin/blog-posts", icon: FileText },
     { name: "Resources", path: "/admin/resources", icon: Download },
     { name: "Leads", path: "/admin/leads", icon: Users },
+    { name: "Events", path: "/admin/events", icon: Calendar },
   ];
 
   const isActive = (path: string) => location.pathname.startsWith(path);

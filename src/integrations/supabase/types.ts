@@ -182,6 +182,57 @@ export type Database = {
         }
         Relationships: []
       }
+      events: {
+        Row: {
+          created_at: string
+          description: string | null
+          event_date: string
+          event_time: string | null
+          event_type: string | null
+          hub_url: string
+          id: string
+          image_url: string | null
+          is_active: boolean | null
+          location: string | null
+          organizer: string | null
+          rsvp_link: string
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          description?: string | null
+          event_date: string
+          event_time?: string | null
+          event_type?: string | null
+          hub_url: string
+          id?: string
+          image_url?: string | null
+          is_active?: boolean | null
+          location?: string | null
+          organizer?: string | null
+          rsvp_link: string
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          description?: string | null
+          event_date?: string
+          event_time?: string | null
+          event_type?: string | null
+          hub_url?: string
+          id?: string
+          image_url?: string | null
+          is_active?: boolean | null
+          location?: string | null
+          organizer?: string | null
+          rsvp_link?: string
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       free_resources: {
         Row: {
           created_at: string | null

@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
 import Index from "./pages/Index";
 import JumpStart from "./pages/JumpStart";
+import Events from "./pages/Events";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import Resources from "./pages/Resources";
@@ -16,6 +17,7 @@ import AdminBlogPosts from "./pages/admin/BlogPosts";
 import AdminBlogPostEditor from "./pages/admin/BlogPostEditor";
 import AdminResourcesManager from "./pages/admin/ResourcesManager";
 import AdminLeadsManager from "./pages/admin/LeadsManager";
+import AdminEventsManager from "./pages/admin/EventsManager";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import LegalDisclaimer from "./pages/LegalDisclaimer";
@@ -33,6 +35,7 @@ const AppContent = () => {
       <Routes>
         <Route path="/" element={<Index />} />
         <Route path="/jump-start" element={<JumpStart />} />
+        <Route path="/events" element={<Events />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog/:slug" element={<BlogPost />} />
         <Route path="/resources" element={<Resources />} />
@@ -45,6 +48,7 @@ const AppContent = () => {
         <Route path="/admin/resources" element={<AdminResourcesManager />} />
         <Route path="/admin/resources/new" element={<AdminResourcesManager />} />
         <Route path="/admin/leads" element={<AdminLeadsManager />} />
+        <Route path="/admin/events" element={<AdminEventsManager />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/terms-of-service" element={<TermsOfService />} />
         <Route path="/legal-disclaimer" element={<LegalDisclaimer />} />
