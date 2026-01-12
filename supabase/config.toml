@@ -8,3 +8,6 @@ verify_jwt = false
 
 [functions.scrape-hub-event]
 verify_jwt = false
+
+[functions.scrape-eventbrite]
+verify_jwt = false

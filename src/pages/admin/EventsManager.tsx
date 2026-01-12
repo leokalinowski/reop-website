@@ -100,16 +100,32 @@ const EventsManager = () => {
     },
   });
 
-  // Import from Hub URL
-  const handleImportFromHub = async () => {
+  // Detect URL source and call appropriate scraper
+  const detectUrlSource = (url: string): "hub" | "eventbrite" | null => {
+    const trimmed = url.trim().toLowerCase();
+    if (trimmed.includes("hub.realestateonpurpose.com")) return "hub";
+    if (trimmed.includes("eventbrite.com")) return "eventbrite";
+    return null;
+  };
+
+  // Import from URL (supports Hub and Eventbrite)
+  const handleImportFromUrl = async () => {
     if (!hubUrl.trim()) {
-      toast.error("Please enter a Hub event URL");
+      toast.error("Please enter an event URL");
+      return;
+    }
+
+    const source = detectUrlSource(hubUrl);
+    if (!source) {
+      toast.error("Unsupported URL. Please use a Hub or Eventbrite event link.");
       return;
     }
 
     setIsImporting(true);
     try {
-      const { data, error } = await supabase.functions.invoke("scrape-hub-event", {
+      const functionName = source === "hub" ? "scrape-hub-event" : "scrape-eventbrite";
+      
+      const { data, error } = await supabase.functions.invoke(functionName, {
         body: { url: hubUrl },
       });
 
@@ -127,6 +143,9 @@ const EventsManager = () => {
         }
       }
 
+      // For Eventbrite, use the scraped rsvp_link if available, otherwise the input URL
+      const rsvpLink = scraped.rsvp_link || hubUrl;
+
       setFormData({
         title: scraped.title || "",
         description: scraped.description || "",
@@ -134,15 +153,15 @@ const EventsManager = () => {
         event_time: scraped.event_time || "",
         location: scraped.location || "",
         organizer: scraped.organizer || "Pam O'Bryant",
-        rsvp_link: hubUrl,
-        hub_url: hubUrl,
+        rsvp_link: rsvpLink,
+        hub_url: hubUrl, // Store original URL for reference
         image_url: scraped.image_url || "",
         event_type: scraped.event_type || "Public Event",
         is_active: true,
       });
 
       setIsDialogOpen(true);
-      toast.success("Event data imported! Please review and save.");
+      toast.success(`Event imported from ${source === "hub" ? "Hub" : "Eventbrite"}! Please review and save.`);
     } catch (error) {
       console.error("Import error:", error);
       toast.error(error instanceof Error ? error.message : "Failed to import event");
@@ -275,21 +294,21 @@ const EventsManager = () => {
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <LinkIcon className="h-5 w-5" />
-              Import Event from Hub
+              Import Event from URL
             </CardTitle>
             <CardDescription>
-              Paste a Hub event URL to automatically import event details
+              Paste an event URL from Hub or Eventbrite to automatically import event details
             </CardDescription>
           </CardHeader>
           <CardContent>
             <div className="flex gap-4">
               <Input
-                placeholder="https://hub.realestateonpurpose.com/event/..."
+                placeholder="https://hub.realestateonpurpose.com/... or https://eventbrite.com/..."
                 value={hubUrl}
                 onChange={(e) => setHubUrl(e.target.value)}
                 className="flex-1"
               />
-              <Button onClick={handleImportFromHub} disabled={isImporting}>
+              <Button onClick={handleImportFromUrl} disabled={isImporting}>
                 {isImporting ? (
                   <>
                     <Loader2 className="h-4 w-4 mr-2 animate-spin" />
@@ -300,6 +319,9 @@ const EventsManager = () => {
                 )}
               </Button>
             </div>
+            <p className="text-xs text-muted-foreground mt-2">
+              Supported platforms: Hub (hub.realestateonpurpose.com), Eventbrite (eventbrite.com)
+            </p>
           </CardContent>
         </Card>
 
@@ -408,7 +430,7 @@ const EventsManager = () => {
               </div>
             ) : (
               <div className="text-center py-8 text-muted-foreground">
-                No events yet. Import one from Hub to get started.
+                No events yet. Import one from Hub or Eventbrite to get started.
               </div>
             )}
           </CardContent>
