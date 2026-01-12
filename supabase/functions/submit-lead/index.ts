@@ -294,6 +294,7 @@ serve(async (req) => {
     return new Response(
       JSON.stringify({ 
         success: true,
+        leadId: data.id,
         message: 'Lead submitted successfully'
       }),
       { 
