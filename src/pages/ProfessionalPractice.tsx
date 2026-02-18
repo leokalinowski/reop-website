@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Building2, RefreshCw, TrendingUp, Target } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import Navigation from '@/components/Navigation';
+
 import FooterMinimal from '@/components/FooterMinimal';
 import LightRays from '@/components/LightRays';
 import SEO from '@/components/SEO';
@@ -76,7 +76,7 @@ const ProfessionalPractice = () => {
         url="https://reop-website.lovable.app/professional-practice"
       />
 
-      <Navigation />
+      
 
       <main className="overflow-hidden">
         {/* ════════════════════  HERO  ════════════════════ */}
