@@ -21,6 +21,7 @@ import AdminEventsManager from "./pages/admin/EventsManager";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import LegalDisclaimer from "./pages/LegalDisclaimer";
+import ProfessionalPractice from "./pages/ProfessionalPractice";
 import AnnouncementBar from "./components/AnnouncementBar";
 
 const queryClient = new QueryClient();
@@ -52,6 +53,7 @@ const AppContent = () => {
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/terms-of-service" element={<TermsOfService />} />
         <Route path="/legal-disclaimer" element={<LegalDisclaimer />} />
+        <Route path="/professional-practice" element={<ProfessionalPractice />} />
         {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
