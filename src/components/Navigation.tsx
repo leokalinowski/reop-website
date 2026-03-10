@@ -14,6 +14,7 @@ const Navigation = () => {
     { name: "Resources", path: "/resources" },
     { name: "Jump Start", path: "/jump-start" },
     { name: "Professional Practice", path: "/professional-practice" },
+    { name: "SphereSync", path: "/spheresync" },
   ];
 
   const isActive = (path: string) => location.pathname === path;

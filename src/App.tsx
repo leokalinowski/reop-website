@@ -22,6 +22,7 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import LegalDisclaimer from "./pages/LegalDisclaimer";
 import ProfessionalPractice from "./pages/ProfessionalPractice";
+import SphereSync from "./pages/SphereSync";
 import AnnouncementBar from "./components/AnnouncementBar";
 
 const queryClient = new QueryClient();
@@ -54,6 +55,7 @@ const AppContent = () => {
         <Route path="/terms-of-service" element={<TermsOfService />} />
         <Route path="/legal-disclaimer" element={<LegalDisclaimer />} />
         <Route path="/professional-practice" element={<ProfessionalPractice />} />
+        <Route path="/spheresync" element={<SphereSync />} />
         {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
