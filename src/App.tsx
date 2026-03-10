@@ -22,6 +22,7 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import LegalDisclaimer from "./pages/LegalDisclaimer";
 import ProfessionalPractice from "./pages/ProfessionalPractice";
+import SphereSync from "./pages/SphereSync";
 import AnnouncementBar from "./components/AnnouncementBar";
 
 const queryClient = new QueryClient();
