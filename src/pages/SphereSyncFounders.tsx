@@ -249,8 +249,8 @@ const SphereSyncFounders = () => {
             </div>
 
             {/* Right — Product Mockup */}
-            <div className="relative hidden md:block self-center max-h-[520px]">
-              <div className="bg-card border border-border rounded-2xl shadow-2xl p-6 space-y-4">
+            <div className="relative hidden md:block self-center max-h-[520px] overflow-visible">
+              <div className="bg-card border border-border rounded-2xl shadow-2xl p-5 space-y-3">
                 {/* Mock Header */}
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
