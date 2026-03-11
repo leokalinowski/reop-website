@@ -345,41 +345,79 @@ const SphereSyncFounders = () => {
               </p>
             </div>
 
-            {/* Visual Comparison Bars */}
-            <div className="space-y-6 pt-4">
-              <div className="space-y-2">
-                <p className="text-sm font-medium opacity-80">"Would use you again"</p>
-                <div className="h-4 bg-primary/20 rounded-full overflow-hidden">
-                  <div className="h-full bg-primary rounded-full" style={{ width: '80%' }} />
-                </div>
-                <p className="text-right text-sm font-semibold text-primary">80%</p>
-              </div>
-              <div className="space-y-2">
-                <p className="text-sm font-medium opacity-80">"Actually call you first"</p>
-                <div className="h-4 bg-primary/20 rounded-full overflow-hidden">
-                  <div className="h-full bg-destructive/80 rounded-full" style={{ width: '14%' }} />
-                </div>
-                <p className="text-right text-sm font-semibold text-destructive">~14%</p>
-              </div>
+            {/* Animated Gauge Visualization */}
+            <div className="grid sm:grid-cols-2 gap-8 pt-4">
+              {[
+                { label: '"Would use you again"', value: 80, color: 'text-primary', stroke: 'stroke-primary', trackStroke: 'stroke-primary/20' },
+                { label: '"Actually uses you"', value: 14, color: 'text-destructive', stroke: 'stroke-destructive', trackStroke: 'stroke-destructive/20' },
+              ].map((gauge) => {
+                const radius = 70;
+                const circumference = 2 * Math.PI * radius * 0.75;
+                const offset = circumference - (gauge.value / 100) * circumference;
+                return (
+                  <div key={gauge.label} className="flex flex-col items-center gap-3">
+                    <div className="relative w-48 h-48">
+                      <svg viewBox="0 0 180 180" className="w-full h-full -rotate-[135deg]">
+                        <circle
+                          cx="90" cy="90" r={radius}
+                          fill="none" strokeWidth="14" strokeLinecap="round"
+                          className={gauge.trackStroke}
+                          strokeDasharray={circumference}
+                          strokeDashoffset={0}
+                        />
+                        <motion.circle
+                          cx="90" cy="90" r={radius}
+                          fill="none" strokeWidth="14" strokeLinecap="round"
+                          className={gauge.stroke}
+                          strokeDasharray={circumference}
+                          initial={{ strokeDashoffset: circumference }}
+                          animate={dbGap.visible ? { strokeDashoffset: offset } : { strokeDashoffset: circumference }}
+                          transition={{ duration: 1.5, ease: 'easeOut', delay: 0.3 }}
+                        />
+                      </svg>
+                      <div className="absolute inset-0 flex flex-col items-center justify-center pt-4">
+                        <motion.span
+                          className={`text-4xl font-bold ${gauge.color}`}
+                          initial={{ opacity: 0 }}
+                          animate={dbGap.visible ? { opacity: 1 } : {}}
+                          transition={{ delay: 0.8, duration: 0.5 }}
+                        >
+                          {gauge.value === 14 ? '~' : ''}{gauge.value}%
+                        </motion.span>
+                      </div>
+                    </div>
+                    <p className="text-sm font-medium text-secondary-foreground/80">{gauge.label}</p>
+                  </div>
+                );
+              })}
             </div>
 
-            {/* Trust fade visual */}
-            <div className="flex flex-col sm:flex-row items-center gap-4 pt-4 text-sm">
-              <div className="flex items-center gap-2 bg-primary/10 rounded-lg px-4 py-2">
-                <CheckCircle2 className="h-4 w-4 text-primary" />
-                <span>Trust earned at closing</span>
-              </div>
-              <ArrowRight className="h-4 w-4 text-muted-foreground hidden sm:block" />
-              <div className="flex items-center gap-2 bg-destructive/10 rounded-lg px-4 py-2">
-                <Eye className="h-4 w-4 text-destructive" />
-                <span>Visibility fades</span>
-              </div>
-              <ArrowRight className="h-4 w-4 text-muted-foreground hidden sm:block" />
-              <div className="flex items-center gap-2 bg-destructive/10 rounded-lg px-4 py-2">
-                <UserCheck className="h-4 w-4 text-destructive" />
-                <span>Another agent stays top of mind</span>
-              </div>
-            </div>
+            {/* Trust Fade Timeline */}
+            <div className="grid sm:grid-cols-3 gap-0 pt-6">
+              {[
+                { icon: CheckCircle2, title: 'Trust earned at closing', desc: 'Client loves you — right now', iconColor: 'text-primary', bg: 'bg-primary/10', borderColor: 'border-primary/30' },
+                { icon: Eye, title: 'Visibility fades', desc: 'Weeks pass without contact', iconColor: 'text-accent', bg: 'bg-accent/10', borderColor: 'border-accent/30' },
+                { icon: UserCheck, title: 'Another agent stays top of mind', desc: 'Someone else fills the gap', iconColor: 'text-destructive', bg: 'bg-destructive/10', borderColor: 'border-destructive/30' },
+              ].map((step, i) => (
+                <motion.div
+                  key={step.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={dbGap.visible ? { opacity: 1, y: 0 } : {}}
+                  transition={{ delay: 1.2 + i * 0.25, duration: 0.5 }}
+                  className="relative flex flex-col items-center text-center px-4 py-6"
+                >
+                  {i < 2 && (
+                    <div className="hidden sm:block absolute top-1/2 -right-3 -translate-y-1/2 z-10">
+                      <ArrowRight className="h-6 w-6 text-muted-foreground/50" />
+                    </div>
+                  )}
+                  <div className={`${step.bg} border ${step.borderColor} rounded-2xl p-4 mb-3`}>
+                    <step.icon className={`h-8 w-8 ${step.iconColor}`} />
+                  </div>
+                  <h4 className="font-semibold text-secondary-foreground text-base mb-1">{step.title}</h4>
+                  <p className="text-sm text-secondary-foreground/60">{step.desc}</p>
+                </motion.div>
+              ))}
 
             <SectionCTA />
           </div>
