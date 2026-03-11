@@ -1,15 +1,10 @@
 
 
-## Remove Navigation from Professional Practice Landing Page
+## Update APPLY_URL to Stripe Payment Link
 
-A focused landing page should minimize exit points to maximize conversions. This is a single-file change.
+Single-line change in `src/pages/SphereSyncFounders.tsx` line 33:
 
-### Change
+Replace `const APPLY_URL = '#';` with `const APPLY_URL = 'https://buy.stripe.com/14A4gBgz08mGgCx2js0x200';`
 
-**File: `src/pages/ProfessionalPractice.tsx`**
-- Remove the `Navigation` component import and usage
-- The page will go straight from the SEO component into the main content
-- The footer (FooterMinimal) stays as it provides necessary legal/brand info without competing with the CTA
-
-This keeps visitors focused on reading the copy and clicking "Schedule a Strategic Diagnostic" without distraction.
+All CTA buttons already use this constant with `target="_blank" rel="noopener noreferrer"`, so every "Apply for Founder Access" button on the page will immediately link to the Stripe checkout.
 
