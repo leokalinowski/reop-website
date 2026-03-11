@@ -57,6 +57,7 @@ const AppContent = () => {
         <Route path="/legal-disclaimer" element={<LegalDisclaimer />} />
         <Route path="/professional-practice" element={<ProfessionalPractice />} />
         <Route path="/spheresync" element={<SphereSync />} />
+        <Route path="/spheresync-founders" element={<SphereSyncFounders />} />
         {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
