@@ -205,6 +205,9 @@ const SphereSyncFounders = () => {
         <section ref={dbGap.ref} className="relative py-20 md:py-28 px-6 md:px-12 bg-primary/5">
           <div className="absolute inset-0 cosmic-grid opacity-5 pointer-events-none" />
           <div className={`relative z-10 max-w-3xl mx-auto space-y-8 ${fadeIn(dbGap.visible)}`}>
+            <p className="text-lg text-muted-foreground leading-relaxed">
+              Right now, someone in your sphere is buying or selling a home. They're not calling you — not because you did anything wrong, but because someone else stayed in touch and you didn't. SphereSync is the system that makes sure that stops happening.
+            </p>
             <h2 className="text-3xl md:text-4xl font-bold tracking-tighter text-foreground leading-tight">
               The <span className="text-primary">Database Gap</span>
             </h2>
