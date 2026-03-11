@@ -188,7 +188,7 @@ const SphereSyncFounders = () => {
       <main className="overflow-hidden">
 
         {/* ═══════ 1 · HERO ═══════ */}
-        <section className="relative min-h-screen flex items-center px-6 md:px-12 bg-secondary/5 py-16 md:py-0">
+        <section className="relative min-h-[85vh] md:min-h-screen flex items-center px-6 md:px-12 bg-secondary/5 py-10 md:py-0">
           {!isMobile && (
             <div className="absolute inset-0 z-0 pointer-events-none">
               <LightRays />
@@ -196,9 +196,9 @@ const SphereSyncFounders = () => {
           )}
           <div className="absolute inset-0 cosmic-gradient opacity-30 pointer-events-none" />
 
-          <div className={`relative z-10 max-w-7xl mx-auto w-full grid md:grid-cols-2 gap-12 md:gap-16 items-center transition-all duration-1000 ease-out ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+          <div className={`relative z-10 max-w-7xl mx-auto w-full grid md:grid-cols-2 gap-10 md:gap-16 items-center transition-all duration-1000 ease-out ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             {/* Left — Copy */}
-            <div className="space-y-6">
+            <div className="space-y-4">
               <div className="flex flex-wrap gap-3">
                 <Badge variant="outline" className="text-primary border-primary/30 px-4 py-1.5 text-sm tracking-wide backdrop-blur-sm">
                   SphereSync Founders
@@ -208,37 +208,48 @@ const SphereSyncFounders = () => {
                 </Badge>
               </div>
 
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter leading-[1.08] text-foreground">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter leading-[1.08] text-foreground">
                 50 agents. Six months.{' '}
                 <span className="text-primary">One goal:</span>{' '}
                 <span className="text-foreground">prove how powerful a well-activated sphere can be at generating referrals.</span>
               </h1>
 
-              <div className="space-y-4 text-base md:text-lg text-muted-foreground leading-relaxed">
-                <p>Right now, someone in your sphere is buying or selling a home. They're not calling you. Not because you did anything wrong. Because someone else stayed in touch — and you didn't. SphereSync is the system that makes sure that stops happening.</p>
-                <p>This isn't another CRM or marketing platform. It's a system for activating the relationships already inside your business.</p>
-                <p className="text-sm text-muted-foreground italic">Built from decades of real estate referral data and real-world agent implementation — not marketing theory.</p>
-              </div>
-
-              <div className="flex items-center gap-3 py-2">
+              <div className="flex items-center gap-3 py-1">
                 <div className="h-px w-12 bg-primary/30" />
                 <div className="h-1.5 w-1.5 rounded-full bg-primary/50" />
                 <div className="h-px w-12 bg-primary/30" />
               </div>
 
               <p className="text-lg md:text-xl font-semibold text-foreground">Relationships should still win.</p>
-              <p className="text-lg md:text-xl font-medium text-primary">SphereSync Founders are the agents proving that they do.</p>
+              <p className="text-base md:text-lg font-medium text-primary">SphereSync Founders are the agents proving that they do.</p>
 
-              <div className="pt-4">
+              <div className="pt-2">
                 <PrimaryCTA />
                 <p className="text-sm text-muted-foreground mt-3 tracking-wide">
                   Founder enrollment closes April 15 or when the cohort fills.
                 </p>
               </div>
+
+              {/* Narrative copy — below the CTA */}
+              <div className="space-y-3 text-sm md:text-base text-muted-foreground leading-relaxed pt-2">
+                <p>Right now, someone in your sphere is buying or selling a home. They're not calling you. Not because you did anything wrong. Because someone else stayed in touch — and you didn't. SphereSync is the system that makes sure that stops happening.</p>
+                <p>This isn't another CRM or marketing platform. It's a system for activating the relationships already inside your business.</p>
+                <p className="text-xs md:text-sm text-muted-foreground italic">Built from decades of real estate referral data and real-world agent implementation — not marketing theory.</p>
+              </div>
+
+              {/* Mobile-only Sphere Yield stat card */}
+              <div className="block md:hidden bg-primary/5 border border-primary/20 rounded-xl p-4 mt-2">
+                <p className="text-xs text-muted-foreground uppercase tracking-wider mb-1">Sphere Yield</p>
+                <div className="flex items-end gap-2">
+                  <span className="text-3xl font-bold text-primary">1:8</span>
+                  <span className="text-sm text-accent font-medium pb-0.5">↑ improving</span>
+                </div>
+                <p className="text-xs text-muted-foreground mt-1">1 transaction per 8 relationships</p>
+              </div>
             </div>
 
             {/* Right — Product Mockup */}
-            <div className="relative hidden md:block">
+            <div className="relative hidden md:block self-center max-h-[520px]">
               <div className="bg-card border border-border rounded-2xl shadow-2xl p-6 space-y-4">
                 {/* Mock Header */}
                 <div className="flex items-center justify-between">
@@ -303,7 +314,7 @@ const SphereSyncFounders = () => {
                 initial={{ opacity: 0, x: 20 }}
                 animate={heroVisible ? { opacity: 1, x: 0 } : {}}
                 transition={{ delay: 1, duration: 0.6 }}
-                className="absolute -right-4 top-8 bg-primary text-primary-foreground text-xs font-medium px-3 py-1.5 rounded-full shadow-lg"
+                className="absolute right-2 top-8 bg-primary text-primary-foreground text-xs font-medium px-3 py-1.5 rounded-full shadow-lg"
               >
                 Activate Relationships
               </motion.div>
@@ -311,7 +322,7 @@ const SphereSyncFounders = () => {
                 initial={{ opacity: 0, x: 20 }}
                 animate={heroVisible ? { opacity: 1, x: 0 } : {}}
                 transition={{ delay: 1.3, duration: 0.6 }}
-                className="absolute -right-4 top-[45%] bg-accent text-accent-foreground text-xs font-medium px-3 py-1.5 rounded-full shadow-lg"
+                className="absolute right-2 top-[45%] bg-accent text-accent-foreground text-xs font-medium px-3 py-1.5 rounded-full shadow-lg"
               >
                 Start Conversations
               </motion.div>
@@ -319,7 +330,7 @@ const SphereSyncFounders = () => {
                 initial={{ opacity: 0, x: 20 }}
                 animate={heroVisible ? { opacity: 1, x: 0 } : {}}
                 transition={{ delay: 1.6, duration: 0.6 }}
-                className="absolute -right-4 bottom-16 bg-secondary text-secondary-foreground text-xs font-medium px-3 py-1.5 rounded-full shadow-lg"
+                className="absolute right-2 bottom-16 bg-secondary text-secondary-foreground text-xs font-medium px-3 py-1.5 rounded-full shadow-lg"
               >
                 Stay Top of Mind
               </motion.div>
