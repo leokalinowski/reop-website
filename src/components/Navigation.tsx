@@ -9,11 +9,7 @@ const Navigation = () => {
 
   const navLinks = [
     { name: "Home", path: "/" },
-    { name: "Events", path: "/events" },
     { name: "Blog", path: "/blog" },
-    { name: "Resources", path: "/resources" },
-    { name: "Jump Start", path: "/jump-start" },
-    { name: "Professional Practice", path: "/professional-practice" },
     { name: "SphereSync", path: "/spheresync" },
   ];
 
