@@ -322,7 +322,7 @@ const SphereSyncFounders = () => {
                 initial={{ opacity: 0, x: 20 }}
                 animate={heroVisible ? { opacity: 1, x: 0 } : {}}
                 transition={{ delay: 1.3, duration: 0.6 }}
-                className="absolute right-2 top-[45%] bg-accent text-accent-foreground text-xs font-medium px-3 py-1.5 rounded-full shadow-lg"
+                className="absolute -right-6 top-[45%] bg-accent text-accent-foreground text-xs font-medium px-3 py-1.5 rounded-full shadow-lg"
               >
                 Start Conversations
               </motion.div>
