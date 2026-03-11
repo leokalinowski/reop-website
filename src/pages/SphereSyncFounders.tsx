@@ -249,7 +249,26 @@ const SphereSyncFounders = () => {
             </div>
 
             {/* Right — Product Mockup */}
-            <div className="relative hidden md:block self-center max-h-[520px] overflow-visible">
+            <div className="hidden md:block self-center max-h-[520px]">
+              {/* Labels row */}
+              <div className="flex gap-2 mb-3">
+                {[
+                  { label: 'Activate Relationships', bg: 'bg-primary text-primary-foreground', delay: 1 },
+                  { label: 'Start Conversations', bg: 'bg-accent text-accent-foreground', delay: 1.3 },
+                  { label: 'Stay Top of Mind', bg: 'bg-secondary text-secondary-foreground', delay: 1.6 },
+                ].map((pill) => (
+                  <motion.span
+                    key={pill.label}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={heroVisible ? { opacity: 1, x: 0 } : {}}
+                    transition={{ delay: pill.delay, duration: 0.6 }}
+                    className={`${pill.bg} text-xs font-medium px-3 py-1.5 rounded-full shadow-lg`}
+                  >
+                    {pill.label}
+                  </motion.span>
+                ))}
+              </div>
+
               <div className="bg-card border border-border rounded-2xl shadow-2xl p-5 space-y-3">
                 {/* Mock Header */}
                 <div className="flex items-center justify-between">
@@ -268,14 +287,13 @@ const SphereSyncFounders = () => {
                     <span className="text-4xl font-bold text-primary">1:8</span>
                     <span className="text-sm text-accent font-medium pb-1">↑ improving</span>
                   </div>
-                  <p className="text-xs text-muted-foreground mt-1">1 transaction per 8 relationships</p>
+                  <p className="text-xs text-muted-foreground mt-1">1 transaction per 8 sphere contacts</p>
                 </div>
 
-                {/* 13-Week Cycle Preview */}
-                <div className="bg-card border border-border/50 rounded-xl p-4">
-                  <p className="text-xs text-muted-foreground uppercase tracking-wider mb-3">13-Week Cycle — Week 3 of 13</p>
+                {/* Progress bar */}
+                <div>
                   <div className="flex gap-1">
-                    {Array.from({ length: 13 }, (_, i) => (
+                    {Array.from({ length: 13 }).map((_, i) => (
                       <div
                         key={i}
                         className={`h-2 flex-1 rounded-full ${
@@ -308,32 +326,6 @@ const SphereSyncFounders = () => {
                   </div>
                 </div>
               </div>
-
-              {/* Floating Labels */}
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                animate={heroVisible ? { opacity: 1, x: 0 } : {}}
-                transition={{ delay: 1, duration: 0.6 }}
-                className="absolute -right-6 top-8 bg-primary text-primary-foreground text-xs font-medium px-3 py-1.5 rounded-full shadow-lg"
-              >
-                Activate Relationships
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                animate={heroVisible ? { opacity: 1, x: 0 } : {}}
-                transition={{ delay: 1.3, duration: 0.6 }}
-                className="absolute -right-6 top-[45%] bg-accent text-accent-foreground text-xs font-medium px-3 py-1.5 rounded-full shadow-lg"
-              >
-                Start Conversations
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                animate={heroVisible ? { opacity: 1, x: 0 } : {}}
-                transition={{ delay: 1.6, duration: 0.6 }}
-                className="absolute -right-6 bottom-16 bg-secondary text-secondary-foreground text-xs font-medium px-3 py-1.5 rounded-full shadow-lg"
-              >
-                Stay Top of Mind
-              </motion.div>
             </div>
           </div>
         </section>
