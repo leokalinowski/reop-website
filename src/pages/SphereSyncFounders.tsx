@@ -262,7 +262,7 @@ const SphereSyncFounders = () => {
                 </div>
 
                 {/* Sphere Yield Stat Card */}
-                <div className="bg-primary/5 border border-primary/20 rounded-xl p-5">
+                <div className="bg-primary/5 border border-primary/20 rounded-xl p-4">
                   <p className="text-xs text-muted-foreground uppercase tracking-wider mb-1">Sphere Yield</p>
                   <div className="flex items-end gap-2">
                     <span className="text-4xl font-bold text-primary">1:8</span>
