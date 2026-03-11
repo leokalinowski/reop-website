@@ -1,13 +1,15 @@
 
 
-## Update Navigation Menu
+## Remove Navigation from Professional Practice Landing Page
 
-Remove "Events", "Resources", "Jump Start", and "Professional Practice" from the navigation links in `src/components/Navigation.tsx`.
+A focused landing page should minimize exit points to maximize conversions. This is a single-file change.
 
-The `navLinks` array (lines 12-18) will be reduced to:
-- Home (`/`)
-- Blog (`/blog`)
-- SphereSync (`/spheresync`)
+### Change
 
-No other files need changes — the routes remain accessible via direct URL, just hidden from nav.
+**File: `src/pages/ProfessionalPractice.tsx`**
+- Remove the `Navigation` component import and usage
+- The page will go straight from the SEO component into the main content
+- The footer (FooterMinimal) stays as it provides necessary legal/brand info without competing with the CTA
+
+This keeps visitors focused on reading the copy and clicking "Schedule a Strategic Diagnostic" without distraction.
 
