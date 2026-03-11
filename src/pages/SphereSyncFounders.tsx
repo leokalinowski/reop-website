@@ -145,47 +145,58 @@ const SphereSyncFounders = () => {
 
       <main className="overflow-hidden">
         {/* ═══════ 1 · HERO ═══════ */}
-        <section className="relative min-h-[90vh] flex items-center justify-center px-6 md:px-12">
+        <section className="relative min-h-screen flex items-center justify-center px-6 md:px-12 bg-secondary/5">
           {!isMobile && (
             <div className="absolute inset-0 z-0 pointer-events-none">
               <LightRays />
             </div>
           )}
-          <div className="absolute inset-0 cosmic-gradient opacity-40 pointer-events-none" />
+          <div className="absolute inset-0 cosmic-gradient opacity-30 pointer-events-none" />
 
-          <div className={`relative z-10 max-w-4xl mx-auto text-center space-y-8 transition-all duration-1000 ease-out ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-            <div className="flex flex-wrap justify-center gap-3">
-              <Badge variant="outline" className="text-primary border-primary/30 px-4 py-1 text-sm tracking-wide">
+          <div className={`relative z-10 max-w-3xl mx-auto text-center transition-all duration-1000 ease-out ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+            {/* Badges */}
+            <div className="flex flex-wrap justify-center gap-3 mb-8">
+              <Badge variant="outline" className="text-primary border-primary/30 px-4 py-1.5 text-sm tracking-wide backdrop-blur-sm">
                 SphereSync Founders
               </Badge>
-              <Badge variant="outline" className="text-destructive border-destructive/30 px-4 py-1 text-sm tracking-wide">
+              <Badge variant="outline" className="text-destructive border-destructive/30 px-4 py-1.5 text-sm tracking-wide backdrop-blur-sm">
                 Limited to 50 Founders
               </Badge>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter leading-[1.08] text-foreground">
-              50 agents. Six months.{' '}
+            {/* Headline */}
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter leading-[1.05] text-foreground">
+              50 agents. Six months.
+              <br />
               <span className="text-primary">One goal.</span>
             </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+
+            {/* Subheadline */}
+            <p className="mt-6 text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
               Prove how powerful a well-activated sphere can be at generating referrals.
             </p>
 
-            <div className="space-y-4 text-lg text-muted-foreground max-w-2xl mx-auto text-balance leading-relaxed">
-              <p>Right now, someone in your sphere is buying or selling a home. They're not calling you. Not because you did anything wrong. Because someone else stayed in touch — and you didn't.</p>
-              <p className="text-foreground font-medium">SphereSync is the system that makes sure that stops happening.</p>
+            {/* Decorative divider */}
+            <div className="mt-10 mb-10 flex items-center justify-center gap-3">
+              <div className="h-px w-12 bg-primary/30" />
+              <div className="h-1.5 w-1.5 rounded-full bg-primary/50" />
+              <div className="h-px w-12 bg-primary/30" />
             </div>
 
-            <div className="space-y-4 text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-              <p>This isn't another CRM or marketing platform. It's a system for activating the relationships already inside your business.</p>
-              <p>Built from decades of real estate referral data and real-world agent implementation — not marketing theory.</p>
-              <p className="text-foreground font-semibold text-lg">Relationships should still win.</p>
-              <p className="text-primary font-medium">SphereSync Founders are the agents proving that they do.</p>
-            </div>
+            {/* Pull quote */}
+            <p className="text-lg md:text-xl text-foreground font-semibold leading-relaxed max-w-xl mx-auto">
+              Relationships should still win.
+            </p>
+            <p className="mt-2 text-lg md:text-xl text-primary font-medium max-w-xl mx-auto">
+              SphereSync Founders are the agents proving that they do.
+            </p>
 
-            <div className="pt-4">
+            {/* CTA */}
+            <div className="mt-12">
               <PrimaryCTA />
-              <p className="text-sm text-muted-foreground mt-3">Founder enrollment closes April 15 or when the cohort fills.</p>
+              <p className="text-sm text-muted-foreground mt-4 tracking-wide">
+                Founder enrollment closes April 15 or when the cohort fills.
+              </p>
             </div>
           </div>
         </section>
