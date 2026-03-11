@@ -23,6 +23,7 @@ import TermsOfService from "./pages/TermsOfService";
 import LegalDisclaimer from "./pages/LegalDisclaimer";
 import ProfessionalPractice from "./pages/ProfessionalPractice";
 import SphereSync from "./pages/SphereSync";
+import SphereSyncFounders from "./pages/SphereSyncFounders";
 import AnnouncementBar from "./components/AnnouncementBar";
 
 const queryClient = new QueryClient();
