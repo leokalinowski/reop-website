@@ -418,6 +418,7 @@ const SphereSyncFounders = () => {
                   <p className="text-sm text-secondary-foreground/60">{step.desc}</p>
                 </motion.div>
               ))}
+            </div>
 
             <SectionCTA />
           </div>
