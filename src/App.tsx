@@ -30,7 +30,7 @@ const queryClient = new QueryClient();
 
 const AppContent = () => {
   const location = useLocation();
-  const showAnnouncementBar = location.pathname !== '/jump-start';
+  const showAnnouncementBar = location.pathname !== '/jump-start' && location.pathname !== '/spheresync-founders';
   
   return (
     <>

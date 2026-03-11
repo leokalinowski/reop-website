@@ -249,8 +249,8 @@ const SphereSyncFounders = () => {
             </div>
 
             {/* Right — Product Mockup */}
-            <div className="relative hidden md:block self-center max-h-[520px]">
-              <div className="bg-card border border-border rounded-2xl shadow-2xl p-6 space-y-4">
+            <div className="relative hidden md:block self-center max-h-[520px] overflow-visible">
+              <div className="bg-card border border-border rounded-2xl shadow-2xl p-5 space-y-3">
                 {/* Mock Header */}
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
@@ -262,7 +262,7 @@ const SphereSyncFounders = () => {
                 </div>
 
                 {/* Sphere Yield Stat Card */}
-                <div className="bg-primary/5 border border-primary/20 rounded-xl p-5">
+                <div className="bg-primary/5 border border-primary/20 rounded-xl p-4">
                   <p className="text-xs text-muted-foreground uppercase tracking-wider mb-1">Sphere Yield</p>
                   <div className="flex items-end gap-2">
                     <span className="text-4xl font-bold text-primary">1:8</span>
@@ -314,7 +314,7 @@ const SphereSyncFounders = () => {
                 initial={{ opacity: 0, x: 20 }}
                 animate={heroVisible ? { opacity: 1, x: 0 } : {}}
                 transition={{ delay: 1, duration: 0.6 }}
-                className="absolute right-2 top-8 bg-primary text-primary-foreground text-xs font-medium px-3 py-1.5 rounded-full shadow-lg"
+                className="absolute -right-6 top-8 bg-primary text-primary-foreground text-xs font-medium px-3 py-1.5 rounded-full shadow-lg"
               >
                 Activate Relationships
               </motion.div>
@@ -322,7 +322,7 @@ const SphereSyncFounders = () => {
                 initial={{ opacity: 0, x: 20 }}
                 animate={heroVisible ? { opacity: 1, x: 0 } : {}}
                 transition={{ delay: 1.3, duration: 0.6 }}
-                className="absolute right-2 top-[45%] bg-accent text-accent-foreground text-xs font-medium px-3 py-1.5 rounded-full shadow-lg"
+                className="absolute -right-6 top-[45%] bg-accent text-accent-foreground text-xs font-medium px-3 py-1.5 rounded-full shadow-lg"
               >
                 Start Conversations
               </motion.div>
@@ -330,7 +330,7 @@ const SphereSyncFounders = () => {
                 initial={{ opacity: 0, x: 20 }}
                 animate={heroVisible ? { opacity: 1, x: 0 } : {}}
                 transition={{ delay: 1.6, duration: 0.6 }}
-                className="absolute right-2 bottom-16 bg-secondary text-secondary-foreground text-xs font-medium px-3 py-1.5 rounded-full shadow-lg"
+                className="absolute -right-6 bottom-16 bg-secondary text-secondary-foreground text-xs font-medium px-3 py-1.5 rounded-full shadow-lg"
               >
                 Stay Top of Mind
               </motion.div>
