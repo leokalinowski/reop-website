@@ -30,7 +30,7 @@ function useInView(threshold = 0.15) {
   return { ref, visible };
 }
 
-const APPLY_URL = '#';
+const APPLY_URL = 'https://buy.stripe.com/14A4gBgz08mGgCx2js0x200';
 
 /* ─── Data ─── */
 const founderReceives = [
