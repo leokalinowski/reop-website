@@ -330,7 +330,7 @@ const SphereSyncFounders = () => {
                 initial={{ opacity: 0, x: 20 }}
                 animate={heroVisible ? { opacity: 1, x: 0 } : {}}
                 transition={{ delay: 1.6, duration: 0.6 }}
-                className="absolute right-2 bottom-16 bg-secondary text-secondary-foreground text-xs font-medium px-3 py-1.5 rounded-full shadow-lg"
+                className="absolute -right-6 bottom-16 bg-secondary text-secondary-foreground text-xs font-medium px-3 py-1.5 rounded-full shadow-lg"
               >
                 Stay Top of Mind
               </motion.div>
