@@ -826,10 +826,9 @@ and how SphereSync fixes it<span className="text-primary">SphereSync</span> fixe
             </h2>
 
             <div className="max-w-3xl mx-auto space-y-4 text-lg text-muted-foreground leading-relaxed text-center">
-              <p>Most agents believe they stay in touch with their sphere.</p>
-              <p>But when you ask a simple question — <span className="text-foreground italic">"Are you staying in touch with all of them?"</span></p>
-              <p>The answer usually becomes less certain.</p>
-              <p className="text-foreground font-medium">SphereSync solves that with a simple 13-week relationship cycle.</p>
+              <p>Most agents assume they are staying in touch with their sphere.</p>
+              <p>But when you ask, <span className="text-foreground italic">"Are you staying in touch with all of them?"</span> the answer usually gets less clear.</p>
+              <p className="text-foreground font-medium">SphereSync solves that with a simple 13-week cycle.</p>
             </div>
 
             {/* Circular Wheel */}
@@ -839,8 +838,8 @@ and how SphereSync fixes it<span className="text-primary">SphereSync</span> fixe
 
             <div className="bg-card border border-border/50 rounded-xl p-6 space-y-4 max-w-3xl mx-auto">
               <p className="text-foreground">Your sphere is divided into <span className="text-primary font-semibold">13 weekly segments.</span></p>
-              <p className="text-foreground">Each week you reach out to one segment of your relationships.</p>
-              <p className="text-foreground">By the end of 13 weeks, you've connected with every person in your sphere once.</p>
+              <p className="text-foreground">Each week, you activate one segment of your relationships.</p>
+              <p className="text-foreground">By the end of 13 weeks, you've reached everyone once.</p>
               <p className="text-foreground font-medium">Then the cycle repeats.</p>
             </div>
 
