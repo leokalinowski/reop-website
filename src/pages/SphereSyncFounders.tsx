@@ -976,7 +976,7 @@ and how SphereSync fixes it<span className="text-primary"> SphereSync</span> fi
         </section>
 
         {/* ═══════ 11 · THE FOUNDERS COHORT ═══════ */}
-        <section ref={cohort.ref} className="relative py-20 md:py-28 px-6 md:px-12">
+        <section ref={cohort.ref} className="relative py-12 md:py-16 px-6 md:px-12">
           <div className={`max-w-5xl mx-auto ${fadeIn(cohort.visible)}`}>
             <h2 className="text-3xl md:text-4xl font-bold tracking-tighter text-foreground leading-tight mb-10">
               The <span className="text-primary">Founders Cohort</span>
