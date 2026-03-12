@@ -1077,7 +1077,7 @@ and how SphereSync fixes it<span className="text-primary">SphereSync</span> fixe
 
             <div className="text-center pt-4">
               <p className="text-lg text-foreground font-medium italic">
-                If the relationship model still matters to you, the Founder cohort is where we begin.
+                If relationships are the foundation of your business, this is where it starts.
               </p>
             </div>
 
