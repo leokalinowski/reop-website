@@ -720,17 +720,14 @@ and how SphereSync fixes it<span className="text-primary">SphereSync</span> fixe
 
         {/* ═══════ 7 · WHY THIS MATTERS ═══════ */}
         <section ref={whyMatters.ref} className="relative py-20 md:py-28 px-6 md:px-12">
-          <div className={`max-w-5xl mx-auto space-y-10 ${fadeIn(whyMatters.visible)}`}>
+          <div className={`max-w-5xl mx-auto space-y-8 ${fadeIn(whyMatters.visible)}`}>
             <h2 className="text-3xl md:text-4xl font-bold tracking-tighter text-foreground leading-tight text-center">
               Why This <span className="text-primary">Matters</span>
             </h2>
 
-            <div className="max-w-3xl mx-auto space-y-4 text-lg text-muted-foreground leading-relaxed text-center">
-              <p>The real estate industry is consolidating.</p>
-              <p>Large teams and lead platforms are pushing toward scale and volume.</p>
-              <p className="text-foreground font-medium">But there should still be room for a different kind of real estate business.</p>
-              <p>A solo agent or small team who becomes the trusted advisor for a close-knit group of people in their sphere.</p>
-              <p>The person their community calls when something important happens.</p>
+            <div className="max-w-3xl mx-auto space-y-3 text-lg text-muted-foreground leading-relaxed text-center">
+              <p>Real estate is consolidating. Large teams and lead platforms are pushing toward scale and volume.</p>
+              <p><span className="text-foreground font-medium">SphereSync supports a different kind of business:</span> one built on trust, consistency, and relationship-driven referrals.</p>
             </div>
 
             {/* Two-column comparison */}
@@ -767,7 +764,7 @@ and how SphereSync fixes it<span className="text-primary">SphereSync</span> fixe
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 shrink-0" />
-                    <span>Quality-driven model</span>
+                    <span>Consistency over constant chasing</span>
                   </li>
                 </ul>
               </div>
@@ -783,14 +780,13 @@ and how SphereSync fixes it<span className="text-primary">SphereSync</span> fixe
         </section>
 
         {/* ═══════ 8 · FOUNDERS RALLY LINE ═══════ */}
-        <section ref={rallyLine.ref} className="relative py-16 md:py-24 px-6 md:px-12 bg-secondary">
-          <div className={`max-w-4xl mx-auto text-center space-y-4 ${fadeIn(rallyLine.visible)}`}>
+        <section ref={rallyLine.ref} className="relative py-12 md:py-16 px-6 md:px-12 bg-secondary">
+          <div className={`max-w-4xl mx-auto text-center ${fadeIn(rallyLine.visible)}`}>
             <p className="text-2xl md:text-3xl lg:text-4xl font-bold tracking-tighter text-secondary-foreground leading-tight">
-              The industry told you to buy leads.{' '}
-              <span className="text-primary">Your sphere is sitting there waiting.</span>
+              The industry told you to buy leads.
             </p>
-            <p className="text-xl md:text-2xl text-secondary-foreground/90 font-medium">
-              SphereSync Founders are done leaving that business on the table.
+            <p className="text-2xl md:text-3xl lg:text-4xl font-bold tracking-tighter text-primary leading-tight mt-2">
+              SphereSync helps you activate the relationships you already earned.
             </p>
           </div>
         </section>
