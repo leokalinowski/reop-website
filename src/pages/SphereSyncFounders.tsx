@@ -344,9 +344,9 @@ const SphereSyncFounders = () => {
             <div className="grid sm:grid-cols-[1fr_auto_1fr] gap-6 pt-2 items-center">
               {(() => {
                 const gauges = [
-                  { label: 'Would use you again', value: 80, color: 'text-primary', stroke: 'stroke-primary', trackStroke: 'stroke-primary/20' },
-                  { label: 'Actually call you first', value: 14, color: 'text-destructive', stroke: 'stroke-destructive', trackStroke: 'stroke-destructive/20' }
-                ];
+                { label: 'Would use you again', value: 80, color: 'text-primary', stroke: 'stroke-primary', trackStroke: 'stroke-primary/20' },
+                { label: 'Actually call you first', value: 14, color: 'text-destructive', stroke: 'stroke-destructive', trackStroke: 'stroke-destructive/20' }];
+
                 const radius = 70;
                 const circumference = 2 * Math.PI * radius * 0.75;
                 return (
@@ -369,8 +369,8 @@ const SphereSyncFounders = () => {
                             </div>
                           </div>
                           <p className="text-sm font-medium text-secondary-foreground/80">{gauge.label}</p>
-                        </div>
-                      );
+                        </div>);
+
                     })()}
 
                     {/* Gap indicator */}
@@ -378,8 +378,8 @@ const SphereSyncFounders = () => {
                       className="flex flex-col items-center justify-center py-2 sm:py-0"
                       initial={{ opacity: 0, scale: 0.8 }}
                       animate={dbGap.visible ? { opacity: 1, scale: 1 } : {}}
-                      transition={{ delay: 1.0, duration: 0.5 }}
-                    >
+                      transition={{ delay: 1.0, duration: 0.5 }}>
+                      
                       <div className="flex flex-col items-center gap-1 bg-destructive/20 border border-destructive/50 rounded-xl px-4 py-3">
                         <span className="text-destructive font-bold text-xl">↓ 66%</span>
                         <span className="text-destructive/80 text-xs font-medium">drop-off</span>
@@ -404,11 +404,11 @@ const SphereSyncFounders = () => {
                             </div>
                           </div>
                           <p className="text-sm font-medium text-secondary-foreground/80">{gauge.label}</p>
-                        </div>
-                      );
+                        </div>);
+
                     })()}
-                  </>
-                );
+                  </>);
+
               })()}
             </div>
 
@@ -544,8 +544,8 @@ const SphereSyncFounders = () => {
           <div className="absolute inset-0 cosmic-grid opacity-5 pointer-events-none" />
           <div className={`relative z-10 max-w-4xl mx-auto space-y-10 text-center ${fadeIn(vsl.visible)}`}>
             <div className="space-y-4">
-              <h2 className="text-3xl md:text-4xl font-bold tracking-tighter text-foreground leading-tight">
-                See why agents lose business from their sphere — and how <span className="text-primary">SphereSync</span> fixes it
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tighter text-foreground leading-tight">See why agents lose business from their sphere
+and how SphereSync fixes it<span className="text-primary">SphereSync</span> fixes it
               </h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
                 A short video from Pam on why sphere business leaks away, how SphereSync works, and why this invite-only Founder launch matters.
