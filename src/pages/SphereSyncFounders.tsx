@@ -544,8 +544,8 @@ const SphereSyncFounders = () => {
           <div className="absolute inset-0 cosmic-grid opacity-5 pointer-events-none" />
           <div className={`relative z-10 max-w-4xl mx-auto space-y-10 text-center ${fadeIn(vsl.visible)}`}>
             <div className="space-y-4">
-              <h2 className="text-3xl md:text-4xl font-bold tracking-tighter text-foreground leading-tight">See why agents lose business from their sphere
-and how SphereSync fixes it<span className="text-primary">SphereSync</span> fixes it
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tighter text-foreground leading-tight">See why agents lose business from their sphere and how SphereSync fixes it
+                <span className="text-primary">SphereSync</span> fixes it
               </h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
                 A short video from Pam on why sphere business leaks away, how SphereSync works, and why this invite-only Founder launch matters.
@@ -766,12 +766,12 @@ and how SphereSync fixes it<span className="text-primary">SphereSync</span> fixe
               {/* Top connectors with arrows */}
               <div className="flex justify-center">
                 <div className="flex items-end gap-16 sm:gap-24">
-                  {[0, 1, 2].map((i) => (
-                    <div key={i} className={`flex flex-col items-center ${i > 0 ? 'hidden sm:flex' : ''}`}>
+                  {[0, 1, 2].map((i) =>
+                  <div key={i} className={`flex flex-col items-center ${i > 0 ? 'hidden sm:flex' : ''}`}>
                       <div className="w-0.5 h-10 bg-primary/40" />
                       <div className="text-primary/60 text-xs leading-none">▼</div>
                     </div>
-                  ))}
+                  )}
                 </div>
               </div>
 
@@ -790,12 +790,12 @@ and how SphereSync fixes it<span className="text-primary">SphereSync</span> fixe
               {/* Bottom connectors with arrows */}
               <div className="flex justify-center">
                 <div className="flex items-start gap-16 sm:gap-24">
-                  {[0, 1, 2].map((i) => (
-                    <div key={i} className={`flex flex-col items-center ${i > 0 ? 'hidden sm:flex' : ''}`}>
+                  {[0, 1, 2].map((i) =>
+                  <div key={i} className={`flex flex-col items-center ${i > 0 ? 'hidden sm:flex' : ''}`}>
                       <div className="text-primary/60 text-xs leading-none rotate-0">▼</div>
                       <div className="w-0.5 h-10 bg-primary/40" />
                     </div>
-                  ))}
+                  )}
                 </div>
               </div>
 
