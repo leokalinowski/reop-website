@@ -544,7 +544,7 @@ const SphereSyncFounders = () => {
         </section>
 
         {/* ═══════ 4 · VSL SECTION ═══════ */}
-        <section ref={vsl.ref} className="relative py-20 md:py-28 px-6 md:px-12 bg-primary/5">
+        <section ref={vsl.ref} className="relative py-12 md:py-16 px-6 md:px-12 bg-primary/5">
           <div className="absolute inset-0 cosmic-grid opacity-5 pointer-events-none" />
           <div className={`relative z-10 max-w-4xl mx-auto space-y-10 text-center ${fadeIn(vsl.visible)}`}>
             <div className="space-y-4">
