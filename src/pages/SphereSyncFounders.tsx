@@ -231,8 +231,7 @@ const SphereSyncFounders = () => {
 
               {/* Narrative copy — below the CTA */}
               <div className="space-y-3 text-sm md:text-base text-muted-foreground leading-relaxed pt-2">
-                <p>Right now, someone in your sphere is buying or selling a home. They're not calling you. Not because you did anything wrong. Because someone else stayed in touch — and you didn't. SphereSync is the system that makes sure that stops happening.</p>
-                <p>This isn't another CRM or marketing platform. It's a system for activating the relationships already inside your business.</p>
+                <p>Right now, someone in your sphere is buying or selling — and they're not calling you. SphereSync gives you a repeatable weekly rhythm to stay visible, stay valuable, and stay chosen.</p>
                 <p className="text-xs md:text-sm text-muted-foreground italic">Built from decades of real estate referral data and real-world agent implementation — not marketing theory.</p>
               </div>
 
