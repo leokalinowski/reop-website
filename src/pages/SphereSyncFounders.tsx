@@ -37,9 +37,9 @@ const APPLY_URL = 'https://buy.stripe.com/14A4gBgz08mGgCx2js0x200';
 const founderReceives = [
 { icon: Database, title: 'Six Months of SphereSync', desc: 'Full access to the SphereSync platform while you implement the system.' },
 { icon: Users, title: 'Weekly Office Hours', desc: 'Live working sessions where we help you apply the system and solve real challenges inside your business.' },
-{ icon: MessageSquare, title: 'Three Private Strategy Sessions with Pam', desc: 'Focused on: analyzing your sphere opportunity, strengthening your outreach rhythm, and improving conversion from conversations to transactions.' },
-{ icon: Target, title: 'Sphere Opportunity Audit', desc: 'A one-on-one session where we calculate your Sphere Yield and identify the opportunity already inside your network.' },
-{ icon: BarChart3, title: 'Founder Data Project', desc: 'Contribute anonymized activity and production data so we can continue refining the model.' },
+{ icon: MessageSquare, title: 'Three Private Strategy Sessions with Pam', desc: 'Focused support for analyzing your sphere, strengthening your outreach rhythm, and improving conversion.' },
+{ icon: Target, title: 'Sphere Opportunity Audit', desc: 'A one-on-one session where we calculate your opportunity and identify what already exists inside your network.' },
+{ icon: BarChart3, title: 'Help Shape the Future of SphereSync', desc: 'Your rollout experience helps us refine the system and strengthen future versions of the platform.' },
 { icon: Award, title: 'Founder Recognition', desc: 'Founders will always be recognized as the first group who helped bring SphereSync into the industry.' }];
 
 
@@ -54,16 +54,16 @@ const pricingIncludes = [
 'Six months of SphereSync access',
 'Weekly implementation office hours',
 'Three private strategy sessions with Pam',
-'Participation in the Founder data project',
-'Access to the Founder Cohort Yield Challenge'];
+'Sphere Opportunity Audit',
+'Founder recognition and early rollout access'];
 
 
 const idealFounders = [
 'Solo agents or small teams',
-'Agents with meaningful relationships in their sphere',
-'Agents who believe client referrals should be their primary source of business',
+'Agents with meaningful relationships already inside their sphere',
+'Agents who believe referrals should still be a major source of business',
 'Agents willing to implement a consistent weekly rhythm',
-'Agents interested in helping prove the relationship model still works'];
+'Agents who want to build their business around relationships, not constant chasing'];
 
 
 /* ─── CTA Components ─── */
