@@ -725,12 +725,9 @@ and how SphereSync fixes it<span className="text-primary">SphereSync</span> fixe
               Why This <span className="text-primary">Matters</span>
             </h2>
 
-            <div className="max-w-3xl mx-auto space-y-4 text-lg text-muted-foreground leading-relaxed text-center">
-              <p>The real estate industry is consolidating.</p>
-              <p>Large teams and lead platforms are pushing toward scale and volume.</p>
-              <p className="text-foreground font-medium">But there should still be room for a different kind of real estate business.</p>
-              <p>A solo agent or small team who becomes the trusted advisor for a close-knit group of people in their sphere.</p>
-              <p>The person their community calls when something important happens.</p>
+            <div className="max-w-3xl mx-auto space-y-3 text-lg text-muted-foreground leading-relaxed text-center">
+              <p>Real estate is consolidating. Large teams and lead platforms are pushing toward scale and volume.</p>
+              <p><span className="text-foreground font-medium">SphereSync supports a different kind of business:</span> one built on trust, consistency, and relationship-driven referrals.</p>
             </div>
 
             {/* Two-column comparison */}
