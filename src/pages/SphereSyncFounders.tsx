@@ -974,52 +974,31 @@ and how SphereSync fixes it<span className="text-primary">SphereSync</span> fixe
           </div>
         </section>
 
-        {/* ═══════ 12 · THE FOUNDER COHORT YIELD CHALLENGE ═══════ */}
+        {/* ═══════ 12 · FOUNDER BENCHMARK TRACKING ═══════ */}
         <section ref={yieldChallenge.ref} className="relative py-20 md:py-28 px-6 md:px-12 bg-primary/5">
           <div className="absolute inset-0 cosmic-grid opacity-5 pointer-events-none" />
           <div className={`relative z-10 max-w-4xl mx-auto space-y-10 ${fadeIn(yieldChallenge.visible)}`}>
             <h2 className="text-3xl md:text-4xl font-bold tracking-tighter text-foreground leading-tight text-center">
-              The Founder Cohort <span className="text-primary">Yield Challenge</span>
+              Founder <span className="text-primary">Benchmark Tracking</span>
             </h2>
 
             <div className="max-w-3xl mx-auto space-y-4 text-lg text-muted-foreground leading-relaxed">
-              <p>The 50 Founders will be divided into two cohorts of 25 agents.</p>
-              <p>Both groups will implement the SphereSync system over the same six-month period.</p>
-              <p>Throughout the program we will track a single metric:</p>
+              <p>Throughout the Founder rollout, members will track one simple metric:</p>
             </div>
 
             {/* Featured Metric */}
             <div className="bg-card border-2 border-primary/30 rounded-2xl p-8 text-center space-y-3 max-w-md mx-auto shadow-lg">
               <BarChart3 className="h-10 w-10 text-primary mx-auto" />
               <p className="text-3xl font-bold text-primary">Sphere Yield</p>
-              <p className="text-foreground">How many relationships in your sphere it takes to produce one transaction.</p>
-            </div>
-
-            <p className="text-center text-muted-foreground">Most agents have never measured this number in their business.</p>
-
-            {/* Example ratio pills */}
-            <div className="flex flex-wrap justify-center gap-4">
-              {[
-              { ratio: '1 : 15', label: 'Starting', bg: 'bg-card border-border/50' },
-              { ratio: '1 : 10', label: 'Improving', bg: 'bg-primary/5 border-primary/20' },
-              { ratio: '1 : 6', label: 'Activated', bg: 'bg-primary/10 border-primary/30' }].
-              map((pill) =>
-              <div key={pill.ratio} className={`${pill.bg} border rounded-xl px-6 py-4 text-center`}>
-                  <p className="text-2xl font-bold text-foreground">{pill.ratio}</p>
-                  <p className="text-xs text-muted-foreground">{pill.label}</p>
-                </div>
-              )}
+              <p className="text-foreground">Your relationship-to-transaction ratio</p>
             </div>
 
             <div className="max-w-3xl mx-auto space-y-4 text-lg text-muted-foreground leading-relaxed">
-              <p>SphereSync is built around a fundamental reality: a well-activated relationship network should be far more productive than what the industry now expects.</p>
-              <p>At the end of six months we'll compare how much each cohort improved their Sphere Yield. <span className="text-foreground font-semibold">The cohort that improves the most will receive a Founder recognition prize.</span></p>
+              <p>This gives each Founder a clear way to measure how their sphere is performing as they implement the system consistently over time.</p>
               <p className="font-semibold text-foreground border-l-2 border-primary pl-4">
-                More importantly, the results will help demonstrate what a disciplined relationship-driven business can still produce.
+                More importantly, it helps establish real-world benchmark data for what a disciplined, relationship-first business can still produce today.
               </p>
             </div>
-
-            <SectionCTA />
           </div>
         </section>
 
