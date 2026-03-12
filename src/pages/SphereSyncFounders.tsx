@@ -1093,10 +1093,10 @@ and how SphereSync fixes it<span className="text-primary">SphereSync</span> fixe
                 Founder Cohort <span className="text-primary">Investment</span>
               </h2>
               <p className="text-lg text-muted-foreground max-w-xl mx-auto">
-                The Founder cohort is a six-month implementation program designed to activate your sphere and turn your relationships into a consistent source of referrals.
+                Founder Access is the invite-only launch offer for SphereSync.
               </p>
               <p className="text-base text-muted-foreground max-w-xl mx-auto">
-                SphereSync is the platform that supports the process. Founder seats include the full implementation process and direct strategy access during the six-month cohort.
+                It includes six months of platform access plus added implementation support, direct strategy access, and Founder-only rollout benefits during the first launch cohort.
               </p>
             </div>
 
