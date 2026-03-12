@@ -665,7 +665,7 @@ and how SphereSync fixes it<span className="text-primary">SphereSync</span> fixe
 
             <div className="max-w-2xl mx-auto space-y-4 text-lg text-muted-foreground leading-relaxed">
               <p>Relationship-driven business has always been powerful. For decades, the best agents built thriving practices not by chasing strangers, but by staying deeply connected to the people who already knew and trusted them.</p>
-              <p>Strong sphere yield ratios were once common — sometimes as high as <span className="text-primary font-semibold">one transaction for every four to six relationships.</span> But as the industry shifted toward lead platforms, larger teams, and increasingly bloated databases, those numbers declined.</p>
+              <p>Strong relationship-to-transaction ratios were once common — sometimes as high as <span className="text-primary font-semibold">one transaction for every four to six relationships.</span> But as the industry shifted toward lead platforms, larger teams, and increasingly bloated databases, those numbers declined.</p>
             </div>
 
             <p className="max-w-2xl mx-auto text-xl md:text-2xl font-semibold text-foreground leading-snug text-center mt-6 mb-2">
