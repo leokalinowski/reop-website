@@ -665,7 +665,7 @@ and how SphereSync fixes it<span className="text-primary">SphereSync</span> fixe
 
             <div className="max-w-2xl mx-auto space-y-4 text-lg text-muted-foreground leading-relaxed">
               <p>Relationship-driven business has always been powerful. For decades, the best agents built thriving practices not by chasing strangers, but by staying deeply connected to the people who already knew and trusted them.</p>
-              <p>Strong sphere yield ratios were once common — sometimes as high as <span className="text-primary font-semibold">one transaction for every four to six relationships.</span> But as the industry shifted toward lead platforms, larger teams, and increasingly bloated databases, those numbers declined.</p>
+              <p>Strong relationship-to-transaction ratios were once common — sometimes as high as <span className="text-primary font-semibold">one transaction for every four to six relationships.</span> But as the industry shifted toward lead platforms, larger teams, and increasingly bloated databases, those numbers declined.</p>
             </div>
 
             <p className="max-w-2xl mx-auto text-xl md:text-2xl font-semibold text-foreground leading-snug text-center mt-6 mb-2">
@@ -702,13 +702,13 @@ and how SphereSync fixes it<span className="text-primary">SphereSync</span> fixe
                 <p className="text-[10px] text-primary uppercase tracking-wider font-medium">SphereSync Metric</p>
                 <BarChart3 className="h-8 w-8 text-primary mx-auto" />
                 <p className="text-2xl font-bold text-primary">Sphere Yield</p>
-                <p className="text-xs text-foreground font-medium">How many relationships produce one transaction</p>
+                <p className="text-xs text-foreground font-medium">Your relationship-to-transaction ratio</p>
               </div>
             </div>
 
             <div className="max-w-2xl mx-auto space-y-4 text-lg text-muted-foreground leading-relaxed">
               <p>Founder Access is the first rollout of SphereSync designed to measure what happens when agents implement the system consistently over six months.</p>
-              <p>As Founders track Sphere Yield, we'll build real-world benchmark data for what a disciplined, relationship-driven business can still produce today.</p>
+              <p>As Founders track that ratio, we'll build real-world benchmark data for what a disciplined, relationship-driven business can still produce today.</p>
               <div className="border-l-4 border-primary pl-5 py-3 bg-primary/5 rounded-r-lg mt-6">
                 <p className="text-lg md:text-xl font-semibold text-foreground">
                   The goal is to strengthen every Founder's business — and to demonstrate that a system-backed, relationship-first model still outperforms the industry standard.
