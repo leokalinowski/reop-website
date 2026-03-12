@@ -77,7 +77,7 @@ const PrimaryCTA = ({ label = 'Apply for Founder Access' }: {label?: string;}) =
 
 const SectionCTA = ({ label = 'Apply for Founder Access', visible = true }: {label?: string; visible?: boolean;}) =>
 <motion.div
-    className="flex flex-col items-center gap-3 pt-8"
+    className="flex flex-col items-center gap-3 pt-4"
     initial={{ opacity: 0, y: 10 }}
     animate={visible ? { opacity: 1, y: 0 } : {}}
     transition={{ duration: 0.5, delay: 0.3 }}>
