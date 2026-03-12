@@ -942,19 +942,19 @@ and how SphereSync fixes it<span className="text-primary">SphereSync</span> fixe
             <div className="grid md:grid-cols-2 gap-10 md:gap-16">
               {/* Left — Explanation */}
               <div className="space-y-4 text-lg text-muted-foreground leading-relaxed">
-                <p>The first 50 SphereSync Founders will participate in a six-month implementation cohort.</p>
-                <p>This small group will be the first agents running the SphereSync system in their businesses while helping us collect real-world data on what a relationship-driven real estate business can produce.</p>
-                <p>During the cohort you will implement the weekly SphereSync rhythm and measure your <span className="text-primary font-semibold">Sphere Yield</span> as your relationships become active again.</p>
-                <p className="font-medium text-foreground">At the end of six months you will have a fully functioning relationship-driven system operating inside your business.</p>
+                <p>The first 50 SphereSync Founders will join a six-month implementation cohort.</p>
+                <p>This is the first invite-only group getting early access to SphereSync with added support during rollout.</p>
+                <p>As a Founder, you'll build the weekly SphereSync rhythm into your business, activate your sphere consistently, and track your progress over time.</p>
+                <p className="font-medium text-foreground">By the end of six months, you won't just have more clarity — you'll have a repeatable relationship-driven system operating inside your business.</p>
               </div>
 
               {/* Right — Stacked value cards */}
               <div className="space-y-4">
                 {[
                 { icon: Database, title: 'Full SphereSync Access', desc: '6 months of the complete platform' },
-                { icon: CalendarCheck, title: 'Weekly Implementation', desc: 'Guided rhythm with office hours' },
-                { icon: BarChart3, title: 'Sphere Yield Tracking', desc: 'Measure your improvement in real time' },
-                { icon: Users, title: 'Cohort Community', desc: '50 agents building together' }].
+                { icon: CalendarCheck, title: 'Weekly Implementation Support', desc: 'Guided rhythm with office hours' },
+                { icon: BarChart3, title: 'Progress Tracking', desc: 'Measure your momentum over time' },
+                { icon: Users, title: 'Founder Community', desc: '50 agents building together' }].
                 map((card) => {
                   const Icon = card.icon;
                   return (
