@@ -702,7 +702,7 @@ and how SphereSync fixes it<span className="text-primary">SphereSync</span> fixe
                 <p className="text-[10px] text-primary uppercase tracking-wider font-medium">SphereSync Metric</p>
                 <BarChart3 className="h-8 w-8 text-primary mx-auto" />
                 <p className="text-2xl font-bold text-primary">Sphere Yield</p>
-                <p className="text-xs text-foreground font-medium">How many relationships produce one transaction</p>
+                <p className="text-xs text-foreground font-medium">Your relationship-to-transaction ratio</p>
               </div>
             </div>
 
