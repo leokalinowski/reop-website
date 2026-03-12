@@ -380,10 +380,9 @@ const SphereSyncFounders = () => {
                       animate={dbGap.visible ? { opacity: 1, scale: 1 } : {}}
                       transition={{ delay: 1.0, duration: 0.5 }}
                     >
-                      <div className="flex flex-col items-center gap-1 bg-destructive/10 border border-destructive/30 rounded-xl px-4 py-3">
-                        <ArrowRight className="h-5 w-5 text-destructive hidden sm:block" />
-                        <span className="text-destructive font-bold text-lg">↓ 66%</span>
-                        <span className="text-destructive/70 text-xs font-medium">drop-off</span>
+                      <div className="flex flex-col items-center gap-1 bg-destructive/20 border border-destructive/50 rounded-xl px-4 py-3">
+                        <span className="text-destructive font-bold text-xl">↓ 66%</span>
+                        <span className="text-destructive/80 text-xs font-medium">drop-off</span>
                       </div>
                     </motion.div>
 
