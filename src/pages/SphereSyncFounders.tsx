@@ -1075,7 +1075,7 @@ and how SphereSync fixes it<span className="text-primary"> SphereSync</span> fi
                     animate={receives.visible ? { opacity: 1, y: 0 } : {}}
                     transition={{ duration: 0.5, delay: i * 0.1 }}>
                     
-                    <Card className="h-full border-border/50 bg-card/80 backdrop-blur-sm hover:border-primary/30 transition-colors duration-300">
+                    <Card className="h-full border-border/50 bg-card/80 backdrop-blur-sm hover:border-primary/30 hover:scale-[1.02] transition-all duration-300">
                       <CardContent className="p-6 space-y-3">
                         <div className="p-2 rounded-lg bg-primary/10 w-fit">
                           <Icon className="h-5 w-5 text-primary" />
