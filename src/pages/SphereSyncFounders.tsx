@@ -179,8 +179,8 @@ const SphereSyncFounders = () => {
   return (
     <>
       <SEO
-        title="SphereSync Founders — 50 Agents Proving the Relationship Model"
-        description="Join the first 50 agents implementing SphereSync to prove how powerful a well-activated sphere can be at generating referrals. Founder cohort closes April 15."
+        title="SphereSync Founders — Stop Losing Business From People Who Already Trust You"
+        description="SphereSync is the weekly system that helps agents activate their sphere, stay top of mind, and turn existing relationships into consistent referrals and repeat business. Invite-only Founder Access."
         keywords={['SphereSync Founders', 'real estate referrals', 'sphere of influence', 'relationship-driven real estate', 'founder cohort']}
         url="https://reop-website.lovable.app/spheresync-founders" />
       
