@@ -209,9 +209,8 @@ const SphereSyncFounders = () => {
               </div>
 
               <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter leading-[1.08] text-foreground">
-                50 agents. Six months.{' '}
-                <span className="text-primary">One goal:</span>{' '}
-                <span className="text-foreground">prove how powerful a well-activated sphere can be at generating referrals.</span>
+                Stop losing business from the people who{' '}
+                <span className="text-primary">already know and trust you.</span>
               </h1>
 
               <div className="flex items-center gap-3 py-1">
