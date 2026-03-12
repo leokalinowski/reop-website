@@ -870,6 +870,68 @@ and how SphereSync fixes it<span className="text-primary">SphereSync</span> fixe
           </div>
         </section>
 
+        {/* ═══════ 10b · A NOTE FROM PAM ═══════ */}
+        <section ref={pamNote.ref} className="relative py-20 md:py-28 px-6 md:px-12">
+          <div className={`relative z-10 max-w-6xl mx-auto ${fadeIn(pamNote.visible)}`}>
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tighter text-foreground leading-tight mb-10">
+              A Note from <span className="text-primary">Pam</span>
+            </h2>
+
+            <div className="grid md:grid-cols-[280px_1fr] lg:grid-cols-[320px_1fr] gap-10 md:gap-16">
+              {/* Left — Photo & signature */}
+              <div className="flex flex-col items-center md:items-start gap-6">
+                <div className="w-48 h-48 md:w-full md:h-auto md:aspect-square rounded-2xl overflow-hidden bg-muted border border-border">
+                  <img
+                    src="/images/pamobryant.png"
+                    alt="Pam O'Bryant"
+                    className="w-full h-full object-cover"
+                    loading="lazy" />
+                </div>
+                <div className="text-center md:text-left">
+                  <p className="text-foreground font-semibold text-lg">Pam O'Bryant</p>
+                  <p className="text-sm text-muted-foreground">Founder & CEO, REOP</p>
+                </div>
+
+                {/* Pull-quote on desktop */}
+                <div className="hidden md:block bg-primary/5 border-l-4 border-primary rounded-r-xl p-5">
+                  <p className="text-sm text-foreground italic leading-relaxed">
+                    "The database was not the advantage. The system was."
+                  </p>
+                </div>
+              </div>
+
+              {/* Right — Full note */}
+              <div className="space-y-5 text-base md:text-lg text-muted-foreground leading-relaxed" style={{ letterSpacing: '0.01em' }}>
+                <p>For decades, I've watched the same pattern play out in real estate.</p>
+                <p>Agents work hard to build trust, close transactions, and earn relationships that should keep producing business for years.</p>
+                <p>But without a system for staying visible, those relationships go quiet.</p>
+                <p>I was also part of the Millionaire Real Estate Agent masterminds that helped shape the models behind Gary Keller's Red Book — and one of the clearest lessons from that work was this:</p>
+                <p className="text-foreground font-medium">Relationship-driven business is far more powerful than most agents realize.</p>
+                <p>In my own business, this approach produced roughly one transaction for every four relationships in my sphere.</p>
+                <p className="font-semibold text-foreground border-l-2 border-primary pl-4">
+                  The database was not the advantage.<br />The system was.
+                </p>
+                <p>Over time, as the industry shifted toward lead platforms, larger teams, and more noise, many agents never stopped believing in relationships.</p>
+                <p>They just lost the structure for activating them consistently.</p>
+
+                {/* Pull-quote on mobile */}
+                <div className="md:hidden bg-primary/5 border-l-4 border-primary rounded-r-xl p-5 my-6">
+                  <p className="text-sm text-foreground italic leading-relaxed">
+                    "The database was not the advantage. The system was."
+                  </p>
+                </div>
+
+                <p className="text-foreground font-medium">That is why we built SphereSync.</p>
+                <p>SphereSync turns a proven relationship model into a practical weekly system — one that helps you stay visible, stay connected, and turn existing relationships into repeat business and referrals.</p>
+                <p>Founder Access is our first invite-only rollout group.</p>
+                <p>A chance to get in early, build the system into your business, and help shape how SphereSync rolls out more broadly.</p>
+                <p>If you believe relationships should still be one of the most reliable drivers of a real estate business, this is where we begin.</p>
+                <p className="text-foreground italic text-xl pt-4">— Pam</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* ═══════ 11 · THE FOUNDERS COHORT ═══════ */}
         <section ref={cohort.ref} className="relative py-20 md:py-28 px-6 md:px-12">
           <div className={`max-w-5xl mx-auto ${fadeIn(cohort.visible)}`}>
