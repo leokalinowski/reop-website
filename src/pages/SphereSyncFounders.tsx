@@ -1092,7 +1092,7 @@ and how SphereSync fixes it<span className="text-primary"> SphereSync</span> fi
         </section>
 
         {/* ═══════ 14 · WHAT HAPPENS WHEN YOU JOIN ═══════ */}
-        <section ref={onboarding.ref} className="relative py-20 md:py-28 px-6 md:px-12 bg-primary/5">
+        <section ref={onboarding.ref} className="relative py-12 md:py-16 px-6 md:px-12 bg-primary/5">
           <div className="absolute inset-0 cosmic-grid opacity-5 pointer-events-none" />
           <div className={`relative z-10 max-w-3xl mx-auto space-y-10 ${fadeIn(onboarding.visible)}`}>
             <div className="text-center space-y-4">
