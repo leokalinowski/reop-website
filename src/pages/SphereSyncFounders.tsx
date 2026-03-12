@@ -883,11 +883,16 @@ and how SphereSync fixes it<span className="text-primary"> SphereSync</span> fi
               'Outreach stays manageable',
               'Relationships stay active',
               'Every contact gets meaningful outreach each quarter'].
-              map((item) =>
-              <div key={item} className="flex items-start gap-3 p-4 rounded-xl bg-card border border-border/50">
+              map((item, i) =>
+              <motion.div
+                key={item}
+                initial={{ opacity: 0, y: 20 }}
+                animate={cycle.visible ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.5, delay: 0.1 + i * 0.15 }}
+                className="flex items-start gap-3 p-4 rounded-xl bg-card border border-border/50">
                   <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 shrink-0" />
                   <span className="text-foreground text-sm">{item}</span>
-                </div>
+                </motion.div>
               )}
             </div>
 
@@ -901,6 +906,8 @@ and how SphereSync fixes it<span className="text-primary"> SphereSync</span> fi
                 SphereSync helps make sure that agent is you.
               </p>
             </div>
+
+            <SectionCTA visible={cycle.visible} />
           </div>
         </section>
 
