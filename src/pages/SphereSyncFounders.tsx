@@ -329,90 +329,120 @@ const SphereSyncFounders = () => {
         </section>
 
         {/* ═══════ 2 · THE DATABASE GAP ═══════ */}
-        <section ref={dbGap.ref} className="relative py-20 md:py-28 px-6 md:px-12 bg-secondary text-secondary-foreground">
-          <div className={`relative z-10 max-w-4xl mx-auto space-y-10 ${fadeIn(dbGap.visible)}`}>
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tighter leading-tight">
-              80% of your past clients say they'd use you again.{' '}
-              <span className="text-primary">Most of them won't.</span>
-            </h2>
-
-            {/* Animated Gauge Visualization */}
-            <div className="grid sm:grid-cols-2 gap-8 pt-4">
-              {[
-              { label: '"Would use you again"', value: 80, color: 'text-primary', stroke: 'stroke-primary', trackStroke: 'stroke-primary/20' },
-              { label: '"Actually uses you"', value: 14, color: 'text-destructive', stroke: 'stroke-destructive', trackStroke: 'stroke-destructive/20' }].
-              map((gauge) => {
-                const radius = 70;
-                const circumference = 2 * Math.PI * radius * 0.75;
-                const offset = circumference - gauge.value / 100 * circumference;
-                return (
-                  <div key={gauge.label} className="flex flex-col items-center gap-3">
-                    <div className="relative w-48 h-48">
-                      <svg viewBox="0 0 180 180" className="w-full h-full -rotate-[135deg]">
-                        <circle
-                          cx="90" cy="90" r={radius}
-                          fill="none" strokeWidth="14" strokeLinecap="round"
-                          className={gauge.trackStroke}
-                          strokeDasharray={circumference}
-                          strokeDashoffset={0} />
-                        
-                        <motion.circle
-                          cx="90" cy="90" r={radius}
-                          fill="none" strokeWidth="14" strokeLinecap="round"
-                          className={gauge.stroke}
-                          strokeDasharray={circumference}
-                          initial={{ strokeDashoffset: circumference }}
-                          animate={dbGap.visible ? { strokeDashoffset: offset } : { strokeDashoffset: circumference }}
-                          transition={{ duration: 1.5, ease: 'easeOut', delay: 0.3 }} />
-                        
-                      </svg>
-                      <div className="absolute inset-0 flex flex-col items-center justify-center pt-4">
-                        <motion.span
-                          className={`text-4xl font-bold ${gauge.color}`}
-                          initial={{ opacity: 0 }}
-                          animate={dbGap.visible ? { opacity: 1 } : {}}
-                          transition={{ delay: 0.8, duration: 0.5 }}>
-                          
-                          {gauge.value === 14 ? '~' : ''}{gauge.value}%
-                        </motion.span>
-                      </div>
-                    </div>
-                    <p className="text-sm font-medium text-secondary-foreground/80">{gauge.label}</p>
-                  </div>);
-
-              })}
+        <section ref={dbGap.ref} className="relative py-14 md:py-20 px-6 md:px-12 bg-secondary text-secondary-foreground">
+          <div className={`relative z-10 max-w-4xl mx-auto space-y-6 ${fadeIn(dbGap.visible)}`}>
+            <div>
+              <h2 className="text-2xl md:text-3xl font-semibold tracking-tighter leading-tight text-secondary-foreground/90">
+                80% of your past clients say they'd use you again.
+              </h2>
+              <p className="text-3xl md:text-5xl font-bold tracking-tighter leading-tight text-destructive mt-2">
+                Most of them won't.
+              </p>
             </div>
 
-            <div className="space-y-4 text-lg leading-relaxed opacity-90">
-              <p>Not because you failed them. Because you disappeared.</p>
+            {/* Animated Gauge Visualization */}
+            <div className="grid sm:grid-cols-[1fr_auto_1fr] gap-6 pt-2 items-center">
+              {(() => {
+                const gauges = [
+                  { label: 'Would use you again', value: 80, color: 'text-primary', stroke: 'stroke-primary', trackStroke: 'stroke-primary/20' },
+                  { label: 'Actually call you first', value: 14, color: 'text-destructive', stroke: 'stroke-destructive', trackStroke: 'stroke-destructive/20' }
+                ];
+                const radius = 70;
+                const circumference = 2 * Math.PI * radius * 0.75;
+                return (
+                  <>
+                    {/* Left gauge */}
+                    {(() => {
+                      const gauge = gauges[0];
+                      const offset = circumference - gauge.value / 100 * circumference;
+                      return (
+                        <div className="flex flex-col items-center gap-3">
+                          <div className="relative w-48 h-48">
+                            <svg viewBox="0 0 180 180" className="w-full h-full -rotate-[135deg]">
+                              <circle cx="90" cy="90" r={radius} fill="none" strokeWidth="14" strokeLinecap="round" className={gauge.trackStroke} strokeDasharray={circumference} strokeDashoffset={0} />
+                              <motion.circle cx="90" cy="90" r={radius} fill="none" strokeWidth="14" strokeLinecap="round" className={gauge.stroke} strokeDasharray={circumference} initial={{ strokeDashoffset: circumference }} animate={dbGap.visible ? { strokeDashoffset: offset } : { strokeDashoffset: circumference }} transition={{ duration: 1.5, ease: 'easeOut', delay: 0.3 }} />
+                            </svg>
+                            <div className="absolute inset-0 flex flex-col items-center justify-center pt-4">
+                              <motion.span className={`text-4xl font-bold ${gauge.color}`} initial={{ opacity: 0 }} animate={dbGap.visible ? { opacity: 1 } : {}} transition={{ delay: 0.8, duration: 0.5 }}>
+                                {gauge.value}%
+                              </motion.span>
+                            </div>
+                          </div>
+                          <p className="text-sm font-medium text-secondary-foreground/80">{gauge.label}</p>
+                        </div>
+                      );
+                    })()}
+
+                    {/* Gap indicator */}
+                    <motion.div
+                      className="flex flex-col items-center justify-center py-2 sm:py-0"
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={dbGap.visible ? { opacity: 1, scale: 1 } : {}}
+                      transition={{ delay: 1.0, duration: 0.5 }}
+                    >
+                      <div className="flex flex-col items-center gap-1 bg-destructive/10 border border-destructive/30 rounded-xl px-4 py-3">
+                        <ArrowRight className="h-5 w-5 text-destructive hidden sm:block" />
+                        <span className="text-destructive font-bold text-lg">↓ 66%</span>
+                        <span className="text-destructive/70 text-xs font-medium">drop-off</span>
+                      </div>
+                    </motion.div>
+
+                    {/* Right gauge */}
+                    {(() => {
+                      const gauge = gauges[1];
+                      const offset = circumference - gauge.value / 100 * circumference;
+                      return (
+                        <div className="flex flex-col items-center gap-3">
+                          <div className="relative w-48 h-48">
+                            <svg viewBox="0 0 180 180" className="w-full h-full -rotate-[135deg]">
+                              <circle cx="90" cy="90" r={radius} fill="none" strokeWidth="14" strokeLinecap="round" className={gauge.trackStroke} strokeDasharray={circumference} strokeDashoffset={0} />
+                              <motion.circle cx="90" cy="90" r={radius} fill="none" strokeWidth="14" strokeLinecap="round" className={gauge.stroke} strokeDasharray={circumference} initial={{ strokeDashoffset: circumference }} animate={dbGap.visible ? { strokeDashoffset: offset } : { strokeDashoffset: circumference }} transition={{ duration: 1.5, ease: 'easeOut', delay: 0.3 }} />
+                            </svg>
+                            <div className="absolute inset-0 flex flex-col items-center justify-center pt-4">
+                              <motion.span className={`text-4xl font-bold ${gauge.color}`} initial={{ opacity: 0 }} animate={dbGap.visible ? { opacity: 1 } : {}} transition={{ delay: 0.8, duration: 0.5 }}>
+                                ~{gauge.value}%
+                              </motion.span>
+                            </div>
+                          </div>
+                          <p className="text-sm font-medium text-secondary-foreground/80">{gauge.label}</p>
+                        </div>
+                      );
+                    })()}
+                  </>
+                );
+              })()}
+            </div>
+
+            <div className="space-y-3 text-lg leading-relaxed opacity-90">
+              <p>Not because you did a bad job. Because the relationship went quiet.</p>
               <p className="font-semibold border-l-2 border-primary pl-4">
                 Every year you go without a system, that gap costs you transactions you already earned.
               </p>
             </div>
 
             {/* Trust Fade Timeline */}
-            <div className="grid sm:grid-cols-3 gap-0 pt-6">
+            <div className="grid sm:grid-cols-3 gap-4 pt-4">
               {[
-              { icon: CheckCircle2, title: 'Trust earned at closing', desc: 'Client loves you — right now', iconColor: 'text-primary', bg: 'bg-primary/10', borderColor: 'border-primary/30' },
-              { icon: Eye, title: 'Visibility fades', desc: 'Weeks pass without contact', iconColor: 'text-accent', bg: 'bg-accent/10', borderColor: 'border-accent/30' },
-              { icon: UserCheck, title: 'Another agent stays top of mind', desc: 'Someone else fills the gap', iconColor: 'text-destructive', bg: 'bg-destructive/10', borderColor: 'border-destructive/30' }].
+              { icon: CheckCircle2, title: 'Trust is earned', desc: 'At closing, they love you', iconColor: 'text-primary', bg: 'bg-primary/10', borderColor: 'border-primary/30' },
+              { icon: Eye, title: 'The relationship goes quiet', desc: 'Weeks pass without real contact', iconColor: 'text-accent', bg: 'bg-accent/10', borderColor: 'border-accent/30' },
+              { icon: UserCheck, title: 'Another agent becomes top of mind', desc: 'Someone else fills the gap', iconColor: 'text-destructive', bg: 'bg-destructive/10', borderColor: 'border-destructive/30' }].
               map((step, i) =>
               <motion.div
                 key={step.title}
                 initial={{ opacity: 0, y: 20 }}
                 animate={dbGap.visible ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: 1.2 + i * 0.25, duration: 0.5 }}
-                className="relative flex flex-col items-center text-center px-4 py-6">
+                className="relative flex flex-col items-center text-center px-4 py-5 bg-card/50 border border-border/30 rounded-xl">
                 
                   {i < 2 &&
-                <div className="hidden sm:block absolute top-1/2 -right-3 -translate-y-1/2 z-10">
+                <div className="hidden sm:block absolute top-1/2 -right-5 -translate-y-1/2 z-10">
                       <ArrowRight className="h-6 w-6 text-muted-foreground/50" />
                     </div>
                 }
                   <div className={`${step.bg} border ${step.borderColor} rounded-2xl p-4 mb-3`}>
                     <step.icon className={`h-8 w-8 ${step.iconColor}`} />
                   </div>
-                  <h4 className="font-semibold text-secondary-foreground text-base mb-1">{step.title}</h4>
+                  <h4 className="font-bold text-secondary-foreground text-base mb-1">{step.title}</h4>
                   <p className="text-sm text-secondary-foreground/60">{step.desc}</p>
                 </motion.div>
               )}
