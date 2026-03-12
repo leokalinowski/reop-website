@@ -1025,7 +1025,7 @@ and how SphereSync fixes it<span className="text-primary"> SphereSync</span> fi
         </section>
 
         {/* ═══════ 12 · FOUNDER BENCHMARK TRACKING ═══════ */}
-        <section ref={yieldChallenge.ref} className="relative py-20 md:py-28 px-6 md:px-12 bg-primary/5">
+        <section ref={yieldChallenge.ref} className="relative py-12 md:py-16 px-6 md:px-12 bg-primary/5">
           <div className="absolute inset-0 cosmic-grid opacity-5 pointer-events-none" />
           <div className={`relative z-10 max-w-4xl mx-auto space-y-10 ${fadeIn(yieldChallenge.visible)}`}>
             <h2 className="text-3xl md:text-4xl font-bold tracking-tighter text-foreground leading-tight text-center">
