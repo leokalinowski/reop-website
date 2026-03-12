@@ -431,7 +431,7 @@ const SphereSyncFounders = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={dbGap.visible ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: 1.2 + i * 0.25, duration: 0.5 }}
-                className="relative flex flex-col items-center text-center px-4 py-5 bg-card/50 border border-border/30 rounded-xl">
+                className="relative flex flex-col items-center text-center px-4 py-5 bg-secondary-foreground/10 border border-secondary-foreground/20 rounded-xl">
                 
                   {i < 2 &&
                 <div className="hidden sm:block absolute top-1/2 -right-5 -translate-y-1/2 z-10">
