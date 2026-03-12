@@ -544,11 +544,11 @@ const SphereSyncFounders = () => {
           <div className="absolute inset-0 cosmic-grid opacity-5 pointer-events-none" />
           <div className={`relative z-10 max-w-4xl mx-auto space-y-10 text-center ${fadeIn(vsl.visible)}`}>
             <div className="space-y-4">
-              <h2 className="text-3xl md:text-4xl font-bold tracking-tighter text-foreground leading-tight">SphereSync
-                <span className="text-primary">SphereSync Founders</span> exists
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tighter text-foreground leading-tight">
+                See why agents lose business from their sphere — and how <span className="text-primary">SphereSync</span> fixes it
               </h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                A short video from Pam on the problem, the model, and why this Founder group matters.
+                A short video from Pam on why sphere business leaks away, how SphereSync works, and why this invite-only Founder launch matters.
               </p>
             </div>
 
@@ -567,9 +567,9 @@ const SphereSyncFounders = () => {
             {/* Takeaways */}
             <div className="grid sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
               {[
-              { icon: AlertTriangle, text: 'Why agents lose business from their sphere' },
-              { icon: CalendarCheck, text: 'How the 13-week rhythm works' },
-              { icon: TrendingUp, text: 'What Founders will build in 6 months' }].
+              { icon: AlertTriangle, text: 'Why agents don\'t need more leads' },
+              { icon: CalendarCheck, text: 'How the weekly SphereSync rhythm works' },
+              { icon: TrendingUp, text: 'What Founder Access includes' }].
               map((item) => {
                 const Icon = item.icon;
                 return (
@@ -583,7 +583,10 @@ const SphereSyncFounders = () => {
               })}
             </div>
 
-            <SectionCTA />
+            <div className="flex flex-col items-center gap-3 pt-8">
+              <PrimaryCTA label="Apply for Founder Access" />
+              <p className="text-sm text-muted-foreground">Invite-only launch · Limited to 50 Founders</p>
+            </div>
           </div>
         </section>
 
