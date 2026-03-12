@@ -673,7 +673,11 @@ and how SphereSync fixes it<span className="text-primary"> SphereSync</span> fi
 
             {/* Two-column comparison */}
             <div className="grid sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
-              <div className="bg-card border border-border/50 rounded-xl p-6 text-center space-y-4">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={whyMatters.visible ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                className="bg-card border border-border/50 rounded-xl p-6 text-center space-y-4">
                 <Building2 className="h-8 w-8 text-muted-foreground mx-auto" />
                 <h3 className="text-xl font-bold text-foreground">Built for Scale</h3>
                 <ul className="space-y-2 text-sm text-muted-foreground text-left">
@@ -690,8 +694,12 @@ and how SphereSync fixes it<span className="text-primary"> SphereSync</span> fi
                     <span>Quantity-driven model</span>
                   </li>
                 </ul>
-              </div>
-              <div className="bg-primary/5 border-2 border-primary/20 rounded-xl p-6 text-center space-y-4">
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={whyMatters.visible ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.5, delay: 0.25 }}
+                className="bg-primary/5 border-2 border-primary/20 rounded-xl p-6 text-center space-y-4">
                 <Heart className="h-8 w-8 text-primary mx-auto" />
                 <h3 className="text-xl font-bold text-primary">Built on Trust</h3>
                 <ul className="space-y-2 text-sm text-foreground text-left">
@@ -708,7 +716,7 @@ and how SphereSync fixes it<span className="text-primary"> SphereSync</span> fi
                     <span>Consistency over constant chasing</span>
                   </li>
                 </ul>
-              </div>
+              </motion.div>
             </div>
 
             {/* Bottom band */}
@@ -717,6 +725,8 @@ and how SphereSync fixes it<span className="text-primary"> SphereSync</span> fi
                 SphereSync brings structure back to the relationship-driven model.
               </p>
             </div>
+
+            <SectionCTA visible={whyMatters.visible} />
           </div>
         </section>
 
