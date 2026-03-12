@@ -848,7 +848,7 @@ and how SphereSync fixes it<span className="text-primary">SphereSync</span> fixe
               {[
               'Outreach stays manageable',
               'Relationships stay active',
-              'Every contact receives meaningful outreach each quarter'].
+              'Every contact gets meaningful outreach each quarter'].
               map((item) =>
               <div key={item} className="flex items-start gap-3 p-4 rounded-xl bg-card border border-border/50">
                   <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 shrink-0" />
