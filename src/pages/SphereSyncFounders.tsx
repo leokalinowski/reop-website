@@ -333,7 +333,7 @@ const SphereSyncFounders = () => {
         </section>
 
         {/* ═══════ 2 · THE DATABASE GAP ═══════ */}
-        <section ref={dbGap.ref} className="relative py-14 md:py-20 px-6 md:px-12 bg-secondary text-secondary-foreground">
+        <section ref={dbGap.ref} className="relative py-10 md:py-14 px-6 md:px-12 bg-secondary text-secondary-foreground">
           <div className={`relative z-10 max-w-4xl mx-auto space-y-6 ${fadeIn(dbGap.visible)}`}>
             <div>
               <h2 className="text-2xl md:text-3xl font-semibold tracking-tighter leading-tight text-secondary-foreground/90">
