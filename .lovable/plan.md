@@ -1,15 +1,15 @@
 
 
-## Remove Navigation from Professional Practice Landing Page
+## Add Card Containers Around Database Gap Gauges
 
-A focused landing page should minimize exit points to maximize conversions. This is a single-file change.
+### File: `src/pages/SphereSyncFounders.tsx`
 
-### Change
+Wrap each gauge (left and right) in a styled card container that matches the page's existing card aesthetic — rounded corners, subtle border, and a slightly lighter background against the dark `bg-secondary` section.
 
-**File: `src/pages/ProfessionalPractice.tsx`**
-- Remove the `Navigation` component import and usage
-- The page will go straight from the SEO component into the main content
-- The footer (FooterMinimal) stays as it provides necessary legal/brand info without competing with the CTA
+**Lines 359 and 394** — Wrap each gauge's outer `div` in a container with these classes:
+- `bg-secondary-foreground/10 border border-secondary-foreground/20 rounded-2xl p-6` (matches the Trust Fade Timeline cards already used at line 434 in the same section)
 
-This keeps visitors focused on reading the copy and clicking "Schedule a Strategic Diagnostic" without distraction.
+This gives both gauges a visible bounded card that's consistent with the nearby timeline cards, making them easier to read against the dark background.
+
+The gap indicator pill in the middle stays as-is (it already has its own `bg-destructive/20` container).
 
