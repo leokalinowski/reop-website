@@ -338,6 +338,8 @@ const SphereSyncFounders = () => {
               <span className="text-primary">Most of them won't.</span>
             </h2>
 
+            <p className="text-lg leading-relaxed opacity-90">Not because you failed them. Because you disappeared.</p>
+
             {/* Animated Gauge Visualization */}
             <div className="grid sm:grid-cols-2 gap-8 pt-4">
               {[
@@ -385,12 +387,9 @@ const SphereSyncFounders = () => {
               })}
             </div>
 
-            <div className="space-y-4 text-lg leading-relaxed opacity-90">
-              <p>Not because you failed them. Because you disappeared.</p>
-              <p className="font-semibold border-l-2 border-primary pl-4">
-                Every year you go without a system, that gap costs you transactions you already earned.
-              </p>
-            </div>
+            <p className="text-lg leading-relaxed opacity-90 font-semibold border-l-2 border-primary pl-4">
+              Every year you go without a system, that gap costs you transactions you already earned.
+            </p>
 
             {/* Trust Fade Timeline */}
             <div className="grid sm:grid-cols-3 gap-0 pt-6">
