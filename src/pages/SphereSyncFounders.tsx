@@ -764,7 +764,7 @@ and how SphereSync fixes it<span className="text-primary">SphereSync</span> fixe
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 shrink-0" />
-                    <span>Quality-driven model</span>
+                    <span>Consistency over constant chasing</span>
                   </li>
                 </ul>
               </div>
