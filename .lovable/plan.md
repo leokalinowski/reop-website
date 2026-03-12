@@ -1,15 +1,20 @@
+## Add "Learn More" button to the hero
 
+### File: `src/pages/SphereSyncFounders.tsx`
 
-## Remove Navigation from Professional Practice Landing Page
+**1. Add an `id` to the VSL section** (~line 547)
+Add `id="vsl"` to the VSL section element so it can be scrolled to.
 
-A focused landing page should minimize exit points to maximize conversions. This is a single-file change.
+**2. Add a secondary button below the primary CTA** (~lines 229-234)
+After the `<PrimaryCTA>` button, add a ghost/outline button that scrolls to `#vsl`:
 
-### Change
+```tsx
+<div className="flex flex-col sm:flex-row gap-3 pt-2">
+  <PrimaryCTA label="Claim Your Founder Invitation" />
+  <a href="#vsl" className="inline-flex items-center ...">
+    ▶ Watch the Video
+  </a>
+</div>
+```
 
-**File: `src/pages/ProfessionalPractice.tsx`**
-- Remove the `Navigation` component import and usage
-- The page will go straight from the SEO component into the main content
-- The footer (FooterMinimal) stays as it provides necessary legal/brand info without competing with the CTA
-
-This keeps visitors focused on reading the copy and clicking "Schedule a Strategic Diagnostic" without distraction.
-
+Style the secondary button as an outline/ghost style with a play icon (using lucide `Play` icon), matching the existing design language. Use `scroll-behavior: smooth` or a simple `scrollIntoView` call.
