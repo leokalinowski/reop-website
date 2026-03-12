@@ -1130,7 +1130,7 @@ and how SphereSync fixes it<span className="text-primary">SphereSync</span> fixe
                 <div className="flex flex-col gap-1 text-sm text-muted-foreground">
                   <p className="font-medium text-destructive">Limited to 50 Founders</p>
                   <p>Enrollment closes April 15</p>
-                  <p className="pt-2">After the six-month Founder cohort, members can continue with SphereSync Core if they wish to maintain the system.</p>
+                  <p className="pt-2">After the six-month Founder cohort, members can continue with SphereSync Core if they want to maintain the system.</p>
                 </div>
               </div>
             </BackgroundGradient>
