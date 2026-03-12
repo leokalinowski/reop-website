@@ -644,11 +644,11 @@ and how SphereSync fixes it<span className="text-primary">SphereSync</span> fixe
             </div>
 
             <div className="max-w-2xl mx-auto space-y-4 text-lg text-muted-foreground leading-relaxed">
-              <p>Founder Access is the first rollout of SphereSync designed to measure what happens when agents implement the system consistently over six months.</p>
+              <p>Founder Access is the first invite-only rollout of SphereSync — a six-month cohort where agents put the system into practice consistently.</p>
               <p>As Founders track that ratio, we'll build real-world benchmark data for what a disciplined, relationship-driven business can still produce today.</p>
               <div className="border-l-4 border-primary pl-5 py-3 bg-primary/5 rounded-r-lg mt-6">
                 <p className="text-lg md:text-xl font-semibold text-foreground">
-                  The goal is to strengthen every Founder's business — and to demonstrate that a system-backed, relationship-first model still outperforms the industry standard.
+                  The goal is to strengthen every Founder's business — and to build benchmark data for what a disciplined, relationship-first model can produce.
                 </p>
               </div>
             </div>
