@@ -37,9 +37,9 @@ const APPLY_URL = 'https://buy.stripe.com/14A4gBgz08mGgCx2js0x200';
 const founderReceives = [
 { icon: Database, title: 'Six Months of SphereSync', desc: 'Full access to the SphereSync platform while you implement the system.' },
 { icon: Users, title: 'Weekly Office Hours', desc: 'Live working sessions where we help you apply the system and solve real challenges inside your business.' },
-{ icon: MessageSquare, title: 'Three Private Strategy Sessions with Pam', desc: 'Focused on: analyzing your sphere opportunity, strengthening your outreach rhythm, and improving conversion from conversations to transactions.' },
-{ icon: Target, title: 'Sphere Opportunity Audit', desc: 'A one-on-one session where we calculate your Sphere Yield and identify the opportunity already inside your network.' },
-{ icon: BarChart3, title: 'Founder Data Project', desc: 'Contribute anonymized activity and production data so we can continue refining the model.' },
+{ icon: MessageSquare, title: 'Three Private Strategy Sessions with Pam', desc: 'Focused support for analyzing your sphere, strengthening your outreach rhythm, and improving conversion.' },
+{ icon: Target, title: 'Sphere Opportunity Audit', desc: 'A one-on-one session where we calculate your opportunity and identify what already exists inside your network.' },
+{ icon: BarChart3, title: 'Help Shape the Future of SphereSync', desc: 'Your rollout experience helps us refine the system and strengthen future versions of the platform.' },
 { icon: Award, title: 'Founder Recognition', desc: 'Founders will always be recognized as the first group who helped bring SphereSync into the industry.' }];
 
 
@@ -54,16 +54,16 @@ const pricingIncludes = [
 'Six months of SphereSync access',
 'Weekly implementation office hours',
 'Three private strategy sessions with Pam',
-'Participation in the Founder data project',
-'Access to the Founder Cohort Yield Challenge'];
+'Sphere Opportunity Audit',
+'Founder recognition and early rollout access'];
 
 
 const idealFounders = [
 'Solo agents or small teams',
-'Agents with meaningful relationships in their sphere',
-'Agents who believe client referrals should be their primary source of business',
+'Agents with meaningful relationships already inside their sphere',
+'Agents who believe referrals should still be a major source of business',
 'Agents willing to implement a consistent weekly rhythm',
-'Agents interested in helping prove the relationship model still works'];
+'Agents who want to build their business around relationships, not constant chasing'];
 
 
 /* ─── CTA Components ─── */
@@ -590,70 +590,7 @@ and how SphereSync fixes it<span className="text-primary">SphereSync</span> fixe
           </div>
         </section>
 
-        {/* ═══════ 5 · A NOTE FROM PAM ═══════ */}
-        <section ref={pamNote.ref} className="relative py-20 md:py-28 px-6 md:px-12">
-          <div className={`relative z-10 max-w-6xl mx-auto ${fadeIn(pamNote.visible)}`}>
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tighter text-foreground leading-tight mb-10">
-              A Note from <span className="text-primary">Pam</span>
-            </h2>
-
-            <div className="grid md:grid-cols-[280px_1fr] lg:grid-cols-[320px_1fr] gap-10 md:gap-16">
-              {/* Left — Photo & signature */}
-              <div className="flex flex-col items-center md:items-start gap-6">
-                <div className="w-48 h-48 md:w-full md:h-auto md:aspect-square rounded-2xl overflow-hidden bg-muted border border-border">
-                  <img
-                    src="/images/pamobryant.png"
-                    alt="Pam O'Bryant"
-                    className="w-full h-full object-cover"
-                    loading="lazy" />
-                  
-                </div>
-                <div className="text-center md:text-left">
-                  <p className="text-foreground font-semibold text-lg">Pam O'Bryant</p>
-                  <p className="text-sm text-muted-foreground">Founder & CEO, REOP</p>
-                </div>
-
-                {/* Pull-quote on desktop */}
-                <div className="hidden md:block bg-primary/5 border-l-4 border-primary rounded-r-xl p-5">
-                  <p className="text-sm text-foreground italic leading-relaxed">
-                    "The problem wasn't belief in relationships. It was the lack of a simple system for activating them consistently."
-                  </p>
-                </div>
-              </div>
-
-              {/* Right — Full note */}
-              <div className="space-y-5 text-base md:text-lg text-muted-foreground leading-relaxed" style={{ letterSpacing: '0.01em' }}>
-                <p>For decades I've watched the same pattern play out in real estate.</p>
-                <p>Agents work incredibly hard to build relationships, close transactions, and earn trust.</p>
-                <p>But without a system for staying visible with their sphere, those relationships slowly drift.</p>
-                <p>Not because agents don't care. Because life and business get busy.</p>
-                <p>Over the years I've spent a lot of time in rooms with real estate agents — teaching, coaching, and helping them build referral-driven businesses.</p>
-                <p>And the same challenge comes up again and again.</p>
-                <p className="text-foreground font-medium">Agents know relationships matter. They want to stay connected with their sphere.</p>
-                <p>But between compliance concerns like the Do Not Call registry, the constant stream of new tools and tactics, and industry voices telling them to spend half their time creating content, many agents end up overwhelmed.</p>
-                <p>They believe in relationships. They just don't have a clear, manageable system for activating them consistently.</p>
-                <p>In mastermind rooms where agents openly shared their numbers, the pattern became unmistakable:</p>
-                <p className="font-semibold text-foreground border-l-2 border-primary pl-4">
-                  Agents who consistently activate their sphere generate extraordinary referral businesses.
-                </p>
-                <p>In my own business, that approach produced roughly one transaction for every four relationships in my sphere — an unusually strong ratio, but proof of what a well-activated network can produce.</p>
-                <p>But as the industry shifted toward larger teams, lead platforms, and increasingly bloated databases, that discipline began to fade.</p>
-
-                {/* Pull-quote on mobile */}
-                <div className="md:hidden bg-primary/5 border-l-4 border-primary rounded-r-xl p-5 my-6">
-                  <p className="text-sm text-foreground italic leading-relaxed">
-                    "The problem wasn't belief in relationships. It was the lack of a simple system for activating them consistently."
-                  </p>
-                </div>
-
-                <p className="text-foreground font-medium">SphereSync was built to restore that structure.</p>
-                <p>We're starting with a small Founder cohort so the first group of agents can implement the system, measure the results, and demonstrate what a well-activated sphere can truly produce.</p>
-                <p>If you believe relationships should still be the most reliable source of business in real estate, this is where we begin.</p>
-                <p className="text-foreground italic text-xl pt-4">— Pam</p>
-              </div>
-            </div>
-          </div>
-        </section>
+        {/* Pam Note moved to after 13-Week Cycle */}
 
         {/* ═══════ 6 · THE DATA BEHIND SPHERESYNC ═══════ */}
         <section ref={dataBehind.ref} className="relative py-20 md:py-28 px-6 md:px-12 bg-primary/5">
@@ -707,11 +644,11 @@ and how SphereSync fixes it<span className="text-primary">SphereSync</span> fixe
             </div>
 
             <div className="max-w-2xl mx-auto space-y-4 text-lg text-muted-foreground leading-relaxed">
-              <p>Founder Access is the first rollout of SphereSync designed to measure what happens when agents implement the system consistently over six months.</p>
+              <p>Founder Access is the first invite-only rollout of SphereSync — a six-month cohort where agents put the system into practice consistently.</p>
               <p>As Founders track that ratio, we'll build real-world benchmark data for what a disciplined, relationship-driven business can still produce today.</p>
               <div className="border-l-4 border-primary pl-5 py-3 bg-primary/5 rounded-r-lg mt-6">
                 <p className="text-lg md:text-xl font-semibold text-foreground">
-                  The goal is to strengthen every Founder's business — and to demonstrate that a system-backed, relationship-first model still outperforms the industry standard.
+                  The goal is to strengthen every Founder's business — and to build benchmark data for what a disciplined, relationship-first model can produce.
                 </p>
               </div>
             </div>
@@ -799,7 +736,10 @@ and how SphereSync fixes it<span className="text-primary">SphereSync</span> fixe
             </h2>
 
             <p className="text-lg text-muted-foreground leading-relaxed max-w-3xl mx-auto text-center">
-              SphereSync combines a structured outreach rhythm, relationship prompts, and a live performance dashboard that tracks your <span className="text-primary font-semibold">Sphere Yield</span> in real time. It is built around three simple behaviors:
+              SphereSync gives agents a structured weekly system for activating their sphere, starting conversations, and staying top of mind.
+            </p>
+            <p className="text-lg text-muted-foreground leading-relaxed max-w-3xl mx-auto text-center">
+              It combines a clear action rhythm, relationship prompts, and a live performance dashboard so you always know what to do next.
             </p>
 
             {/* Hub and Spoke Diagram */}
@@ -807,8 +747,8 @@ and how SphereSync fixes it<span className="text-primary">SphereSync</span> fixe
               {/* Input Cards */}
               <div className="grid sm:grid-cols-3 gap-4">
                 {[
-                { icon: CalendarCheck, title: 'Structured Outreach Rhythm' },
-                { icon: MessageSquare, title: 'Relationship Prompts' },
+                { icon: CalendarCheck, title: 'Weekly Action Rhythm' },
+                { icon: MessageSquare, title: 'Conversation Prompts' },
                 { icon: BarChart3, title: 'Live Performance Dashboard' }].
                 map((card) => {
                   const Icon = card.icon;
@@ -886,10 +826,9 @@ and how SphereSync fixes it<span className="text-primary">SphereSync</span> fixe
             </h2>
 
             <div className="max-w-3xl mx-auto space-y-4 text-lg text-muted-foreground leading-relaxed text-center">
-              <p>Most agents believe they stay in touch with their sphere.</p>
-              <p>But when you ask a simple question — <span className="text-foreground italic">"Are you staying in touch with all of them?"</span></p>
-              <p>The answer usually becomes less certain.</p>
-              <p className="text-foreground font-medium">SphereSync solves that with a simple 13-week relationship cycle.</p>
+              <p>Most agents assume they are staying in touch with their sphere.</p>
+              <p>But when you ask, <span className="text-foreground italic">"Are you staying in touch with all of them?"</span> the answer usually gets less clear.</p>
+              <p className="text-foreground font-medium">SphereSync solves that with a simple 13-week cycle.</p>
             </div>
 
             {/* Circular Wheel */}
@@ -899,8 +838,8 @@ and how SphereSync fixes it<span className="text-primary">SphereSync</span> fixe
 
             <div className="bg-card border border-border/50 rounded-xl p-6 space-y-4 max-w-3xl mx-auto">
               <p className="text-foreground">Your sphere is divided into <span className="text-primary font-semibold">13 weekly segments.</span></p>
-              <p className="text-foreground">Each week you reach out to one segment of your relationships.</p>
-              <p className="text-foreground">By the end of 13 weeks, you've connected with every person in your sphere once.</p>
+              <p className="text-foreground">Each week, you activate one segment of your relationships.</p>
+              <p className="text-foreground">By the end of 13 weeks, you've reached everyone once.</p>
               <p className="text-foreground font-medium">Then the cycle repeats.</p>
             </div>
 
@@ -909,7 +848,7 @@ and how SphereSync fixes it<span className="text-primary">SphereSync</span> fixe
               {[
               'Outreach stays manageable',
               'Relationships stay active',
-              'Every contact receives meaningful outreach each quarter'].
+              'Every contact gets meaningful outreach each quarter'].
               map((item) =>
               <div key={item} className="flex items-start gap-3 p-4 rounded-xl bg-card border border-border/50">
                   <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 shrink-0" />
@@ -931,6 +870,68 @@ and how SphereSync fixes it<span className="text-primary">SphereSync</span> fixe
           </div>
         </section>
 
+        {/* ═══════ 10b · A NOTE FROM PAM ═══════ */}
+        <section ref={pamNote.ref} className="relative py-20 md:py-28 px-6 md:px-12">
+          <div className={`relative z-10 max-w-6xl mx-auto ${fadeIn(pamNote.visible)}`}>
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tighter text-foreground leading-tight mb-10">
+              A Note from <span className="text-primary">Pam</span>
+            </h2>
+
+            <div className="grid md:grid-cols-[280px_1fr] lg:grid-cols-[320px_1fr] gap-10 md:gap-16">
+              {/* Left — Photo & signature */}
+              <div className="flex flex-col items-center md:items-start gap-6">
+                <div className="w-48 h-48 md:w-full md:h-auto md:aspect-square rounded-2xl overflow-hidden bg-muted border border-border">
+                  <img
+                    src="/images/pamobryant.png"
+                    alt="Pam O'Bryant"
+                    className="w-full h-full object-cover"
+                    loading="lazy" />
+                </div>
+                <div className="text-center md:text-left">
+                  <p className="text-foreground font-semibold text-lg">Pam O'Bryant</p>
+                  <p className="text-sm text-muted-foreground">Founder & CEO, REOP</p>
+                </div>
+
+                {/* Pull-quote on desktop */}
+                <div className="hidden md:block bg-primary/5 border-l-4 border-primary rounded-r-xl p-5">
+                  <p className="text-sm text-foreground italic leading-relaxed">
+                    "The database was not the advantage. The system was."
+                  </p>
+                </div>
+              </div>
+
+              {/* Right — Full note */}
+              <div className="space-y-5 text-base md:text-lg text-muted-foreground leading-relaxed" style={{ letterSpacing: '0.01em' }}>
+                <p>For decades, I've watched the same pattern play out in real estate.</p>
+                <p>Agents work hard to build trust, close transactions, and earn relationships that should keep producing business for years.</p>
+                <p>But without a system for staying visible, those relationships go quiet.</p>
+                <p>I was also part of the Millionaire Real Estate Agent masterminds that helped shape the models behind Gary Keller's Red Book — and one of the clearest lessons from that work was this:</p>
+                <p className="text-foreground font-medium">Relationship-driven business is far more powerful than most agents realize.</p>
+                <p>In my own business, this approach produced roughly one transaction for every four relationships in my sphere.</p>
+                <p className="font-semibold text-foreground border-l-2 border-primary pl-4">
+                  The database was not the advantage.<br />The system was.
+                </p>
+                <p>Over time, as the industry shifted toward lead platforms, larger teams, and more noise, many agents never stopped believing in relationships.</p>
+                <p>They just lost the structure for activating them consistently.</p>
+
+                {/* Pull-quote on mobile */}
+                <div className="md:hidden bg-primary/5 border-l-4 border-primary rounded-r-xl p-5 my-6">
+                  <p className="text-sm text-foreground italic leading-relaxed">
+                    "The database was not the advantage. The system was."
+                  </p>
+                </div>
+
+                <p className="text-foreground font-medium">That is why we built SphereSync.</p>
+                <p>SphereSync turns a proven relationship model into a practical weekly system — one that helps you stay visible, stay connected, and turn existing relationships into repeat business and referrals.</p>
+                <p>Founder Access is our first invite-only rollout group.</p>
+                <p>A chance to get in early, build the system into your business, and help shape how SphereSync rolls out more broadly.</p>
+                <p>If you believe relationships should still be one of the most reliable drivers of a real estate business, this is where we begin.</p>
+                <p className="text-foreground italic text-xl pt-4">— Pam</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* ═══════ 11 · THE FOUNDERS COHORT ═══════ */}
         <section ref={cohort.ref} className="relative py-20 md:py-28 px-6 md:px-12">
           <div className={`max-w-5xl mx-auto ${fadeIn(cohort.visible)}`}>
@@ -941,19 +942,19 @@ and how SphereSync fixes it<span className="text-primary">SphereSync</span> fixe
             <div className="grid md:grid-cols-2 gap-10 md:gap-16">
               {/* Left — Explanation */}
               <div className="space-y-4 text-lg text-muted-foreground leading-relaxed">
-                <p>The first 50 SphereSync Founders will participate in a six-month implementation cohort.</p>
-                <p>This small group will be the first agents running the SphereSync system in their businesses while helping us collect real-world data on what a relationship-driven real estate business can produce.</p>
-                <p>During the cohort you will implement the weekly SphereSync rhythm and measure your <span className="text-primary font-semibold">Sphere Yield</span> as your relationships become active again.</p>
-                <p className="font-medium text-foreground">At the end of six months you will have a fully functioning relationship-driven system operating inside your business.</p>
+                <p>The first 50 SphereSync Founders will join a six-month implementation cohort.</p>
+                <p>This is the first invite-only group getting early access to SphereSync with added support during rollout.</p>
+                <p>As a Founder, you'll build the weekly SphereSync rhythm into your business, activate your sphere consistently, and track your progress over time.</p>
+                <p className="font-medium text-foreground">By the end of six months, you won't just have more clarity — you'll have a repeatable relationship-driven system operating inside your business.</p>
               </div>
 
               {/* Right — Stacked value cards */}
               <div className="space-y-4">
                 {[
                 { icon: Database, title: 'Full SphereSync Access', desc: '6 months of the complete platform' },
-                { icon: CalendarCheck, title: 'Weekly Implementation', desc: 'Guided rhythm with office hours' },
-                { icon: BarChart3, title: 'Sphere Yield Tracking', desc: 'Measure your improvement in real time' },
-                { icon: Users, title: 'Cohort Community', desc: '50 agents building together' }].
+                { icon: CalendarCheck, title: 'Weekly Implementation Support', desc: 'Guided rhythm with office hours' },
+                { icon: BarChart3, title: 'Progress Tracking', desc: 'Measure your momentum over time' },
+                { icon: Users, title: 'Founder Community', desc: '50 agents building together' }].
                 map((card) => {
                   const Icon = card.icon;
                   return (
@@ -973,52 +974,31 @@ and how SphereSync fixes it<span className="text-primary">SphereSync</span> fixe
           </div>
         </section>
 
-        {/* ═══════ 12 · THE FOUNDER COHORT YIELD CHALLENGE ═══════ */}
+        {/* ═══════ 12 · FOUNDER BENCHMARK TRACKING ═══════ */}
         <section ref={yieldChallenge.ref} className="relative py-20 md:py-28 px-6 md:px-12 bg-primary/5">
           <div className="absolute inset-0 cosmic-grid opacity-5 pointer-events-none" />
           <div className={`relative z-10 max-w-4xl mx-auto space-y-10 ${fadeIn(yieldChallenge.visible)}`}>
             <h2 className="text-3xl md:text-4xl font-bold tracking-tighter text-foreground leading-tight text-center">
-              The Founder Cohort <span className="text-primary">Yield Challenge</span>
+              Founder <span className="text-primary">Benchmark Tracking</span>
             </h2>
 
             <div className="max-w-3xl mx-auto space-y-4 text-lg text-muted-foreground leading-relaxed">
-              <p>The 50 Founders will be divided into two cohorts of 25 agents.</p>
-              <p>Both groups will implement the SphereSync system over the same six-month period.</p>
-              <p>Throughout the program we will track a single metric:</p>
+              <p>Throughout the Founder rollout, members will track one simple metric:</p>
             </div>
 
             {/* Featured Metric */}
             <div className="bg-card border-2 border-primary/30 rounded-2xl p-8 text-center space-y-3 max-w-md mx-auto shadow-lg">
               <BarChart3 className="h-10 w-10 text-primary mx-auto" />
               <p className="text-3xl font-bold text-primary">Sphere Yield</p>
-              <p className="text-foreground">How many relationships in your sphere it takes to produce one transaction.</p>
-            </div>
-
-            <p className="text-center text-muted-foreground">Most agents have never measured this number in their business.</p>
-
-            {/* Example ratio pills */}
-            <div className="flex flex-wrap justify-center gap-4">
-              {[
-              { ratio: '1 : 15', label: 'Starting', bg: 'bg-card border-border/50' },
-              { ratio: '1 : 10', label: 'Improving', bg: 'bg-primary/5 border-primary/20' },
-              { ratio: '1 : 6', label: 'Activated', bg: 'bg-primary/10 border-primary/30' }].
-              map((pill) =>
-              <div key={pill.ratio} className={`${pill.bg} border rounded-xl px-6 py-4 text-center`}>
-                  <p className="text-2xl font-bold text-foreground">{pill.ratio}</p>
-                  <p className="text-xs text-muted-foreground">{pill.label}</p>
-                </div>
-              )}
+              <p className="text-foreground">Your relationship-to-transaction ratio</p>
             </div>
 
             <div className="max-w-3xl mx-auto space-y-4 text-lg text-muted-foreground leading-relaxed">
-              <p>SphereSync is built around a fundamental reality: a well-activated relationship network should be far more productive than what the industry now expects.</p>
-              <p>At the end of six months we'll compare how much each cohort improved their Sphere Yield. <span className="text-foreground font-semibold">The cohort that improves the most will receive a Founder recognition prize.</span></p>
+              <p>This gives each Founder a clear way to measure how their sphere is performing as they implement the system consistently over time.</p>
               <p className="font-semibold text-foreground border-l-2 border-primary pl-4">
-                More importantly, the results will help demonstrate what a disciplined relationship-driven business can still produce.
+                More importantly, it helps establish real-world benchmark data for what a disciplined, relationship-first business can still produce today.
               </p>
             </div>
-
-            <SectionCTA />
           </div>
         </section>
 
@@ -1097,7 +1077,7 @@ and how SphereSync fixes it<span className="text-primary">SphereSync</span> fixe
 
             <div className="text-center pt-4">
               <p className="text-lg text-foreground font-medium italic">
-                If the relationship model still matters to you, the Founder cohort is where we begin.
+                If relationships are the foundation of your business, this is where it starts.
               </p>
             </div>
 
@@ -1113,10 +1093,10 @@ and how SphereSync fixes it<span className="text-primary">SphereSync</span> fixe
                 Founder Cohort <span className="text-primary">Investment</span>
               </h2>
               <p className="text-lg text-muted-foreground max-w-xl mx-auto">
-                The Founder cohort is a six-month implementation program designed to activate your sphere and turn your relationships into a consistent source of referrals.
+                Founder Access is the invite-only launch offer for SphereSync.
               </p>
               <p className="text-base text-muted-foreground max-w-xl mx-auto">
-                SphereSync is the platform that supports the process. Founder seats include the full implementation process and direct strategy access during the six-month cohort.
+                It includes six months of platform access plus added implementation support, direct strategy access, and Founder-only rollout benefits during the first launch cohort.
               </p>
             </div>
 
@@ -1150,7 +1130,7 @@ and how SphereSync fixes it<span className="text-primary">SphereSync</span> fixe
                 <div className="flex flex-col gap-1 text-sm text-muted-foreground">
                   <p className="font-medium text-destructive">Limited to 50 Founders</p>
                   <p>Enrollment closes April 15</p>
-                  <p className="pt-2">After the six-month Founder cohort, members can continue with SphereSync Core if they wish to maintain the system.</p>
+                  <p className="pt-2">After the six-month Founder cohort, members can continue with SphereSync Core if they want to maintain the system.</p>
                 </div>
               </div>
             </BackgroundGradient>
