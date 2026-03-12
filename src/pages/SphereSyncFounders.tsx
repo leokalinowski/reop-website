@@ -1037,11 +1037,15 @@ and how SphereSync fixes it<span className="text-primary"> SphereSync</span> fi
             </div>
 
             {/* Featured Metric */}
-            <div className="bg-card border-2 border-primary/30 rounded-2xl p-8 text-center space-y-3 max-w-md mx-auto shadow-lg">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={yieldChallenge.visible ? { opacity: 1, scale: 1 } : {}}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="bg-card border-2 border-primary/30 rounded-2xl p-8 text-center space-y-3 max-w-md mx-auto shadow-lg">
               <BarChart3 className="h-10 w-10 text-primary mx-auto" />
               <p className="text-3xl font-bold text-primary">Sphere Yield</p>
               <p className="text-foreground">Your relationship-to-transaction ratio</p>
-            </div>
+            </motion.div>
 
             <div className="max-w-3xl mx-auto space-y-4 text-lg text-muted-foreground leading-relaxed">
               <p>This gives each Founder a clear way to measure how their sphere is performing as they implement the system consistently over time.</p>
