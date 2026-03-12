@@ -736,7 +736,10 @@ and how SphereSync fixes it<span className="text-primary">SphereSync</span> fixe
             </h2>
 
             <p className="text-lg text-muted-foreground leading-relaxed max-w-3xl mx-auto text-center">
-              SphereSync combines a structured outreach rhythm, relationship prompts, and a live performance dashboard that tracks your <span className="text-primary font-semibold">Sphere Yield</span> in real time. It is built around three simple behaviors:
+              SphereSync gives agents a structured weekly system for activating their sphere, starting conversations, and staying top of mind.
+            </p>
+            <p className="text-lg text-muted-foreground leading-relaxed max-w-3xl mx-auto text-center">
+              It combines a clear action rhythm, relationship prompts, and a live performance dashboard so you always know what to do next.
             </p>
 
             {/* Hub and Spoke Diagram */}
@@ -744,8 +747,8 @@ and how SphereSync fixes it<span className="text-primary">SphereSync</span> fixe
               {/* Input Cards */}
               <div className="grid sm:grid-cols-3 gap-4">
                 {[
-                { icon: CalendarCheck, title: 'Structured Outreach Rhythm' },
-                { icon: MessageSquare, title: 'Relationship Prompts' },
+                { icon: CalendarCheck, title: 'Weekly Action Rhythm' },
+                { icon: MessageSquare, title: 'Conversation Prompts' },
                 { icon: BarChart3, title: 'Live Performance Dashboard' }].
                 map((card) => {
                   const Icon = card.icon;
