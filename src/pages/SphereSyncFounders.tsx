@@ -226,12 +226,19 @@ const SphereSyncFounders = () => {
               <p className="text-lg md:text-xl font-semibold text-foreground">SphereSync is the weekly system that helps agents activate their sphere, stay top of mind, and turn existing relationships into consistent referrals and repeat business.</p>
               <p className="text-sm md:text-base text-muted-foreground">This page is for invite-only Founder Access — early pricing, direct support, and a seat at the table.</p>
 
-              <div className="pt-2">
+              <div className="flex flex-col sm:flex-row items-start gap-3 pt-2">
                 <PrimaryCTA label="Claim Your Founder Invitation" />
-                <p className="text-sm text-muted-foreground mt-3 tracking-wide">
-                  Invite-only Founder launch · Early-access pricing · Closes April 15
-                </p>
+                <a
+                  href="#vsl"
+                  onClick={(e) => { e.preventDefault(); document.getElementById('vsl')?.scrollIntoView({ behavior: 'smooth' }); }}
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-md border border-primary/30 text-primary hover:bg-primary/10 transition-colors text-sm font-medium"
+                >
+                  <Play size={16} fill="currentColor" /> Learn More
+                </a>
               </div>
+              <p className="text-sm text-muted-foreground mt-3 tracking-wide">
+                Invite-only Founder launch · Early-access pricing · Closes April 15
+              </p>
 
               {/* Narrative copy — below the CTA */}
               <div className="space-y-3 text-sm md:text-base text-muted-foreground leading-relaxed pt-2">
@@ -544,7 +551,7 @@ const SphereSyncFounders = () => {
         </section>
 
         {/* ═══════ 4 · VSL SECTION ═══════ */}
-        <section ref={vsl.ref} className="relative py-12 md:py-16 px-6 md:px-12 bg-primary/5">
+        <section id="vsl" ref={vsl.ref} className="relative py-12 md:py-16 px-6 md:px-12 bg-primary/5">
           <div className="absolute inset-0 cosmic-grid opacity-5 pointer-events-none" />
           <div className={`relative z-10 max-w-4xl mx-auto space-y-10 text-center ${fadeIn(vsl.visible)}`}>
             <div className="space-y-4">
