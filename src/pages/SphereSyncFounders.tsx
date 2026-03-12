@@ -452,26 +452,28 @@ const SphereSyncFounders = () => {
         </section>
 
         {/* ═══════ 3 · WHAT INACTION COSTS ═══════ */}
-        <section ref={inactionCost.ref} className="relative py-20 md:py-28 px-6 md:px-12">
-          <div className={`max-w-5xl mx-auto space-y-10 ${fadeIn(inactionCost.visible)}`}>
+        <section ref={inactionCost.ref} className="relative py-14 md:py-20 px-6 md:px-12">
+          <div className={`max-w-5xl mx-auto space-y-8 ${fadeIn(inactionCost.visible)}`}>
             <h2 className="text-3xl md:text-4xl font-bold tracking-tighter text-foreground leading-tight text-center">
               What Inaction <span className="text-primary">Actually Costs</span>
             </h2>
 
             <div className="max-w-3xl mx-auto space-y-4 text-lg text-muted-foreground leading-relaxed">
               <p>The average agent has <span className="text-foreground font-semibold">200–500 people</span> in their sphere.</p>
-              <p>At a healthy activation rate — one transaction for every 12 relationships — that database should produce <span className="text-primary font-semibold">17 to 40+ transactions per year.</span></p>
-              <p className="text-2xl font-bold text-foreground">Most agents get 3–5.</p>
-              <p>The difference isn't skill. It isn't market conditions.</p>
-              <p className="font-semibold text-foreground border-l-2 border-primary pl-4">It's the absence of a system.</p>
+              <p>At a healthy activation rate, that database should be producing <span className="text-primary font-semibold">17 to 40+ transactions per year.</span></p>
+              <p className="text-2xl font-bold text-destructive">Most agents get 3–5.</p>
+              <p>That gap doesn't just disappear. It goes to another agent.</p>
+              <div className="border-l-4 border-primary pl-5 py-2 mt-2">
+                <p className="text-2xl md:text-3xl font-bold text-foreground">This isn't a talent problem. It's a system problem.</p>
+              </div>
             </div>
 
             {/* Stat Cards */}
             <div className="grid sm:grid-cols-3 gap-6">
               {[
-              { stat: '200–500', label: 'people in your sphere', color: 'text-foreground' },
-              { stat: '17–40+', label: 'potential transactions per year', color: 'text-primary' },
-              { stat: '3–5', label: 'actual transactions for many agents', color: 'text-destructive' }].
+              { stat: '200–500', label: 'People already in your sphere', color: 'text-foreground' },
+              { stat: '17–40+', label: 'Transactions a healthy system should produce', color: 'text-primary' },
+              { stat: '3–5', label: 'What most agents actually close from their sphere', color: 'text-destructive' }].
               map((card) =>
               <div key={card.label} className="bg-card border border-border/50 rounded-xl p-6 text-center space-y-2">
                   <p className={`text-4xl md:text-5xl font-bold ${card.color}`}>{card.stat}</p>
@@ -489,8 +491,9 @@ const SphereSyncFounders = () => {
                     <span className="text-muted-foreground">Potential (activated sphere)</span>
                     <span className="text-primary font-semibold">17–40+</span>
                   </div>
-                  <div className="h-3 bg-border rounded-full overflow-hidden">
+                  <div className="h-3 bg-destructive/15 rounded-full overflow-hidden relative">
                     <div className="h-full bg-primary rounded-full" style={{ width: '85%' }} />
+                    <span className="absolute right-2 top-1/2 -translate-y-1/2 text-[9px] text-destructive/80 italic font-medium">Business leaking to other agents</span>
                   </div>
                 </div>
                 <div>
@@ -498,19 +501,20 @@ const SphereSyncFounders = () => {
                     <span className="text-muted-foreground">Typical (no system)</span>
                     <span className="text-destructive font-semibold">3–5</span>
                   </div>
-                  <div className="h-3 bg-border rounded-full overflow-hidden">
+                  <div className="h-3 bg-destructive/15 rounded-full overflow-hidden">
                     <div className="h-full bg-destructive/70 rounded-full" style={{ width: '12%' }} />
                   </div>
                 </div>
               </div>
+              <p className="text-sm text-muted-foreground italic">The gap between these bars is business that didn't vanish — it went to the agent who stayed visible.</p>
             </div>
 
             {/* Hidden Cost Cards */}
             <div className="grid sm:grid-cols-3 gap-4">
               {[
-              { icon: MessageSquare, title: 'Missed conversations', desc: 'Contacts you meant to call but never did' },
-              { icon: UserCheck, title: 'Referrals that went elsewhere', desc: 'People who chose the agent who stayed in touch' },
-              { icon: Home, title: 'Transactions you never knew you lost', desc: 'Deals that happened without you knowing' }].
+              { icon: MessageSquare, title: 'Missed conversations', desc: 'People you meant to call, but didn\'t' },
+              { icon: UserCheck, title: 'Referrals that went elsewhere', desc: 'Business that went to the agent who stayed visible' },
+              { icon: Home, title: 'Transactions you never knew you lost', desc: 'Deals that happened without you ever knowing' }].
               map((card) => {
                 const Icon = card.icon;
                 return (
@@ -527,9 +531,11 @@ const SphereSyncFounders = () => {
               })}
             </div>
 
-            <p className="text-lg text-muted-foreground leading-relaxed text-center max-w-3xl mx-auto">
-              Every week without one is a conversation that didn't happen, a referral that went to someone else, a transaction you'll never even know you lost.
-            </p>
+            <div className="border-t border-border/50 pt-6">
+              <p className="text-lg md:text-xl font-medium text-foreground leading-relaxed text-center max-w-3xl mx-auto">
+                Every week without a system is a conversation that didn't happen, a referral that went somewhere else, or a transaction you'll never even know you lost.
+              </p>
+            </div>
           </div>
         </section>
 
