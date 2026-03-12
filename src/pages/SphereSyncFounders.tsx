@@ -660,7 +660,7 @@ and how SphereSync fixes it<span className="text-primary"> SphereSync</span> fi
         </section>
 
         {/* ═══════ 7 · WHY THIS MATTERS ═══════ */}
-        <section ref={whyMatters.ref} className="relative py-20 md:py-28 px-6 md:px-12">
+        <section ref={whyMatters.ref} className="relative py-12 md:py-16 px-6 md:px-12">
           <div className={`max-w-5xl mx-auto space-y-8 ${fadeIn(whyMatters.visible)}`}>
             <h2 className="text-3xl md:text-4xl font-bold tracking-tighter text-foreground leading-tight text-center">
               Why This <span className="text-primary">Matters</span>
