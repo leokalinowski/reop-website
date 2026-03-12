@@ -1201,14 +1201,21 @@ and how SphereSync fixes it<span className="text-primary"> SphereSync</span> fi
             <div className="space-y-4 text-lg text-muted-foreground leading-relaxed">
               <p className="font-medium text-foreground">SphereSync Founders are typically:</p>
               <div className="grid sm:grid-cols-2 gap-3">
-                {idealFounders.map((item) =>
-                <div key={item} className="flex items-start gap-3 p-4 rounded-xl bg-card border border-border/50">
+                {idealFounders.map((item, i) =>
+                <motion.div
+                  key={item}
+                  initial={{ opacity: 0, y: 15 }}
+                  animate={whoFor.visible ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.4, delay: i * 0.1 }}
+                  className="flex items-start gap-3 p-4 rounded-xl bg-card border border-border/50">
                     <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 shrink-0" />
                     <span className="text-sm">{item}</span>
-                  </div>
+                  </motion.div>
                 )}
               </div>
             </div>
+
+            <SectionCTA visible={whoFor.visible} />
           </div>
         </section>
 
