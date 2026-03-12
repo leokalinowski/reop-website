@@ -587,7 +587,7 @@ and how SphereSync fixes it<span className="text-primary"> SphereSync</span> fi
               })}
             </div>
 
-            <div className="flex flex-col items-center gap-3 pt-8">
+            <div className="flex flex-col items-center gap-3 pt-4">
               <PrimaryCTA label="Apply for Founder Access" />
               <p className="text-sm text-muted-foreground">Invite-only launch · Limited to 50 Founders</p>
             </div>
