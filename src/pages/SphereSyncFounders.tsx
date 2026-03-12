@@ -75,11 +75,15 @@ const PrimaryCTA = ({ label = 'Apply for Founder Access' }: {label?: string;}) =
   </Button>;
 
 
-const SectionCTA = ({ label = 'Apply for Founder Access' }: {label?: string;}) =>
-<div className="flex flex-col items-center gap-3 pt-8">
+const SectionCTA = ({ label = 'Apply for Founder Access', visible = true }: {label?: string; visible?: boolean;}) =>
+<motion.div
+    className="flex flex-col items-center gap-3 pt-8"
+    initial={{ opacity: 0, y: 10 }}
+    animate={visible ? { opacity: 1, y: 0 } : {}}
+    transition={{ duration: 0.5, delay: 0.3 }}>
     <PrimaryCTA label={label} />
     <p className="text-sm text-muted-foreground">Limited to 50 Founders</p>
-  </div>;
+  </motion.div>;
 
 
 /* ─── 13-Week Wheel Component ─── */
@@ -669,7 +673,11 @@ and how SphereSync fixes it<span className="text-primary"> SphereSync</span> fi
 
             {/* Two-column comparison */}
             <div className="grid sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
-              <div className="bg-card border border-border/50 rounded-xl p-6 text-center space-y-4">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={whyMatters.visible ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                className="bg-card border border-border/50 rounded-xl p-6 text-center space-y-4">
                 <Building2 className="h-8 w-8 text-muted-foreground mx-auto" />
                 <h3 className="text-xl font-bold text-foreground">Built for Scale</h3>
                 <ul className="space-y-2 text-sm text-muted-foreground text-left">
@@ -686,8 +694,12 @@ and how SphereSync fixes it<span className="text-primary"> SphereSync</span> fi
                     <span>Quantity-driven model</span>
                   </li>
                 </ul>
-              </div>
-              <div className="bg-primary/5 border-2 border-primary/20 rounded-xl p-6 text-center space-y-4">
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={whyMatters.visible ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.5, delay: 0.25 }}
+                className="bg-primary/5 border-2 border-primary/20 rounded-xl p-6 text-center space-y-4">
                 <Heart className="h-8 w-8 text-primary mx-auto" />
                 <h3 className="text-xl font-bold text-primary">Built on Trust</h3>
                 <ul className="space-y-2 text-sm text-foreground text-left">
@@ -704,7 +716,7 @@ and how SphereSync fixes it<span className="text-primary"> SphereSync</span> fi
                     <span>Consistency over constant chasing</span>
                   </li>
                 </ul>
-              </div>
+              </motion.div>
             </div>
 
             {/* Bottom band */}
@@ -713,6 +725,8 @@ and how SphereSync fixes it<span className="text-primary"> SphereSync</span> fi
                 SphereSync brings structure back to the relationship-driven model.
               </p>
             </div>
+
+            <SectionCTA visible={whyMatters.visible} />
           </div>
         </section>
 
@@ -869,11 +883,16 @@ and how SphereSync fixes it<span className="text-primary"> SphereSync</span> fi
               'Outreach stays manageable',
               'Relationships stay active',
               'Every contact gets meaningful outreach each quarter'].
-              map((item) =>
-              <div key={item} className="flex items-start gap-3 p-4 rounded-xl bg-card border border-border/50">
+              map((item, i) =>
+              <motion.div
+                key={item}
+                initial={{ opacity: 0, y: 20 }}
+                animate={cycle.visible ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.5, delay: 0.1 + i * 0.15 }}
+                className="flex items-start gap-3 p-4 rounded-xl bg-card border border-border/50">
                   <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 shrink-0" />
                   <span className="text-foreground text-sm">{item}</span>
-                </div>
+                </motion.div>
               )}
             </div>
 
@@ -887,6 +906,8 @@ and how SphereSync fixes it<span className="text-primary"> SphereSync</span> fi
                 SphereSync helps make sure that agent is you.
               </p>
             </div>
+
+            <SectionCTA visible={cycle.visible} />
           </div>
         </section>
 
@@ -949,6 +970,8 @@ and how SphereSync fixes it<span className="text-primary"> SphereSync</span> fi
                 <p className="text-foreground italic text-xl pt-4">— Pam</p>
               </div>
             </div>
+
+            <SectionCTA label="Claim Your Founder Invitation" visible={pamNote.visible} />
           </div>
         </section>
 
@@ -975,10 +998,15 @@ and how SphereSync fixes it<span className="text-primary"> SphereSync</span> fi
                 { icon: CalendarCheck, title: 'Weekly Implementation Support', desc: 'Guided rhythm with office hours' },
                 { icon: BarChart3, title: 'Progress Tracking', desc: 'Measure your momentum over time' },
                 { icon: Users, title: 'Founder Community', desc: '50 agents building together' }].
-                map((card) => {
+                map((card, i) => {
                   const Icon = card.icon;
                   return (
-                    <div key={card.title} className="flex items-start gap-4 p-4 rounded-xl bg-card border border-border/50">
+                    <motion.div
+                      key={card.title}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={cohort.visible ? { opacity: 1, y: 0 } : {}}
+                      transition={{ duration: 0.5, delay: i * 0.12 }}
+                      className="flex items-start gap-4 p-4 rounded-xl bg-card border border-border/50 hover:scale-[1.02] transition-transform duration-300">
                       <div className="p-2 rounded-lg bg-primary/10 shrink-0">
                         <Icon className="h-5 w-5 text-primary" />
                       </div>
@@ -986,11 +1014,13 @@ and how SphereSync fixes it<span className="text-primary"> SphereSync</span> fi
                         <p className="text-foreground font-semibold">{card.title}</p>
                         <p className="text-sm text-muted-foreground">{card.desc}</p>
                       </div>
-                    </div>);
+                    </motion.div>);
 
                 })}
               </div>
             </div>
+
+            <SectionCTA visible={cohort.visible} />
           </div>
         </section>
 
@@ -1007,11 +1037,15 @@ and how SphereSync fixes it<span className="text-primary"> SphereSync</span> fi
             </div>
 
             {/* Featured Metric */}
-            <div className="bg-card border-2 border-primary/30 rounded-2xl p-8 text-center space-y-3 max-w-md mx-auto shadow-lg">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={yieldChallenge.visible ? { opacity: 1, scale: 1 } : {}}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="bg-card border-2 border-primary/30 rounded-2xl p-8 text-center space-y-3 max-w-md mx-auto shadow-lg">
               <BarChart3 className="h-10 w-10 text-primary mx-auto" />
               <p className="text-3xl font-bold text-primary">Sphere Yield</p>
               <p className="text-foreground">Your relationship-to-transaction ratio</p>
-            </div>
+            </motion.div>
 
             <div className="max-w-3xl mx-auto space-y-4 text-lg text-muted-foreground leading-relaxed">
               <p>This gives each Founder a clear way to measure how their sphere is performing as they implement the system consistently over time.</p>
@@ -1041,7 +1075,7 @@ and how SphereSync fixes it<span className="text-primary"> SphereSync</span> fi
                     animate={receives.visible ? { opacity: 1, y: 0 } : {}}
                     transition={{ duration: 0.5, delay: i * 0.1 }}>
                     
-                    <Card className="h-full border-border/50 bg-card/80 backdrop-blur-sm hover:border-primary/30 transition-colors duration-300">
+                    <Card className="h-full border-border/50 bg-card/80 backdrop-blur-sm hover:border-primary/30 hover:scale-[1.02] transition-all duration-300">
                       <CardContent className="p-6 space-y-3">
                         <div className="p-2 rounded-lg bg-primary/10 w-fit">
                           <Icon className="h-5 w-5 text-primary" />
@@ -1167,14 +1201,21 @@ and how SphereSync fixes it<span className="text-primary"> SphereSync</span> fi
             <div className="space-y-4 text-lg text-muted-foreground leading-relaxed">
               <p className="font-medium text-foreground">SphereSync Founders are typically:</p>
               <div className="grid sm:grid-cols-2 gap-3">
-                {idealFounders.map((item) =>
-                <div key={item} className="flex items-start gap-3 p-4 rounded-xl bg-card border border-border/50">
+                {idealFounders.map((item, i) =>
+                <motion.div
+                  key={item}
+                  initial={{ opacity: 0, y: 15 }}
+                  animate={whoFor.visible ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.4, delay: i * 0.1 }}
+                  className="flex items-start gap-3 p-4 rounded-xl bg-card border border-border/50">
                     <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 shrink-0" />
                     <span className="text-sm">{item}</span>
-                  </div>
+                  </motion.div>
                 )}
               </div>
             </div>
+
+            <SectionCTA visible={whoFor.visible} />
           </div>
         </section>
 
