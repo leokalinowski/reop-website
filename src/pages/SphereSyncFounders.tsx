@@ -75,11 +75,15 @@ const PrimaryCTA = ({ label = 'Apply for Founder Access' }: {label?: string;}) =
   </Button>;
 
 
-const SectionCTA = ({ label = 'Apply for Founder Access' }: {label?: string;}) =>
-<div className="flex flex-col items-center gap-3 pt-8">
+const SectionCTA = ({ label = 'Apply for Founder Access', visible = true }: {label?: string; visible?: boolean;}) =>
+<motion.div
+    className="flex flex-col items-center gap-3 pt-8"
+    initial={{ opacity: 0, y: 10 }}
+    animate={visible ? { opacity: 1, y: 0 } : {}}
+    transition={{ duration: 0.5, delay: 0.3 }}>
     <PrimaryCTA label={label} />
     <p className="text-sm text-muted-foreground">Limited to 50 Founders</p>
-  </div>;
+  </motion.div>;
 
 
 /* ─── 13-Week Wheel Component ─── */
