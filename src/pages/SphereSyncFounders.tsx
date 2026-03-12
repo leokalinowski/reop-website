@@ -912,7 +912,7 @@ and how SphereSync fixes it<span className="text-primary"> SphereSync</span> fi
         </section>
 
         {/* ═══════ 10b · A NOTE FROM PAM ═══════ */}
-        <section ref={pamNote.ref} className="relative py-20 md:py-28 px-6 md:px-12">
+        <section ref={pamNote.ref} className="relative py-12 md:py-16 px-6 md:px-12">
           <div className={`relative z-10 max-w-6xl mx-auto ${fadeIn(pamNote.visible)}`}>
             <h2 className="text-3xl md:text-4xl font-bold tracking-tighter text-foreground leading-tight mb-10">
               A Note from <span className="text-primary">Pam</span>
