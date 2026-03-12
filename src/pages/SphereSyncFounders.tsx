@@ -1140,7 +1140,7 @@ and how SphereSync fixes it<span className="text-primary"> SphereSync</span> fi
         </section>
 
         {/* ═══════ 15 · FOUNDER COHORT INVESTMENT ═══════ */}
-        <section ref={pricing.ref} className="relative py-20 md:py-28 px-6 md:px-12">
+        <section ref={pricing.ref} className="relative py-12 md:py-16 px-6 md:px-12">
           <div className={`max-w-lg mx-auto space-y-10 ${fadeIn(pricing.visible)}`}>
             <div className="text-center space-y-4">
               <h2 className="text-3xl md:text-4xl font-bold tracking-tighter text-foreground">
