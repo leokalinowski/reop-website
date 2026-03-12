@@ -210,7 +210,7 @@ const SphereSyncFounders = () => {
 
               <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter leading-[1.08] text-foreground">
                 Stop losing business from the people who{' '}
-                <span className="text-primary">already know and trust you.</span>
+                <span className="text-primary">already know, like, and trust you.</span>
               </h1>
 
               <div className="flex items-center gap-3 py-1">
@@ -231,7 +231,8 @@ const SphereSyncFounders = () => {
 
               {/* Narrative copy — below the CTA */}
               <div className="space-y-3 text-sm md:text-base text-muted-foreground leading-relaxed pt-2">
-                <p>Right now, someone in your sphere is buying or selling — and they're not calling you. SphereSync gives you a repeatable weekly rhythm to stay visible, stay valuable, and stay chosen.</p>
+                <p>
+</p>
                 <p className="text-xs md:text-sm text-muted-foreground italic">Built from decades of real estate referral data and real-world agent implementation — not marketing theory.</p>
               </div>
 
@@ -250,8 +251,7 @@ const SphereSyncFounders = () => {
             <div className="hidden md:block self-center max-h-[520px]">
               {/* Labels row */}
               <div className="flex gap-2 mb-3">
-                {[
-                { label: 'Activate Relationships', bg: 'bg-primary text-primary-foreground', delay: 1 },
+                {[{ label: 'Activate Relationships', bg: 'bg-primary text-primary-foreground', delay: 1 },
                 { label: 'Start Conversations', bg: 'bg-accent text-accent-foreground', delay: 1.3 },
                 { label: 'Stay Top of Mind', bg: 'bg-secondary text-secondary-foreground', delay: 1.6 }].
                 map((pill) =>
