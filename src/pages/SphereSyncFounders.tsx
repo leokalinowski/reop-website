@@ -1220,7 +1220,7 @@ and how SphereSync fixes it<span className="text-primary"> SphereSync</span> fi
         </section>
 
         {/* ═══════ 17 · FINAL CTA ═══════ */}
-        <section ref={finalCta.ref} className="relative py-24 md:py-32 px-6 md:px-12 overflow-hidden">
+        <section ref={finalCta.ref} className="relative py-16 md:py-20 px-6 md:px-12 overflow-hidden">
           <NetworkBackground />
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full pointer-events-none">
             <div className="w-full h-full opacity-10 bg-primary blur-[120px]" />
