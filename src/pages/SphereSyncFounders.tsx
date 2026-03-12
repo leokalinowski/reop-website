@@ -179,8 +179,8 @@ const SphereSyncFounders = () => {
   return (
     <>
       <SEO
-        title="SphereSync Founders — 50 Agents Proving the Relationship Model"
-        description="Join the first 50 agents implementing SphereSync to prove how powerful a well-activated sphere can be at generating referrals. Founder cohort closes April 15."
+        title="SphereSync Founders — Stop Losing Business From People Who Already Trust You"
+        description="SphereSync is the weekly system that helps agents activate their sphere, stay top of mind, and turn existing relationships into consistent referrals and repeat business. Invite-only Founder Access."
         keywords={['SphereSync Founders', 'real estate referrals', 'sphere of influence', 'relationship-driven real estate', 'founder cohort']}
         url="https://reop-website.lovable.app/spheresync-founders" />
       
@@ -201,17 +201,16 @@ const SphereSyncFounders = () => {
             <div className="space-y-4">
               <div className="flex flex-wrap gap-3">
                 <Badge variant="outline" className="text-primary border-primary/30 px-4 py-1.5 text-sm tracking-wide backdrop-blur-sm">
-                  SphereSync Founders
+                  Invite-Only Founder Access
                 </Badge>
                 <Badge variant="outline" className="text-destructive border-destructive/30 px-4 py-1.5 text-sm tracking-wide backdrop-blur-sm">
-                  Limited to 50 Founders
+                  Limited to 50 Seats
                 </Badge>
               </div>
 
               <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter leading-[1.08] text-foreground">
-                50 agents. Six months.{' '}
-                <span className="text-primary">One goal:</span>{' '}
-                <span className="text-foreground">prove how powerful a well-activated sphere can be at generating referrals.</span>
+                Stop losing business from the people who{' '}
+                <span className="text-primary">already know and trust you.</span>
               </h1>
 
               <div className="flex items-center gap-3 py-1">
@@ -220,20 +219,19 @@ const SphereSyncFounders = () => {
                 <div className="h-px w-12 bg-primary/30" />
               </div>
 
-              <p className="text-lg md:text-xl font-semibold text-foreground">Relationships should still win.</p>
-              <p className="text-base md:text-lg font-medium text-primary">SphereSync Founders are the agents proving that they do.</p>
+              <p className="text-lg md:text-xl font-semibold text-foreground">SphereSync is the weekly system that helps agents activate their sphere, stay top of mind, and turn existing relationships into consistent referrals and repeat business.</p>
+              <p className="text-sm md:text-base text-muted-foreground">This page is for invite-only Founder Access — early pricing, direct support, and a seat at the table.</p>
 
               <div className="pt-2">
-                <PrimaryCTA />
+                <PrimaryCTA label="Claim Your Founder Invitation" />
                 <p className="text-sm text-muted-foreground mt-3 tracking-wide">
-                  Founder enrollment closes April 15 or when the cohort fills.
+                  Invite-only Founder launch · Early-access pricing · Closes April 15
                 </p>
               </div>
 
               {/* Narrative copy — below the CTA */}
               <div className="space-y-3 text-sm md:text-base text-muted-foreground leading-relaxed pt-2">
-                <p>Right now, someone in your sphere is buying or selling a home. They're not calling you. Not because you did anything wrong. Because someone else stayed in touch — and you didn't. SphereSync is the system that makes sure that stops happening.</p>
-                <p>This isn't another CRM or marketing platform. It's a system for activating the relationships already inside your business.</p>
+                <p>Right now, someone in your sphere is buying or selling — and they're not calling you. SphereSync gives you a repeatable weekly rhythm to stay visible, stay valuable, and stay chosen.</p>
                 <p className="text-xs md:text-sm text-muted-foreground italic">Built from decades of real estate referral data and real-world agent implementation — not marketing theory.</p>
               </div>
 
