@@ -223,9 +223,9 @@ const SphereSyncFounders = () => {
               <p className="text-sm md:text-base text-muted-foreground">This page is for invite-only Founder Access — early pricing, direct support, and a seat at the table.</p>
 
               <div className="pt-2">
-                <PrimaryCTA />
+                <PrimaryCTA label="Claim Your Founder Invitation" />
                 <p className="text-sm text-muted-foreground mt-3 tracking-wide">
-                  Founder enrollment closes April 15 or when the cohort fills.
+                  Invite-only Founder launch · Early-access pricing · Closes April 15
                 </p>
               </div>
 
