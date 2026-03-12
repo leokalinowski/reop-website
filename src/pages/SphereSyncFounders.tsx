@@ -998,10 +998,15 @@ and how SphereSync fixes it<span className="text-primary"> SphereSync</span> fi
                 { icon: CalendarCheck, title: 'Weekly Implementation Support', desc: 'Guided rhythm with office hours' },
                 { icon: BarChart3, title: 'Progress Tracking', desc: 'Measure your momentum over time' },
                 { icon: Users, title: 'Founder Community', desc: '50 agents building together' }].
-                map((card) => {
+                map((card, i) => {
                   const Icon = card.icon;
                   return (
-                    <div key={card.title} className="flex items-start gap-4 p-4 rounded-xl bg-card border border-border/50">
+                    <motion.div
+                      key={card.title}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={cohort.visible ? { opacity: 1, y: 0 } : {}}
+                      transition={{ duration: 0.5, delay: i * 0.12 }}
+                      className="flex items-start gap-4 p-4 rounded-xl bg-card border border-border/50 hover:scale-[1.02] transition-transform duration-300">
                       <div className="p-2 rounded-lg bg-primary/10 shrink-0">
                         <Icon className="h-5 w-5 text-primary" />
                       </div>
@@ -1009,11 +1014,13 @@ and how SphereSync fixes it<span className="text-primary"> SphereSync</span> fi
                         <p className="text-foreground font-semibold">{card.title}</p>
                         <p className="text-sm text-muted-foreground">{card.desc}</p>
                       </div>
-                    </div>);
+                    </motion.div>);
 
                 })}
               </div>
             </div>
+
+            <SectionCTA visible={cohort.visible} />
           </div>
         </section>
 
