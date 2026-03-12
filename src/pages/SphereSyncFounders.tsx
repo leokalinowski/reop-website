@@ -590,70 +590,7 @@ and how SphereSync fixes it<span className="text-primary">SphereSync</span> fixe
           </div>
         </section>
 
-        {/* ═══════ 5 · A NOTE FROM PAM ═══════ */}
-        <section ref={pamNote.ref} className="relative py-20 md:py-28 px-6 md:px-12">
-          <div className={`relative z-10 max-w-6xl mx-auto ${fadeIn(pamNote.visible)}`}>
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tighter text-foreground leading-tight mb-10">
-              A Note from <span className="text-primary">Pam</span>
-            </h2>
-
-            <div className="grid md:grid-cols-[280px_1fr] lg:grid-cols-[320px_1fr] gap-10 md:gap-16">
-              {/* Left — Photo & signature */}
-              <div className="flex flex-col items-center md:items-start gap-6">
-                <div className="w-48 h-48 md:w-full md:h-auto md:aspect-square rounded-2xl overflow-hidden bg-muted border border-border">
-                  <img
-                    src="/images/pamobryant.png"
-                    alt="Pam O'Bryant"
-                    className="w-full h-full object-cover"
-                    loading="lazy" />
-                  
-                </div>
-                <div className="text-center md:text-left">
-                  <p className="text-foreground font-semibold text-lg">Pam O'Bryant</p>
-                  <p className="text-sm text-muted-foreground">Founder & CEO, REOP</p>
-                </div>
-
-                {/* Pull-quote on desktop */}
-                <div className="hidden md:block bg-primary/5 border-l-4 border-primary rounded-r-xl p-5">
-                  <p className="text-sm text-foreground italic leading-relaxed">
-                    "The problem wasn't belief in relationships. It was the lack of a simple system for activating them consistently."
-                  </p>
-                </div>
-              </div>
-
-              {/* Right — Full note */}
-              <div className="space-y-5 text-base md:text-lg text-muted-foreground leading-relaxed" style={{ letterSpacing: '0.01em' }}>
-                <p>For decades I've watched the same pattern play out in real estate.</p>
-                <p>Agents work incredibly hard to build relationships, close transactions, and earn trust.</p>
-                <p>But without a system for staying visible with their sphere, those relationships slowly drift.</p>
-                <p>Not because agents don't care. Because life and business get busy.</p>
-                <p>Over the years I've spent a lot of time in rooms with real estate agents — teaching, coaching, and helping them build referral-driven businesses.</p>
-                <p>And the same challenge comes up again and again.</p>
-                <p className="text-foreground font-medium">Agents know relationships matter. They want to stay connected with their sphere.</p>
-                <p>But between compliance concerns like the Do Not Call registry, the constant stream of new tools and tactics, and industry voices telling them to spend half their time creating content, many agents end up overwhelmed.</p>
-                <p>They believe in relationships. They just don't have a clear, manageable system for activating them consistently.</p>
-                <p>In mastermind rooms where agents openly shared their numbers, the pattern became unmistakable:</p>
-                <p className="font-semibold text-foreground border-l-2 border-primary pl-4">
-                  Agents who consistently activate their sphere generate extraordinary referral businesses.
-                </p>
-                <p>In my own business, that approach produced roughly one transaction for every four relationships in my sphere — an unusually strong ratio, but proof of what a well-activated network can produce.</p>
-                <p>But as the industry shifted toward larger teams, lead platforms, and increasingly bloated databases, that discipline began to fade.</p>
-
-                {/* Pull-quote on mobile */}
-                <div className="md:hidden bg-primary/5 border-l-4 border-primary rounded-r-xl p-5 my-6">
-                  <p className="text-sm text-foreground italic leading-relaxed">
-                    "The problem wasn't belief in relationships. It was the lack of a simple system for activating them consistently."
-                  </p>
-                </div>
-
-                <p className="text-foreground font-medium">SphereSync was built to restore that structure.</p>
-                <p>We're starting with a small Founder cohort so the first group of agents can implement the system, measure the results, and demonstrate what a well-activated sphere can truly produce.</p>
-                <p>If you believe relationships should still be the most reliable source of business in real estate, this is where we begin.</p>
-                <p className="text-foreground italic text-xl pt-4">— Pam</p>
-              </div>
-            </div>
-          </div>
-        </section>
+        {/* Pam Note moved to after 13-Week Cycle */}
 
         {/* ═══════ 6 · THE DATA BEHIND SPHERESYNC ═══════ */}
         <section ref={dataBehind.ref} className="relative py-20 md:py-28 px-6 md:px-12 bg-primary/5">
