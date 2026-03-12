@@ -231,9 +231,9 @@ const SphereSyncFounders = () => {
                 <a
                   href="#vsl"
                   onClick={(e) => { e.preventDefault(); document.getElementById('vsl')?.scrollIntoView({ behavior: 'smooth' }); }}
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-md border border-primary/30 text-primary hover:bg-primary/10 transition-colors text-sm font-medium"
+                  className="inline-flex items-center justify-center gap-2 h-14 px-10 rounded-md bg-background text-primary border-2 border-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 text-lg font-medium shadow-lg hover:shadow-xl"
                 >
-                  <Play size={16} fill="currentColor" /> Learn More
+                  <Play size={18} fill="currentColor" /> Learn More
                 </a>
               </div>
               <p className="text-sm text-muted-foreground mt-3 tracking-wide">
