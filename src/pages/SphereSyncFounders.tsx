@@ -970,6 +970,8 @@ and how SphereSync fixes it<span className="text-primary"> SphereSync</span> fi
                 <p className="text-foreground italic text-xl pt-4">— Pam</p>
               </div>
             </div>
+
+            <SectionCTA label="Claim Your Founder Invitation" visible={pamNote.visible} />
           </div>
         </section>
 
