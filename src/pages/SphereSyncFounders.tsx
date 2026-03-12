@@ -356,7 +356,7 @@ const SphereSyncFounders = () => {
                       const gauge = gauges[0];
                       const offset = circumference - gauge.value / 100 * circumference;
                       return (
-                        <div className="flex flex-col items-center gap-3">
+                        <div className="flex flex-col items-center gap-3 bg-secondary-foreground/10 border border-secondary-foreground/20 rounded-2xl p-6">
                           <div className="relative w-48 h-48">
                             <svg viewBox="0 0 180 180" className="w-full h-full -rotate-[135deg]">
                               <circle cx="90" cy="90" r={radius} fill="none" strokeWidth="14" strokeLinecap="round" className={gauge.trackStroke} strokeDasharray={circumference} strokeDashoffset={0} />
