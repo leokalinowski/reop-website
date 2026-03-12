@@ -645,7 +645,7 @@ const SphereSyncFounders = () => {
                   <ArrowRight className="h-4 w-4 text-muted-foreground mx-1" />
                   <Home className="h-4 w-4 text-primary" />
                 </div>
-                <p className="text-2xl font-bold text-primary">1 : 4–6</p>
+                <p className="text-2xl font-bold text-primary">1 : 6-8</p>
                 <p className="text-xs text-muted-foreground">Strong yield benchmark</p>
                 <p className="text-[10px] text-muted-foreground uppercase tracking-wider">Historical Best</p>
               </div>
