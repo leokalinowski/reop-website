@@ -731,7 +731,7 @@ and how SphereSync fixes it<span className="text-primary"> SphereSync</span> fi
         </section>
 
         {/* ═══════ 8 · FOUNDERS RALLY LINE ═══════ */}
-        <section ref={rallyLine.ref} className="relative py-12 md:py-16 px-6 md:px-12 bg-secondary">
+        <section ref={rallyLine.ref} className="relative py-8 md:py-12 px-6 md:px-12 bg-secondary">
           <div className={`max-w-4xl mx-auto text-center ${fadeIn(rallyLine.visible)}`}>
             <p className="text-2xl md:text-3xl lg:text-4xl font-bold tracking-tighter text-secondary-foreground leading-tight">
               The industry told you to buy leads.
