@@ -422,9 +422,9 @@ const SphereSyncFounders = () => {
             {/* Trust Fade Timeline */}
             <div className="grid sm:grid-cols-3 gap-4 pt-4">
               {[
-              { icon: CheckCircle2, title: 'Trust is earned', desc: 'At closing, they love you', iconColor: 'text-primary', bg: 'bg-primary/10', borderColor: 'border-primary/30' },
-              { icon: Eye, title: 'The relationship goes quiet', desc: 'Weeks pass without real contact', iconColor: 'text-accent', bg: 'bg-accent/10', borderColor: 'border-accent/30' },
-              { icon: UserCheck, title: 'Another agent becomes top of mind', desc: 'Someone else fills the gap', iconColor: 'text-destructive', bg: 'bg-destructive/10', borderColor: 'border-destructive/30' }].
+              { icon: CheckCircle2, title: 'Trust is earned', desc: 'At closing, they love you', iconColor: 'text-primary', bg: 'bg-primary/20', borderColor: 'border-primary/30' },
+              { icon: Eye, title: 'The relationship goes quiet', desc: 'Weeks pass without real contact', iconColor: 'text-accent', bg: 'bg-accent/20', borderColor: 'border-accent/30' },
+              { icon: UserCheck, title: 'Another agent becomes top of mind', desc: 'Someone else fills the gap', iconColor: 'text-destructive', bg: 'bg-destructive/20', borderColor: 'border-destructive/30' }].
               map((step, i) =>
               <motion.div
                 key={step.title}
