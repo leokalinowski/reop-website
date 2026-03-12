@@ -77,7 +77,7 @@ const PrimaryCTA = ({ label = 'Apply for Founder Access' }: {label?: string;}) =
 
 const SectionCTA = ({ label = 'Apply for Founder Access', visible = true }: {label?: string; visible?: boolean;}) =>
 <motion.div
-    className="flex flex-col items-center gap-3 pt-8"
+    className="flex flex-col items-center gap-3 pt-4"
     initial={{ opacity: 0, y: 10 }}
     animate={visible ? { opacity: 1, y: 0 } : {}}
     transition={{ duration: 0.5, delay: 0.3 }}>
@@ -333,7 +333,7 @@ const SphereSyncFounders = () => {
         </section>
 
         {/* ═══════ 2 · THE DATABASE GAP ═══════ */}
-        <section ref={dbGap.ref} className="relative py-14 md:py-20 px-6 md:px-12 bg-secondary text-secondary-foreground">
+        <section ref={dbGap.ref} className="relative py-10 md:py-14 px-6 md:px-12 bg-secondary text-secondary-foreground">
           <div className={`relative z-10 max-w-4xl mx-auto space-y-6 ${fadeIn(dbGap.visible)}`}>
             <div>
               <h2 className="text-2xl md:text-3xl font-semibold tracking-tighter leading-tight text-secondary-foreground/90">
@@ -456,7 +456,7 @@ const SphereSyncFounders = () => {
         </section>
 
         {/* ═══════ 3 · WHAT INACTION COSTS ═══════ */}
-        <section ref={inactionCost.ref} className="relative py-14 md:py-20 px-6 md:px-12">
+        <section ref={inactionCost.ref} className="relative py-10 md:py-14 px-6 md:px-12">
           <div className={`max-w-5xl mx-auto space-y-8 ${fadeIn(inactionCost.visible)}`}>
             <h2 className="text-3xl md:text-4xl font-bold tracking-tighter text-foreground leading-tight text-center">
               What Inaction <span className="text-primary">Actually Costs</span>
@@ -544,7 +544,7 @@ const SphereSyncFounders = () => {
         </section>
 
         {/* ═══════ 4 · VSL SECTION ═══════ */}
-        <section ref={vsl.ref} className="relative py-20 md:py-28 px-6 md:px-12 bg-primary/5">
+        <section ref={vsl.ref} className="relative py-12 md:py-16 px-6 md:px-12 bg-primary/5">
           <div className="absolute inset-0 cosmic-grid opacity-5 pointer-events-none" />
           <div className={`relative z-10 max-w-4xl mx-auto space-y-10 text-center ${fadeIn(vsl.visible)}`}>
             <div className="space-y-4">
@@ -587,7 +587,7 @@ and how SphereSync fixes it<span className="text-primary"> SphereSync</span> fi
               })}
             </div>
 
-            <div className="flex flex-col items-center gap-3 pt-8">
+            <div className="flex flex-col items-center gap-3 pt-4">
               <PrimaryCTA label="Apply for Founder Access" />
               <p className="text-sm text-muted-foreground">Invite-only launch · Limited to 50 Founders</p>
             </div>
@@ -597,7 +597,7 @@ and how SphereSync fixes it<span className="text-primary"> SphereSync</span> fi
         {/* Pam Note moved to after 13-Week Cycle */}
 
         {/* ═══════ 6 · THE DATA BEHIND SPHERESYNC ═══════ */}
-        <section ref={dataBehind.ref} className="relative py-20 md:py-28 px-6 md:px-12 bg-primary/5">
+        <section ref={dataBehind.ref} className="relative py-12 md:py-16 px-6 md:px-12 bg-primary/5">
           <div className="absolute inset-0 cosmic-grid opacity-5 pointer-events-none" />
             <div className={`relative z-10 max-w-5xl mx-auto space-y-8 ${fadeIn(dataBehind.visible)}`}>
             <h2 className="text-3xl md:text-4xl font-bold tracking-tighter text-foreground leading-tight text-center">
@@ -660,7 +660,7 @@ and how SphereSync fixes it<span className="text-primary"> SphereSync</span> fi
         </section>
 
         {/* ═══════ 7 · WHY THIS MATTERS ═══════ */}
-        <section ref={whyMatters.ref} className="relative py-20 md:py-28 px-6 md:px-12">
+        <section ref={whyMatters.ref} className="relative py-12 md:py-16 px-6 md:px-12">
           <div className={`max-w-5xl mx-auto space-y-8 ${fadeIn(whyMatters.visible)}`}>
             <h2 className="text-3xl md:text-4xl font-bold tracking-tighter text-foreground leading-tight text-center">
               Why This <span className="text-primary">Matters</span>
@@ -731,7 +731,7 @@ and how SphereSync fixes it<span className="text-primary"> SphereSync</span> fi
         </section>
 
         {/* ═══════ 8 · FOUNDERS RALLY LINE ═══════ */}
-        <section ref={rallyLine.ref} className="relative py-12 md:py-16 px-6 md:px-12 bg-secondary">
+        <section ref={rallyLine.ref} className="relative py-8 md:py-12 px-6 md:px-12 bg-secondary">
           <div className={`max-w-4xl mx-auto text-center ${fadeIn(rallyLine.visible)}`}>
             <p className="text-2xl md:text-3xl lg:text-4xl font-bold tracking-tighter text-secondary-foreground leading-tight">
               The industry told you to buy leads.
@@ -743,7 +743,7 @@ and how SphereSync fixes it<span className="text-primary"> SphereSync</span> fi
         </section>
 
         {/* ═══════ 9 · THE SPHERESYNC SYSTEM ═══════ */}
-        <section ref={system.ref} className="relative py-20 md:py-28 px-6 md:px-12">
+        <section ref={system.ref} className="relative py-12 md:py-16 px-6 md:px-12">
           <div className={`max-w-5xl mx-auto space-y-10 ${fadeIn(system.visible)}`}>
             <h2 className="text-3xl md:text-4xl font-bold tracking-tighter text-foreground leading-tight text-center">
               The <span className="text-primary">SphereSync</span> System
@@ -852,7 +852,7 @@ and how SphereSync fixes it<span className="text-primary"> SphereSync</span> fi
         </section>
 
         {/* ═══════ 10 · THE 13-WEEK SPHERE CYCLE ═══════ */}
-        <section ref={cycle.ref} className="relative py-20 md:py-28 px-6 md:px-12 bg-primary/5">
+        <section ref={cycle.ref} className="relative py-12 md:py-16 px-6 md:px-12 bg-primary/5">
           <div className="absolute inset-0 cosmic-grid opacity-5 pointer-events-none" />
           <div className={`relative z-10 max-w-5xl mx-auto space-y-10 ${fadeIn(cycle.visible)}`}>
             <h2 className="text-3xl md:text-4xl font-bold tracking-tighter text-foreground leading-tight text-center">
@@ -912,7 +912,7 @@ and how SphereSync fixes it<span className="text-primary"> SphereSync</span> fi
         </section>
 
         {/* ═══════ 10b · A NOTE FROM PAM ═══════ */}
-        <section ref={pamNote.ref} className="relative py-20 md:py-28 px-6 md:px-12">
+        <section ref={pamNote.ref} className="relative py-12 md:py-16 px-6 md:px-12">
           <div className={`relative z-10 max-w-6xl mx-auto ${fadeIn(pamNote.visible)}`}>
             <h2 className="text-3xl md:text-4xl font-bold tracking-tighter text-foreground leading-tight mb-10">
               A Note from <span className="text-primary">Pam</span>
@@ -976,7 +976,7 @@ and how SphereSync fixes it<span className="text-primary"> SphereSync</span> fi
         </section>
 
         {/* ═══════ 11 · THE FOUNDERS COHORT ═══════ */}
-        <section ref={cohort.ref} className="relative py-20 md:py-28 px-6 md:px-12">
+        <section ref={cohort.ref} className="relative py-12 md:py-16 px-6 md:px-12">
           <div className={`max-w-5xl mx-auto ${fadeIn(cohort.visible)}`}>
             <h2 className="text-3xl md:text-4xl font-bold tracking-tighter text-foreground leading-tight mb-10">
               The <span className="text-primary">Founders Cohort</span>
@@ -1025,7 +1025,7 @@ and how SphereSync fixes it<span className="text-primary"> SphereSync</span> fi
         </section>
 
         {/* ═══════ 12 · FOUNDER BENCHMARK TRACKING ═══════ */}
-        <section ref={yieldChallenge.ref} className="relative py-20 md:py-28 px-6 md:px-12 bg-primary/5">
+        <section ref={yieldChallenge.ref} className="relative py-12 md:py-16 px-6 md:px-12 bg-primary/5">
           <div className="absolute inset-0 cosmic-grid opacity-5 pointer-events-none" />
           <div className={`relative z-10 max-w-4xl mx-auto space-y-10 ${fadeIn(yieldChallenge.visible)}`}>
             <h2 className="text-3xl md:text-4xl font-bold tracking-tighter text-foreground leading-tight text-center">
@@ -1057,7 +1057,7 @@ and how SphereSync fixes it<span className="text-primary"> SphereSync</span> fi
         </section>
 
         {/* ═══════ 13 · WHAT FOUNDERS RECEIVE ═══════ */}
-        <section ref={receives.ref} className="relative py-20 md:py-28 px-6 md:px-12">
+        <section ref={receives.ref} className="relative py-12 md:py-16 px-6 md:px-12">
           <div className={`max-w-5xl mx-auto space-y-12 ${fadeIn(receives.visible)}`}>
             <div className="text-center space-y-4">
               <h2 className="text-3xl md:text-4xl font-bold tracking-tighter text-foreground">
@@ -1092,7 +1092,7 @@ and how SphereSync fixes it<span className="text-primary"> SphereSync</span> fi
         </section>
 
         {/* ═══════ 14 · WHAT HAPPENS WHEN YOU JOIN ═══════ */}
-        <section ref={onboarding.ref} className="relative py-20 md:py-28 px-6 md:px-12 bg-primary/5">
+        <section ref={onboarding.ref} className="relative py-12 md:py-16 px-6 md:px-12 bg-primary/5">
           <div className="absolute inset-0 cosmic-grid opacity-5 pointer-events-none" />
           <div className={`relative z-10 max-w-3xl mx-auto space-y-10 ${fadeIn(onboarding.visible)}`}>
             <div className="text-center space-y-4">
@@ -1140,7 +1140,7 @@ and how SphereSync fixes it<span className="text-primary"> SphereSync</span> fi
         </section>
 
         {/* ═══════ 15 · FOUNDER COHORT INVESTMENT ═══════ */}
-        <section ref={pricing.ref} className="relative py-20 md:py-28 px-6 md:px-12">
+        <section ref={pricing.ref} className="relative py-12 md:py-16 px-6 md:px-12">
           <div className={`max-w-lg mx-auto space-y-10 ${fadeIn(pricing.visible)}`}>
             <div className="text-center space-y-4">
               <h2 className="text-3xl md:text-4xl font-bold tracking-tighter text-foreground">
@@ -1192,7 +1192,7 @@ and how SphereSync fixes it<span className="text-primary"> SphereSync</span> fi
         </section>
 
         {/* ═══════ 16 · WHO IT'S FOR ═══════ */}
-        <section ref={whoFor.ref} className="relative py-20 md:py-28 px-6 md:px-12 bg-primary/5">
+        <section ref={whoFor.ref} className="relative py-12 md:py-16 px-6 md:px-12 bg-primary/5">
           <div className="absolute inset-0 cosmic-grid opacity-5 pointer-events-none" />
           <div className={`relative z-10 max-w-3xl mx-auto space-y-8 ${fadeIn(whoFor.visible)}`}>
             <h2 className="text-3xl md:text-4xl font-bold tracking-tighter text-foreground leading-tight">
@@ -1220,7 +1220,7 @@ and how SphereSync fixes it<span className="text-primary"> SphereSync</span> fi
         </section>
 
         {/* ═══════ 17 · FINAL CTA ═══════ */}
-        <section ref={finalCta.ref} className="relative py-24 md:py-32 px-6 md:px-12 overflow-hidden">
+        <section ref={finalCta.ref} className="relative py-16 md:py-20 px-6 md:px-12 overflow-hidden">
           <NetworkBackground />
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full pointer-events-none">
             <div className="w-full h-full opacity-10 bg-primary blur-[120px]" />
