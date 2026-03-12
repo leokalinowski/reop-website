@@ -219,8 +219,8 @@ const SphereSyncFounders = () => {
                 <div className="h-px w-12 bg-primary/30" />
               </div>
 
-              <p className="text-lg md:text-xl font-semibold text-foreground">Relationships should still win.</p>
-              <p className="text-base md:text-lg font-medium text-primary">SphereSync Founders are the agents proving that they do.</p>
+              <p className="text-lg md:text-xl font-semibold text-foreground">SphereSync is the weekly system that helps agents activate their sphere, stay top of mind, and turn existing relationships into consistent referrals and repeat business.</p>
+              <p className="text-sm md:text-base text-muted-foreground">This page is for invite-only Founder Access — early pricing, direct support, and a seat at the table.</p>
 
               <div className="pt-2">
                 <PrimaryCTA />
