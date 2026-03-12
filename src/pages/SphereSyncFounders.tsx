@@ -738,12 +738,12 @@ and how SphereSync fixes it<span className="text-primary">SphereSync</span> fixe
             <p className="text-lg text-muted-foreground leading-relaxed max-w-3xl mx-auto text-center">
               SphereSync gives agents a structured weekly system for activating their sphere, starting conversations, and staying top of mind.
             </p>
-            <p className="text-lg text-muted-foreground leading-relaxed max-w-3xl mx-auto text-center">
-              It combines a clear action rhythm, relationship prompts, and a live performance dashboard so you always know what to do next.
-            </p>
 
             {/* Hub and Spoke Diagram */}
-            <div className="space-y-8">
+            <div className="space-y-6">
+              {/* SYSTEM INPUTS label */}
+              <p className="text-xs tracking-widest text-muted-foreground uppercase text-center font-medium">System Inputs</p>
+
               {/* Input Cards */}
               <div className="grid sm:grid-cols-3 gap-4">
                 {[
@@ -763,24 +763,44 @@ and how SphereSync fixes it<span className="text-primary">SphereSync</span> fixe
                 })}
               </div>
 
-              {/* Connecting lines + center node */}
-              <div className="flex flex-col items-center gap-2">
-                <div className="flex items-center gap-1">
-                  <div className="w-px h-8 bg-primary/30" />
-                  <div className="w-px h-8 bg-primary/30 mx-12 hidden sm:block" />
-                  <div className="w-px h-8 bg-primary/30 hidden sm:block" />
-                </div>
-                <div className="w-32 h-32 rounded-full bg-primary/10 border-2 border-primary/30 flex items-center justify-center">
-                  <div className="text-center">
-                    <p className="text-lg font-bold text-primary">SphereSync</p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-1">
-                  <div className="w-px h-8 bg-primary/30" />
-                  <div className="w-px h-8 bg-primary/30 mx-12 hidden sm:block" />
-                  <div className="w-px h-8 bg-primary/30 hidden sm:block" />
+              {/* Top connectors with arrows */}
+              <div className="flex justify-center">
+                <div className="flex items-end gap-16 sm:gap-24">
+                  {[0, 1, 2].map((i) => (
+                    <div key={i} className={`flex flex-col items-center ${i > 0 ? 'hidden sm:flex' : ''}`}>
+                      <div className="w-0.5 h-10 bg-primary/40" />
+                      <div className="text-primary/60 text-xs leading-none">▼</div>
+                    </div>
+                  ))}
                 </div>
               </div>
+
+              {/* Center Hub */}
+              <div className="flex justify-center">
+                <div className="w-40 h-40 md:w-48 md:h-48 rounded-full border-2 border-primary/20 flex items-center justify-center p-2 shadow-[0_0_30px_hsl(var(--primary)/0.15)]">
+                  <div className="w-full h-full rounded-full bg-primary/15 border-2 border-primary/40 flex items-center justify-center">
+                    <div className="text-center">
+                      <p className="text-xl md:text-2xl font-bold text-primary">SphereSync</p>
+                      <p className="text-xs text-primary/70 mt-1">Your Relationship Engine</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Bottom connectors with arrows */}
+              <div className="flex justify-center">
+                <div className="flex items-start gap-16 sm:gap-24">
+                  {[0, 1, 2].map((i) => (
+                    <div key={i} className={`flex flex-col items-center ${i > 0 ? 'hidden sm:flex' : ''}`}>
+                      <div className="text-primary/60 text-xs leading-none rotate-0">▼</div>
+                      <div className="w-0.5 h-10 bg-primary/40" />
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* SYSTEM OUTCOMES label */}
+              <p className="text-xs tracking-widest text-muted-foreground uppercase text-center font-medium">System Outcomes</p>
 
               {/* Output Cards */}
               <div className="grid sm:grid-cols-3 gap-4">
@@ -803,14 +823,14 @@ and how SphereSync fixes it<span className="text-primary">SphereSync</span> fixe
             </div>
 
             {/* Result band */}
-            <div className="bg-primary/5 border border-primary/20 rounded-xl p-5 text-center">
-              <p className="text-lg text-foreground font-medium">
+            <div className="bg-primary/5 border border-primary/20 border-t-2 border-t-primary rounded-xl p-6 md:p-8 text-center">
+              <p className="text-xl md:text-2xl text-foreground font-bold">
                 When those three things happen consistently, referrals follow.
               </p>
             </div>
 
             {/* Compliance strip */}
-            <div className="flex items-center justify-center gap-3 text-sm text-muted-foreground">
+            <div className="bg-muted/50 rounded-lg p-3 flex items-center justify-center gap-3 text-sm text-muted-foreground">
               <ShieldCheck className="h-5 w-5 text-primary shrink-0" />
               <p>SphereSync includes guidance to help agents stay compliant with Do Not Call rules and responsible outreach practices.</p>
             </div>
