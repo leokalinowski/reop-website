@@ -456,7 +456,7 @@ const SphereSyncFounders = () => {
         </section>
 
         {/* ═══════ 3 · WHAT INACTION COSTS ═══════ */}
-        <section ref={inactionCost.ref} className="relative py-14 md:py-20 px-6 md:px-12">
+        <section ref={inactionCost.ref} className="relative py-10 md:py-14 px-6 md:px-12">
           <div className={`max-w-5xl mx-auto space-y-8 ${fadeIn(inactionCost.visible)}`}>
             <h2 className="text-3xl md:text-4xl font-bold tracking-tighter text-foreground leading-tight text-center">
               What Inaction <span className="text-primary">Actually Costs</span>
