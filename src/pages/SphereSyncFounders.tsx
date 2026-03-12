@@ -201,10 +201,10 @@ const SphereSyncFounders = () => {
             <div className="space-y-4">
               <div className="flex flex-wrap gap-3">
                 <Badge variant="outline" className="text-primary border-primary/30 px-4 py-1.5 text-sm tracking-wide backdrop-blur-sm">
-                  SphereSync Founders
+                  Invite-Only Founder Access
                 </Badge>
                 <Badge variant="outline" className="text-destructive border-destructive/30 px-4 py-1.5 text-sm tracking-wide backdrop-blur-sm">
-                  Limited to 50 Founders
+                  Limited to 50 Seats
                 </Badge>
               </div>
 
