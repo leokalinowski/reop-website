@@ -664,11 +664,10 @@ and how SphereSync fixes it<span className="text-primary">SphereSync</span> fixe
             </h2>
 
             <div className="max-w-3xl mx-auto space-y-4 text-lg text-muted-foreground leading-relaxed">
-              <p>For years the real estate industry understood how powerful a well-nurtured sphere could be.</p>
-              <p>In early referral-driven businesses and mastermind groups, strong sphere yield ratios were common — sometimes as high as <span className="text-primary font-semibold">one transaction for every four to six relationships.</span></p>
-              <p>But as the industry shifted toward large teams, lead platforms, and increasingly bloated databases, those numbers steadily declined.</p>
-              <p>Today many agents are taught to expect one transaction for every twelve relationships or worse.</p>
-              <p className="text-foreground font-medium">The question is not whether relationships work. The question is what happens when they are activated consistently again.</p>
+              <p>Relationship-driven business has always been powerful. For decades, the best agents built thriving practices not by chasing strangers — but by staying deeply connected to the people who already knew and trusted them.</p>
+              <p>Strong sphere yield ratios were once common — sometimes as high as <span className="text-primary font-semibold">one transaction for every four to six relationships.</span></p>
+              <p>But as the industry shifted toward lead platforms, larger teams, and increasingly bloated databases, those numbers steadily declined. Today many agents are taught to expect one transaction for every twelve relationships — or worse.</p>
+              <p className="text-foreground font-medium">The question is not whether relationships work. The question is what happens when that proven model is supported by a clear, repeatable system again.</p>
             </div>
 
             {/* Three-part data story */}
@@ -706,11 +705,10 @@ and how SphereSync fixes it<span className="text-primary">SphereSync</span> fixe
             </div>
 
             <div className="max-w-3xl mx-auto space-y-4 text-lg text-muted-foreground leading-relaxed">
-              <p>The Founder cohort is designed to test what happens when that model is supported by a clear system.</p>
-              <p>Founders will implement the SphereSync rhythm for six months while we track Sphere Yield.</p>
-              <p>By collecting anonymized activity and production data, we'll be able to see exactly what happens when agents consistently activate their sphere again.</p>
+              <p>Founder Access is the first opportunity to measure what happens when agents implement SphereSync consistently over six months.</p>
+              <p>Founders will track Sphere Yield as they put the weekly rhythm into practice — building the first real-world benchmark for what a disciplined, relationship-driven business can produce in today's market.</p>
               <p className="font-semibold text-foreground border-l-2 border-primary pl-4">
-                The goal isn't just to improve individual businesses. It's to demonstrate what a disciplined relationship-driven business can still produce in today's market.
+                The goal is to strengthen every Founder's business — and to prove that a system-backed, relationship-first model still outperforms the industry standard.
               </p>
             </div>
           </div>
