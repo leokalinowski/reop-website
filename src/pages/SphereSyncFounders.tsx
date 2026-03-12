@@ -3,8 +3,8 @@ import { motion } from 'framer-motion';
 import {
   Database, CalendarCheck, BarChart3, Users, MessageSquare, ShieldCheck,
   CheckCircle2, ArrowRight, Award, Clock, Zap, Target, TrendingUp, UserCheck,
-  Play, Eye, PhoneOff, Home, AlertTriangle, Building2, Heart
-} from 'lucide-react';
+  Play, Eye, PhoneOff, Home, AlertTriangle, Building2, Heart } from
+'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -22,7 +22,7 @@ function useInView(threshold = 0.15) {
     const el = ref.current;
     if (!el) return;
     const obs = new IntersectionObserver(
-      ([e]) => { if (e.isIntersecting) { setVisible(true); obs.disconnect(); } },
+      ([e]) => {if (e.isIntersecting) {setVisible(true);obs.disconnect();}},
       { threshold }
     );
     obs.observe(el);
@@ -35,52 +35,52 @@ const APPLY_URL = 'https://buy.stripe.com/14A4gBgz08mGgCx2js0x200';
 
 /* ─── Data ─── */
 const founderReceives = [
-  { icon: Database, title: 'Six Months of SphereSync', desc: 'Full access to the SphereSync platform while you implement the system.' },
-  { icon: Users, title: 'Weekly Office Hours', desc: 'Live working sessions where we help you apply the system and solve real challenges inside your business.' },
-  { icon: MessageSquare, title: 'Three Private Strategy Sessions with Pam', desc: 'Focused on: analyzing your sphere opportunity, strengthening your outreach rhythm, and improving conversion from conversations to transactions.' },
-  { icon: Target, title: 'Sphere Opportunity Audit', desc: 'A one-on-one session where we calculate your Sphere Yield and identify the opportunity already inside your network.' },
-  { icon: BarChart3, title: 'Founder Data Project', desc: 'Contribute anonymized activity and production data so we can continue refining the model.' },
-  { icon: Award, title: 'Founder Recognition', desc: 'Founders will always be recognized as the first group who helped bring SphereSync into the industry.' },
-];
+{ icon: Database, title: 'Six Months of SphereSync', desc: 'Full access to the SphereSync platform while you implement the system.' },
+{ icon: Users, title: 'Weekly Office Hours', desc: 'Live working sessions where we help you apply the system and solve real challenges inside your business.' },
+{ icon: MessageSquare, title: 'Three Private Strategy Sessions with Pam', desc: 'Focused on: analyzing your sphere opportunity, strengthening your outreach rhythm, and improving conversion from conversations to transactions.' },
+{ icon: Target, title: 'Sphere Opportunity Audit', desc: 'A one-on-one session where we calculate your Sphere Yield and identify the opportunity already inside your network.' },
+{ icon: BarChart3, title: 'Founder Data Project', desc: 'Contribute anonymized activity and production data so we can continue refining the model.' },
+{ icon: Award, title: 'Founder Recognition', desc: 'Founders will always be recognized as the first group who helped bring SphereSync into the industry.' }];
+
 
 const onboardingSteps = [
-  { step: 1, title: 'Sphere Opportunity Audit', desc: 'Measure the opportunity already inside your sphere.' },
-  { step: 2, title: 'Structure Your Sphere', desc: 'We organize contacts into your 13-week activation cycle.' },
-  { step: 3, title: 'Start the Weekly Rhythm', desc: 'Activate the segment of your sphere each week.' },
-  { step: 4, title: 'Track Momentum', desc: 'Watch conversations and opportunities build week after week.' },
-];
+{ step: 1, title: 'Sphere Opportunity Audit', desc: 'Measure the opportunity already inside your sphere.' },
+{ step: 2, title: 'Structure Your Sphere', desc: 'We organize contacts into your 13-week activation cycle.' },
+{ step: 3, title: 'Start the Weekly Rhythm', desc: 'Activate the segment of your sphere each week.' },
+{ step: 4, title: 'Track Momentum', desc: 'Watch conversations and opportunities build week after week.' }];
+
 
 const pricingIncludes = [
-  'Six months of SphereSync access',
-  'Weekly implementation office hours',
-  'Three private strategy sessions with Pam',
-  'Participation in the Founder data project',
-  'Access to the Founder Cohort Yield Challenge',
-];
+'Six months of SphereSync access',
+'Weekly implementation office hours',
+'Three private strategy sessions with Pam',
+'Participation in the Founder data project',
+'Access to the Founder Cohort Yield Challenge'];
+
 
 const idealFounders = [
-  'Solo agents or small teams',
-  'Agents with meaningful relationships in their sphere',
-  'Agents who believe client referrals should be their primary source of business',
-  'Agents willing to implement a consistent weekly rhythm',
-  'Agents interested in helping prove the relationship model still works',
-];
+'Solo agents or small teams',
+'Agents with meaningful relationships in their sphere',
+'Agents who believe client referrals should be their primary source of business',
+'Agents willing to implement a consistent weekly rhythm',
+'Agents interested in helping prove the relationship model still works'];
+
 
 /* ─── CTA Components ─── */
-const PrimaryCTA = ({ label = 'Apply for Founder Access' }: { label?: string }) => (
-  <Button asChild size="lg" className="h-14 px-10 text-lg shadow-lg hover:shadow-xl transition-all duration-300">
+const PrimaryCTA = ({ label = 'Apply for Founder Access' }: {label?: string;}) =>
+<Button asChild size="lg" className="h-14 px-10 text-lg shadow-lg hover:shadow-xl transition-all duration-300">
     <a href={APPLY_URL} target="_blank" rel="noopener noreferrer">
       {label} <ArrowRight className="ml-2 h-5 w-5" />
     </a>
-  </Button>
-);
+  </Button>;
 
-const SectionCTA = ({ label = 'Apply for Founder Access' }: { label?: string }) => (
-  <div className="flex flex-col items-center gap-3 pt-8">
+
+const SectionCTA = ({ label = 'Apply for Founder Access' }: {label?: string;}) =>
+<div className="flex flex-col items-center gap-3 pt-8">
     <PrimaryCTA label={label} />
     <p className="text-sm text-muted-foreground">Limited to 50 Founders</p>
-  </div>
-);
+  </div>;
+
 
 /* ─── 13-Week Wheel Component ─── */
 const CycleWheel = () => {
@@ -89,8 +89,8 @@ const CycleWheel = () => {
   return (
     <div className="relative w-64 h-64 md:w-80 md:h-80 mx-auto">
       {segments.map((i) => {
-        const angle = (i * 360) / 13 - 90;
-        const rad = (angle * Math.PI) / 180;
+        const angle = i * 360 / 13 - 90;
+        const rad = angle * Math.PI / 180;
         const r = 42; // percentage from center
         const x = 50 + r * Math.cos(rad);
         const y = 50 + r * Math.sin(rad);
@@ -99,15 +99,15 @@ const CycleWheel = () => {
           <div
             key={i}
             className={`absolute w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center text-xs md:text-sm font-semibold transition-all duration-300 ${
-              isActive
-                ? 'bg-primary text-primary-foreground scale-125 shadow-lg ring-4 ring-primary/30'
-                : 'bg-card border border-border text-muted-foreground hover:border-primary/40'
-            }`}
-            style={{ left: `${x}%`, top: `${y}%`, transform: 'translate(-50%, -50%)' }}
-          >
+            isActive ?
+            'bg-primary text-primary-foreground scale-125 shadow-lg ring-4 ring-primary/30' :
+            'bg-card border border-border text-muted-foreground hover:border-primary/40'}`
+            }
+            style={{ left: `${x}%`, top: `${y}%`, transform: 'translate(-50%, -50%)' }}>
+            
             {i + 1}
-          </div>
-        );
+          </div>);
+
       })}
       {/* Center label */}
       <div className="absolute inset-0 flex flex-col items-center justify-center">
@@ -120,13 +120,13 @@ const CycleWheel = () => {
       <div className="absolute -bottom-8 left-1/2 -translate-x-1/2">
         <Badge variant="outline" className="text-primary border-primary/30 text-xs">This Week</Badge>
       </div>
-    </div>
-  );
+    </div>);
+
 };
 
 /* ─── Network Background SVG ─── */
-const NetworkBackground = () => (
-  <svg className="absolute inset-0 w-full h-full opacity-[0.04] pointer-events-none" xmlns="http://www.w3.org/2000/svg">
+const NetworkBackground = () =>
+<svg className="absolute inset-0 w-full h-full opacity-[0.04] pointer-events-none" xmlns="http://www.w3.org/2000/svg">
     <defs>
       <pattern id="network" x="0" y="0" width="120" height="120" patternUnits="userSpaceOnUse">
         <circle cx="10" cy="10" r="2" fill="currentColor" className="text-primary" />
@@ -142,8 +142,8 @@ const NetworkBackground = () => (
       </pattern>
     </defs>
     <rect width="100%" height="100%" fill="url(#network)" />
-  </svg>
-);
+  </svg>;
+
 
 /* ═══════════════════════════════════════════════════════════════ */
 
@@ -174,7 +174,7 @@ const SphereSyncFounders = () => {
   }, []);
 
   const fadeIn = (visible: boolean) =>
-    `transition-all duration-700 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`;
+  `transition-all duration-700 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`;
 
   return (
     <>
@@ -182,18 +182,18 @@ const SphereSyncFounders = () => {
         title="SphereSync Founders — 50 Agents Proving the Relationship Model"
         description="Join the first 50 agents implementing SphereSync to prove how powerful a well-activated sphere can be at generating referrals. Founder cohort closes April 15."
         keywords={['SphereSync Founders', 'real estate referrals', 'sphere of influence', 'relationship-driven real estate', 'founder cohort']}
-        url="https://reop-website.lovable.app/spheresync-founders"
-      />
+        url="https://reop-website.lovable.app/spheresync-founders" />
+      
 
       <main className="overflow-hidden">
 
         {/* ═══════ 1 · HERO ═══════ */}
         <section className="relative min-h-[85vh] md:min-h-screen flex items-center px-6 md:px-12 bg-secondary/5 py-10 md:py-0">
-          {!isMobile && (
-            <div className="absolute inset-0 z-0 pointer-events-none">
+          {!isMobile &&
+          <div className="absolute inset-0 z-0 pointer-events-none">
               <LightRays />
             </div>
-          )}
+          }
           <div className="absolute inset-0 cosmic-gradient opacity-30 pointer-events-none" />
 
           <div className={`relative z-10 max-w-7xl mx-auto w-full grid md:grid-cols-2 gap-10 md:gap-16 items-center transition-all duration-1000 ease-out ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
@@ -253,20 +253,20 @@ const SphereSyncFounders = () => {
               {/* Labels row */}
               <div className="flex gap-2 mb-3">
                 {[
-                  { label: 'Activate Relationships', bg: 'bg-primary text-primary-foreground', delay: 1 },
-                  { label: 'Start Conversations', bg: 'bg-accent text-accent-foreground', delay: 1.3 },
-                  { label: 'Stay Top of Mind', bg: 'bg-secondary text-secondary-foreground', delay: 1.6 },
-                ].map((pill) => (
-                  <motion.span
-                    key={pill.label}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={heroVisible ? { opacity: 1, x: 0 } : {}}
-                    transition={{ delay: pill.delay, duration: 0.6 }}
-                    className={`${pill.bg} text-xs font-medium px-3 py-1.5 rounded-full shadow-lg`}
-                  >
+                { label: 'Activate Relationships', bg: 'bg-primary text-primary-foreground', delay: 1 },
+                { label: 'Start Conversations', bg: 'bg-accent text-accent-foreground', delay: 1.3 },
+                { label: 'Stay Top of Mind', bg: 'bg-secondary text-secondary-foreground', delay: 1.6 }].
+                map((pill) =>
+                <motion.span
+                  key={pill.label}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={heroVisible ? { opacity: 1, x: 0 } : {}}
+                  transition={{ delay: pill.delay, duration: 0.6 }}
+                  className={`${pill.bg} text-xs font-medium px-3 py-1.5 rounded-full shadow-lg`}>
+                  
                     {pill.label}
                   </motion.span>
-                ))}
+                )}
               </div>
 
               <div className="bg-card border border-border rounded-2xl shadow-2xl p-5 space-y-3">
@@ -293,14 +293,14 @@ const SphereSyncFounders = () => {
                 {/* Progress bar */}
                 <div>
                   <div className="flex gap-1">
-                    {Array.from({ length: 13 }).map((_, i) => (
-                      <div
-                        key={i}
-                        className={`h-2 flex-1 rounded-full ${
-                          i < 2 ? 'bg-primary' : i === 2 ? 'bg-primary animate-pulse-slow' : 'bg-border'
-                        }`}
-                      />
-                    ))}
+                    {Array.from({ length: 13 }).map((_, i) =>
+                    <div
+                      key={i}
+                      className={`h-2 flex-1 rounded-full ${
+                      i < 2 ? 'bg-primary' : i === 2 ? 'bg-primary animate-pulse-slow' : 'bg-border'}`
+                      } />
+
+                    )}
                   </div>
                   <div className="flex justify-between mt-2 text-[10px] text-muted-foreground">
                     <span>Week 1</span>
@@ -338,17 +338,15 @@ const SphereSyncFounders = () => {
               <span className="text-primary">Most of them won't.</span>
             </h2>
 
-            <p className="text-lg leading-relaxed opacity-90">Not because you failed them. Because you disappeared.</p>
-
             {/* Animated Gauge Visualization */}
             <div className="grid sm:grid-cols-2 gap-8 pt-4">
               {[
-                { label: '"Would use you again"', value: 80, color: 'text-primary', stroke: 'stroke-primary', trackStroke: 'stroke-primary/20' },
-                { label: '"Actually uses you"', value: 14, color: 'text-destructive', stroke: 'stroke-destructive', trackStroke: 'stroke-destructive/20' },
-              ].map((gauge) => {
+              { label: '"Would use you again"', value: 80, color: 'text-primary', stroke: 'stroke-primary', trackStroke: 'stroke-primary/20' },
+              { label: '"Actually uses you"', value: 14, color: 'text-destructive', stroke: 'stroke-destructive', trackStroke: 'stroke-destructive/20' }].
+              map((gauge) => {
                 const radius = 70;
                 const circumference = 2 * Math.PI * radius * 0.75;
-                const offset = circumference - (gauge.value / 100) * circumference;
+                const offset = circumference - gauge.value / 100 * circumference;
                 return (
                   <div key={gauge.label} className="flex flex-col items-center gap-3">
                     <div className="relative w-48 h-48">
@@ -358,8 +356,8 @@ const SphereSyncFounders = () => {
                           fill="none" strokeWidth="14" strokeLinecap="round"
                           className={gauge.trackStroke}
                           strokeDasharray={circumference}
-                          strokeDashoffset={0}
-                        />
+                          strokeDashoffset={0} />
+                        
                         <motion.circle
                           cx="90" cy="90" r={radius}
                           fill="none" strokeWidth="14" strokeLinecap="round"
@@ -367,56 +365,59 @@ const SphereSyncFounders = () => {
                           strokeDasharray={circumference}
                           initial={{ strokeDashoffset: circumference }}
                           animate={dbGap.visible ? { strokeDashoffset: offset } : { strokeDashoffset: circumference }}
-                          transition={{ duration: 1.5, ease: 'easeOut', delay: 0.3 }}
-                        />
+                          transition={{ duration: 1.5, ease: 'easeOut', delay: 0.3 }} />
+                        
                       </svg>
                       <div className="absolute inset-0 flex flex-col items-center justify-center pt-4">
                         <motion.span
                           className={`text-4xl font-bold ${gauge.color}`}
                           initial={{ opacity: 0 }}
                           animate={dbGap.visible ? { opacity: 1 } : {}}
-                          transition={{ delay: 0.8, duration: 0.5 }}
-                        >
+                          transition={{ delay: 0.8, duration: 0.5 }}>
+                          
                           {gauge.value === 14 ? '~' : ''}{gauge.value}%
                         </motion.span>
                       </div>
                     </div>
                     <p className="text-sm font-medium text-secondary-foreground/80">{gauge.label}</p>
-                  </div>
-                );
+                  </div>);
+
               })}
             </div>
 
-            <p className="text-lg leading-relaxed opacity-90 font-semibold border-l-2 border-primary pl-4">
-              Every year you go without a system, that gap costs you transactions you already earned.
-            </p>
+            <div className="space-y-4 text-lg leading-relaxed opacity-90">
+              <p>Not because you failed them. Because you disappeared.</p>
+              <p className="font-semibold border-l-2 border-primary pl-4">
+                Every year you go without a system, that gap costs you transactions you already earned.
+              </p>
+            </div>
 
             {/* Trust Fade Timeline */}
             <div className="grid sm:grid-cols-3 gap-0 pt-6">
               {[
-                { icon: CheckCircle2, title: 'Trust earned at closing', desc: 'Client loves you — right now', iconColor: 'text-primary', bg: 'bg-primary/10', borderColor: 'border-primary/30' },
-                { icon: Eye, title: 'Visibility fades', desc: 'Weeks pass without contact', iconColor: 'text-accent', bg: 'bg-accent/10', borderColor: 'border-accent/30' },
-                { icon: UserCheck, title: 'Another agent stays top of mind', desc: 'Someone else fills the gap', iconColor: 'text-destructive', bg: 'bg-destructive/10', borderColor: 'border-destructive/30' },
-              ].map((step, i) => (
-                <motion.div
-                  key={step.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={dbGap.visible ? { opacity: 1, y: 0 } : {}}
-                  transition={{ delay: 1.2 + i * 0.25, duration: 0.5 }}
-                  className="relative flex flex-col items-center text-center px-4 py-6"
-                >
-                  {i < 2 && (
-                    <div className="hidden sm:block absolute top-1/2 -right-3 -translate-y-1/2 z-10">
+              { icon: CheckCircle2, title: 'Trust earned at closing', desc: 'Client loves you — right now', iconColor: 'text-primary', bg: 'bg-primary/10', borderColor: 'border-primary/30' },
+              { icon: Eye, title: 'Visibility fades', desc: 'Weeks pass without contact', iconColor: 'text-accent', bg: 'bg-accent/10', borderColor: 'border-accent/30' },
+              { icon: UserCheck, title: 'Another agent stays top of mind', desc: 'Someone else fills the gap', iconColor: 'text-destructive', bg: 'bg-destructive/10', borderColor: 'border-destructive/30' }].
+              map((step, i) =>
+              <motion.div
+                key={step.title}
+                initial={{ opacity: 0, y: 20 }}
+                animate={dbGap.visible ? { opacity: 1, y: 0 } : {}}
+                transition={{ delay: 1.2 + i * 0.25, duration: 0.5 }}
+                className="relative flex flex-col items-center text-center px-4 py-6">
+                
+                  {i < 2 &&
+                <div className="hidden sm:block absolute top-1/2 -right-3 -translate-y-1/2 z-10">
                       <ArrowRight className="h-6 w-6 text-muted-foreground/50" />
                     </div>
-                  )}
+                }
                   <div className={`${step.bg} border ${step.borderColor} rounded-2xl p-4 mb-3`}>
                     <step.icon className={`h-8 w-8 ${step.iconColor}`} />
                   </div>
                   <h4 className="font-semibold text-secondary-foreground text-base mb-1">{step.title}</h4>
                   <p className="text-sm text-secondary-foreground/60">{step.desc}</p>
                 </motion.div>
-              ))}
+              )}
             </div>
 
             <SectionCTA />
@@ -441,15 +442,15 @@ const SphereSyncFounders = () => {
             {/* Stat Cards */}
             <div className="grid sm:grid-cols-3 gap-6">
               {[
-                { stat: '200–500', label: 'people in your sphere', color: 'text-foreground' },
-                { stat: '17–40+', label: 'potential transactions per year', color: 'text-primary' },
-                { stat: '3–5', label: 'actual transactions for many agents', color: 'text-destructive' },
-              ].map((card) => (
-                <div key={card.label} className="bg-card border border-border/50 rounded-xl p-6 text-center space-y-2">
+              { stat: '200–500', label: 'people in your sphere', color: 'text-foreground' },
+              { stat: '17–40+', label: 'potential transactions per year', color: 'text-primary' },
+              { stat: '3–5', label: 'actual transactions for many agents', color: 'text-destructive' }].
+              map((card) =>
+              <div key={card.label} className="bg-card border border-border/50 rounded-xl p-6 text-center space-y-2">
                   <p className={`text-4xl md:text-5xl font-bold ${card.color}`}>{card.stat}</p>
                   <p className="text-sm text-muted-foreground">{card.label}</p>
                 </div>
-              ))}
+              )}
             </div>
 
             {/* Gap Visualization */}
@@ -480,10 +481,10 @@ const SphereSyncFounders = () => {
             {/* Hidden Cost Cards */}
             <div className="grid sm:grid-cols-3 gap-4">
               {[
-                { icon: MessageSquare, title: 'Missed conversations', desc: 'Contacts you meant to call but never did' },
-                { icon: UserCheck, title: 'Referrals that went elsewhere', desc: 'People who chose the agent who stayed in touch' },
-                { icon: Home, title: 'Transactions you never knew you lost', desc: 'Deals that happened without you knowing' },
-              ].map((card) => {
+              { icon: MessageSquare, title: 'Missed conversations', desc: 'Contacts you meant to call but never did' },
+              { icon: UserCheck, title: 'Referrals that went elsewhere', desc: 'People who chose the agent who stayed in touch' },
+              { icon: Home, title: 'Transactions you never knew you lost', desc: 'Deals that happened without you knowing' }].
+              map((card) => {
                 const Icon = card.icon;
                 return (
                   <div key={card.title} className="flex items-start gap-3 p-4 rounded-xl bg-destructive/5 border border-destructive/10">
@@ -494,8 +495,8 @@ const SphereSyncFounders = () => {
                       <p className="text-sm font-semibold text-foreground">{card.title}</p>
                       <p className="text-xs text-muted-foreground">{card.desc}</p>
                     </div>
-                  </div>
-                );
+                  </div>);
+
               })}
             </div>
 
@@ -510,8 +511,8 @@ const SphereSyncFounders = () => {
           <div className="absolute inset-0 cosmic-grid opacity-5 pointer-events-none" />
           <div className={`relative z-10 max-w-4xl mx-auto space-y-10 text-center ${fadeIn(vsl.visible)}`}>
             <div className="space-y-4">
-              <h2 className="text-3xl md:text-4xl font-bold tracking-tighter text-foreground leading-tight">
-                See why <span className="text-primary">SphereSync Founders</span> exists
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tighter text-foreground leading-tight">SphereSync
+                <span className="text-primary">SphereSync Founders</span> exists
               </h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
                 A short video from Pam on the problem, the model, and why this Founder group matters.
@@ -533,10 +534,10 @@ const SphereSyncFounders = () => {
             {/* Takeaways */}
             <div className="grid sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
               {[
-                { icon: AlertTriangle, text: 'Why agents lose business from their sphere' },
-                { icon: CalendarCheck, text: 'How the 13-week rhythm works' },
-                { icon: TrendingUp, text: 'What Founders will build in 6 months' },
-              ].map((item) => {
+              { icon: AlertTriangle, text: 'Why agents lose business from their sphere' },
+              { icon: CalendarCheck, text: 'How the 13-week rhythm works' },
+              { icon: TrendingUp, text: 'What Founders will build in 6 months' }].
+              map((item) => {
                 const Icon = item.icon;
                 return (
                   <div key={item.text} className="flex flex-col items-center gap-3 text-center">
@@ -544,8 +545,8 @@ const SphereSyncFounders = () => {
                       <Icon className="h-5 w-5 text-primary" />
                     </div>
                     <p className="text-sm text-foreground font-medium">{item.text}</p>
-                  </div>
-                );
+                  </div>);
+
               })}
             </div>
 
@@ -568,8 +569,8 @@ const SphereSyncFounders = () => {
                     src="/images/pamobryant.png"
                     alt="Pam O'Bryant"
                     className="w-full h-full object-cover"
-                    loading="lazy"
-                  />
+                    loading="lazy" />
+                  
                 </div>
                 <div className="text-center md:text-left">
                   <p className="text-foreground font-semibold text-lg">Pam O'Bryant</p>
@@ -638,9 +639,9 @@ const SphereSyncFounders = () => {
             <div className="grid sm:grid-cols-3 gap-6">
               <div className="bg-card border border-primary/20 rounded-xl p-6 text-center space-y-3">
                 <div className="flex justify-center gap-1">
-                  {Array.from({ length: 4 }, (_, i) => (
-                    <Users key={i} className="h-4 w-4 text-primary" />
-                  ))}
+                  {Array.from({ length: 4 }, (_, i) =>
+                  <Users key={i} className="h-4 w-4 text-primary" />
+                  )}
                   <ArrowRight className="h-4 w-4 text-muted-foreground mx-1" />
                   <Home className="h-4 w-4 text-primary" />
                 </div>
@@ -650,9 +651,9 @@ const SphereSyncFounders = () => {
               </div>
               <div className="bg-card border border-destructive/20 rounded-xl p-6 text-center space-y-3">
                 <div className="flex justify-center gap-1">
-                  {Array.from({ length: 6 }, (_, i) => (
-                    <Users key={i} className="h-4 w-4 text-muted-foreground" />
-                  ))}
+                  {Array.from({ length: 6 }, (_, i) =>
+                  <Users key={i} className="h-4 w-4 text-muted-foreground" />
+                  )}
                   <ArrowRight className="h-4 w-4 text-muted-foreground mx-1" />
                   <Home className="h-4 w-4 text-destructive" />
                 </div>
@@ -772,10 +773,10 @@ const SphereSyncFounders = () => {
               {/* Input Cards */}
               <div className="grid sm:grid-cols-3 gap-4">
                 {[
-                  { icon: CalendarCheck, title: 'Structured Outreach Rhythm' },
-                  { icon: MessageSquare, title: 'Relationship Prompts' },
-                  { icon: BarChart3, title: 'Live Performance Dashboard' },
-                ].map((card) => {
+                { icon: CalendarCheck, title: 'Structured Outreach Rhythm' },
+                { icon: MessageSquare, title: 'Relationship Prompts' },
+                { icon: BarChart3, title: 'Live Performance Dashboard' }].
+                map((card) => {
                   const Icon = card.icon;
                   return (
                     <div key={card.title} className="flex flex-col items-center gap-3 p-5 rounded-xl bg-card border border-border/50 text-center">
@@ -783,8 +784,8 @@ const SphereSyncFounders = () => {
                         <Icon className="h-6 w-6 text-primary" />
                       </div>
                       <p className="text-sm text-foreground font-medium">{card.title}</p>
-                    </div>
-                  );
+                    </div>);
+
                 })}
               </div>
 
@@ -810,10 +811,10 @@ const SphereSyncFounders = () => {
               {/* Output Cards */}
               <div className="grid sm:grid-cols-3 gap-4">
                 {[
-                  { icon: Zap, label: 'Activate Relationships' },
-                  { icon: MessageSquare, label: 'Start Conversations' },
-                  { icon: TrendingUp, label: 'Stay Top of Mind' },
-                ].map((item) => {
+                { icon: Zap, label: 'Activate Relationships' },
+                { icon: MessageSquare, label: 'Start Conversations' },
+                { icon: TrendingUp, label: 'Stay Top of Mind' }].
+                map((item) => {
                   const Icon = item.icon;
                   return (
                     <div key={item.label} className="flex flex-col items-center gap-3 p-5 rounded-xl bg-accent/10 border border-accent/20 text-center">
@@ -821,8 +822,8 @@ const SphereSyncFounders = () => {
                         <Icon className="h-6 w-6 text-accent" />
                       </div>
                       <p className="text-sm text-foreground font-medium">{item.label}</p>
-                    </div>
-                  );
+                    </div>);
+
                 })}
               </div>
             </div>
@@ -872,15 +873,15 @@ const SphereSyncFounders = () => {
             {/* Benefit cards */}
             <div className="grid sm:grid-cols-3 gap-4 max-w-3xl mx-auto">
               {[
-                'Outreach stays manageable',
-                'Relationships stay active',
-                'Every contact receives meaningful outreach each quarter',
-              ].map((item) => (
-                <div key={item} className="flex items-start gap-3 p-4 rounded-xl bg-card border border-border/50">
+              'Outreach stays manageable',
+              'Relationships stay active',
+              'Every contact receives meaningful outreach each quarter'].
+              map((item) =>
+              <div key={item} className="flex items-start gap-3 p-4 rounded-xl bg-card border border-border/50">
                   <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 shrink-0" />
                   <span className="text-foreground text-sm">{item}</span>
                 </div>
-              ))}
+              )}
             </div>
 
             <p className="text-lg text-muted-foreground leading-relaxed text-center max-w-3xl mx-auto">
@@ -915,11 +916,11 @@ const SphereSyncFounders = () => {
               {/* Right — Stacked value cards */}
               <div className="space-y-4">
                 {[
-                  { icon: Database, title: 'Full SphereSync Access', desc: '6 months of the complete platform' },
-                  { icon: CalendarCheck, title: 'Weekly Implementation', desc: 'Guided rhythm with office hours' },
-                  { icon: BarChart3, title: 'Sphere Yield Tracking', desc: 'Measure your improvement in real time' },
-                  { icon: Users, title: 'Cohort Community', desc: '50 agents building together' },
-                ].map((card) => {
+                { icon: Database, title: 'Full SphereSync Access', desc: '6 months of the complete platform' },
+                { icon: CalendarCheck, title: 'Weekly Implementation', desc: 'Guided rhythm with office hours' },
+                { icon: BarChart3, title: 'Sphere Yield Tracking', desc: 'Measure your improvement in real time' },
+                { icon: Users, title: 'Cohort Community', desc: '50 agents building together' }].
+                map((card) => {
                   const Icon = card.icon;
                   return (
                     <div key={card.title} className="flex items-start gap-4 p-4 rounded-xl bg-card border border-border/50">
@@ -930,8 +931,8 @@ const SphereSyncFounders = () => {
                         <p className="text-foreground font-semibold">{card.title}</p>
                         <p className="text-sm text-muted-foreground">{card.desc}</p>
                       </div>
-                    </div>
-                  );
+                    </div>);
+
                 })}
               </div>
             </div>
@@ -964,15 +965,15 @@ const SphereSyncFounders = () => {
             {/* Example ratio pills */}
             <div className="flex flex-wrap justify-center gap-4">
               {[
-                { ratio: '1 : 15', label: 'Starting', bg: 'bg-card border-border/50' },
-                { ratio: '1 : 10', label: 'Improving', bg: 'bg-primary/5 border-primary/20' },
-                { ratio: '1 : 6', label: 'Activated', bg: 'bg-primary/10 border-primary/30' },
-              ].map((pill) => (
-                <div key={pill.ratio} className={`${pill.bg} border rounded-xl px-6 py-4 text-center`}>
+              { ratio: '1 : 15', label: 'Starting', bg: 'bg-card border-border/50' },
+              { ratio: '1 : 10', label: 'Improving', bg: 'bg-primary/5 border-primary/20' },
+              { ratio: '1 : 6', label: 'Activated', bg: 'bg-primary/10 border-primary/30' }].
+              map((pill) =>
+              <div key={pill.ratio} className={`${pill.bg} border rounded-xl px-6 py-4 text-center`}>
                   <p className="text-2xl font-bold text-foreground">{pill.ratio}</p>
                   <p className="text-xs text-muted-foreground">{pill.label}</p>
                 </div>
-              ))}
+              )}
             </div>
 
             <div className="max-w-3xl mx-auto space-y-4 text-lg text-muted-foreground leading-relaxed">
@@ -1004,8 +1005,8 @@ const SphereSyncFounders = () => {
                     key={f.title}
                     initial={{ opacity: 0, y: 20 }}
                     animate={receives.visible ? { opacity: 1, y: 0 } : {}}
-                    transition={{ duration: 0.5, delay: i * 0.1 }}
-                  >
+                    transition={{ duration: 0.5, delay: i * 0.1 }}>
+                    
                     <Card className="h-full border-border/50 bg-card/80 backdrop-blur-sm hover:border-primary/30 transition-colors duration-300">
                       <CardContent className="p-6 space-y-3">
                         <div className="p-2 rounded-lg bg-primary/10 w-fit">
@@ -1015,8 +1016,8 @@ const SphereSyncFounders = () => {
                         <p className="text-muted-foreground leading-relaxed text-sm">{f.desc}</p>
                       </CardContent>
                     </Card>
-                  </motion.div>
-                );
+                  </motion.div>);
+
               })}
             </div>
           </div>
@@ -1033,14 +1034,14 @@ const SphereSyncFounders = () => {
             </div>
 
             <div className="space-y-6">
-              {onboardingSteps.map((s, i) => (
-                <motion.div
-                  key={s.step}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={onboarding.visible ? { opacity: 1, x: 0 } : {}}
-                  transition={{ duration: 0.5, delay: i * 0.15 }}
-                  className="flex gap-4 md:gap-6 items-start"
-                >
+              {onboardingSteps.map((s, i) =>
+              <motion.div
+                key={s.step}
+                initial={{ opacity: 0, x: -20 }}
+                animate={onboarding.visible ? { opacity: 1, x: 0 } : {}}
+                transition={{ duration: 0.5, delay: i * 0.15 }}
+                className="flex gap-4 md:gap-6 items-start">
+                
                   <div className="flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full bg-primary/10 text-primary font-bold text-lg shrink-0">
                     {s.step}
                   </div>
@@ -1049,7 +1050,7 @@ const SphereSyncFounders = () => {
                     <p className="text-muted-foreground leading-relaxed">{s.desc}</p>
                   </div>
                 </motion.div>
-              ))}
+              )}
             </div>
 
             {/* Time commitment badge */}
@@ -1096,12 +1097,12 @@ const SphereSyncFounders = () => {
                 <p className="text-muted-foreground text-sm">Six-month implementation program</p>
 
                 <ul className="space-y-3 text-left">
-                  {pricingIncludes.map((f) => (
-                    <li key={f} className="flex items-start gap-3">
+                  {pricingIncludes.map((f) =>
+                  <li key={f} className="flex items-start gap-3">
                       <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 shrink-0" />
                       <span className="text-foreground">{f}</span>
                     </li>
-                  ))}
+                  )}
                 </ul>
 
                 <div className="space-y-3 pt-2">
@@ -1132,12 +1133,12 @@ const SphereSyncFounders = () => {
             <div className="space-y-4 text-lg text-muted-foreground leading-relaxed">
               <p className="font-medium text-foreground">SphereSync Founders are typically:</p>
               <div className="grid sm:grid-cols-2 gap-3">
-                {idealFounders.map((item) => (
-                  <div key={item} className="flex items-start gap-3 p-4 rounded-xl bg-card border border-border/50">
+                {idealFounders.map((item) =>
+                <div key={item} className="flex items-start gap-3 p-4 rounded-xl bg-card border border-border/50">
                     <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 shrink-0" />
                     <span className="text-sm">{item}</span>
                   </div>
-                ))}
+                )}
               </div>
             </div>
           </div>
@@ -1180,8 +1181,8 @@ const SphereSyncFounders = () => {
       </main>
 
       <FooterMinimal />
-    </>
-  );
+    </>);
+
 };
 
 export default SphereSyncFounders;
