@@ -380,10 +380,9 @@ const SphereSyncFounders = () => {
                       animate={dbGap.visible ? { opacity: 1, scale: 1 } : {}}
                       transition={{ delay: 1.0, duration: 0.5 }}
                     >
-                      <div className="flex flex-col items-center gap-1 bg-destructive/10 border border-destructive/30 rounded-xl px-4 py-3">
-                        <ArrowRight className="h-5 w-5 text-destructive hidden sm:block" />
-                        <span className="text-destructive font-bold text-lg">↓ 66%</span>
-                        <span className="text-destructive/70 text-xs font-medium">drop-off</span>
+                      <div className="flex flex-col items-center gap-1 bg-destructive/20 border border-destructive/50 rounded-xl px-4 py-3">
+                        <span className="text-destructive font-bold text-xl">↓ 66%</span>
+                        <span className="text-destructive/80 text-xs font-medium">drop-off</span>
                       </div>
                     </motion.div>
 
@@ -423,16 +422,16 @@ const SphereSyncFounders = () => {
             {/* Trust Fade Timeline */}
             <div className="grid sm:grid-cols-3 gap-4 pt-4">
               {[
-              { icon: CheckCircle2, title: 'Trust is earned', desc: 'At closing, they love you', iconColor: 'text-primary', bg: 'bg-primary/10', borderColor: 'border-primary/30' },
-              { icon: Eye, title: 'The relationship goes quiet', desc: 'Weeks pass without real contact', iconColor: 'text-accent', bg: 'bg-accent/10', borderColor: 'border-accent/30' },
-              { icon: UserCheck, title: 'Another agent becomes top of mind', desc: 'Someone else fills the gap', iconColor: 'text-destructive', bg: 'bg-destructive/10', borderColor: 'border-destructive/30' }].
+              { icon: CheckCircle2, title: 'Trust is earned', desc: 'At closing, they love you', iconColor: 'text-primary', bg: 'bg-primary/20', borderColor: 'border-primary/30' },
+              { icon: Eye, title: 'The relationship goes quiet', desc: 'Weeks pass without real contact', iconColor: 'text-accent', bg: 'bg-accent/20', borderColor: 'border-accent/30' },
+              { icon: UserCheck, title: 'Another agent becomes top of mind', desc: 'Someone else fills the gap', iconColor: 'text-destructive', bg: 'bg-destructive/20', borderColor: 'border-destructive/30' }].
               map((step, i) =>
               <motion.div
                 key={step.title}
                 initial={{ opacity: 0, y: 20 }}
                 animate={dbGap.visible ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: 1.2 + i * 0.25, duration: 0.5 }}
-                className="relative flex flex-col items-center text-center px-4 py-5 bg-card/50 border border-border/30 rounded-xl">
+                className="relative flex flex-col items-center text-center px-4 py-5 bg-secondary-foreground/10 border border-secondary-foreground/20 rounded-xl">
                 
                   {i < 2 &&
                 <div className="hidden sm:block absolute top-1/2 -right-5 -translate-y-1/2 z-10">
