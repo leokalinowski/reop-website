@@ -1,18 +1,15 @@
 
 
-## Add GTM, GA4, and Clarity tracking to all pages
+## Remove Navigation from Professional Practice Landing Page
 
-Since this is a single-page app, all tracking scripts go in `index.html` once and they'll run on every page.
+A focused landing page should minimize exit points to maximize conversions. This is a single-file change.
 
-### Changes to `index.html`
+### Change
 
-**In `<head>` (before the closing `</head>`):**
-1. GTM head snippet (`GTM-WNCHZB45`)
-2. GA4 gtag.js snippet (`G-0XTL0R6Q98`)
-3. Microsoft Clarity snippet (`vx9tje0e7c`)
+**File: `src/pages/ProfessionalPractice.tsx`**
+- Remove the `Navigation` component import and usage
+- The page will go straight from the SEO component into the main content
+- The footer (FooterMinimal) stays as it provides necessary legal/brand info without competing with the CTA
 
-**In `<body>` (immediately after `<body>` tag):**
-1. GTM noscript/iframe fallback
-
-Single file change, no component modifications needed.
+This keeps visitors focused on reading the copy and clicking "Schedule a Strategic Diagnostic" without distraction.
 
