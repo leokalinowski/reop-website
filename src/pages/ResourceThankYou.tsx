@@ -9,11 +9,23 @@ import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 
 const BOOKING_URL = "https://lp.realestateonpurpose.com/appointmentwithreop";
+const ALLOWED_DOWNLOAD_HOST = "ofdlhkjtpyopayoxuzrz.supabase.co";
+
+function isSafeDownloadUrl(url: string | null): boolean {
+  if (!url) return false;
+  try {
+    const parsed = new URL(url);
+    return parsed.hostname === ALLOWED_DOWNLOAD_HOST && parsed.protocol === "https:";
+  } catch {
+    return false;
+  }
+}
 
 const ResourceThankYou = () => {
   const [searchParams] = useSearchParams();
   const resourceId = searchParams.get("resourceId");
-  const downloadUrl = searchParams.get("downloadUrl");
+  const rawDownloadUrl = searchParams.get("downloadUrl");
+  const downloadUrl = isSafeDownloadUrl(rawDownloadUrl) ? rawDownloadUrl : null;
   const [countdown, setCountdown] = useState(5);
   const [hasDownloaded, setHasDownloaded] = useState(false);
 
