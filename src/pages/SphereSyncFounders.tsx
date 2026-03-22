@@ -928,6 +928,7 @@ const SphereSyncFounders = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
               {[
+                {
                   stat: '4 new buyers in 3 weeks',
                   quote: "They took my database and started telling me who to call every week. I actually found four new buyer opportunities just since I've joined. I'm the most relaxed I've been in two or three months. I know that I'm going to hit my goals.",
                   attribution: '— SphereSync Agent, 3 weeks in',
