@@ -164,6 +164,7 @@ const SphereSyncFounders = () => {
   const rallyLine = useInView(0.15);
   const system = useInView(0.15);
   const cycle = useInView(0.15);
+  const testimonials = useInView(0.1);
   const cohort = useInView(0.1);
   const yieldChallenge = useInView(0.1);
   const receives = useInView(0.1);
@@ -915,6 +916,53 @@ const SphereSyncFounders = () => {
             </div>
 
             <SectionCTA visible={cycle.visible} />
+          </div>
+        </section>
+
+        {/* ═══════ 10a · WHAT AGENTS ARE SAYING ═══════ */}
+        <section ref={testimonials.ref} className="relative py-12 md:py-16 px-6 md:px-12">
+          <div className={`relative z-10 max-w-5xl mx-auto space-y-10 ${fadeIn(testimonials.visible)}`}>
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tighter text-foreground leading-tight text-center">
+              What Agents Are <span className="text-primary">Saying</span>
+            </h2>
+
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+              {[
+                {
+                  stat: 'Buyer reached out from sphere',
+                  quote: "I've already had a prospective buyer in my sphere reach out and say that they've been following my video series and figured they would go ahead and reach out. It's already helped my business in terms of getting video content out there consistently and at a quality level.",
+                  attribution: '— SphereSync Agent, 3 months in',
+                },
+                {
+                  stat: '4 new buyers in 3 weeks',
+                  quote: "They took my database and started telling me who to call every week. I actually found four new buyer opportunities just since I've joined. I'm the most relaxed I've been in two or three months. I know that I'm going to hit my goals.",
+                  attribution: '— SphereSync Agent, 3 weeks in',
+                },
+                {
+                  stat: 'Consistency & execution',
+                  quote: "It's helped me slow down to move forward. The consistency, having a plan, and the execution has been really important to me. Those are all of the things that I was missing in my business. I kept wanting to do them but not be consistent.",
+                  attribution: '— SphereSync Agent',
+                },
+              ].map((t, i) => (
+                <motion.div
+                  key={i}
+                  className="bg-card border border-border rounded-xl p-6 border-l-4 border-l-primary flex flex-col gap-4"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={testimonials.visible ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.5, delay: 0.15 * i }}
+                >
+                  <span className="inline-block self-start text-xs font-semibold uppercase tracking-wider bg-primary/10 text-primary px-3 py-1 rounded-full">
+                    {t.stat}
+                  </span>
+                  <blockquote className="text-muted-foreground text-sm leading-relaxed italic">
+                    "{t.quote}"
+                  </blockquote>
+                  <p className="text-sm font-medium text-foreground mt-auto">{t.attribution}</p>
+                </motion.div>
+              ))}
+            </div>
+
+            <SectionCTA visible={testimonials.visible} />
           </div>
         </section>
 
