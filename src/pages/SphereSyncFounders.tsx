@@ -155,6 +155,31 @@ const SphereSyncFounders = () => {
   const [heroVisible, setHeroVisible] = useState(false);
   const isMobile = useIsMobile();
 
+  /* ─── Countdown timer ─── */
+  const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0, expired: false });
+
+  useEffect(() => {
+    const deadline = new Date('2026-04-16T04:59:00Z'); // April 15, 2026 11:59 PM EST (UTC-5)
+    const tick = () => {
+      const now = new Date().getTime();
+      const diff = deadline.getTime() - now;
+      if (diff <= 0) {
+        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0, expired: true });
+        return;
+      }
+      setTimeLeft({
+        days: Math.floor(diff / (1000 * 60 * 60 * 24)),
+        hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
+        minutes: Math.floor((diff / (1000 * 60)) % 60),
+        seconds: Math.floor((diff / 1000) % 60),
+        expired: false,
+      });
+    };
+    tick();
+    const id = setInterval(tick, 1000);
+    return () => clearInterval(id);
+  }, []);
+
   const dbGap = useInView(0.15);
   const inactionCost = useInView(0.15);
   const vsl = useInView(0.15);
