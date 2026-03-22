@@ -1257,6 +1257,8 @@ const SphereSyncFounders = () => {
                 </Badge>
                 <div>
                   <span className="text-5xl font-bold text-foreground">$997</span>
+                  <span className="block text-sm text-muted-foreground mt-1">one-time</span>
+                  <span className="block text-xs text-muted-foreground mt-0.5">or 3 payments of $349/month</span>
                 </div>
                 <p className="text-muted-foreground text-sm">Six-month implementation program</p>
 
@@ -1273,6 +1275,11 @@ const SphereSyncFounders = () => {
                   <Button asChild size="lg" className="w-full h-14 text-lg shadow-lg">
                     <a href={APPLY_URL} target="_blank" rel="noopener noreferrer">
                       Apply for Founder Access
+                    </a>
+                  </Button>
+                  <Button asChild variant="outline" size="lg" className="w-full h-12 text-base">
+                    <a href="#payment-plan" target="_blank" rel="noopener noreferrer">
+                      Choose Payment Plan
                     </a>
                   </Button>
                 </div>
