@@ -555,8 +555,8 @@ const SphereSyncFounders = () => {
           <div className="absolute inset-0 cosmic-grid opacity-5 pointer-events-none" />
           <div className={`relative z-10 max-w-4xl mx-auto space-y-10 text-center ${fadeIn(vsl.visible)}`}>
             <div className="space-y-4">
-              <h2 className="text-3xl md:text-4xl font-bold tracking-tighter text-foreground leading-tight">See why agents lose business from their sphere
-and how SphereSync fixes it<span className="text-primary"> SphereSync</span> fixes it
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tighter text-foreground leading-tight">
+                See why agents lose business from their sphere — and how <span className="text-primary">SphereSync fixes it</span>
               </h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
                 A short video from Pam on why sphere business leaks away, how SphereSync works, and why this invite-only Founder launch matters.
