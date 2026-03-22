@@ -164,6 +164,7 @@ const SphereSyncFounders = () => {
   const rallyLine = useInView(0.15);
   const system = useInView(0.15);
   const cycle = useInView(0.15);
+  const testimonials = useInView(0.1);
   const cohort = useInView(0.1);
   const yieldChallenge = useInView(0.1);
   const receives = useInView(0.1);
