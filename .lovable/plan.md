@@ -1,19 +1,24 @@
 
 
-## Fix: Duplicated text in VSL section heading
+## Add Sticky Countdown Timer Bar to SphereSync Founders Page
 
-**File:** `src/pages/SphereSyncFounders.tsx`, lines 558-560
+**File:** `src/pages/SphereSyncFounders.tsx`
 
-**Current (broken):**
-```
-See why agents lose business from their sphere
-and how SphereSync fixes it<span class="text-primary"> SphereSync</span> fixes it
-```
+### Changes
 
-**Fixed to:**
-```
-See why agents lose business from their sphere — and how <span class="text-primary">SphereSync fixes it</span>
-```
+1. **Add countdown timer state** (~line 155-178): Add a `timeLeft` state with `useState` and a `useEffect` with `setInterval` that counts down to `April 15, 2026 11:59 PM EST` (UTC-5), calculating days/hours/minutes/seconds.
 
-Single line edit replacing the duplicated text with an em dash and wrapping only "SphereSync fixes it" in the primary color span.
+2. **Render sticky bar** (~line 193, right after `<main>`): Insert a fixed-position bar at the top:
+   - `fixed top-0 left-0 right-0 z-50 bg-secondary` with ~44px height
+   - Left: "Founder Access closes in:" + countdown digits styled in `text-primary font-mono font-bold`
+   - Right: Small "Apply Now" button linking to `APPLY_URL`
+   - Mobile: flex-wrap or stacked layout, still compact
+   - Format: `XXd XXh XXm XXs`
+
+3. **Add top padding to `<main>`**: Change `<main className="overflow-hidden">` to `<main className="overflow-hidden pt-12">` (or similar ~48px) so content isn't hidden behind the fixed bar.
+
+### Technical notes
+- Reuse existing `APPLY_URL` constant for the button link
+- Use `setInterval` at 1000ms, clean up on unmount
+- Show "Founder Access has closed" if deadline has passed
 
