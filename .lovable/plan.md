@@ -1,15 +1,19 @@
 
 
-## Remove Navigation from Professional Practice Landing Page
+## Fix: Duplicated text in VSL section heading
 
-A focused landing page should minimize exit points to maximize conversions. This is a single-file change.
+**File:** `src/pages/SphereSyncFounders.tsx`, lines 558-560
 
-### Change
+**Current (broken):**
+```
+See why agents lose business from their sphere
+and how SphereSync fixes it<span class="text-primary"> SphereSync</span> fixes it
+```
 
-**File: `src/pages/ProfessionalPractice.tsx`**
-- Remove the `Navigation` component import and usage
-- The page will go straight from the SEO component into the main content
-- The footer (FooterMinimal) stays as it provides necessary legal/brand info without competing with the CTA
+**Fixed to:**
+```
+See why agents lose business from their sphere — and how <span class="text-primary">SphereSync fixes it</span>
+```
 
-This keeps visitors focused on reading the copy and clicking "Schedule a Strategic Diagnostic" without distraction.
+Single line edit replacing the duplicated text with an em dash and wrapping only "SphereSync fixes it" in the primary color span.
 
