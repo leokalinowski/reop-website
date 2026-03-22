@@ -221,7 +221,7 @@ const SphereSyncFounders = () => {
           {timeLeft.expired ? (
             <p className="text-sm text-muted-foreground font-medium">Founder Access has closed.</p>
           ) : (
-            <p className="text-xs md:text-sm text-muted-foreground">
+            <p className="text-xs md:text-sm text-white">
               Founder Access closes in:{' '}
               <span className="font-mono font-bold text-primary">
                 {timeLeft.days}d {String(timeLeft.hours).padStart(2, '0')}h{' '}
