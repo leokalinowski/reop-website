@@ -744,7 +744,7 @@ const SphereSyncFounders = () => {
             <p className="text-2xl md:text-3xl lg:text-4xl font-bold tracking-tighter text-secondary-foreground leading-tight">
               The industry told you to buy leads.
             </p>
-            <p className="text-2xl md:text-3xl lg:text-4xl font-bold tracking-tighter text-primary leading-tight mt-2">
+            <p className="text-2xl md:text-3xl lg:text-4xl font-bold tracking-tighter text-white leading-tight mt-2">
               SphereSync helps you activate the relationships you already earned.
             </p>
           </div>
