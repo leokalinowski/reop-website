@@ -155,6 +155,31 @@ const SphereSyncFounders = () => {
   const [heroVisible, setHeroVisible] = useState(false);
   const isMobile = useIsMobile();
 
+  /* ─── Countdown timer ─── */
+  const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0, expired: false });
+
+  useEffect(() => {
+    const deadline = new Date('2026-04-16T04:59:00Z'); // April 15, 2026 11:59 PM EST (UTC-5)
+    const tick = () => {
+      const now = new Date().getTime();
+      const diff = deadline.getTime() - now;
+      if (diff <= 0) {
+        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0, expired: true });
+        return;
+      }
+      setTimeLeft({
+        days: Math.floor(diff / (1000 * 60 * 60 * 24)),
+        hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
+        minutes: Math.floor((diff / (1000 * 60)) % 60),
+        seconds: Math.floor((diff / 1000) % 60),
+        expired: false,
+      });
+    };
+    tick();
+    const id = setInterval(tick, 1000);
+    return () => clearInterval(id);
+  }, []);
+
   const dbGap = useInView(0.15);
   const inactionCost = useInView(0.15);
   const vsl = useInView(0.15);
@@ -190,7 +215,28 @@ const SphereSyncFounders = () => {
         url="https://reop-website.lovable.app/spheresync-founders" />
       
 
-      <main className="overflow-hidden">
+      {/* ─── Sticky Countdown Bar ─── */}
+      <div className="fixed top-0 left-0 right-0 z-50 bg-secondary border-b border-border">
+        <div className="max-w-7xl mx-auto px-4 h-11 flex items-center justify-between gap-3 flex-wrap md:flex-nowrap">
+          {timeLeft.expired ? (
+            <p className="text-sm text-muted-foreground font-medium">Founder Access has closed.</p>
+          ) : (
+            <p className="text-xs md:text-sm text-muted-foreground">
+              Founder Access closes in:{' '}
+              <span className="font-mono font-bold text-primary">
+                {timeLeft.days}d {String(timeLeft.hours).padStart(2, '0')}h{' '}
+                {String(timeLeft.minutes).padStart(2, '0')}m{' '}
+                {String(timeLeft.seconds).padStart(2, '0')}s
+              </span>
+            </p>
+          )}
+          <a href={APPLY_URL} target="_blank" rel="noopener noreferrer">
+            <Button size="sm" className="h-7 text-xs px-3">Apply Now</Button>
+          </a>
+        </div>
+      </div>
+
+      <main className="overflow-hidden pt-12">
 
         {/* ═══════ 1 · HERO ═══════ */}
         <section className="relative min-h-[85vh] md:min-h-screen flex items-center px-6 md:px-12 bg-secondary/5 py-10 md:py-0">
