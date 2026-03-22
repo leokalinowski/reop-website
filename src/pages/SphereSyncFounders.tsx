@@ -926,13 +926,8 @@ const SphereSyncFounders = () => {
               What Agents Are <span className="text-primary">Saying</span>
             </h2>
 
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
               {[
-                {
-                  stat: 'Buyer reached out from sphere',
-                  quote: "I've already had a prospective buyer in my sphere reach out and say that they've been following my video series and figured they would go ahead and reach out. It's already helped my business in terms of getting video content out there consistently and at a quality level.",
-                  attribution: '— SphereSync Agent, 3 months in',
-                },
                 {
                   stat: '4 new buyers in 3 weeks',
                   quote: "They took my database and started telling me who to call every week. I actually found four new buyer opportunities just since I've joined. I'm the most relaxed I've been in two or three months. I know that I'm going to hit my goals.",
