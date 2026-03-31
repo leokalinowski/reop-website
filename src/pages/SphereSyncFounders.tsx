@@ -597,56 +597,12 @@ const SphereSyncFounders = () => {
           </div>
         </section>
 
-        {/* ═══════ 4 · VSL SECTION ═══════ */}
+        {/* ═══════ 4 · VSL SECTION (temporarily hidden) ═══════ */}
+        {/*
         <section id="vsl" ref={vsl.ref} className="relative py-12 md:py-16 px-6 md:px-12 bg-primary/5">
-          <div className="absolute inset-0 cosmic-grid opacity-5 pointer-events-none" />
-          <div className={`relative z-10 max-w-4xl mx-auto space-y-10 text-center ${fadeIn(vsl.visible)}`}>
-            <div className="space-y-4">
-              <h2 className="text-3xl md:text-4xl font-bold tracking-tighter text-foreground leading-tight">
-                See why agents lose business from their sphere — and how <span className="text-primary">SphereSync</span> fixes it
-              </h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                A short video from Pam on why sphere business leaks away, how SphereSync works, and why this invite-only Founder launch matters.
-              </p>
-            </div>
-
-            {/* Video Placeholder */}
-            <div className="relative bg-card border border-border rounded-2xl overflow-hidden aspect-video max-w-3xl mx-auto shadow-lg">
-              <div className="absolute inset-0 flex items-center justify-center bg-secondary/10">
-                <div className="w-20 h-20 rounded-full bg-primary/90 flex items-center justify-center shadow-xl cursor-pointer hover:bg-primary transition-colors">
-                  <Play className="h-8 w-8 text-primary-foreground ml-1" />
-                </div>
-              </div>
-              <div className="absolute bottom-4 left-4 right-4 flex justify-between items-center">
-                <span className="text-xs text-muted-foreground bg-card/80 backdrop-blur-sm px-3 py-1 rounded-full">3:42</span>
-              </div>
-            </div>
-
-            {/* Takeaways */}
-            <div className="grid sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
-              {[
-              { icon: AlertTriangle, text: 'Why agents don\'t need more leads' },
-              { icon: CalendarCheck, text: 'How the weekly SphereSync rhythm works' },
-              { icon: TrendingUp, text: 'What Founder Access includes' }].
-              map((item) => {
-                const Icon = item.icon;
-                return (
-                  <div key={item.text} className="flex flex-col items-center gap-3 text-center">
-                    <div className="p-3 rounded-lg bg-primary/10">
-                      <Icon className="h-5 w-5 text-primary" />
-                    </div>
-                    <p className="text-sm text-foreground font-medium">{item.text}</p>
-                  </div>);
-
-              })}
-            </div>
-
-            <div className="flex flex-col items-center gap-3 pt-4">
-              <PrimaryCTA label="Apply for Founder Access" />
-              <p className="text-sm text-muted-foreground">Invite-only launch · Limited to 50 Founders</p>
-            </div>
-          </div>
+          ... VSL content hidden temporarily ...
         </section>
+        */}
 
         {/* Pam Note moved to after 13-Week Cycle */}
 
