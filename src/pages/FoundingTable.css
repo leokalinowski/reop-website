@@ -53,7 +53,7 @@
 .founding-table-page .stats-row { display: grid; grid-template-columns: repeat(3, 1fr); background: #0E1E2B; padding: 2.5rem 2rem; }
 .founding-table-page .stat-block { text-align: center; padding: 1rem; }
 .founding-table-page .stat-num { font-family: 'Lora', serif; font-size: 3rem; font-weight: 600; color: #0AADAD; line-height: 1; margin-bottom: .4rem; }
-.founding-table-page .stat-label { font-size: .8rem; color: rgba(255,255,255,.55); font-weight: 300; line-height: 1.4; }
+.founding-table-page .stat-label { font-size: .95rem; color: rgba(255,255,255,.55); font-weight: 300; line-height: 1.4; }
 
 /* SECTION HEAD */
 .founding-table-page .section-head { padding: 3.5rem 2rem 2rem; max-width: 780px; margin: 0 auto; }
