@@ -335,7 +335,7 @@ const FoundingTable = () => {
       <div className="jj-section fade-up">
         <div className="jj-inner">
           <div>
-            <img src="/images/jj.png" alt="JJ" className="jj-photo" />
+            <img src="/images/jj-camera.jpg" alt="JJ" className="jj-photo" />
           </div>
           <div className="jj-content">
             <div className="jj-label">A note from JJ</div>
