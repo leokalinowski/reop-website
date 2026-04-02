@@ -24,6 +24,7 @@ import LegalDisclaimer from "./pages/LegalDisclaimer";
 import ProfessionalPractice from "./pages/ProfessionalPractice";
 import SphereSync from "./pages/SphereSync";
 import SphereSyncFounders from "./pages/SphereSyncFounders";
+import FoundingTable from "./pages/FoundingTable";
 import AnnouncementBar from "./components/AnnouncementBar";
 
 const queryClient = new QueryClient();
