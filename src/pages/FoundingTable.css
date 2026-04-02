@@ -179,6 +179,11 @@
 .founding-table-page .footer-text { font-size: .75rem; color: #9AAAB8; }
 .founding-table-page .footer-text a { color: #0AADAD; text-decoration: none; }
 
+/* SCROLL HINT */
+.founding-table-page .scroll-hint { font-size: .78rem; font-weight: 400; color: #9AAAB8; letter-spacing: .06em; margin-bottom: 1rem; }
+.founding-table-page .scroll-arrow { display: inline-block; animation: bounce-down 1.5s ease infinite; }
+@keyframes bounce-down { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(4px); } }
+
 /* ANIMATIONS */
 .founding-table-page .fade-up { opacity: 0; transform: translateY(20px); transition: opacity .65s ease, transform .65s ease; }
 .founding-table-page .fade-up.visible { opacity: 1; transform: translateY(0); }
