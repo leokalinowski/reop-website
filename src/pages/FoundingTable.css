@@ -42,7 +42,7 @@
 .founding-table-page .ft-btn { display: inline-block; background: #0B8F8F; color: white; border: none; padding: 1rem 2rem; border-radius: 4px; font-family: 'DM Sans', sans-serif; font-size: 1rem; font-weight: 500; cursor: pointer; text-decoration: none; letter-spacing: .01em; transition: background .2s, transform .15s, box-shadow .2s; }
 .founding-table-page .ft-btn:hover { background: #0AADAD; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(11,143,143,0.28); }
 .founding-table-page .ft-btn--block { display: block; text-align: center; width: 100%; padding: 1.15rem; font-size: 1.05rem; }
-.founding-table-page .btn-wrap { padding: 2rem; text-align: center; }
+.founding-table-page .btn-wrap { padding: 1rem 2rem; text-align: center; }
 .founding-table-page .btn-sub { font-size: .82rem; color: #9AAAB8; margin-top: .75rem; font-weight: 300; }
 .founding-table-page .btn-sub a { color: #0E1E2B; font-weight: 500; text-underline-offset: 3px; }
 
