@@ -152,7 +152,7 @@
 /* JJ */
 .founding-table-page .jj-section { background: #F9F6F0; border-top: 1px solid #E8EEF2; border-bottom: 1px solid #E8EEF2; padding: 3rem 2rem; }
 .founding-table-page .jj-inner { max-width: 780px; margin: 0 auto; display: flex; gap: 2rem; align-items: flex-start; }
-.founding-table-page .jj-photo { width: 110px; height: 110px; border-radius: 50%; object-fit: cover; object-position: top center; box-shadow: 0 8px 24px rgba(14,30,43,0.15); flex-shrink: 0; }
+.founding-table-page .jj-photo { width: 110px; height: 110px; border-radius: 50%; object-fit: cover; object-position: center 15%; box-shadow: 0 8px 24px rgba(14,30,43,0.15); flex-shrink: 0; }
 .founding-table-page .jj-content { flex: 1; }
 .founding-table-page .jj-label { font-size: .68rem; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; color: #0B8F8F; margin-bottom: .5rem; }
 .founding-table-page .jj-quote { font-size: .95rem; font-weight: 300; color: #2D3E4E; line-height: 1.85; margin-bottom: .75rem; font-style: italic; }
