@@ -1,24 +1,27 @@
 
 
-## Add Sticky Countdown Timer Bar to SphereSync Founders Page
+## Make the top of the Founding Table page more compact
 
-**File:** `src/pages/SphereSyncFounders.tsx`
+**Problem**: The hero + letter section takes up a lot of vertical space, requiring scrolling before reaching the meat of the content. We want to keep all the text but tighten spacing so visitors see more above the fold.
 
-### Changes
+**Approach — tighten spacing, no content removed**:
 
-1. **Add countdown timer state** (~line 155-178): Add a `timeLeft` state with `useState` and a `useEffect` with `setInterval` that counts down to `April 15, 2026 11:59 PM EST` (UTC-5), calculating days/hours/minutes/seconds.
+### 1. Reduce hero padding and margins (`FoundingTable.css`)
+- `.ft-hero` padding: `4rem 2rem 0` → `2rem 2rem 0`
+- `.invite-flag` margin-bottom: `2rem` → `1rem`
+- `.hero-headline` margin-bottom: `1.5rem` → `1rem`
+- `.hero-rule` margin-bottom: `2.5rem` → `1.5rem`
 
-2. **Render sticky bar** (~line 193, right after `<main>`): Insert a fixed-position bar at the top:
-   - `fixed top-0 left-0 right-0 z-50 bg-secondary` with ~44px height
-   - Left: "Founder Access closes in:" + countdown digits styled in `text-primary font-mono font-bold`
-   - Right: Small "Apply Now" button linking to `APPLY_URL`
-   - Mobile: flex-wrap or stacked layout, still compact
-   - Format: `XXd XXh XXm XXs`
+### 2. Tighten letter grid spacing
+- `.letter-grid` padding-bottom: `3rem` → `1.5rem`, gap: `3rem` → `2rem`
+- `.letter-body p` margin-bottom: `1.25rem` → `0.85rem`, line-height: `1.9` → `1.7`
+- `.pullquote` margin: `1.5rem 0` → `1rem 0`
 
-3. **Add top padding to `<main>`**: Change `<main className="overflow-hidden">` to `<main className="overflow-hidden pt-12">` (or similar ~48px) so content isn't hidden behind the fixed bar.
+### 3. Compact the first CTA area
+- `.btn-wrap` padding: `2rem` → `1rem 2rem`
 
-### Technical notes
-- Reuse existing `APPLY_URL` constant for the button link
-- Use `setInterval` at 1000ms, clean up on unmount
-- Show "Founder Access has closed" if deadline has passed
+### 4. Optional: Add a subtle scroll indicator
+- Add a small animated down-arrow or "Read my letter ↓" text below the headline to invite scrolling, making it feel intentional rather than frustrating.
+
+**Result**: ~30-40% less vertical space in the top section. The letter grid and first CTA will be visible much sooner. All text stays intact.
 
