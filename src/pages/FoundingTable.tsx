@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 import './FoundingTable.css';
 import SEO from '@/components/SEO';
 
-const APPLY_URL = 'https://buy.stripe.com/4gw5mf1Ri5OHgBW28g';
+const APPLY_URL = 'https://buy.stripe.com/14A4gBgz08mGgCx2js0x200';
 
 const FoundingTable = () => {
   const pageRef = useRef<HTMLDivElement>(null);
