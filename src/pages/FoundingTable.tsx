@@ -48,6 +48,7 @@ const FoundingTable = () => {
           like our <em>experience doesn't matter.</em>
         </h1>
         <div className="hero-rule"></div>
+        <p className="scroll-hint">Read my letter <span className="scroll-arrow">↓</span></p>
       </div>
 
       {/* LETTER GRID */}
