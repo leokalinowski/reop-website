@@ -28,7 +28,7 @@
 .founding-table-page .hero-rule { width: 3rem; height: 2px; background: #B8892A; margin-bottom: 1.5rem; }
 
 /* PHOTO + LETTER */
-.founding-table-page .letter-grid { display: grid; grid-template-columns: 220px 1fr; gap: 3rem; align-items: start; padding: 0 2rem 3rem; max-width: 780px; margin: 0 auto; }
+.founding-table-page .letter-grid { display: grid; grid-template-columns: 220px 1fr; gap: 2rem; align-items: start; padding: 0 2rem 1.5rem; max-width: 780px; margin: 0 auto; }
 .founding-table-page .letter-photo { width: 100%; aspect-ratio: 3/4; object-fit: cover; object-position: top; border-radius: 4px; box-shadow: 0 16px 48px rgba(14,30,43,0.15); filter: grayscale(10%); }
 .founding-table-page .photo-caption { font-size: .72rem; color: #9AAAB8; text-align: center; margin-top: .75rem; line-height: 1.5; font-style: italic; }
 .founding-table-page .letter-body p { font-size: 1rem; font-weight: 300; line-height: 1.9; color: #2D3E4E; margin-bottom: 1.25rem; }
