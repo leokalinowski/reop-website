@@ -35,7 +35,7 @@
 .founding-table-page .letter-body p strong { color: #0E1E2B; font-weight: 500; }
 .founding-table-page .letter-body p em { color: #5A6A7A; font-style: italic; }
 
-.founding-table-page .pullquote { border-left: 3px solid #0B8F8F; padding: 1rem 1.5rem; background: rgba(11,143,143,0.1); border-radius: 0 4px 4px 0; margin: 1.5rem 0; }
+.founding-table-page .pullquote { border-left: 3px solid #0B8F8F; padding: 1rem 1.5rem; background: rgba(11,143,143,0.1); border-radius: 0 4px 4px 0; margin: 1rem 0; }
 .founding-table-page .pullquote p { font-family: 'Lora', serif; font-style: italic; font-size: 1rem; color: #0E1E2B; line-height: 1.65; margin: 0; }
 
 /* CTA */
