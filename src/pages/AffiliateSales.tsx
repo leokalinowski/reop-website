@@ -110,7 +110,7 @@ const AffiliateSales = () => {
             </table>
           </div>
           <p className="text-slate-400 text-sm max-w-xl mx-auto">
-            Based on 20% of a ~$97/mo subscription. This is recurring — your income grows as long as your referrals stay. SphereSync is built for long-term members, not one-time buyers.
+            Based on 20% of a ~$149/mo subscription. This is recurring — your income grows as long as your referrals stay. SphereSync is built for long-term members, not one-time buyers.
           </p>
         </div>
       </section>
