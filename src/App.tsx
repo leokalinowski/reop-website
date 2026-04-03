@@ -4,6 +4,9 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
 import Index from "./pages/Index";
+import AffiliateSales from "./pages/AffiliateSales";
+import AffiliateApply from "./pages/AffiliateApply";
+import AffiliateThankYou from "./pages/AffiliateThankYou";
 import JumpStart from "./pages/JumpStart";
 import Events from "./pages/Events";
 import Blog from "./pages/Blog";
@@ -31,7 +34,7 @@ const queryClient = new QueryClient();
 
 const AppContent = () => {
   const location = useLocation();
-  const showAnnouncementBar = location.pathname !== '/jump-start' && location.pathname !== '/spheresync-founders' && location.pathname !== '/spheresync-founders-1';
+  const showAnnouncementBar = location.pathname !== '/jump-start' && location.pathname !== '/spheresync-founders' && location.pathname !== '/spheresync-founders-1' && !location.pathname.startsWith('/affiliate');
   
   return (
     <>
@@ -60,6 +63,9 @@ const AppContent = () => {
         <Route path="/spheresync" element={<SphereSync />} />
         <Route path="/spheresync-founders-1" element={<SphereSyncFounders />} />
         <Route path="/spheresync-founders" element={<FoundingTable />} />
+        <Route path="/affiliate" element={<AffiliateSales />} />
+        <Route path="/affiliate/apply" element={<AffiliateApply />} />
+        <Route path="/affiliate/thank-you" element={<AffiliateThankYou />} />
         {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
