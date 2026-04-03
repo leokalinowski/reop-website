@@ -296,6 +296,7 @@ const FoundingTable = () => {
             <div className="offer-after">
               After six months, your rate stays at <strong>$149/month</strong> — locked in, no increases, ever. Founding Table pricing is permanent.
             </div>
+            <p className="guarantee-brief">And if it's not right for you, we'll make it right.</p>
           </div>
         </div>
       </div>
