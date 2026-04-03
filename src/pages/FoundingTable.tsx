@@ -207,7 +207,7 @@ const FoundingTable = () => {
           <div className="timeline-step">
             <div className="timeline-dot"><span>2</span></div>
             <div className="timeline-content">
-              <div className="timeline-title">Need help? Implementation Lab — Mon &amp; Thu</div>
+              <div className="timeline-title">Need help? Implementation Labs are  Mon &amp; Thu</div>
               <div className="timeline-body">JJ and Leonardo run live sessions to walk you through exporting your CRM and uploading your CSV. Most founders are fully set up after one session.</div>
             </div>
           </div>
