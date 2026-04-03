@@ -200,14 +200,14 @@ const FoundingTable = () => {
           <div className="timeline-step">
             <div className="timeline-dot"><span>1</span></div>
             <div className="timeline-content">
-              <div className="timeline-title">Within 24 hours — your Hub access arrives</div>
+              <div className="timeline-title">Within minutes your Hub access arrives</div>
               <div className="timeline-body">Your SphereSync Hub login lands in your inbox. Upload up to 500 contacts and the system begins calculating your Sphere Yield, Opportunity Gap, and Uncaptured GCI.</div>
             </div>
           </div>
           <div className="timeline-step">
             <div className="timeline-dot"><span>2</span></div>
             <div className="timeline-content">
-              <div className="timeline-title">Need help? Implementation Lab — Mon &amp; Thu</div>
+              <div className="timeline-title">Need help? Implementation Labs are  Mon &amp; Thu</div>
               <div className="timeline-body">JJ and Leonardo run live sessions to walk you through exporting your CRM and uploading your CSV. Most founders are fully set up after one session.</div>
             </div>
           </div>
