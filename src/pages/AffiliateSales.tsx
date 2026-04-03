@@ -146,6 +146,13 @@ const AffiliateSales = () => {
             ))}
           </div>
         </div>
+        <div className="text-center mt-10">
+          <Button asChild size="lg" className="text-lg px-8 py-6">
+            <Link to="/affiliate/apply">
+              Apply to Become an Affiliate <ArrowRight className="h-5 w-5 ml-1" />
+            </Link>
+          </Button>
+        </div>
       </section>
 
       {/* Who It's For */}
