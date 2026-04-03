@@ -63,6 +63,9 @@ const AppContent = () => {
         <Route path="/spheresync" element={<SphereSync />} />
         <Route path="/spheresync-founders-1" element={<SphereSyncFounders />} />
         <Route path="/spheresync-founders" element={<FoundingTable />} />
+        <Route path="/affiliate" element={<AffiliateSales />} />
+        <Route path="/affiliate/apply" element={<AffiliateApply />} />
+        <Route path="/affiliate/thank-you" element={<AffiliateThankYou />} />
         {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
