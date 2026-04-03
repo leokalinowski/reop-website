@@ -296,6 +296,7 @@ const FoundingTable = () => {
             <div className="offer-after">
               After six months, your rate stays at <strong>$149/month</strong> — locked in, no increases, ever. Founding Table pricing is permanent.
             </div>
+            <p className="guarantee-brief">And if it's not right for you, we'll make it right.</p>
           </div>
         </div>
       </div>
@@ -328,6 +329,11 @@ const FoundingTable = () => {
             <div className="scarcity-sub">I'm introducing SphereSync publicly on April 22nd. I wanted you to have a seat before the room finds out it exists. Founding Table seats close April 22nd — or when all 50 are filled.</div>
           </div>
         </div>
+      </div>
+
+      {/* GUARANTEE */}
+      <div className="guarantee-block fade-up">
+        <p>If you complete your Sphere Opportunity Audit and do 85% of your first four Rolling Audits and don't feel like this is working for you — I'll refund every penny. No questions, no guilt. I'm that confident in what we've built.</p>
       </div>
 
       {/* CTA 2 */}
