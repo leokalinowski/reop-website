@@ -53,7 +53,7 @@ const AffiliateSales = () => {
           Earn <em className="text-primary italic">20% Recurring Revenue</em> on Every Referral
         </h1>
         <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 leading-relaxed">
-          Refer agents to SphereSync. When they stay, you keep earning — 20% of their subscription, every month, for life.
+          Earn 20% of their subscription, every month, for life.
         </p>
         <Button asChild size="lg" className="text-lg px-8 py-6">
           <Link to="/affiliate/apply">
