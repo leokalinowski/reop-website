@@ -228,6 +228,11 @@ const FoundingTable = () => {
         </div>
       </div>
 
+      {/* CTA before offer */}
+      <div className="btn-wrap fade-up">
+        <a href={APPLY_URL} className="btn-primary" target="_blank" rel="noopener noreferrer">Reserve My Seat</a>
+      </div>
+
       {/* OFFER */}
       <div className="section-head fade-up">
         <div className="section-label">Your seat at the Founding Table</div>
