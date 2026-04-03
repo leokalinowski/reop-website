@@ -14,6 +14,57 @@ export type Database = {
   }
   public: {
     Tables: {
+      affiliate_leads: {
+        Row: {
+          audience_size: string | null
+          created_at: string
+          email: string
+          first_name: string
+          id: string
+          instagram: string | null
+          last_name: string
+          phone: string | null
+          promotion_plan: string | null
+          real_estate_experience: string | null
+          status: string | null
+          tiktok: string | null
+          updated_at: string
+          youtube: string | null
+        }
+        Insert: {
+          audience_size?: string | null
+          created_at?: string
+          email: string
+          first_name: string
+          id?: string
+          instagram?: string | null
+          last_name: string
+          phone?: string | null
+          promotion_plan?: string | null
+          real_estate_experience?: string | null
+          status?: string | null
+          tiktok?: string | null
+          updated_at?: string
+          youtube?: string | null
+        }
+        Update: {
+          audience_size?: string | null
+          created_at?: string
+          email?: string
+          first_name?: string
+          id?: string
+          instagram?: string | null
+          last_name?: string
+          phone?: string | null
+          promotion_plan?: string | null
+          real_estate_experience?: string | null
+          status?: string | null
+          tiktok?: string | null
+          updated_at?: string
+          youtube?: string | null
+        }
+        Relationships: []
+      }
       blog_categories: {
         Row: {
           created_at: string | null
