@@ -164,7 +164,7 @@ const FoundingTable = () => {
           <div className="db-row">
             <div className="db-left">
               <div className="db-check"></div>
-              <div><div className="db-name">Laura Schwartz</div><div className="db-phone">703-283-6120</div></div>
+              <div><div className="db-name">Rachel Simmons</div><div className="db-phone">555-318-6042</div></div>
             </div>
             <div className="db-right"><span className="ft-badge badge-cat">Cat: S</span><span className="ft-badge badge-dnc">DNC</span></div>
           </div>
