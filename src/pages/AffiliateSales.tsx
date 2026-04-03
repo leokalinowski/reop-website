@@ -7,7 +7,7 @@ import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 
 const COMMISSION_PERCENT = 20;
-const MONTHLY_PRICE = 97;
+const MONTHLY_PRICE = 149;
 const MONTHLY_COMMISSION = Math.round(MONTHLY_PRICE * COMMISSION_PERCENT / 100);
 const FOUNDING_PRICE = 997;
 const FOUNDING_COMMISSION = Math.round(FOUNDING_PRICE * COMMISSION_PERCENT / 100);
