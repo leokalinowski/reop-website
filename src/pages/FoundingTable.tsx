@@ -230,7 +230,8 @@ const FoundingTable = () => {
 
       {/* CTA before offer */}
       <div className="btn-wrap fade-up">
-        <a href={APPLY_URL} className="btn-primary" target="_blank" rel="noopener noreferrer">Reserve My Seat</a>
+        <a href={APPLY_URL} target="_blank" rel="noopener noreferrer" className="ft-btn">Reserve My Seat at the Founding Table</a>
+        <p className="btn-sub">Have a question first? Text Pam: <a href="sms:+12102628919">210-262-8919</a></p>
       </div>
 
       {/* OFFER */}
