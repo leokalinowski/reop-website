@@ -138,7 +138,6 @@ const AffiliateSales = () => {
               'Strong product-market fit — agents need this, and they know it',
               'Recurring revenue model — you earn as long as they stay',
               'High customer lifetime value — SphereSync is a system, not a tool they churn from',
-              'Marketing assets, tracking dashboard, and dedicated affiliate support',
             ].map((item, i) => (
               <div key={i} className="flex items-start gap-3">
                 <CheckCircle className="h-5 w-5 text-primary mt-0.5 shrink-0" />
