@@ -28,7 +28,7 @@ const AffiliateSales = () => {
       <SEO
         title="Become a SphereSync Affiliate | Earn $199 Per Referral"
         description={`Join the SphereSync affiliate program. Earn ${COMMISSION_PERCENT}% commission ($${COMMISSION_AMOUNT}) for every founding member you refer. Perfect for real estate coaches, influencers, and community leaders.`}
-        keywords="SphereSync affiliate, real estate affiliate program, earn commissions, referral program"
+        keywords={["SphereSync affiliate", "real estate affiliate program", "earn commissions", "referral program"]}
       />
 
       {/* Header */}
