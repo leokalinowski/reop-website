@@ -120,7 +120,7 @@ const AffiliateSales = () => {
         <div className="max-w-2xl mx-auto">
           <div className="bg-muted border border-border rounded-xl p-6 text-center">
             <p className="text-sm text-muted-foreground leading-relaxed">
-              <strong className="text-foreground">Limited-Time Founding Bonus:</strong> The first 50 affiliates also earn ${FOUNDING_COMMISSION} per one-time Founding Table sale (${FOUNDING_PRICE}). This is in addition to your ongoing recurring commissions.
+              <strong className="text-foreground">Founding Launch Bonus:</strong> Right now, SphereSync is enrolling Founders at ${FOUNDING_PRICE} for 6 months. You earn ${FOUNDING_COMMISSION} (20%) on every Founding enrollment you refer. From month 7 onward, they move to ${MONTHLY_PRICE}/mo — and you earn 20% of that, every month, for life.
             </p>
           </div>
         </div>
