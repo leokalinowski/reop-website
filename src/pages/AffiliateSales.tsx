@@ -11,7 +11,7 @@ const COMMISSION_AMOUNT = Math.round(PRODUCT_PRICE * COMMISSION_PERCENT / 100);
 
 const steps = [
   { icon: Users, title: 'Apply', description: 'Fill out a quick application so we can get to know you.' },
-  { icon: Link2, title: 'Get Your Link', description: 'Once approved, you'll receive a unique affiliate link and onboarding materials.' },
+  { icon: Link2, title: 'Get Your Link', description: 'Once approved, you will receive a unique affiliate link and onboarding materials.' },
   { icon: DollarSign, title: 'Earn', description: `Share your link. Every sale you refer earns you $${COMMISSION_AMOUNT}.` },
 ];
 
