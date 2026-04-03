@@ -142,6 +142,11 @@
 .founding-table-page .fnf-item.yes { color: #5A6A7A; }
 .founding-table-page .fnf-item.no { color: #9AAAB8; }
 
+/* GUARANTEE */
+.founding-table-page .guarantee-brief { font-size: .83rem; font-style: italic; color: #5A6A7A; font-weight: 300; margin: 1rem 0 0; text-align: center; }
+.founding-table-page .guarantee-block { max-width: 780px; margin: 0 auto; padding: 0 2rem 1.5rem; }
+.founding-table-page .guarantee-block p { border-left: 3px solid #B8892A; padding: .85rem 1.25rem; font-size: .88rem; font-style: italic; font-weight: 300; color: #2D3E4E; line-height: 1.7; background: rgba(184,137,42,0.06); border-radius: 0 4px 4px 0; margin: 0; }
+
 /* SCARCITY */
 .founding-table-page .scarcity-wrap { padding: 0 2rem; max-width: 780px; margin: 0 auto 1.5rem; }
 .founding-table-page .scarcity { background: rgba(184,137,42,0.12); border: 1px solid #B8892A; border-radius: 6px; padding: 1.25rem 1.5rem; display: flex; align-items: center; gap: 1rem; }

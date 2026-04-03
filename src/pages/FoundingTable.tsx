@@ -331,6 +331,11 @@ const FoundingTable = () => {
         </div>
       </div>
 
+      {/* GUARANTEE */}
+      <div className="guarantee-block fade-up">
+        <p>If you complete your Sphere Opportunity Audit and do 85% of your first four Rolling Audits and don't feel like this is working for you — I'll refund every penny. No questions, no guilt. I'm that confident in what we've built.</p>
+      </div>
+
       {/* CTA 2 */}
       <div className="btn-wrap fade-up">
         <a href={APPLY_URL} target="_blank" rel="noopener noreferrer" className="ft-btn ft-btn--block" style={{ maxWidth: 440, margin: '0 auto', display: 'block' }}>Reserve My Seat at the Founding Table</a>
