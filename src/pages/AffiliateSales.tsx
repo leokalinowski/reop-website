@@ -2,8 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Users, Link2, DollarSign, Megaphone, GraduationCap, Heart, ArrowRight, CheckCircle } from 'lucide-react';
 import SEO from '@/components/SEO';
-import Logo from '@/components/Logo';
-import FooterMinimal from '@/components/FooterMinimal';
+import Navigation from '@/components/Navigation';
+import Footer from '@/components/Footer';
+import { Button } from '@/components/ui/button';
 
 const COMMISSION_PERCENT = 20;
 const PRODUCT_PRICE = 997;
@@ -24,53 +25,49 @@ const audiences = [
 
 const AffiliateSales = () => {
   return (
-    <div className="min-h-screen bg-[#0E1E2B] text-white" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+    <div className="min-h-screen bg-background text-foreground">
       <SEO
         title="Become a SphereSync Affiliate | Earn $199 Per Referral"
         description={`Join the SphereSync affiliate program. Earn ${COMMISSION_PERCENT}% commission ($${COMMISSION_AMOUNT}) for every founding member you refer. Perfect for real estate coaches, influencers, and community leaders.`}
         keywords={["SphereSync affiliate", "real estate affiliate program", "earn commissions", "referral program"]}
       />
 
-      {/* Header */}
-      <header className="py-4 px-6 flex justify-center">
-        <Logo />
-      </header>
+      <Navigation />
 
       {/* Hero */}
       <section className="py-16 md:py-24 px-6 text-center max-w-4xl mx-auto">
-        <div className="inline-flex items-center gap-2 bg-[#0B8F8F]/15 border border-[#0B8F8F]/30 rounded-full px-4 py-1.5 mb-6">
-          <span className="w-2 h-2 bg-[#0AADAD] rounded-full animate-pulse" />
-          <span className="text-xs font-medium tracking-wider uppercase text-[#0AADAD]">Affiliate Program</span>
+        <div className="inline-flex items-center gap-2 bg-muted border border-border rounded-full px-4 py-1.5 mb-6">
+          <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
+          <span className="text-xs font-medium tracking-wider uppercase text-primary">Affiliate Program</span>
         </div>
-        <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-light leading-tight mb-6" style={{ fontFamily: "'Lora', serif" }}>
-          Earn <em className="text-[#0AADAD] italic">${COMMISSION_AMOUNT}</em> for Every Agent You Refer
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-foreground">
+          Earn <em className="text-primary italic">${COMMISSION_AMOUNT}</em> for Every Agent You Refer
         </h1>
-        <p className="text-lg md:text-xl text-[#9AAAB8] max-w-2xl mx-auto mb-8 font-light leading-relaxed">
+        <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 leading-relaxed">
           Partner with Real Estate on Purpose and earn {COMMISSION_PERCENT}% commission on every SphereSync Founding Table membership you refer — a ${PRODUCT_PRICE} product built for serious agents.
         </p>
-        <Link
-          to="/affiliate/apply"
-          className="inline-flex items-center gap-2 bg-[#0B8F8F] hover:bg-[#0AADAD] text-white px-8 py-4 rounded font-medium text-lg transition-all hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(11,143,143,0.28)]"
-        >
-          Apply Now <ArrowRight className="h-5 w-5" />
-        </Link>
+        <Button asChild size="lg" className="text-lg px-8 py-6">
+          <Link to="/affiliate/apply">
+            Apply Now <ArrowRight className="h-5 w-5 ml-1" />
+          </Link>
+        </Button>
       </section>
 
       {/* How It Works */}
-      <section className="py-16 px-6 border-t border-white/10">
+      <section className="py-16 px-6 border-t border-border">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-center text-2xl md:text-3xl font-light mb-12" style={{ fontFamily: "'Lora', serif" }}>
+          <h2 className="text-center text-2xl md:text-3xl font-bold mb-12 text-foreground">
             How It Works
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
             {steps.map((step, i) => (
-              <div key={i} className="text-center">
-                <div className="w-16 h-16 rounded-full bg-[#0B8F8F]/15 border border-[#0B8F8F]/30 flex items-center justify-center mx-auto mb-4">
-                  <step.icon className="h-7 w-7 text-[#0AADAD]" />
+              <div key={i} className="text-center bg-card border border-border rounded-xl p-6">
+                <div className="w-16 h-16 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center mx-auto mb-4">
+                  <step.icon className="h-7 w-7 text-primary" />
                 </div>
-                <div className="text-xs font-medium tracking-wider uppercase text-[#B8892A] mb-2">Step {i + 1}</div>
-                <h3 className="text-xl font-medium mb-2">{step.title}</h3>
-                <p className="text-[#9AAAB8] font-light leading-relaxed">{step.description}</p>
+                <div className="text-xs font-medium tracking-wider uppercase text-accent mb-2">Step {i + 1}</div>
+                <h3 className="text-xl font-semibold mb-2 text-foreground">{step.title}</h3>
+                <p className="text-muted-foreground leading-relaxed">{step.description}</p>
               </div>
             ))}
           </div>
@@ -78,27 +75,27 @@ const AffiliateSales = () => {
       </section>
 
       {/* Commission Breakdown */}
-      <section className="py-16 px-6 bg-white/[0.03]">
+      <section className="py-16 px-6 bg-slate-900">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-2xl md:text-3xl font-light mb-8" style={{ fontFamily: "'Lora', serif" }}>
+          <h2 className="text-2xl md:text-3xl font-bold mb-8 text-slate-50">
             The Numbers
           </h2>
           <div className="grid sm:grid-cols-3 gap-6 mb-8">
-            <div className="bg-white/5 border border-white/10 rounded-lg p-6">
-              <div className="text-3xl font-bold text-[#0AADAD] mb-1">${PRODUCT_PRICE}</div>
-              <div className="text-sm text-[#9AAAB8]">Product Price</div>
+            <div className="bg-white/10 border border-white/15 rounded-xl p-6">
+              <div className="text-3xl font-bold text-primary mb-1">${PRODUCT_PRICE}</div>
+              <div className="text-sm text-slate-300">Product Price</div>
             </div>
-            <div className="bg-white/5 border border-white/10 rounded-lg p-6">
-              <div className="text-3xl font-bold text-[#B8892A] mb-1">{COMMISSION_PERCENT}%</div>
-              <div className="text-sm text-[#9AAAB8]">Your Commission</div>
+            <div className="bg-white/10 border border-white/15 rounded-xl p-6">
+              <div className="text-3xl font-bold text-accent mb-1">{COMMISSION_PERCENT}%</div>
+              <div className="text-sm text-slate-300">Your Commission</div>
             </div>
-            <div className="bg-white/5 border border-white/10 rounded-lg p-6">
-              <div className="text-3xl font-bold text-[#99ca3c] mb-1">${COMMISSION_AMOUNT}</div>
-              <div className="text-sm text-[#9AAAB8]">Per Referral</div>
+            <div className="bg-white/10 border border-white/15 rounded-xl p-6">
+              <div className="text-3xl font-bold text-primary mb-1">${COMMISSION_AMOUNT}</div>
+              <div className="text-sm text-slate-300">Per Referral</div>
             </div>
           </div>
-          <p className="text-[#9AAAB8] font-light">
-            Refer just 5 agents and earn <strong className="text-white">${COMMISSION_AMOUNT * 5}</strong>. No cap on earnings.
+          <p className="text-slate-300">
+            Refer just 5 agents and earn <strong className="text-slate-50">${COMMISSION_AMOUNT * 5}</strong>. No cap on earnings.
           </p>
         </div>
       </section>
@@ -106,7 +103,7 @@ const AffiliateSales = () => {
       {/* What You Get */}
       <section className="py-16 px-6">
         <div className="max-w-3xl mx-auto">
-          <h2 className="text-center text-2xl md:text-3xl font-light mb-10" style={{ fontFamily: "'Lora', serif" }}>
+          <h2 className="text-center text-2xl md:text-3xl font-bold mb-10 text-foreground">
             What You Get as an Affiliate
           </h2>
           <div className="space-y-4">
@@ -118,8 +115,8 @@ const AffiliateSales = () => {
               'Early access to new products and promotions',
             ].map((item, i) => (
               <div key={i} className="flex items-start gap-3">
-                <CheckCircle className="h-5 w-5 text-[#0AADAD] mt-0.5 shrink-0" />
-                <p className="text-[#C8D8E8] font-light">{item}</p>
+                <CheckCircle className="h-5 w-5 text-primary mt-0.5 shrink-0" />
+                <p className="text-foreground">{item}</p>
               </div>
             ))}
           </div>
@@ -127,17 +124,17 @@ const AffiliateSales = () => {
       </section>
 
       {/* Who It's For */}
-      <section className="py-16 px-6 bg-white/[0.03]">
+      <section className="py-16 px-6 bg-muted/50">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-center text-2xl md:text-3xl font-light mb-12" style={{ fontFamily: "'Lora', serif" }}>
+          <h2 className="text-center text-2xl md:text-3xl font-bold mb-12 text-foreground">
             Who This Is For
           </h2>
           <div className="grid sm:grid-cols-2 gap-6">
             {audiences.map((item, i) => (
-              <div key={i} className="bg-white/5 border border-white/10 rounded-lg p-6">
-                <item.icon className="h-8 w-8 text-[#0AADAD] mb-3" />
-                <h3 className="text-lg font-medium mb-2">{item.title}</h3>
-                <p className="text-[#9AAAB8] font-light text-sm leading-relaxed">{item.description}</p>
+              <div key={i} className="bg-card border border-border rounded-xl p-6 hover:shadow-lg transition-shadow">
+                <item.icon className="h-8 w-8 text-primary mb-3" />
+                <h3 className="text-lg font-semibold mb-2 text-foreground">{item.title}</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">{item.description}</p>
               </div>
             ))}
           </div>
@@ -147,22 +144,21 @@ const AffiliateSales = () => {
       {/* Final CTA */}
       <section className="py-20 px-6 text-center">
         <div className="max-w-2xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-light mb-4" style={{ fontFamily: "'Lora', serif" }}>
+          <h2 className="text-2xl md:text-3xl font-bold mb-4 text-foreground">
             Ready to Start Earning?
           </h2>
-          <p className="text-[#9AAAB8] font-light mb-8">
+          <p className="text-muted-foreground mb-8">
             Apply today and start earning ${COMMISSION_AMOUNT} for every agent you refer to SphereSync.
           </p>
-          <Link
-            to="/affiliate/apply"
-            className="inline-flex items-center gap-2 bg-[#0B8F8F] hover:bg-[#0AADAD] text-white px-8 py-4 rounded font-medium text-lg transition-all hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(11,143,143,0.28)]"
-          >
-            Apply for the Affiliate Program <ArrowRight className="h-5 w-5" />
-          </Link>
+          <Button asChild size="lg" className="text-lg px-8 py-6">
+            <Link to="/affiliate/apply">
+              Apply for the Affiliate Program <ArrowRight className="h-5 w-5 ml-1" />
+            </Link>
+          </Button>
         </div>
       </section>
 
-      <FooterMinimal />
+      <Footer />
     </div>
   );
 };
