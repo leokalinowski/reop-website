@@ -1,35 +1,44 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Users, Link2, DollarSign, Megaphone, GraduationCap, Heart, ArrowRight, CheckCircle } from 'lucide-react';
+import { Users, Link2, DollarSign, Megaphone, GraduationCap, Heart, ArrowRight, CheckCircle, TrendingUp } from 'lucide-react';
 import SEO from '@/components/SEO';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 
 const COMMISSION_PERCENT = 20;
-const PRODUCT_PRICE = 997;
-const COMMISSION_AMOUNT = Math.round(PRODUCT_PRICE * COMMISSION_PERCENT / 100);
+const MONTHLY_PRICE = 97;
+const MONTHLY_COMMISSION = Math.round(MONTHLY_PRICE * COMMISSION_PERCENT / 100);
+const FOUNDING_PRICE = 997;
+const FOUNDING_COMMISSION = Math.round(FOUNDING_PRICE * COMMISSION_PERCENT / 100);
 
 const steps = [
-  { icon: Users, title: 'Apply', description: 'Fill out a quick application so we can get to know you.' },
-  { icon: Link2, title: 'Get Your Link', description: 'Once approved, you will receive a unique affiliate link and onboarding materials.' },
-  { icon: DollarSign, title: 'Earn', description: `Share your link. Every sale you refer earns you $${COMMISSION_AMOUNT}.` },
+  { icon: Link2, title: 'Share', description: 'Share your unique affiliate link with your audience.' },
+  { icon: Users, title: 'They Join', description: 'When someone signs up for SphereSync through your link, you get credit.' },
+  { icon: TrendingUp, title: 'You Earn', description: 'Earn 20% of their subscription — every month they stay.' },
+];
+
+const earningsExamples = [
+  { referrals: 5, monthly: MONTHLY_COMMISSION * 5, annual: MONTHLY_COMMISSION * 5 * 12 },
+  { referrals: 10, monthly: MONTHLY_COMMISSION * 10, annual: MONTHLY_COMMISSION * 10 * 12 },
+  { referrals: 25, monthly: MONTHLY_COMMISSION * 25, annual: MONTHLY_COMMISSION * 25 * 12 },
+  { referrals: 50, monthly: MONTHLY_COMMISSION * 50, annual: MONTHLY_COMMISSION * 50 * 12 },
 ];
 
 const audiences = [
-  { icon: GraduationCap, title: 'Real Estate Coaches & Trainers', description: 'Add SphereSync to your recommended toolstack and earn while you teach.' },
-  { icon: Megaphone, title: 'Influencers & Content Creators', description: 'Monetize your real estate audience with a product that actually delivers.' },
-  { icon: Heart, title: 'Community Leaders & Team Leads', description: 'Help your network level up — and get rewarded for every referral.' },
-  { icon: Users, title: 'Current REOP Members', description: 'Already love SphereSync? Share it with peers and earn commissions.' },
+  { icon: GraduationCap, title: 'Real Estate Coaches & Trainers', description: 'Recommend SphereSync and earn recurring revenue while you teach.' },
+  { icon: Megaphone, title: 'Influencers & Content Creators', description: 'Monetize your real estate audience with compounding monthly income.' },
+  { icon: Heart, title: 'Community Leaders & Team Leads', description: 'Help your network level up — and build a recurring income stream.' },
+  { icon: Users, title: 'Current REOP Members', description: 'Already love SphereSync? Share it and earn every month.' },
 ];
 
 const AffiliateSales = () => {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <SEO
-        title="Become a SphereSync Affiliate | Earn $199 Per Referral"
-        description={`Join the SphereSync affiliate program. Earn ${COMMISSION_PERCENT}% commission ($${COMMISSION_AMOUNT}) for every founding member you refer. Perfect for real estate coaches, influencers, and community leaders.`}
-        keywords={["SphereSync affiliate", "real estate affiliate program", "earn commissions", "referral program"]}
+        title="Become a SphereSync Affiliate | Earn 20% Recurring Revenue"
+        description="Join the SphereSync affiliate program. Earn 20% recurring commissions on every referral — every month, for life. Perfect for real estate coaches, influencers, and community leaders."
+        keywords={["SphereSync affiliate", "real estate affiliate program", "recurring commissions", "referral program"]}
       />
 
       <Navigation />
@@ -41,14 +50,14 @@ const AffiliateSales = () => {
           <span className="text-xs font-medium tracking-wider uppercase text-primary">Affiliate Program</span>
         </div>
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-foreground">
-          Earn <em className="text-primary italic">${COMMISSION_AMOUNT}</em> for Every Agent You Refer
+          Earn <em className="text-primary italic">20% Recurring Revenue</em> on Every Referral
         </h1>
         <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 leading-relaxed">
-          Partner with Real Estate on Purpose and earn {COMMISSION_PERCENT}% commission on every SphereSync Founding Table membership you refer — a ${PRODUCT_PRICE} product built for serious agents.
+          Refer agents to SphereSync. When they stay, you keep earning — 20% of their subscription, every month, for life.
         </p>
         <Button asChild size="lg" className="text-lg px-8 py-6">
           <Link to="/affiliate/apply">
-            Apply Now <ArrowRight className="h-5 w-5 ml-1" />
+            Apply to Become an Affiliate <ArrowRight className="h-5 w-5 ml-1" />
           </Link>
         </Button>
       </section>
@@ -74,45 +83,62 @@ const AffiliateSales = () => {
         </div>
       </section>
 
-      {/* Commission Breakdown */}
+      {/* Earnings Potential */}
       <section className="py-16 px-6 bg-slate-900">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-2xl md:text-3xl font-bold mb-8 text-slate-50">
-            The Numbers
+            Your Earnings Potential
           </h2>
-          <div className="grid sm:grid-cols-3 gap-6 mb-8">
-            <div className="bg-white/10 border border-white/15 rounded-xl p-6">
-              <div className="text-3xl font-bold text-primary mb-1">${PRODUCT_PRICE}</div>
-              <div className="text-sm text-slate-300">Product Price</div>
-            </div>
-            <div className="bg-white/10 border border-white/15 rounded-xl p-6">
-              <div className="text-3xl font-bold text-accent mb-1">{COMMISSION_PERCENT}%</div>
-              <div className="text-sm text-slate-300">Your Commission</div>
-            </div>
-            <div className="bg-white/10 border border-white/15 rounded-xl p-6">
-              <div className="text-3xl font-bold text-primary mb-1">${COMMISSION_AMOUNT}</div>
-              <div className="text-sm text-slate-300">Per Referral</div>
-            </div>
+          <div className="overflow-hidden rounded-xl border border-white/15 mb-8">
+            <table className="w-full text-left">
+              <thead>
+                <tr className="bg-white/10">
+                  <th className="px-6 py-3 text-sm font-semibold text-slate-200">Referrals</th>
+                  <th className="px-6 py-3 text-sm font-semibold text-slate-200">Monthly Income</th>
+                  <th className="px-6 py-3 text-sm font-semibold text-slate-200">Annual Income</th>
+                </tr>
+              </thead>
+              <tbody>
+                {earningsExamples.map((row, i) => (
+                  <tr key={i} className={i % 2 === 0 ? 'bg-white/5' : 'bg-white/[0.02]'}>
+                    <td className="px-6 py-4 text-slate-300 font-medium">{row.referrals}</td>
+                    <td className="px-6 py-4 text-primary font-bold">~${row.monthly.toLocaleString()}</td>
+                    <td className="px-6 py-4 text-slate-50 font-bold">~${row.annual.toLocaleString()}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
-          <p className="text-slate-300">
-            Refer just 5 agents and earn <strong className="text-slate-50">${COMMISSION_AMOUNT * 5}</strong>. No cap on earnings.
+          <p className="text-slate-400 text-sm max-w-xl mx-auto">
+            Based on 20% of a ~$97/mo subscription. This is recurring — your income grows as long as your referrals stay. SphereSync is built for long-term members, not one-time buyers.
           </p>
         </div>
       </section>
 
-      {/* What You Get */}
+      {/* Founding Bonus */}
+      <section className="py-10 px-6">
+        <div className="max-w-2xl mx-auto">
+          <div className="bg-muted border border-border rounded-xl p-6 text-center">
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              <strong className="text-foreground">Limited-Time Founding Bonus:</strong> The first 50 affiliates also earn ${FOUNDING_COMMISSION} per one-time Founding Table sale (${FOUNDING_PRICE}). This is in addition to your ongoing recurring commissions.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Why This Is Easy to Promote */}
       <section className="py-16 px-6">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-center text-2xl md:text-3xl font-bold mb-10 text-foreground">
-            What You Get as an Affiliate
+            Why This Is Easy to Promote
           </h2>
           <div className="space-y-4">
             {[
-              'Unique tracking link managed through our affiliate dashboard',
-              'Marketing assets — copy, images, and email templates',
-              'Real-time commission tracking in your affiliate portal',
-              'Dedicated support from the REOP team',
-              'Early access to new products and promotions',
+              'Clear niche — built exclusively for real estate agents',
+              'Strong product-market fit — agents need this, and they know it',
+              'Recurring revenue model — you earn as long as they stay',
+              'High customer lifetime value — SphereSync is a system, not a tool they churn from',
+              'Marketing assets, tracking dashboard, and dedicated affiliate support',
             ].map((item, i) => (
               <div key={i} className="flex items-start gap-3">
                 <CheckCircle className="h-5 w-5 text-primary mt-0.5 shrink-0" />
@@ -145,10 +171,10 @@ const AffiliateSales = () => {
       <section className="py-20 px-6 text-center">
         <div className="max-w-2xl mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold mb-4 text-foreground">
-            Ready to Start Earning?
+            Ready to Build Recurring Income?
           </h2>
           <p className="text-muted-foreground mb-8">
-            Apply today and start earning ${COMMISSION_AMOUNT} for every agent you refer to SphereSync.
+            Apply today. Every referral earns you 20% — every month, for as long as they're a member.
           </p>
           <Button asChild size="lg" className="text-lg px-8 py-6">
             <Link to="/affiliate/apply">
