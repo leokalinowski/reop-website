@@ -97,31 +97,27 @@ Deno.serve(async (req) => {
       );
     }
 
-    // Send to GHL webhook (fire-and-forget)
-    const ghlUrl = Deno.env.get("GHL_WEBHOOK_URL");
-    if (ghlUrl) {
-      const tags = ["Affiliate Applicant", `Audience: ${audience_size}`, `Experience: ${real_estate_experience}`];
-      fetch(ghlUrl, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          firstName: record.first_name,
-          lastName: record.last_name,
-          email: record.email,
-          phone: record.phone || "",
-          tags,
-          source: "REOP Affiliate Application",
-          customField: {
-            instagram: record.instagram || "",
-            youtube: record.youtube || "",
-            tiktok: record.tiktok || "",
-            audience_size: record.audience_size,
-            real_estate_experience: record.real_estate_experience,
-            promotion_plan: record.promotion_plan || "",
-          },
-        }),
-      }).catch((e) => console.error("GHL webhook error:", e));
-    }
+    // Send to LeadConnector webhook (fire-and-forget)
+    fetch("https://services.leadconnectorhq.com/hooks/EvF7HNDSZUqlgzPqnfwz/webhook-trigger/pLQyKHlOX1SrqDitnz2n", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        firstName: record.first_name,
+        lastName: record.last_name,
+        email: record.email,
+        phone: record.phone || "",
+        tags: ["Affiliate Applicant", `Audience: ${audience_size}`, `Experience: ${real_estate_experience}`],
+        source: "REOP Affiliate Application",
+        customField: {
+          instagram: record.instagram || "",
+          youtube: record.youtube || "",
+          tiktok: record.tiktok || "",
+          audience_size: record.audience_size,
+          real_estate_experience: record.real_estate_experience,
+          promotion_plan: record.promotion_plan || "",
+        },
+      }),
+    }).catch((e) => console.error("LeadConnector webhook error:", e));
 
     return new Response(
       JSON.stringify({ success: true, id: data.id }),
