@@ -156,7 +156,7 @@ const JoinBlueJay = () => {
       <SEO
         title="Join Blue Jay Properties Group | Real Estate Agent Opportunity"
         description="Join Samir Redwan's Blue Jay Properties Group at Keller Williams Capital Properties. Done-for-you systems, mentorship, and a commission split that rewards your growth."
-        keywords="real estate agent, Keller Williams, Blue Jay Properties, Rockville MD, real estate team, DMV real estate"
+        keywords={["real estate agent", "Keller Williams", "Blue Jay Properties", "Rockville MD", "real estate team", "DMV real estate"]}
       />
       <Navigation />
 
