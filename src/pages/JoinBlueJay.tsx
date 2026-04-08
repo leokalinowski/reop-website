@@ -176,6 +176,7 @@ const JoinBlueJay = () => {
             </div>
           </div>
 
+          <p className="text-primary font-semibold text-sm uppercase tracking-widest mb-4">
             Real Estate Agent Opportunity — Rockville, MD (Serving DMV & Beyond)
           </p>
           <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
