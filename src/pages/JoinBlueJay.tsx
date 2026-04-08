@@ -166,13 +166,13 @@ const JoinBlueJay = () => {
       {/* Hero */}
       <section className="relative bg-secondary text-secondary-foreground py-20 md:py-28">
         <div className="container mx-auto px-4 max-w-4xl text-center">
-          <div className="flex items-center justify-center gap-6 md:gap-10 mb-8">
-            <div className="bg-white/95 rounded-xl px-6 py-4 flex items-center gap-6 md:gap-10">
-              <img src={blueJayLogo} alt="Blue Jay Properties" className="h-12 md:h-16 w-auto object-contain" />
-              <div className="w-px h-10 bg-gray-300" />
-              <img src={kwLogo} alt="Keller Williams" className="h-12 md:h-16 w-auto object-contain" />
-              <div className="w-px h-10 bg-gray-300" />
-              <img src={reopLogo} alt="Real Estate on Purpose" className="h-12 md:h-16 w-auto object-contain" />
+          <div className="flex items-center justify-center mb-8">
+            <div className="bg-white/95 rounded-xl px-4 py-3 md:px-6 md:py-4 flex flex-wrap items-center justify-center gap-4 md:gap-8 max-w-full">
+              <img src={blueJayLogo} alt="Blue Jay Properties" className="h-10 md:h-16 w-auto object-contain" />
+              <div className="hidden md:block w-px h-10 bg-border" />
+              <img src={kwLogo} alt="Keller Williams" className="h-10 md:h-16 w-auto object-contain" />
+              <div className="hidden md:block w-px h-10 bg-border" />
+              <img src={reopLogo} alt="Real Estate on Purpose" className="h-10 md:h-16 w-auto object-contain" />
             </div>
           </div>
 
