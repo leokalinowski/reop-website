@@ -11,6 +11,9 @@ import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { CheckCircle, TrendingUp, Users, Zap, Shield, Award, Target } from "lucide-react";
+import blueJayLogo from "@/assets/logos/blue-jay-properties.png";
+import kwLogo from "@/assets/logos/keller-williams.png";
+import reopLogo from "/images/reop-logo-compact.png";
 
 interface FormData {
   firstName: string;
