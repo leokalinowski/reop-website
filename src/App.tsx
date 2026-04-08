@@ -68,6 +68,8 @@ const AppContent = () => {
         <Route path="/affiliate" element={<AffiliateSales />} />
         <Route path="/affiliate/apply" element={<AffiliateApply />} />
         <Route path="/affiliate/thank-you" element={<AffiliateThankYou />} />
+        <Route path="/join/blue-jay-properties" element={<JoinBlueJay />} />
+        <Route path="/join/blue-jay-properties/thank-you" element={<JoinBlueJayThankYou />} />
         {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
