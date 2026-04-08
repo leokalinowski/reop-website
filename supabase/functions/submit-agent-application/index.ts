@@ -125,7 +125,7 @@ Deno.serve(async (req) => {
           firstName,
           lastName,
           email,
-          phone,
+          phone: normalizedPhone,
           licenseStates,
           annualTransactions: record.annual_transactions,
           yearsExperience: record.years_experience,
