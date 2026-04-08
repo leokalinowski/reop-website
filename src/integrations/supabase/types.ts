@@ -65,6 +65,54 @@ export type Database = {
         }
         Relationships: []
       }
+      agent_applications: {
+        Row: {
+          annual_transactions: string | null
+          created_at: string
+          email: string
+          first_name: string
+          id: string
+          last_name: string
+          license_states: string[] | null
+          note: string | null
+          phone: string | null
+          status: string | null
+          team_slug: string
+          updated_at: string
+          years_experience: string | null
+        }
+        Insert: {
+          annual_transactions?: string | null
+          created_at?: string
+          email: string
+          first_name: string
+          id?: string
+          last_name: string
+          license_states?: string[] | null
+          note?: string | null
+          phone?: string | null
+          status?: string | null
+          team_slug?: string
+          updated_at?: string
+          years_experience?: string | null
+        }
+        Update: {
+          annual_transactions?: string | null
+          created_at?: string
+          email?: string
+          first_name?: string
+          id?: string
+          last_name?: string
+          license_states?: string[] | null
+          note?: string | null
+          phone?: string | null
+          status?: string | null
+          team_slug?: string
+          updated_at?: string
+          years_experience?: string | null
+        }
+        Relationships: []
+      }
       blog_categories: {
         Row: {
           created_at: string | null

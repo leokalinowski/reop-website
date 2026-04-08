@@ -28,6 +28,8 @@ import ProfessionalPractice from "./pages/ProfessionalPractice";
 import SphereSync from "./pages/SphereSync";
 import SphereSyncFounders from "./pages/SphereSyncFounders";
 import FoundingTable from "./pages/FoundingTable";
+import JoinBlueJay from "./pages/JoinBlueJay";
+import JoinBlueJayThankYou from "./pages/JoinBlueJayThankYou";
 import AnnouncementBar from "./components/AnnouncementBar";
 
 const queryClient = new QueryClient();
@@ -66,6 +68,8 @@ const AppContent = () => {
         <Route path="/affiliate" element={<AffiliateSales />} />
         <Route path="/affiliate/apply" element={<AffiliateApply />} />
         <Route path="/affiliate/thank-you" element={<AffiliateThankYou />} />
+        <Route path="/join/blue-jay-properties" element={<JoinBlueJay />} />
+        <Route path="/join/blue-jay-properties/thank-you" element={<JoinBlueJayThankYou />} />
         {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
