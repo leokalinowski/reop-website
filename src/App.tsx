@@ -28,6 +28,8 @@ import ProfessionalPractice from "./pages/ProfessionalPractice";
 import SphereSync from "./pages/SphereSync";
 import SphereSyncFounders from "./pages/SphereSyncFounders";
 import FoundingTable from "./pages/FoundingTable";
+import JoinBlueJay from "./pages/JoinBlueJay";
+import JoinBlueJayThankYou from "./pages/JoinBlueJayThankYou";
 import AnnouncementBar from "./components/AnnouncementBar";
 
 const queryClient = new QueryClient();
