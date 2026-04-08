@@ -11,6 +11,9 @@ import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { CheckCircle, TrendingUp, Users, Zap, Shield, Award, Target } from "lucide-react";
+import blueJayLogo from "@/assets/logos/blue-jay-properties.png";
+import kwLogo from "@/assets/logos/keller-williams.png";
+import reopLogo from "/images/reop-logo-compact.png";
 
 interface FormData {
   firstName: string;
@@ -163,6 +166,16 @@ const JoinBlueJay = () => {
       {/* Hero */}
       <section className="relative bg-secondary text-secondary-foreground py-20 md:py-28">
         <div className="container mx-auto px-4 max-w-4xl text-center">
+          <div className="flex items-center justify-center gap-6 md:gap-10 mb-8">
+            <div className="bg-white/95 rounded-xl px-6 py-4 flex items-center gap-6 md:gap-10">
+              <img src={blueJayLogo} alt="Blue Jay Properties" className="h-12 md:h-16 w-auto object-contain" />
+              <div className="w-px h-10 bg-gray-300" />
+              <img src={kwLogo} alt="Keller Williams" className="h-12 md:h-16 w-auto object-contain" />
+              <div className="w-px h-10 bg-gray-300" />
+              <img src={reopLogo} alt="Real Estate on Purpose" className="h-12 md:h-16 w-auto object-contain" />
+            </div>
+          </div>
+
           <p className="text-primary font-semibold text-sm uppercase tracking-widest mb-4">
             Real Estate Agent Opportunity — Rockville, MD (Serving DMV & Beyond)
           </p>
