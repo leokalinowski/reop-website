@@ -30,17 +30,11 @@ import SphereSyncFounders from "./pages/SphereSyncFounders";
 import FoundingTable from "./pages/FoundingTable";
 import JoinBlueJay from "./pages/JoinBlueJay";
 import JoinBlueJayThankYou from "./pages/JoinBlueJayThankYou";
-import AnnouncementBar from "./components/AnnouncementBar";
-
 const queryClient = new QueryClient();
 
 const AppContent = () => {
-  const location = useLocation();
-  const showAnnouncementBar = location.pathname !== '/jump-start' && location.pathname !== '/spheresync-founders' && location.pathname !== '/spheresync-founders-1' && !location.pathname.startsWith('/affiliate');
-  
   return (
     <>
-      {showAnnouncementBar && <AnnouncementBar />}
       <Routes>
         <Route path="/" element={<Index />} />
         <Route path="/jump-start" element={<JumpStart />} />
