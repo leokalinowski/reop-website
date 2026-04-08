@@ -56,6 +56,16 @@ Deno.serve(async (req) => {
     const email = sanitize(body.email).toLowerCase();
     const phone = sanitize(body.phone);
 
+    // Normalize US phone numbers to include +1
+    let normalizedPhone = phone.replace(/\D/g, '');
+    if (normalizedPhone.length === 10) {
+      normalizedPhone = '+1' + normalizedPhone;
+    } else if (normalizedPhone.length === 11 && normalizedPhone.startsWith('1')) {
+      normalizedPhone = '+' + normalizedPhone;
+    } else {
+      normalizedPhone = phone;
+    }
+
     if (!firstName || !lastName || !email || !phone) {
       return new Response(
         JSON.stringify({ error: "First name, last name, email, and phone are required." }),
