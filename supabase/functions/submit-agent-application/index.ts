@@ -105,7 +105,7 @@ Deno.serve(async (req) => {
     }
 
     // Webhook — placeholder URL; replace once webhook is created
-    const WEBHOOK_URL = ""; // e.g. "https://services.leadconnectorhq.com/hooks/..."
+    const WEBHOOK_URL = "https://services.leadconnectorhq.com/hooks/EvF7HNDSZUqlgzPqnfwz/webhook-trigger/53e09e42-528f-4e7d-b617-3b9237896bf6";
 
     if (WEBHOOK_URL) {
       fetch(WEBHOOK_URL, {
