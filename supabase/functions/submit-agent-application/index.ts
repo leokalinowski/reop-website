@@ -92,7 +92,7 @@ Deno.serve(async (req) => {
       first_name: firstName,
       last_name: lastName,
       email,
-      phone,
+      phone: normalizedPhone,
       license_states: licenseStates,
       annual_transactions: sanitize(body.annual_transactions).slice(0, 20),
       years_experience: sanitize(body.years_experience).slice(0, 20),
