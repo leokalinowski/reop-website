@@ -13,7 +13,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { CheckCircle, TrendingUp, Users, Zap, Shield, Award, Target } from "lucide-react";
 import blueJayLogo from "@/assets/logos/blue-jay-properties.png";
 import kwLogo from "@/assets/logos/keller-williams.png";
-import reopLogo from "/images/reop-logo-compact.png";
+import reopLogo from "@/assets/logos/reop-logo-compact.png";
 
 interface FormData {
   firstName: string;
