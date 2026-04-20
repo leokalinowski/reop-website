@@ -159,6 +159,7 @@ const NetworkBackground = () =>
 const SphereSyncFounders = () => {
   const [heroVisible, setHeroVisible] = useState(false);
   const isMobile = useIsMobile();
+  const APPLY_URL = useStripeCheckoutUrl(APPLY_URL_BASE);
 
   /* ─── Countdown timer ─── */
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0, expired: false });
