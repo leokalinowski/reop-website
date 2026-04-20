@@ -13,6 +13,7 @@ import FooterMinimal from '@/components/FooterMinimal';
 import LightRays from '@/components/LightRays';
 import SEO from '@/components/SEO';
 import { useIsMobile } from '@/hooks/use-mobile';
+import { useStripeCheckoutUrl } from '@/hooks/useStripeCheckoutUrl';
 
 /* ─── Scroll-triggered visibility hook ─── */
 function useInView(threshold = 0.15) {
@@ -31,7 +32,7 @@ function useInView(threshold = 0.15) {
   return { ref, visible };
 }
 
-const APPLY_URL = 'https://buy.stripe.com/14A4gBgz08mGgCx2js0x200';
+const APPLY_URL_BASE = 'https://buy.stripe.com/14A4gBgz08mGgCx2js0x200';
 
 /* ─── Data ─── */
 const founderReceives = [
@@ -67,12 +68,16 @@ const idealFounders = [
 
 
 /* ─── CTA Components ─── */
-const PrimaryCTA = ({ label = 'Apply for Founder Access' }: {label?: string;}) =>
-<Button asChild size="lg" className="h-14 px-10 text-lg shadow-lg hover:shadow-xl transition-all duration-300">
-    <a href={APPLY_URL} target="_blank" rel="noopener noreferrer">
-      {label} <ArrowRight className="ml-2 h-5 w-5" />
-    </a>
-  </Button>;
+const PrimaryCTA = ({ label = 'Apply for Founder Access' }: {label?: string;}) => {
+  const APPLY_URL = useStripeCheckoutUrl(APPLY_URL_BASE);
+  return (
+    <Button asChild size="lg" className="h-14 px-10 text-lg shadow-lg hover:shadow-xl transition-all duration-300">
+      <a href={APPLY_URL} target="_blank" rel="noopener noreferrer">
+        {label} <ArrowRight className="ml-2 h-5 w-5" />
+      </a>
+    </Button>
+  );
+};
 
 
 const SectionCTA = ({ label = 'Apply for Founder Access', visible = true }: {label?: string; visible?: boolean;}) =>
@@ -154,6 +159,7 @@ const NetworkBackground = () =>
 const SphereSyncFounders = () => {
   const [heroVisible, setHeroVisible] = useState(false);
   const isMobile = useIsMobile();
+  const APPLY_URL = useStripeCheckoutUrl(APPLY_URL_BASE);
 
   /* ─── Countdown timer ─── */
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0, expired: false });

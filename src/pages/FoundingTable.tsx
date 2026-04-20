@@ -1,11 +1,13 @@
 import { useEffect, useRef } from 'react';
 import './FoundingTable.css';
 import SEO from '@/components/SEO';
+import { useStripeCheckoutUrl } from '@/hooks/useStripeCheckoutUrl';
 
-const APPLY_URL = 'https://buy.stripe.com/14A4gBgz08mGgCx2js0x200';
+const APPLY_URL_BASE = 'https://buy.stripe.com/14A4gBgz08mGgCx2js0x200';
 
 const FoundingTable = () => {
   const pageRef = useRef<HTMLDivElement>(null);
+  const APPLY_URL = useStripeCheckoutUrl(APPLY_URL_BASE);
 
   useEffect(() => {
     if (!pageRef.current) return;
