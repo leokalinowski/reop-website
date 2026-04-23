@@ -328,7 +328,7 @@ const FoundingTable = () => {
           <span className="scarcity-icon">🪑</span>
           <div>
             <div className="scarcity-title">50 seats. That's it. That's the whole table.</div>
-            <div className="scarcity-sub">I'm introducing SphereSync publicly on April 22nd. I wanted you to have a seat before the room finds out it exists. Founding Table seats close April 22nd — or when all 50 are filled.</div>
+            <div className="scarcity-sub">I'm introducing SphereSync publicly soon. I wanted you to have a seat before the room finds out it exists. Founding Table seats are limited — when all 50 are filled, that's the table.</div>
           </div>
         </div>
       </div>
