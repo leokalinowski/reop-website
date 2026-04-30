@@ -6,8 +6,8 @@ import SEO from '@/components/SEO';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 
-// Paste your booking link here (Calendly, SavvyCal, etc.). Leave empty to show placeholder.
-const CALENDLY_URL = '';
+const BOOKING_EMBED_URL = 'https://api.leadconnectorhq.com/widget/booking/1uo9a78lRzWFduSFnIxD';
+const BOOKING_EMBED_ID = '1uo9a78lRzWFduSFnIxD_1777576100527';
 
 const scrollToBook = () => {
   const el = document.getElementById('book');
@@ -17,6 +17,15 @@ const scrollToBook = () => {
 const Call = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
+    // Inject GHL form embed script (loads once, idempotent)
+    const SRC = 'https://link.msgsndr.com/js/form_embed.js';
+    if (!document.querySelector(`script[src="${SRC}"]`)) {
+      const s = document.createElement('script');
+      s.src = SRC;
+      s.type = 'text/javascript';
+      s.async = true;
+      document.body.appendChild(s);
+    }
   }, []);
 
   return (
@@ -240,27 +249,13 @@ const Call = () => {
           </div>
 
           <div className="rounded-2xl overflow-hidden border border-border shadow-md bg-card">
-            {CALENDLY_URL ? (
-              <iframe
-                src={CALENDLY_URL}
-                title="Book your strategy call"
-                className="w-full"
-                style={{ minHeight: '720px', border: 0 }}
-                loading="lazy"
-              />
-            ) : (
-              <div className="flex flex-col items-center justify-center text-center p-12 md:p-20 min-h-[480px]">
-                <div className="w-16 h-16 rounded-2xl bg-background border border-border flex items-center justify-center mb-6 shadow-sm">
-                  <Compass className="h-7 w-7 text-primary" />
-                </div>
-                <p className="text-foreground font-medium text-lg">
-                  Embedded booking calendar goes here.
-                </p>
-                <p className="text-muted-foreground mt-2 text-sm max-w-md">
-                  Paste your Calendly (or SavvyCal) link into the <code className="bg-muted px-1.5 py-0.5 rounded text-foreground">CALENDLY_URL</code> constant at the top of <code className="bg-muted px-1.5 py-0.5 rounded text-foreground">src/pages/Call.tsx</code>.
-                </p>
-              </div>
-            )}
+            <iframe
+              src={BOOKING_EMBED_URL}
+              title="Book your strategy call"
+              id={BOOKING_EMBED_ID}
+              scrolling="no"
+              style={{ width: '100%', border: 'none', overflow: 'hidden', minHeight: '720px' }}
+            />
           </div>
         </div>
       </section>
