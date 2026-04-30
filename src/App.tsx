@@ -30,6 +30,7 @@ import SphereSyncFounders from "./pages/SphereSyncFounders";
 import FoundingTable from "./pages/FoundingTable";
 import JoinBlueJay from "./pages/JoinBlueJay";
 import JoinBlueJayThankYou from "./pages/JoinBlueJayThankYou";
+import Call from "./pages/Call";
 const queryClient = new QueryClient();
 
 const AppContent = () => {
@@ -64,6 +65,7 @@ const AppContent = () => {
         <Route path="/affiliate/thank-you" element={<AffiliateThankYou />} />
         <Route path="/join/blue-jay-properties" element={<JoinBlueJay />} />
         <Route path="/join/blue-jay-properties/thank-you" element={<JoinBlueJayThankYou />} />
+        <Route path="/call" element={<Call />} />
         {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
