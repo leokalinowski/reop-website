@@ -6,8 +6,8 @@ import SEO from '@/components/SEO';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 
-// Paste your booking link here (Calendly, SavvyCal, etc.). Leave empty to show placeholder.
-const CALENDLY_URL = '';
+const BOOKING_EMBED_URL = 'https://api.leadconnectorhq.com/widget/booking/1uo9a78lRzWFduSFnIxD';
+const BOOKING_EMBED_ID = '1uo9a78lRzWFduSFnIxD_1777576100527';
 
 const scrollToBook = () => {
   const el = document.getElementById('book');
@@ -17,6 +17,15 @@ const scrollToBook = () => {
 const Call = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
+    // Inject GHL form embed script (loads once, idempotent)
+    const SRC = 'https://link.msgsndr.com/js/form_embed.js';
+    if (!document.querySelector(`script[src="${SRC}"]`)) {
+      const s = document.createElement('script');
+      s.src = SRC;
+      s.type = 'text/javascript';
+      s.async = true;
+      document.body.appendChild(s);
+    }
   }, []);
 
   return (
