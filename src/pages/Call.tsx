@@ -4,6 +4,7 @@ import Logo from '@/components/Logo';
 import FooterMinimal from '@/components/FooterMinimal';
 import SEO from '@/components/SEO';
 import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/ui/badge';
 
 // Paste your booking link here (Calendly, SavvyCal, etc.). Leave empty to show placeholder.
 const CALENDLY_URL = '';
@@ -19,7 +20,7 @@ const Call = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen bg-background text-foreground font-inter">
       <SEO
         title="Book a Strategy Call — Real Estate on Purpose"
         description="Book a strategy call with Real Estate on Purpose. We'll help you identify the next best step for your real estate business — better follow-up, guided growth, or full-service marketing support."
@@ -31,31 +32,28 @@ const Call = () => {
       </div>
 
       {/* 1. HERO */}
-      <section className="px-6 py-16 md:py-24 bg-gradient-to-b from-[#e6f7f8] via-background to-background">
-        <div className="max-w-4xl mx-auto text-center space-y-6">
-          <span className="inline-block text-xs md:text-sm font-medium tracking-wider uppercase text-[#005d6c] bg-white/70 border border-[#00a2ad]/20 rounded-full px-4 py-1.5">
+      <section className="relative px-6 py-16 md:py-24 overflow-hidden">
+        <div className="absolute inset-0 cosmic-gradient opacity-40 pointer-events-none" />
+        <div className="relative z-10 max-w-4xl mx-auto text-center space-y-6">
+          <Badge variant="outline" className="text-primary border-primary/30 px-4 py-1 text-sm tracking-wide">
             Strategy Call · Real Estate on Purpose
-          </span>
-          <h1 className="text-3xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-slate-900 leading-[1.1]">
+          </Badge>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tighter leading-[1.08] text-foreground">
             Find the right path to grow your real estate business —{' '}
-            <span className="text-[#00a2ad]">without guessing what to do next.</span>
+            <span className="text-primary">without guessing what to do next.</span>
           </h1>
-          <p className="text-lg md:text-xl text-slate-700 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed text-balance">
             Book a strategy call with Real Estate on Purpose and we'll help you identify what your business
             actually needs next: better follow-up systems, guided growth support, or full-service marketing
             and business support.
           </p>
           <div className="pt-4">
-            <Button
-              onClick={scrollToBook}
-              size="lg"
-              className="bg-[#00a2ad] hover:bg-[#005d6c] text-white text-base md:text-lg px-8 py-6 rounded-xl shadow-lg shadow-[#00a2ad]/20"
-            >
+            <Button onClick={scrollToBook} size="lg" className="text-base md:text-lg px-8 py-6 rounded-xl">
               Book Your Strategy Call
               <ArrowRight className="ml-1 h-5 w-5" />
             </Button>
           </div>
-          <p className="text-sm md:text-base text-slate-500 max-w-2xl mx-auto pt-2">
+          <p className="text-sm md:text-base text-muted-foreground max-w-2xl mx-auto pt-2">
             No pressure. No overwhelm. Just a clear conversation about where you are, where you want to go,
             and what path makes the most sense.
           </p>
@@ -63,13 +61,13 @@ const Call = () => {
       </section>
 
       {/* 2. WHAT WE'LL COVER */}
-      <section className="px-6 py-16 md:py-20 bg-background">
+      <section className="px-6 py-16 md:py-24 bg-primary/5">
         <div className="max-w-6xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-12">
-            <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-slate-900">
-              What we'll figure out together
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tighter text-foreground leading-tight">
+              What we'll figure out <span className="text-primary">together</span>
             </h2>
-            <p className="mt-4 text-lg text-slate-600 leading-relaxed">
+            <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
               This call is designed to give you clarity, not another pile of random advice. We'll walk through
               where your business is now, what is creating the biggest bottleneck, and which path gives you
               the highest-leverage next step.
@@ -99,13 +97,13 @@ const Call = () => {
             ].map((c, i) => (
               <div
                 key={i}
-                className="bg-white border border-slate-200 rounded-xl p-7 shadow-sm hover:shadow-md transition-shadow"
+                className="bg-card border border-border rounded-xl p-7 shadow-sm hover:shadow-md hover:border-primary/30 transition-all"
               >
-                <div className="w-12 h-12 rounded-xl bg-[#e6f7f8] flex items-center justify-center mb-5">
-                  <c.icon className="h-6 w-6 text-[#005d6c]" />
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5">
+                  <c.icon className="h-6 w-6 text-primary" />
                 </div>
-                <h3 className="text-xl font-semibold text-slate-900 mb-2">{c.title}</h3>
-                <p className="text-slate-600 leading-relaxed">{c.body}</p>
+                <h3 className="text-xl font-semibold text-foreground mb-2">{c.title}</h3>
+                <p className="text-muted-foreground leading-relaxed">{c.body}</p>
               </div>
             ))}
           </div>
@@ -113,11 +111,12 @@ const Call = () => {
       </section>
 
       {/* 3. THREE PATHS */}
-      <section className="px-6 py-16 md:py-20 bg-slate-50">
+      <section className="px-6 py-16 md:py-24">
         <div className="max-w-6xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-12">
-            <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-slate-900">
-              Three ways we help agents grow with more clarity and consistency
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tighter text-foreground leading-tight">
+              Three ways we help agents grow with{' '}
+              <span className="text-primary">clarity and consistency</span>
             </h2>
           </div>
 
@@ -147,25 +146,25 @@ const Call = () => {
             ].map((p, i) => (
               <div
                 key={i}
-                className="bg-white border border-slate-200 rounded-xl p-7 shadow-sm hover:shadow-lg hover:border-[#00a2ad]/40 transition-all flex flex-col"
+                className="bg-card border border-border rounded-xl p-7 shadow-sm hover:shadow-lg hover:border-primary/40 transition-all flex flex-col"
               >
                 <div className="flex items-center justify-between mb-5">
-                  <div className="w-12 h-12 rounded-xl bg-[#005d6c] flex items-center justify-center">
-                    <p.icon className="h-6 w-6 text-white" />
+                  <div className="w-12 h-12 rounded-xl bg-secondary flex items-center justify-center">
+                    <p.icon className="h-6 w-6 text-secondary-foreground" />
                   </div>
-                  <span className="text-xs font-semibold tracking-wider uppercase text-[#00a2ad]">
+                  <span className="text-xs font-semibold tracking-wider uppercase text-primary">
                     {p.tag}
                   </span>
                 </div>
-                <h3 className="text-xl font-semibold text-slate-900 mb-3">{p.title}</h3>
-                <p className="text-slate-600 leading-relaxed">{p.body}</p>
+                <h3 className="text-xl font-semibold text-foreground mb-3">{p.title}</h3>
+                <p className="text-muted-foreground leading-relaxed">{p.body}</p>
               </div>
             ))}
           </div>
 
-          <p className="text-center text-slate-700 max-w-2xl mx-auto mt-10 text-base md:text-lg">
+          <p className="text-center text-muted-foreground max-w-2xl mx-auto mt-10 text-base md:text-lg">
             You do not need to know which path is right before the call.{' '}
-            <span className="text-[#005d6c] font-medium">
+            <span className="text-foreground font-medium">
               That is exactly what we'll help you figure out.
             </span>
           </p>
@@ -173,10 +172,10 @@ const Call = () => {
       </section>
 
       {/* 4. ABOUT PAM */}
-      <section className="px-6 py-16 md:py-20 bg-background">
+      <section className="px-6 py-16 md:py-24 bg-primary/5">
         <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-5 gap-10 items-center">
           <div className="md:col-span-2">
-            <div className="aspect-[4/5] w-full max-w-sm mx-auto rounded-2xl overflow-hidden bg-slate-100 shadow-md">
+            <div className="aspect-[4/5] w-full max-w-sm mx-auto rounded-2xl overflow-hidden bg-muted shadow-md">
               <img
                 src="/images/pam-obryant.jpg"
                 alt="Pam O'Bryant — Real Estate on Purpose"
@@ -188,19 +187,20 @@ const Call = () => {
             </div>
           </div>
           <div className="md:col-span-3 space-y-5">
-            <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-slate-900">
-              Led by people who understand real estate — not just marketing
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tighter text-foreground leading-tight">
+              Led by people who understand real estate —{' '}
+              <span className="text-primary">not just marketing</span>
             </h2>
-            <p className="text-slate-700 leading-relaxed text-lg">
+            <p className="text-muted-foreground leading-relaxed text-lg">
               Real Estate on Purpose was built to help agents grow with more intention, more consistency,
               and less overwhelm.
             </p>
-            <p className="text-slate-700 leading-relaxed">
+            <p className="text-muted-foreground leading-relaxed">
               Pam brings a real-estate-specific perspective to the conversation. She understands that
               agents are not just trying to "get more leads." They are trying to build a business that is
               easier to manage, easier to grow, and more aligned with the life they actually want.
             </p>
-            <p className="text-slate-700 leading-relaxed">
+            <p className="text-muted-foreground leading-relaxed">
               On the call, the goal is simple: get clear on what is really holding things back and identify
               the next step that makes the most sense.
             </p>
@@ -209,17 +209,17 @@ const Call = () => {
       </section>
 
       {/* 5. TESTIMONIAL */}
-      <section className="px-6 py-16 md:py-20 bg-slate-50">
+      <section className="px-6 py-16 md:py-24">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-slate-900 mb-10">
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tighter text-foreground mb-10">
             What agents are saying
           </h2>
-          <div className="bg-white border border-slate-200 rounded-2xl p-10 md:p-12 shadow-sm relative">
-            <Quote className="absolute top-6 left-6 h-8 w-8 text-[#00a2ad]/30" />
-            <blockquote className="text-xl md:text-2xl text-slate-800 leading-relaxed font-light italic">
+          <div className="bg-card border border-border rounded-2xl p-10 md:p-12 shadow-sm relative">
+            <Quote className="absolute top-6 left-6 h-8 w-8 text-primary/30" />
+            <blockquote className="text-xl md:text-2xl text-foreground leading-relaxed font-light italic">
               "[Insert strongest testimonial pull quote here.]"
             </blockquote>
-            <p className="mt-6 text-slate-500 font-medium">
+            <p className="mt-6 text-muted-foreground font-medium">
               — [Agent Name], [Market/Role]
             </p>
           </div>
@@ -227,19 +227,19 @@ const Call = () => {
       </section>
 
       {/* 6. CALENDAR BOOKING */}
-      <section id="book" className="px-6 py-16 md:py-20 bg-background scroll-mt-8">
+      <section id="book" className="px-6 py-16 md:py-24 bg-primary/5 scroll-mt-8">
         <div className="max-w-5xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-10">
-            <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-slate-900">
-              Book your strategy call
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tighter text-foreground">
+              Book your <span className="text-primary">strategy call</span>
             </h2>
-            <p className="mt-4 text-lg text-slate-600 leading-relaxed">
+            <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
               Choose a time that works for you below. You'll leave the call with a clearer understanding
               of what your business needs next and which path may be the best fit.
             </p>
           </div>
 
-          <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-md bg-white">
+          <div className="rounded-2xl overflow-hidden border border-border shadow-md bg-card">
             {CALENDLY_URL ? (
               <iframe
                 src={CALENDLY_URL}
@@ -249,15 +249,15 @@ const Call = () => {
                 loading="lazy"
               />
             ) : (
-              <div className="flex flex-col items-center justify-center text-center p-12 md:p-20 min-h-[480px] bg-gradient-to-br from-slate-50 to-[#e6f7f8]">
-                <div className="w-16 h-16 rounded-2xl bg-white border border-slate-200 flex items-center justify-center mb-6 shadow-sm">
-                  <Compass className="h-7 w-7 text-[#00a2ad]" />
+              <div className="flex flex-col items-center justify-center text-center p-12 md:p-20 min-h-[480px]">
+                <div className="w-16 h-16 rounded-2xl bg-background border border-border flex items-center justify-center mb-6 shadow-sm">
+                  <Compass className="h-7 w-7 text-primary" />
                 </div>
-                <p className="text-slate-700 font-medium text-lg">
+                <p className="text-foreground font-medium text-lg">
                   Embedded booking calendar goes here.
                 </p>
-                <p className="text-slate-500 mt-2 text-sm max-w-md">
-                  Paste your Calendly (or SavvyCal) link into the <code className="bg-white px-1.5 py-0.5 rounded border text-[#005d6c]">CALENDLY_URL</code> constant at the top of <code className="bg-white px-1.5 py-0.5 rounded border text-[#005d6c]">src/pages/Call.tsx</code>.
+                <p className="text-muted-foreground mt-2 text-sm max-w-md">
+                  Paste your Calendly (or SavvyCal) link into the <code className="bg-muted px-1.5 py-0.5 rounded text-foreground">CALENDLY_URL</code> constant at the top of <code className="bg-muted px-1.5 py-0.5 rounded text-foreground">src/pages/Call.tsx</code>.
                 </p>
               </div>
             )}
@@ -266,12 +266,12 @@ const Call = () => {
       </section>
 
       {/* 7. FINAL CTA */}
-      <section className="px-6 py-16 md:py-20 bg-[#005d6c] text-white">
+      <section className="px-6 py-16 md:py-24 bg-secondary text-secondary-foreground">
         <div className="max-w-3xl mx-auto text-center space-y-6">
-          <h2 className="text-3xl md:text-4xl font-semibold tracking-tight">
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tighter">
             Ready to get clear on the right next step?
           </h2>
-          <p className="text-lg text-white/85 leading-relaxed">
+          <p className="text-lg text-secondary-foreground/85 leading-relaxed">
             If you know your business could be running with more consistency, better follow-up, and clearer
             support, this is the place to start.
           </p>
@@ -279,7 +279,7 @@ const Call = () => {
             <Button
               onClick={scrollToBook}
               size="lg"
-              className="bg-[#99ca3c] hover:bg-[#7fae2e] text-slate-900 text-base md:text-lg px-8 py-6 rounded-xl shadow-lg"
+              className="bg-accent hover:bg-accent/90 text-accent-foreground text-base md:text-lg px-8 py-6 rounded-xl shadow-lg"
             >
               Schedule My Call
               <ArrowRight className="ml-1 h-5 w-5" />
