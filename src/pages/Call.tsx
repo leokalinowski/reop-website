@@ -94,7 +94,7 @@ const Call = () => {
             </Button>
           </div>
           <p className="text-sm md:text-base text-muted-foreground max-w-2xl mx-auto pt-2">
-            This isn't a pressure call. You'll walk away with a clearer picture of where your marketing
+            This isn't a pressure call. You'll walk away with a clearer picture of where your business
             is stuck, what your next best move is, and whether Real Estate on Purpose is the right system
             to help you get there.
           </p>
