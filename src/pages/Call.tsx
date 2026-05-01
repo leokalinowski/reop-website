@@ -203,9 +203,13 @@ const Call = () => {
         <div className="max-w-6xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <h2 className="text-3xl md:text-4xl font-bold tracking-tighter text-foreground leading-tight">
-              Three ways we help agents grow with{' '}
-              <span className="text-primary">clarity and consistency</span>
+              Choose the level of support your business{' '}
+              <span className="text-primary">actually needs.</span>
             </h2>
+            <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
+              REOP is built to meet agents where they are. Whether you need a simple way to stay in touch
+              or deeper help building a more intentional business, the right path starts with clarity.
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -214,22 +218,32 @@ const Call = () => {
                 icon: Users,
                 tag: 'Path 1',
                 title: 'SphereSync',
+                subtitle: 'For agents who need a simple system to stay connected.',
                 body:
-                  'For agents who want a smarter way to stay in touch with their sphere, past clients, and warm relationships. SphereSync helps you turn your database into a consistent relationship engine — so fewer opportunities slip through the cracks.',
+                  'SphereSync helps you organize your relationships, create consistent follow-up, and stay visible with the people most likely to work with you or refer you.\n\nIt is a good fit if you want a practical way to manage your sphere without overcomplicating your business.',
+                bestFor:
+                  'Agents who want better consistency with past clients, warm contacts, and referral relationships.',
               },
               {
                 icon: HandHeart,
                 tag: 'Path 2',
                 title: 'Done-With-You Growth Support',
+                subtitle: 'For agents who want strategy, structure, and accountability.',
                 body:
-                  'For agents who want guidance, accountability, and support implementing the right systems without doing everything alone. We help you clarify your strategy, improve follow-up, and create a practical growth rhythm you can actually maintain.',
+                  'This is for agents who do not just want a tool. They want help deciding what to focus on, how to build a follow-up rhythm, and how to turn existing relationships into real business opportunities.\n\nWe work with you to create a plan you can actually follow.',
+                bestFor:
+                  'Agents who feel like they have opportunity but need help turning it into a clear, consistent growth system.',
               },
               {
                 icon: Megaphone,
                 tag: 'Path 3',
-                title: 'Full-Service Marketing & Business Support',
+                title: 'Full-Service Business Support',
+                subtitle:
+                  'For agents who want a partner taking more of the work off their plate.',
                 body:
                   'For agents who need deeper execution support across content, marketing, operations, and business growth. This is for agents who want a partner helping them build the machine — not just another tool or one-off campaign.',
+                bestFor:
+                  'Established agents ready to invest in deeper support so they can focus on the highest-value parts of their business.',
               },
             ].map((p, i) => (
               <div
@@ -244,8 +258,19 @@ const Call = () => {
                     {p.tag}
                   </span>
                 </div>
-                <h3 className="text-xl font-semibold text-foreground mb-3">{p.title}</h3>
-                <p className="text-muted-foreground leading-relaxed">{p.body}</p>
+                <h3 className="text-xl font-semibold text-foreground mb-2">{p.title}</h3>
+                <p className="text-sm text-primary font-medium mb-4 leading-snug">{p.subtitle}</p>
+                <div className="space-y-3 text-muted-foreground leading-relaxed mb-5 flex-1">
+                  {p.body.split('\n\n').map((para, j) => (
+                    <p key={j}>{para}</p>
+                  ))}
+                </div>
+                <div className="pt-4 border-t border-border">
+                  <p className="text-xs font-semibold uppercase tracking-wider text-foreground mb-1.5">
+                    Best for
+                  </p>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{p.bestFor}</p>
+                </div>
               </div>
             ))}
           </div>
