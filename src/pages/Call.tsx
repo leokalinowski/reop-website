@@ -148,6 +148,33 @@ const Call = () => {
               </div>
             ))}
           </div>
+
+          {/* What you'll walk away with */}
+          <div className="mt-12 max-w-3xl mx-auto bg-card border border-border rounded-xl p-7 md:p-8 shadow-sm">
+            <h3 className="text-lg md:text-xl font-semibold text-foreground mb-4">
+              What you'll walk away with
+            </h3>
+            <ul className="space-y-3 text-muted-foreground leading-relaxed">
+              <li className="flex gap-3">
+                <span className="mt-2 h-1.5 w-1.5 rounded-full bg-primary shrink-0" />
+                <span>A quick look at where your current marketing is creating friction.</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="mt-2 h-1.5 w-1.5 rounded-full bg-primary shrink-0" />
+                <span>Clarity on the next best move to create more consistent opportunities.</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="mt-2 h-1.5 w-1.5 rounded-full bg-primary shrink-0" />
+                <span>
+                  A recommendation on whether Real Estate on Purpose is the right fit — or what to focus
+                  on instead.
+                </span>
+              </li>
+            </ul>
+            <p className="mt-5 text-sm text-muted-foreground italic">
+              Either way, you leave the call with a clearer next step. No pressure to move forward with us.
+            </p>
+          </div>
         </div>
       </section>
 
