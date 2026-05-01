@@ -75,32 +75,28 @@ const Call = () => {
         </div>
 
         <div className="relative z-10 max-w-4xl mx-auto text-center space-y-6">
-          <Badge variant="outline" className="text-primary border-primary/30 px-4 py-1 text-sm tracking-wide max-w-3xl whitespace-normal text-center leading-snug h-auto">
-            A practical call for real estate agents who know there is more opportunity in their business than they are currently using.
+          <Badge variant="outline" className="text-primary border-primary/30 px-4 py-1 text-sm tracking-wide">
+            Strategy Call · Real Estate on Purpose
           </Badge>
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tighter leading-[1.08] text-foreground">
-            Turn the relationships you already have into a{' '}
-            <span className="text-primary">clearer, calmer growth plan.</span>
+            Find the right path to grow your real estate business —{' '}
+            <span className="text-primary">without guessing what to do next.</span>
           </h1>
-          <div className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed text-balance space-y-4">
-            <p>
-              You do not need another generic marketing plan. You need to know where your best opportunities
-              are hiding, what follow-up should happen next, and which kind of support actually fits your
-              business right now.
-            </p>
-            <p>
-              On this call, we will look at your sphere, past clients, warm relationships, current systems,
-              and growth goals so you leave with a more intentional next step.
-            </p>
-          </div>
+          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed text-balance">
+            Book a strategy call with Real Estate on Purpose and we'll help you identify what your business
+            actually needs next: better follow-up systems, guided growth support, or full-service marketing
+            and business support.
+          </p>
           <div className="pt-4">
             <Button onClick={scrollToBook} size="lg" className="text-base md:text-lg px-8 py-6 rounded-xl">
-              Book Your Call
+              Book Your Strategy Call
               <ArrowRight className="ml-1 h-5 w-5" />
             </Button>
           </div>
           <p className="text-sm md:text-base text-muted-foreground max-w-2xl mx-auto pt-2">
-            Even if we are not the right fit, you will leave with more clarity than you came in with.
+            This isn't a pressure call. You'll walk away with a clearer picture of where your business
+            is stuck, what your next best move is, and whether Real Estate on Purpose is the right system
+            to help you get there.
           </p>
         </div>
       </section>
@@ -112,44 +108,32 @@ const Call = () => {
             <h2 className="text-3xl md:text-4xl font-bold tracking-tighter text-foreground leading-tight">
               What we'll figure out <span className="text-primary">together</span>
             </h2>
-            <div className="mt-4 text-lg text-muted-foreground leading-relaxed space-y-3">
-              <p>This call is not about pushing you into a program.</p>
-              <p>
-                It is about understanding where your business is today, where opportunity is being missed,
-                and what would make follow-up feel less reactive and more doable.
-              </p>
-              <p>
-                We will talk through what is working, what feels messy, and what kind of support would
-                actually help.
-              </p>
-            </div>
+            <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
+              This call is designed to give you clarity, not another pile of random advice. We'll walk through
+              where your business is now, what is creating the biggest bottleneck, and which path gives you
+              the highest-leverage next step.
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               {
                 icon: Compass,
-                title: 'Where your best opportunities already are',
-                paragraphs: [
-                  'Most agents are sitting on more opportunity than they realize: past clients, old leads, vendor relationships, community connections, and people who would refer them if they were given the right reason.',
-                  'We will help you see where those opportunities are and which ones are worth acting on first.',
-                ],
+                title: 'Your Current State',
+                body:
+                  "We'll look at where your business is today: your lead sources, follow-up process, client relationships, content, and current systems.",
               },
               {
                 icon: Target,
-                title: 'What is making follow-up harder than it needs to be',
-                paragraphs: [
-                  'If your CRM feels overwhelming, your touchpoints are inconsistent, or your business depends on remembering everything manually, we will identify where the friction is coming from.',
-                  'The goal is not more busywork. It is a rhythm you can actually keep.',
-                ],
+                title: 'Your Biggest Opportunity',
+                body:
+                  "We'll identify the area most likely to create growth right now — whether that is database follow-up, visibility, conversion, retention, or operational support.",
               },
               {
                 icon: Route,
-                title: 'What kind of support makes sense next',
-                paragraphs: [
-                  'Some agents need a simple system. Some need strategy and accountability. Some need someone to take more of the work off their plate.',
-                  'We will help you figure out which path fits your goals, your capacity, and the way you want to run your business.',
-                ],
+                title: 'Your Best-Fit Path',
+                body:
+                  "We'll help you determine which Real Estate on Purpose path fits best: SphereSync, Done-With-You Growth Support, or Full-Service Marketing & Business Support.",
               },
             ].map((c, i) => (
               <div
@@ -159,12 +143,8 @@ const Call = () => {
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5">
                   <c.icon className="h-6 w-6 text-primary" />
                 </div>
-                <h3 className="text-xl font-semibold text-foreground mb-3 leading-snug">{c.title}</h3>
-                <div className="space-y-3 text-muted-foreground leading-relaxed">
-                  {c.paragraphs.map((p, j) => (
-                    <p key={j}>{p}</p>
-                  ))}
-                </div>
+                <h3 className="text-xl font-semibold text-foreground mb-2">{c.title}</h3>
+                <p className="text-muted-foreground leading-relaxed">{c.body}</p>
               </div>
             ))}
           </div>
@@ -177,7 +157,7 @@ const Call = () => {
             <ul className="space-y-3 text-muted-foreground leading-relaxed">
               <li className="flex gap-3">
                 <span className="mt-2 h-1.5 w-1.5 rounded-full bg-primary shrink-0" />
-                <span>A quick look at where your business is and what is creating friction.</span>
+                <span>A quick look at where your current marketing is creating friction.</span>
               </li>
               <li className="flex gap-3">
                 <span className="mt-2 h-1.5 w-1.5 rounded-full bg-primary shrink-0" />
@@ -203,13 +183,9 @@ const Call = () => {
         <div className="max-w-6xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <h2 className="text-3xl md:text-4xl font-bold tracking-tighter text-foreground leading-tight">
-              Choose the level of support your business{' '}
-              <span className="text-primary">actually needs.</span>
+              Three ways we help agents grow with{' '}
+              <span className="text-primary">clarity and consistency</span>
             </h2>
-            <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
-              REOP is built to meet agents where they are. Whether you need a simple way to stay in touch
-              or deeper help building a more intentional business, the right path starts with clarity.
-            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -218,32 +194,22 @@ const Call = () => {
                 icon: Users,
                 tag: 'Path 1',
                 title: 'SphereSync',
-                subtitle: 'For agents who need a simple system to stay connected.',
                 body:
-                  'SphereSync helps you organize your relationships, create consistent follow-up, and stay visible with the people most likely to work with you or refer you.\n\nIt is a good fit if you want a practical way to manage your sphere without overcomplicating your business.',
-                bestFor:
-                  'Agents who want better consistency with past clients, warm contacts, and referral relationships.',
+                  'For agents who want a smarter way to stay in touch with their sphere, past clients, and warm relationships. SphereSync helps you turn your database into a consistent relationship engine — so fewer opportunities slip through the cracks.',
               },
               {
                 icon: HandHeart,
                 tag: 'Path 2',
                 title: 'Done-With-You Growth Support',
-                subtitle: 'For agents who want strategy, structure, and accountability.',
                 body:
-                  'This is for agents who do not just want a tool. They want help deciding what to focus on, how to build a follow-up rhythm, and how to turn existing relationships into real business opportunities.\n\nWe work with you to create a plan you can actually follow.',
-                bestFor:
-                  'Agents who feel like they have opportunity but need help turning it into a clear, consistent growth system.',
+                  'For agents who want guidance, accountability, and support implementing the right systems without doing everything alone. We help you clarify your strategy, improve follow-up, and create a practical growth rhythm you can actually maintain.',
               },
               {
                 icon: Megaphone,
                 tag: 'Path 3',
-                title: 'Full-Service Business Support',
-                subtitle:
-                  'For agents who want a partner taking more of the work off their plate.',
+                title: 'Full-Service Marketing & Business Support',
                 body:
                   'For agents who need deeper execution support across content, marketing, operations, and business growth. This is for agents who want a partner helping them build the machine — not just another tool or one-off campaign.',
-                bestFor:
-                  'Established agents ready to invest in deeper support so they can focus on the highest-value parts of their business.',
               },
             ].map((p, i) => (
               <div
@@ -258,19 +224,8 @@ const Call = () => {
                     {p.tag}
                   </span>
                 </div>
-                <h3 className="text-xl font-semibold text-foreground mb-2">{p.title}</h3>
-                <p className="text-sm text-primary font-medium mb-4 leading-snug">{p.subtitle}</p>
-                <div className="space-y-3 text-muted-foreground leading-relaxed mb-5 flex-1">
-                  {p.body.split('\n\n').map((para, j) => (
-                    <p key={j}>{para}</p>
-                  ))}
-                </div>
-                <div className="pt-4 border-t border-border">
-                  <p className="text-xs font-semibold uppercase tracking-wider text-foreground mb-1.5">
-                    Best for
-                  </p>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{p.bestFor}</p>
-                </div>
+                <h3 className="text-xl font-semibold text-foreground mb-3">{p.title}</h3>
+                <p className="text-muted-foreground leading-relaxed">{p.body}</p>
               </div>
             ))}
           </div>
@@ -301,8 +256,8 @@ const Call = () => {
           </div>
           <div className="md:col-span-3 space-y-5">
             <h2 className="text-3xl md:text-4xl font-bold tracking-tighter text-foreground leading-tight">
-              Led by people who understand{' '}
-              <span className="text-primary">the business of real estate</span>
+              Led by people who understand real estate —{' '}
+              <span className="text-primary">not just marketing</span>
             </h2>
             <p className="text-muted-foreground leading-relaxed text-lg">
               Real Estate on Purpose was built to help agents grow with more intention, more consistency,
@@ -311,8 +266,7 @@ const Call = () => {
             <p className="text-muted-foreground leading-relaxed">
               Pam brings a real-estate-specific perspective to the conversation. She understands that
               agents are not just trying to "get more leads." They are trying to build a business that is
-              easier to manage, more relationship-driven, more consistent, and more aligned with the life
-              they actually want.
+              easier to manage, easier to grow, and more aligned with the life they actually want.
             </p>
             <p className="text-muted-foreground leading-relaxed">
               On the call, the goal is simple: get clear on what is really holding things back and identify
@@ -374,8 +328,8 @@ const Call = () => {
             Ready to get clear on the right next step?
           </h2>
           <p className="text-lg text-secondary-foreground/85 leading-relaxed">
-            If you know your business could be running with more consistency, stronger relationships, better
-            follow-up, and clearer support, this is the place to start.
+            If you know your business could be running with more consistency, better follow-up, and clearer
+            support, this is the place to start.
           </p>
           <div className="pt-2">
             <Button
