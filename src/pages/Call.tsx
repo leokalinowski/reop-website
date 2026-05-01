@@ -75,28 +75,32 @@ const Call = () => {
         </div>
 
         <div className="relative z-10 max-w-4xl mx-auto text-center space-y-6">
-          <Badge variant="outline" className="text-primary border-primary/30 px-4 py-1 text-sm tracking-wide">
-            Strategy Call · Real Estate on Purpose
+          <Badge variant="outline" className="text-primary border-primary/30 px-4 py-1 text-sm tracking-wide max-w-3xl whitespace-normal text-center leading-snug h-auto">
+            A practical call for real estate agents who know there is more opportunity in their business than they are currently using.
           </Badge>
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tighter leading-[1.08] text-foreground">
-            Find the right path to grow your real estate business —{' '}
-            <span className="text-primary">without guessing what to do next.</span>
+            Turn the relationships you already have into a{' '}
+            <span className="text-primary">clearer, calmer growth plan.</span>
           </h1>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed text-balance">
-            Book a strategy call with Real Estate on Purpose and we'll help you identify what your business
-            actually needs next: better follow-up systems, guided growth support, or full-service marketing
-            and business support.
-          </p>
+          <div className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed text-balance space-y-4">
+            <p>
+              You do not need another generic marketing plan. You need to know where your best opportunities
+              are hiding, what follow-up should happen next, and which kind of support actually fits your
+              business right now.
+            </p>
+            <p>
+              On this call, we will look at your sphere, past clients, warm relationships, current systems,
+              and growth goals so you leave with a more intentional next step.
+            </p>
+          </div>
           <div className="pt-4">
             <Button onClick={scrollToBook} size="lg" className="text-base md:text-lg px-8 py-6 rounded-xl">
-              Book Your Strategy Call
+              Book Your Call
               <ArrowRight className="ml-1 h-5 w-5" />
             </Button>
           </div>
           <p className="text-sm md:text-base text-muted-foreground max-w-2xl mx-auto pt-2">
-            This isn't a pressure call. You'll walk away with a clearer picture of where your business
-            is stuck, what your next best move is, and whether Real Estate on Purpose is the right system
-            to help you get there.
+            Even if we are not the right fit, you will leave with more clarity than you came in with.
           </p>
         </div>
       </section>
