@@ -3,6 +3,7 @@ import { Compass, Target, Route, Users, HandHeart, Megaphone, ArrowRight, Quote 
 import Logo from '@/components/Logo';
 import FooterMinimal from '@/components/FooterMinimal';
 import SEO from '@/components/SEO';
+import LightRays from '@/components/LightRays';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 
