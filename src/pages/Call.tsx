@@ -301,8 +301,8 @@ const Call = () => {
           </div>
           <div className="md:col-span-3 space-y-5">
             <h2 className="text-3xl md:text-4xl font-bold tracking-tighter text-foreground leading-tight">
-              Led by people who understand real estate —{' '}
-              <span className="text-primary">not just marketing</span>
+              Led by people who understand{' '}
+              <span className="text-primary">the business of real estate</span>
             </h2>
             <p className="text-muted-foreground leading-relaxed text-lg">
               Real Estate on Purpose was built to help agents grow with more intention, more consistency,
@@ -311,7 +311,8 @@ const Call = () => {
             <p className="text-muted-foreground leading-relaxed">
               Pam brings a real-estate-specific perspective to the conversation. She understands that
               agents are not just trying to "get more leads." They are trying to build a business that is
-              easier to manage, easier to grow, and more aligned with the life they actually want.
+              easier to manage, more relationship-driven, more consistent, and more aligned with the life
+              they actually want.
             </p>
             <p className="text-muted-foreground leading-relaxed">
               On the call, the goal is simple: get clear on what is really holding things back and identify
