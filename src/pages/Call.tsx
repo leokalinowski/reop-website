@@ -374,8 +374,8 @@ const Call = () => {
             Ready to get clear on the right next step?
           </h2>
           <p className="text-lg text-secondary-foreground/85 leading-relaxed">
-            If you know your business could be running with more consistency, better follow-up, and clearer
-            support, this is the place to start.
+            If you know your business could be running with more consistency, stronger relationships, better
+            follow-up, and clearer support, this is the place to start.
           </p>
           <div className="pt-2">
             <Button
