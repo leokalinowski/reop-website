@@ -79,8 +79,8 @@ const Call = () => {
             Strategy Call · Real Estate on Purpose
           </Badge>
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tighter leading-[1.08] text-foreground">
-            Find the right path to grow your real estate business —{' '}
-            <span className="text-primary">without guessing what to do next.</span>
+            Your business shouldn't feel this hard.{' '}
+            <span className="text-primary">Let's find the missing piece.</span>
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed text-balance">
             Book a strategy call with Real Estate on Purpose and we'll help you identify what your business
