@@ -94,9 +94,8 @@ const Call = () => {
             </Button>
           </div>
           <p className="text-sm md:text-base text-muted-foreground max-w-2xl mx-auto pt-2">
-            This isn't a pressure call. You'll walk away with a clearer picture of where your business
-            is stuck, what your next best move is, and whether Real Estate on Purpose is the right system
-            to help you get there.
+            No pressure. No overwhelm. Just a clear conversation about where you are, where you want to
+            go, and what path makes the most sense.
           </p>
         </div>
       </section>
@@ -149,32 +148,6 @@ const Call = () => {
             ))}
           </div>
 
-          {/* What you'll walk away with */}
-          <div className="mt-12 max-w-3xl mx-auto bg-card border border-border rounded-xl p-7 md:p-8 shadow-sm">
-            <h3 className="text-lg md:text-xl font-semibold text-foreground mb-4">
-              What you'll walk away with
-            </h3>
-            <ul className="space-y-3 text-muted-foreground leading-relaxed">
-              <li className="flex gap-3">
-                <span className="mt-2 h-1.5 w-1.5 rounded-full bg-primary shrink-0" />
-                <span>A quick look at where your current marketing is creating friction.</span>
-              </li>
-              <li className="flex gap-3">
-                <span className="mt-2 h-1.5 w-1.5 rounded-full bg-primary shrink-0" />
-                <span>Clarity on the next best move to create more consistent opportunities.</span>
-              </li>
-              <li className="flex gap-3">
-                <span className="mt-2 h-1.5 w-1.5 rounded-full bg-primary shrink-0" />
-                <span>
-                  A recommendation on whether Real Estate on Purpose is the right fit — or what to focus
-                  on instead.
-                </span>
-              </li>
-            </ul>
-            <p className="mt-5 text-sm text-muted-foreground italic">
-              Either way, you leave the call with a clearer next step. No pressure to move forward with us.
-            </p>
-          </div>
         </div>
       </section>
 
