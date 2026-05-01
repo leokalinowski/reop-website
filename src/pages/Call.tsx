@@ -226,10 +226,12 @@ const Call = () => {
           <div className="bg-card border border-border rounded-2xl p-10 md:p-12 shadow-sm relative">
             <Quote className="absolute top-6 left-6 h-8 w-8 text-primary/30" />
             <blockquote className="text-xl md:text-2xl text-foreground leading-relaxed font-light italic">
-              "[Insert strongest testimonial pull quote here.]"
+              "Since I've joined Real Estate on Purpose, I've gotten fired up with the coaching and all the
+              support. I'm the most relaxed I've been in two or three months. I know that I'm gonna hit my
+              goals. In fact, I'm probably gonna blow them out of the water."
             </blockquote>
             <p className="mt-6 text-muted-foreground font-medium">
-              — [Agent Name], [Market/Role]
+              — Jeff P., Realtor · DC Metropolitan Market
             </p>
           </div>
         </div>
