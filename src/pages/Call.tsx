@@ -157,7 +157,7 @@ const Call = () => {
             <ul className="space-y-3 text-muted-foreground leading-relaxed">
               <li className="flex gap-3">
                 <span className="mt-2 h-1.5 w-1.5 rounded-full bg-primary shrink-0" />
-                <span>A quick look at where your current marketing is creating friction.</span>
+                <span>A quick look at where your business is and what is creating friction.</span>
               </li>
               <li className="flex gap-3">
                 <span className="mt-2 h-1.5 w-1.5 rounded-full bg-primary shrink-0" />
