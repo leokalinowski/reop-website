@@ -42,8 +42,38 @@ const Call = () => {
       </div>
 
       {/* 1. HERO */}
-      <section className="relative px-6 py-16 md:py-24 overflow-hidden">
-        <div className="absolute inset-0 cosmic-gradient opacity-40 pointer-events-none" />
+      <section className="relative px-6 py-16 md:py-24 overflow-hidden bg-background">
+        {/* Light Rays Background Effect - Hidden on mobile for performance */}
+        <div className="absolute inset-0 z-[1] hidden md:block">
+          <LightRays
+            raysColor="#005d6c"
+            raysOrigin="top-center"
+            raysSpeed={1}
+            lightSpread={0.5}
+            rayLength={3}
+            mouseInfluence={0}
+            noiseAmount={0.13}
+            distortion={0}
+            pulsating={true}
+            fadeDistance={1}
+            saturation={1}
+          />
+        </div>
+
+        {/* Mobile background fallback */}
+        <div className="absolute inset-0 z-[1] md:hidden">
+          <div className="cosmic-gradient h-full w-full" />
+          <div className="absolute inset-0 cosmic-grid opacity-20" />
+        </div>
+
+        {/* Cosmic grid overlay - desktop */}
+        <div className="absolute inset-0 cosmic-grid opacity-30 z-[2] hidden md:block" />
+
+        {/* Gradient glow */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] md:w-[600px] h-[300px] md:h-[600px] rounded-full z-[2] pointer-events-none">
+          <div className="w-full h-full opacity-5 md:opacity-10 bg-primary blur-[60px] md:blur-[120px]" />
+        </div>
+
         <div className="relative z-10 max-w-4xl mx-auto text-center space-y-6">
           <Badge variant="outline" className="text-primary border-primary/30 px-4 py-1 text-sm tracking-wide">
             Strategy Call · Real Estate on Purpose
