@@ -70,7 +70,7 @@ const Call = () => {
       </section>
 
       {/* 2. WHAT WE'LL COVER */}
-      <section className="px-6 py-16 md:py-24 bg-primary/5">
+      <section className="px-6 py-16 md:py-24 bg-secondary/20">
         <div className="max-w-6xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <h2 className="text-3xl md:text-4xl font-bold tracking-tighter text-foreground leading-tight">
@@ -181,7 +181,7 @@ const Call = () => {
       </section>
 
       {/* 4. ABOUT PAM */}
-      <section className="px-6 py-16 md:py-24 bg-primary/5">
+      <section className="px-6 py-16 md:py-24 bg-secondary/20">
         <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-5 gap-10 items-center">
           <div className="md:col-span-2">
             <div className="aspect-[4/5] w-full max-w-sm mx-auto rounded-2xl overflow-hidden bg-muted shadow-md">
@@ -238,7 +238,7 @@ const Call = () => {
       </section>
 
       {/* 6. CALENDAR BOOKING */}
-      <section id="book" className="px-6 py-16 md:py-24 bg-primary/5 scroll-mt-8">
+      <section id="book" className="px-6 py-16 md:py-24 bg-secondary/20 scroll-mt-8">
         <div className="max-w-5xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-10">
             <h2 className="text-3xl md:text-4xl font-bold tracking-tighter text-foreground">
