@@ -227,7 +227,7 @@ const Call = () => {
             <Quote className="absolute top-6 left-6 h-8 w-8 text-primary/30" />
             <blockquote className="text-xl md:text-2xl text-foreground leading-relaxed font-light italic">
               "Since I've joined Real Estate on Purpose, I'm the most relaxed I've been in two or three
-              months. I know I'm going to hit my goals — in fact, I'm probably going to blow them out of
+              months. I know I'm going to hit my goals. In fact, I'm probably going to blow them out of
               the water."
             </blockquote>
             <p className="mt-6 text-muted-foreground font-medium">
