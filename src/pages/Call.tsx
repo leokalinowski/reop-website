@@ -36,13 +36,13 @@ const Call = () => {
         description="Book a strategy call with Real Estate on Purpose. We'll help you identify the next best step for your real estate business — better follow-up, guided growth, or full-service marketing support."
       />
 
-      {/* Top bar — logo only */}
-      <div className="w-full pt-8 pb-2 px-4 flex justify-center">
-        <Logo />
-      </div>
-
       {/* 1. HERO */}
-      <section className="relative px-6 py-16 md:py-24 overflow-hidden bg-background">
+      <section className="relative px-6 pt-8 pb-16 md:pb-24 overflow-hidden bg-background">
+        {/* Logo overlaid on hero background */}
+        <div className="relative z-20 w-full flex justify-center pb-8">
+          <Logo />
+        </div>
+
         {/* Light Rays Background Effect - Hidden on mobile for performance */}
         <div className="absolute inset-0 z-[1] hidden md:block">
           <LightRays
