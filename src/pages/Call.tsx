@@ -112,32 +112,44 @@ const Call = () => {
             <h2 className="text-3xl md:text-4xl font-bold tracking-tighter text-foreground leading-tight">
               What we'll figure out <span className="text-primary">together</span>
             </h2>
-            <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
-              This call is designed to give you clarity, not another pile of random advice. We'll walk through
-              where your business is now, what is creating the biggest bottleneck, and which path gives you
-              the highest-leverage next step.
-            </p>
+            <div className="mt-4 text-lg text-muted-foreground leading-relaxed space-y-3">
+              <p>This call is not about pushing you into a program.</p>
+              <p>
+                It is about understanding where your business is today, where opportunity is being missed,
+                and what would make follow-up feel less reactive and more doable.
+              </p>
+              <p>
+                We will talk through what is working, what feels messy, and what kind of support would
+                actually help.
+              </p>
+            </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               {
                 icon: Compass,
-                title: 'Your Current State',
-                body:
-                  "We'll look at where your business is today: your lead sources, follow-up process, client relationships, content, and current systems.",
+                title: 'Where your best opportunities already are',
+                paragraphs: [
+                  'Most agents are sitting on more opportunity than they realize: past clients, old leads, vendor relationships, community connections, and people who would refer them if they were given the right reason.',
+                  'We will help you see where those opportunities are and which ones are worth acting on first.',
+                ],
               },
               {
                 icon: Target,
-                title: 'Your Biggest Opportunity',
-                body:
-                  "We'll identify the area most likely to create growth right now — whether that is database follow-up, visibility, conversion, retention, or operational support.",
+                title: 'What is making follow-up harder than it needs to be',
+                paragraphs: [
+                  'If your CRM feels overwhelming, your touchpoints are inconsistent, or your business depends on remembering everything manually, we will identify where the friction is coming from.',
+                  'The goal is not more busywork. It is a rhythm you can actually keep.',
+                ],
               },
               {
                 icon: Route,
-                title: 'Your Best-Fit Path',
-                body:
-                  "We'll help you determine which Real Estate on Purpose path fits best: SphereSync, Done-With-You Growth Support, or Full-Service Marketing & Business Support.",
+                title: 'What kind of support makes sense next',
+                paragraphs: [
+                  'Some agents need a simple system. Some need strategy and accountability. Some need someone to take more of the work off their plate.',
+                  'We will help you figure out which path fits your goals, your capacity, and the way you want to run your business.',
+                ],
               },
             ].map((c, i) => (
               <div
@@ -147,8 +159,12 @@ const Call = () => {
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5">
                   <c.icon className="h-6 w-6 text-primary" />
                 </div>
-                <h3 className="text-xl font-semibold text-foreground mb-2">{c.title}</h3>
-                <p className="text-muted-foreground leading-relaxed">{c.body}</p>
+                <h3 className="text-xl font-semibold text-foreground mb-3 leading-snug">{c.title}</h3>
+                <div className="space-y-3 text-muted-foreground leading-relaxed">
+                  {c.paragraphs.map((p, j) => (
+                    <p key={j}>{p}</p>
+                  ))}
+                </div>
               </div>
             ))}
           </div>
